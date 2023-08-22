@@ -1,0 +1,28 @@
+{% load static %}
+{% load static tailwind_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% tailwind_css %}
+
+    <title>New Store | Home</title>
+</head>
+<body>
+    
+{% block navbar %}{% endblock navbar %}
+
+{% block left_sidebar %}{% endblock left_sidebar %}
+
+{% block content %}{% endblock content %}
+
+{% block footer %}{% endblock footer %}
+
+{% block javascript %}{% endblock javascript %}
+
+</body>
+</html>
