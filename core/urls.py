@@ -23,7 +23,8 @@ from .views import HomeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name="home"),
+    path('test/', HomeView.as_view(), name="test"),
+    path("", include("home.urls")),
 ]
 
 
@@ -32,5 +33,5 @@ if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-#path("", include("home.urls")),
+
 # path("products/", include("products.urls")),
