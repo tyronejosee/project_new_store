@@ -8,19 +8,23 @@
     {% tailwind_css %}
     <!--AlpineJS-->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="pages/favicon.ico">
     <title>New Store | {% block title %}{% endblock title %}</title>
 </head>
-<body>
+
+<body class="bg-gray-100 dark:bg-dark-main flex justify-center">
     
-{% block navbar %}{% endblock navbar %}
+    {% block navbar %}{% endblock navbar %}
 
-{% block left_sidebar %}{% endblock left_sidebar %}
+    <div class="flex justify-center h-screen">
+    {% block left_sidebar %}{% endblock left_sidebar %}
 
-{% block content %}{% endblock content %}
+    {% block content %}{% endblock content %}
 
-{% block footer %}{% endblock footer %}
+    {% block footer %}{% endblock footer %}
+    </div>
 
-{% block javascript %}{% endblock javascript %}
+    {% block javascript %}{% endblock javascript %}
 
 </body>
 </html>
