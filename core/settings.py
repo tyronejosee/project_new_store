@@ -7,13 +7,9 @@ environ.Env.read_env()
 
 ENVIRONMENT = env
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
-#DEBUG = os.environ.get('DEBUG')
 DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = [
@@ -38,8 +34,13 @@ INSTALLED_APPS = [
     'core',
     'home',
     'products',
-    'users',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'accounts',
 ]
+
+SITE_ID = 1
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
@@ -48,6 +49,28 @@ INTERNAL_IPS = [
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# ================ ALLAUTH ==================== #
+ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_UNIQUE = True
+AUTH_USER_MODEL="accounts.User"
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT =300
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "account_login"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
