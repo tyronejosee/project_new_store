@@ -1,10 +1,10 @@
+""" Users Accounts Models """
+import os
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
-import os
-from PIL import Image
 from django.db.models.signals import post_save
-
+#from PIL import Image
 
 # Choices
 VERIFICATION_OPTIONS=(
@@ -18,19 +18,6 @@ GENDER_CHOICES=(
     ('O', 'Other'),
 )
 
-def delete_file_safely(file_path):
-    """
-    Elimina un archivo de manera segura.
-    
-    :param file_path: Ruta del archivo a eliminar.
-    """
-    try:
-        if os.path.exists(file_path):
-            os.remove(file_path)
-    except Exception as e:
-        print(f"An error occurred while deleting file: {file_path}")
-        print(str(e))
-
 def user_directory_path_profile(instance, filename):
     """
     Genera la ruta de almacenamiento de la imagen de perfil del usuario.
@@ -39,10 +26,11 @@ def user_directory_path_profile(instance, filename):
     :param filename: Nombre original del archivo.
     :return: Ruta de almacenamiento.
     """
-    profile_picture_name = f'users/{instance.user.username}/profile.jpg'
+    profile_picture_name = 'users/{0}/profile.jpg'.format(instance.user.username)
     full_path = os.path.join(settings.MEDIA_ROOT, profile_picture_name)
 
-    delete_file_safely(full_path)
+    if os.path.exists(full_path):
+        os.remove(full_path)
 
     return profile_picture_name
 
@@ -52,9 +40,6 @@ class Country(models.Model):
     extention = models.CharField(max_length=2, unique=True)
 
     def __str__(self):
-        """
-        Representación del nombre del país.
-        """
         return str(self.name)
 
 
@@ -80,9 +65,6 @@ class Profile(models.Model):
     tax_number = models.CharField(max_length=25, unique=True)
 
     def __str__(self):
-        """
-        Representación en cadena del perfil de usuario.
-        """
         return self.user.username
 
 
