@@ -5,7 +5,7 @@ This module contains the admin configurations for the Store app models.
 """
 
 from django.contrib import admin
-from .models import Product
+from products.models import Product
 
 
 @admin.register(Product)

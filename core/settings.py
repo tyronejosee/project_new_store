@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 import environ
 
+# Virtual ENV Settings
 env = environ.Env()
 environ.Env.read_env()
 
@@ -33,11 +34,11 @@ INSTALLED_APPS = [
     'theme',
     'core',
     'home',
+    'accounts',
     'products',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'accounts',
 ]
 
 SITE_ID = 1
@@ -47,8 +48,10 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+# NPM Local Path
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
+# Crispy Forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
 
@@ -133,13 +136,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# Language and Zone Time
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-
+# Static and Media Path
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')

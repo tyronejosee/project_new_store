@@ -1,7 +1,8 @@
-from django.contrib import admin
+"""URL configuration for Home App."""
+#from django.contrib import admin
 from django.urls import path
-from . import views
+from home.views import landing_page
 
 urlpatterns = [
-    path("", views.landing_page, name="landing_page"),
+    path("", landing_page, name="landing_page"),
 ]
