@@ -4,13 +4,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.db.models.signals import post_save
-#from PIL import Image
 
-# Choices
+
 VERIFICATION_OPTIONS=(
     ('unverified', 'unverified'),
     ('verified', 'verified'),
 )
+
 
 GENDER_CHOICES=(
     ('M', 'Male'),
@@ -22,13 +22,7 @@ GENDER_CHOICES=(
 def user_directory_path_profile(instance, filename):
     """
     Genera la ruta de almacenamiento de la imagen de perfil del usuario.
-    
-    :param instance: Instancia del perfil de usuario.
-    :param filename: Nombre original del archivo.
-    :return: Ruta de almacenamiento.
     """
-
-
     profile_picture_name = 'users/{0}/profile.jpg'.format(instance.user.username)
     full_path = os.path.join(settings.MEDIA_ROOT, profile_picture_name)
 
@@ -37,9 +31,11 @@ def user_directory_path_profile(instance, filename):
 
     return profile_picture_name
 
-# Definición de Modelos
+
 class Country(models.Model):
-    """Modelo tipo catálogo para los países"""
+    """
+    Definición de modelo Pais, tipo catálogo para Usuario.
+    """
     name = models.CharField(max_length=15, unique=True)
     extention = models.CharField(max_length=2, unique=True)
 
@@ -48,7 +44,9 @@ class Country(models.Model):
 
 
 class User(AbstractUser):
-    """Modelo personalizado de usuario."""
+    """
+    Definición de modelo Usuario extendiendo de AbstractUser.
+    """
     # Campos Adicionales
     adress = models.CharField(max_length=75)
     city = models.CharField(max_length=50)
@@ -62,24 +60,26 @@ class User(AbstractUser):
 
 class Profile(models.Model):
     """
-    Modelo de perfil de usuario.
+    Definición de modelo Perfil de un Usuario.
     """
-    verified = models.CharField(max_length=10, choices=VERIFICATION_OPTIONS, default='unverified')
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    picture = models.ImageField(default='users/default_profile.png', upload_to=user_directory_path_profile)
+    verified = models.CharField(max_length=10, choices=VERIFICATION_OPTIONS, default='unverified')
+    picture = models.ImageField(default='users/default_profile.png',
+                                upload_to=user_directory_path_profile
+                                )
     date_created = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.user.username
 
 
-# Funciones de Utilidad
 def create_user_profile(sender, instance, created, **kwargs):
     """
-    Crea un perfil de usuario al crear un nuevo usuario.
+    Crea un perfil de Usuario al crear un nuevo usuario.
     """
     if created:
         Profile.objects.create(user=instance)
+
 
 def save_user_profile(sender, instance, **kwargs):
     """

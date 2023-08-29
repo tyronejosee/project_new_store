@@ -5,18 +5,21 @@ import environ
 # Virtual ENV Settings
 env = environ.Env()
 environ.Env.read_env()
-
 ENVIRONMENT = env
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
+
+
 DEBUG = 'RENDER' not in os.environ
+
 
 ALLOWED_HOSTS = [
     '*'
 ]
-
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -43,17 +46,19 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-# NPM Local Path
+
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
-# Crispy Forms
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
+
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -62,7 +67,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-# ================ ALLAUTH ==================== #
+
+# ALLAUTH
 ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -75,6 +81,7 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT =300
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "account_login"
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -86,6 +93,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+
 
 TEMPLATES = [
     {
@@ -136,25 +144,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Language and Zone Time
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static and Media Path
+
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-## Agregar debug para despliegue
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
