@@ -1,3 +1,9 @@
+"""Views for Products App."""
 from django.shortcuts import render
 
-# Create your views here.
+
+def products_main(request):
+    """
+    Simple view to test functionality.
+    """
+    return render(request, 'pages/products.html', {})

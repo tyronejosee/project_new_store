@@ -1,3 +1,9 @@
+"""Views for Accounts App."""
 from django.shortcuts import render
 
-# Create your views here.
+
+def accounts_main(request):
+    """
+    Simple view to test functionality.
+    """
+    return render(request, 'pages/accounts.html', {})

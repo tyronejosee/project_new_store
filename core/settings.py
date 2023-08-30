@@ -33,15 +33,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tailwind',
-    'theme',
+
     'core',
     'home',
     'accounts',
     'products',
+    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    
+    'tailwind',
+    'theme',
 ]
 
 SITE_ID = 1
