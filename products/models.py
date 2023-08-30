@@ -9,6 +9,8 @@ class Category(models.Model):
     category = models.CharField(max_length=25, unique=True, verbose_name='Category')
     description = models.CharField(max_length=250, verbose_name='Description')
     show = models.BooleanField(default=True, verbose_name='Show/Hide')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
     def __str__(self):
         return str(self.category)
@@ -27,6 +29,8 @@ class Currency(models.Model):
     """
     name = models.CharField(max_length=25, unique=True, verbose_name='Name Currency')
     symbol = models.CharField(max_length=10, verbose_name='Symbol Currency')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
     def __str__(self):
         return str(self.name)
