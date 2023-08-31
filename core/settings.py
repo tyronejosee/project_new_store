@@ -36,7 +36,6 @@ INSTALLED_APPS = [
 
     'core',
     'home',
-    'accounts',
     'products',
     
     'allauth',
@@ -72,6 +71,7 @@ AUTHENTICATION_BACKENDS = [
 
 
 # ALLAUTH
+"""
 ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -83,6 +83,7 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT =300
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "account_login"
+"""
 
 
 MIDDLEWARE = [

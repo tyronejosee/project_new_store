@@ -10,4 +10,16 @@
 ```bash
 npm i tailwind-scrollbar-hide
 python manage.py create_sphinx_modeldocs
+
 ```
+
+
+apps
+
+core
+tienda
+productos
+cuentas
+pagos
+analisis
+
