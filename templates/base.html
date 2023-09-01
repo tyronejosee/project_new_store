@@ -6,25 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% tailwind_css %}
-    <!--AlpineJS-->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="pages/favicon.ico">
     <title>New Store | {% block title %}{% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="pages/favicon.ico">
 </head>
+<body>
 
-<body class="bg-gray-100 dark:bg-dark-main flex justify-center">
-    
-    {% block navbar %}{% endblock navbar %}
+    <!-- Header -->
+    {% block navbar %}
+    {% include "components/navbar.html" %}
+    {% endblock navbar %}
 
-    <div class="flex justify-center h-screen">
-    {% block left_sidebar %}{% endblock left_sidebar %}
+    <!-- Products Cards -->
+    {% block content %}
+    <!--Content-->
+    {% endblock content %}
 
-    {% block content %}{% endblock content %}
+    <!-- Footer -->
+    {% block footer %}
+    {% include "components/footer.html" %}
+    {% endblock footer %}
 
-    {% block footer %}{% endblock footer %}
-    </div>
-
-    {% block javascript %}{% endblock javascript %}
+    <!-- JavaScript -->
+    {% block javascript %}
+    {% endblock javascript %}
 
 </body>
 </html>
