@@ -1,3 +1,4 @@
+""" Global project settings. """
 from pathlib import Path
 import os
 import environ
@@ -33,17 +34,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'core',
     'home',
     'products',
-    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    
     'tailwind',
     'theme',
+    'ckeditor',
 ]
 
 SITE_ID = 1
@@ -60,6 +59,11 @@ NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
+
+
+# CKEditor Config
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 
 AUTHENTICATION_BACKENDS = [
