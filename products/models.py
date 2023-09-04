@@ -8,7 +8,7 @@ class Category(models.Model):
     Catalog type model for Category.
     """
     title = models.CharField(max_length=25, unique=True, verbose_name='Category')
-    description = RichTextField(max_length=250, blank=True, null=True, verbose_name='Description')
+    sub_category = models.ForeignKey('SubCategory', null=True, blank=True, related_name='category_subcategories', on_delete=models.CASCADE)
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
@@ -22,6 +22,17 @@ class Category(models.Model):
         """
         verbose_name_plural = "Categories"
         ordering = ['title']
+
+
+class SubCategory(models.Model):
+    """
+    Catalog type model for Category.
+    """
+    title = models.CharField(max_length=25, unique=True, verbose_name='SubCategory')
+    category = models.ForeignKey(Category, null=True, blank=True, related_name='sub_category_categories', on_delete=models.CASCADE)
+    show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
 
 class Brand(models.Model):
@@ -58,6 +69,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100, verbose_name='Title')
     brand = models.OneToOneField(Brand, on_delete=models.CASCADE, verbose_name='Brand')
     category = models.OneToOneField(Category, on_delete=models.CASCADE, verbose_name='Category')
+    sub_category = models.ForeignKey(SubCategory, null=True, blank=True, on_delete=models.SET_NULL, verbose_name='SubCategory')
     image = models.ImageField(upload_to='products/', verbose_name='Image')
     description = RichTextField(verbose_name='Description')
     specifications = RichTextField(verbose_name='Specifications')
