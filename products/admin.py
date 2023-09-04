@@ -21,9 +21,15 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    """Admin configuration for the Product model."""
+    """Admin configuration for the Product model. """
     list_display = ('title', 'category', 'normal_price', 'stock', 'featured', 'show_hide')
     readonly_fields = ('created_at', 'updated_at')
     ordering = ('title',)
     list_filter = ('category__title',)
-    search_fields = ('title', 'category__title') # debo extender este campo
+    search_fields = ('title', 'category__title') # TODO: debo extender este campo
+
+    class Media:
+        """Extra: CKEditor CSS."""
+        css = {
+            'all': ('pages/css/custom_ckeditor.css',)
+        }
