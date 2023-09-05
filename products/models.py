@@ -67,7 +67,7 @@ class Product(models.Model):
     ]
 
     title = models.CharField(max_length=255, verbose_name='Title')
-    brand = models.OneToOneField(Brand, on_delete=models.CASCADE, verbose_name='Brand')
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name='Brand')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Category')
     image = models.ImageField(upload_to='products/', verbose_name='Image')
     description = RichTextField(verbose_name='Description')

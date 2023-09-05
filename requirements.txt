@@ -19,7 +19,9 @@ defusedxml==0.7.1
 Django==4.2.4
 django-allauth==0.55.0
 django-browser-reload==1.11.0
+django-ckeditor==6.7.0
 django-environ==0.10.0
+django-js-asset==2.1.0
 django-tailwind==3.6.0
 docutils==0.20.1
 idna==3.4
