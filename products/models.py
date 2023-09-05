@@ -7,11 +7,23 @@ class Category(models.Model):
     """
     Catalog type model for Category.
     """
-    title = models.CharField(max_length=25, unique=True, verbose_name='Category')
-    sub_category = models.ForeignKey('SubCategory', null=True, blank=True, related_name='category_subcategories', on_delete=models.CASCADE)
+    SECTION_CHOICES = [
+    (1, 'pending'),
+    (2, 'Electronic Deals'),
+    (3, 'TVs & Home Theater'),
+    (4, 'Cell Phones'),
+    (5, 'Computers & Office'),
+    (6, 'Kids Electronics'),
+    (7, 'Headphones'),
+    (8, 'Cameras'),
+    (9, 'Speakers & Audio Systems'),
+    (10, 'Tablets & E-Readers'),
+    (11, 'Wearable Technology'),
+    (12, 'Wi-Fi & Networking'),
+    ]
+    title = models.CharField(max_length=50, unique=True, verbose_name='Category')
+    section = models.IntegerField(choices=SECTION_CHOICES, default='1')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
     def __str__(self):
         return str(self.title)
@@ -24,24 +36,12 @@ class Category(models.Model):
         ordering = ['title']
 
 
-class SubCategory(models.Model):
-    """
-    Catalog type model for Category.
-    """
-    title = models.CharField(max_length=25, unique=True, verbose_name='SubCategory')
-    category = models.ForeignKey(Category, null=True, blank=True, related_name='sub_category_categories', on_delete=models.CASCADE)
-    show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
-
-
 class Brand(models.Model):
     """
     Catalog type model for Brand.
     """
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
+    show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
     def __str__(self):
         return str(self.name)
@@ -66,14 +66,13 @@ class Product(models.Model):
     (24, '2 years'),
     ]
 
-    title = models.CharField(max_length=100, verbose_name='Title')
+    title = models.CharField(max_length=255, verbose_name='Title')
     brand = models.OneToOneField(Brand, on_delete=models.CASCADE, verbose_name='Brand')
-    category = models.OneToOneField(Category, on_delete=models.CASCADE, verbose_name='Category')
-    sub_category = models.ForeignKey(SubCategory, null=True, blank=True, on_delete=models.SET_NULL, verbose_name='SubCategory')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Category')
     image = models.ImageField(upload_to='products/', verbose_name='Image')
     description = RichTextField(verbose_name='Description')
     specifications = RichTextField(verbose_name='Specifications')
-    stock = models.PositiveIntegerField(verbose_name='Stock')
+    stock = models.PositiveIntegerField(verbose_name='Stock', default=100)
     normal_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
     discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     discount_end_date = models.DateField(blank=True, null=True)
