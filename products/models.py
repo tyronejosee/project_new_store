@@ -68,17 +68,17 @@ class Product(models.Model):
 
     title = models.CharField(max_length=255, verbose_name='Title')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name='Brand')
+    normal_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Category')
     image = models.ImageField(upload_to='products/', verbose_name='Image')
-    description = RichTextField(verbose_name='Description')
-    specifications = RichTextField(verbose_name='Specifications')
     stock = models.PositiveIntegerField(verbose_name='Stock', default=100)
-    normal_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
+    warranty = models.IntegerField(choices=WARRANTY_CHOICES, default='12')
     discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     discount_end_date = models.DateField(blank=True, null=True)
-    warranty = models.IntegerField(choices=WARRANTY_CHOICES, default='12')
     featured = models.BooleanField(default=False, verbose_name='Featured')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
+    description = RichTextField(verbose_name='Description')
+    specifications = RichTextField(verbose_name='Specifications')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
@@ -90,4 +90,4 @@ class Product(models.Model):
         Adds extra metadata to the Product model.
         """
         verbose_name_plural = "Products"
-        ordering = ['-updated_at', 'title']
+        ordering = ['-created_at', 'title']

@@ -22,7 +22,7 @@ class ProductAdmin(admin.ModelAdmin):
     """Admin configuration for the Product model. """
     list_display = ('title', 'normal_price', 'category', 'brand', 'stock', 'featured', 'show_hide')
     readonly_fields = ('created_at', 'updated_at')
-    ordering = ('title',)
+    ordering = ('-created_at',)
 
     class Media:
         """Extra: CKEditor CSS."""
