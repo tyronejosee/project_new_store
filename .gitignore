@@ -5,6 +5,7 @@ __pycache__/
 .superuser
 # C extensions
 *.so
+references.md
 
 # Distribution / packaging
 .Python
