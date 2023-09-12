@@ -14,12 +14,18 @@
 
     <!--Products Cards-->
     <section>
-        <div>
-            <img src="imagen_producto1.jpg" alt="Producto 1">
-            <h3>Nombre del Producto 1</h3>
-            <p>Descripción breve del Producto 1.</p>
-            <p>$Precio</p>
-            <button>Agregar al Carrito</button>
+        <div class="row">
+            {% for product in featured_products %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">$ {{ product.normal_price }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </section>
 

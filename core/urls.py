@@ -11,11 +11,13 @@ urlpatterns = [
     path("products/", include("products.urls")),
 ]
 
-
 # Debug Config
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-# path("accounts/", include("accounts.urls")),
+# Custom atributes for admn
+admin.site.site_header = "New Store"
+admin.site.index_title = "Admin"
+admin.site.site_title = "New Store"

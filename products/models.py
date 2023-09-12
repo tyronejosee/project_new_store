@@ -64,6 +64,7 @@ class Product(models.Model):
     (6, '6 months'),
     (12, '1 year'),
     (24, '2 years'),
+    (36, '3 years'),
     ]
 
     title = models.CharField(max_length=255, verbose_name='Title')
