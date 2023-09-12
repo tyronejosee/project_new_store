@@ -2,6 +2,8 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
+from django.views import View
+from products.models import Product
 
 
 class StaffRequiredMixin(object):
@@ -15,8 +17,17 @@ class StaffRequiredMixin(object):
         return super(StaffRequiredMixin, self).dispatch(request, *args, **kwargs)
 
 
-def products_main(request):
-    """
-    Simple view to test functionality.
-    """
-    return render(request, 'pages/products.html', {})
+class ProductListView(View):
+    template_name = 'products/product_list.html'
+
+    def get(self, request):
+        # Recupera la lista de productos desde la base de datos
+        products = Product.objects.all()
+
+        # Add logic
+
+        context = {
+            'products': products,
+        }
+
+        return render(request, self.template_name, context)

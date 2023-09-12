@@ -1,8 +1,8 @@
 """ URLs for Products App. """
 from django.urls import path, include
-from products.views import products_main
+from products.views import ProductListView
 
 urlpatterns = [
-    path("", products_main, name="products_main"),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path("", ProductListView.as_view(), name="products_list"),
 ]
