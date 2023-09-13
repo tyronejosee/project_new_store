@@ -18,14 +18,15 @@ class StaffRequiredMixin(object):
 
 
 class ProductListView(View):
+    """View generates a list of all products."""
     template_name = 'products/product_list.html'
 
     def get(self, request):
-        # Recupera la lista de productos desde la base de datos
+        """Retrieve the list of products from the database."""
         products = Product.objects.all()
 
-        # Add logic
-
+        # Add extra logic
+        
         context = {
             'products': products,
         }

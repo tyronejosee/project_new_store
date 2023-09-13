@@ -21,3 +21,6 @@ if settings.DEBUG:
 admin.site.site_header = "New Store"
 admin.site.index_title = "Admin"
 admin.site.site_title = "New Store"
+
+
+# path("users/", include("users.urls")),

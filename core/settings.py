@@ -36,10 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'home',
+    'users',
     'products',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'tailwind',
     'theme',
     'ckeditor',
@@ -72,22 +70,6 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-
-
-# ALLAUTH
-"""
-ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_UNIQUE = True
-AUTH_USER_MODEL="accounts.User"
-ACCOUNT_LOGOUT_ON_GET = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT =300
-LOGIN_REDIRECT_URL = "/"
-LOGIN_URL = "account_login"
-"""
 
 
 MIDDLEWARE = [

@@ -3,14 +3,12 @@
 
 {% block navbar %}
     <header>
-        <h1>Nombre de Tu Tienda</h1>
-        <!-- Panel de navegación -->
+        <!-- Nav -->
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <!-- Agrega más enlaces de navegación según sea necesario -->
+                <li><a href="{% url 'landing_page' %}">Home</a></li>
+                <li><a href="{% url 'products_list' %}">Products</a></li>
+                <li><a href="{% url 'landing_page' %}">Featured</a></li>
             </ul>
         </nav>
     </header>
