@@ -21,6 +21,7 @@ class Category(models.Model):
     (11, 'Wearable Technology'),
     (12, 'Wi-Fi & Networking'),
     ]
+
     title = models.CharField(max_length=50, unique=True, verbose_name='Category')
     section = models.IntegerField(choices=SECTION_CHOICES, default='1')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
@@ -47,9 +48,7 @@ class Brand(models.Model):
         return str(self.name)
 
     class Meta:
-        """
-        Adds extra metadata to the Brand model.
-        """
+        """Adds extra metadata to the Brand model."""
         verbose_name_plural = "Brands"
         ordering = ['name']
 
