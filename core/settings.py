@@ -28,6 +28,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 
 INSTALLED_APPS = [
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,14 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'home',
-    'users',
     'products',
+    'ckeditor',
     'tailwind',
     'theme',
-    'ckeditor',
 ]
 
 SITE_ID = 1
+
+
+# Redirect URL
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 
 TAILWIND_APP_NAME = 'theme'
@@ -59,7 +64,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
 
 
-# CKEditor Config
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 

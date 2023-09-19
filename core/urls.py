@@ -8,6 +8,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
+    path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('users.urls')),
     path("products/", include("products.urls")),
 ]
 
@@ -21,6 +23,3 @@ if settings.DEBUG:
 admin.site.site_header = "New Store"
 admin.site.index_title = "Admin"
 admin.site.site_title = "New Store"
-
-
-# path("users/", include("users.urls")),
