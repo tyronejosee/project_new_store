@@ -25,8 +25,6 @@ class ProductListView(View):
         """Retrieve the list of products from the database."""
         products = Product.objects.all()
 
-        # Add extra logic
-        
         context = {
             'products': products,
         }

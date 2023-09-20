@@ -5,7 +5,9 @@
 
 {% block content %}
 
-<h1>{{ object.title }}</h1>
-<p>{{ object.content }}<p>
+<div class="container mx-auto mt-6 p-6 bg-white shadow-lg rounded-lg text-center">
+    <h1 class="text-2xl font-semibold mb-4">{{ page.title }}</h1>
+    <p class="text-gray-700 mb-4">{{ page.content }}</p>
+</div>
 
 {% endblock content %}
