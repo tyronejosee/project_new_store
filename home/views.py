@@ -1,6 +1,5 @@
 """Views for Home App."""
 from django.shortcuts import render
-from django.views.generic import ListView
 from django.views import View
 
 from home.models import Page
@@ -14,24 +13,28 @@ def landing_page(request):
     featured_products = Product.objects.filter(featured=True)
     return render(request, 'home/index.html', {'featured_products': featured_products})
 
-
-class TermsAndConditionsListView(ListView):
-    model = Page
+class TermsAndConditionsView(View):
     template_name = 'home/terms.html'
-    context_object_name = 'object'
 
-    def get_queryset(self):
-        return Page.objects.filter(pk=1)
+    def get(self, request):
+        """Retrieve the list of products from the database."""
+        terms = Page.objects.get(pk=1)
+
+        context = {
+            'terms': terms,
+        }
+
+        return render(request, self.template_name, context)
 
 class AboutView(View):
     template_name = 'home/about.html'
 
     def get(self, request):
         """Retrieve the list of products from the database."""
-        pages = Page.objects.all()
+        about = Page.objects.get(pk=2)
 
         context = {
-            'pages': pages,
+            'about': about,
         }
 
         return render(request, self.template_name, context)
