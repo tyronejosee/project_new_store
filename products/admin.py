@@ -1,5 +1,6 @@
 """Admin Configuration for Store Models."""
 from django.contrib import admin
+
 from products.models import Product, Category, Brand
 
 
@@ -19,7 +20,7 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    """Admin configuration for the Product model. """
+    """Admin configuration for the Product model."""
     list_display = ('title', 'normal_price', 'category', 'brand', 'stock', 'featured', 'show_hide')
     readonly_fields = ('created_at', 'updated_at')
     ordering = ('-created_at',)

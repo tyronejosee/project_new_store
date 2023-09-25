@@ -1,10 +1,11 @@
-from django.views.generic import CreateView
-from django.views.generic.edit import UpdateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django import forms
 from users.forms import UserCreationFormWithEmail, CustomUserForm, EmailForm
+
 from users.models import CustomUser
 
 
@@ -40,11 +41,10 @@ class CustomUserUpdate(UpdateView):
         profile, created = CustomUser.objects.get_or_create(user=self.request.user)
         return profile
 
+
 @method_decorator(login_required, name='dispatch')
 class EmailUpdate(UpdateView):
-    """
-    Update Email as view
-    """
+    """Update Email as view."""
     form_class = EmailForm
     success_url = reverse_lazy('profile')
     template_name = 'users/profile_email_form.html'

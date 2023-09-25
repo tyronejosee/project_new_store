@@ -19,7 +19,7 @@ if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-# Custom atributes for admn
+# Custom attributes for admin
 admin.site.site_header = "New Store"
 admin.site.index_title = "Admin"
 admin.site.site_title = "New Store"

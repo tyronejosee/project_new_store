@@ -20,7 +20,7 @@ npm i tailwind-scrollbar-hide
 ```
 
 ```bash
-python manage.py create_sphinx_modeldocs
+python manage.py tailwind init
 ```
 
 ```bash

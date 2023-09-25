@@ -1,5 +1,6 @@
 """Admin Configuration for Home Models."""
 from django.contrib import admin
+
 from home.models import Page
 
 

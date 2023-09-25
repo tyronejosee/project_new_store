@@ -8,18 +8,18 @@ class Category(models.Model):
     Catalog type model for Category.
     """
     SECTION_CHOICES = [
-    (1, 'pending'),
-    (2, 'Electronic Deals'),
-    (3, 'TVs & Home Theater'),
-    (4, 'Cell Phones'),
-    (5, 'Computers & Office'),
-    (6, 'Kids Electronics'),
-    (7, 'Headphones'),
-    (8, 'Cameras'),
-    (9, 'Speakers & Audio Systems'),
-    (10, 'Tablets & E-Readers'),
-    (11, 'Wearable Technology'),
-    (12, 'Wi-Fi & Networking'),
+        (1, 'pending'),
+        (2, 'Electronic Deals'),
+        (3, 'TVs & Home Theater'),
+        (4, 'Cell Phones'),
+        (5, 'Computers & Office'),
+        (6, 'Kids Electronics'),
+        (7, 'Headphones'),
+        (8, 'Cameras'),
+        (9, 'Speakers & Audio Systems'),
+        (10, 'Tablets & E-Readers'),
+        (11, 'Wearable Technology'),
+        (12, 'Wi-Fi & Networking'),
     ]
 
     title = models.CharField(max_length=50, unique=True, verbose_name='Category')
@@ -58,12 +58,12 @@ class Product(models.Model):
     Entity type model for Products.
     """
     WARRANTY_CHOICES = [
-    (1, '1 month'),
-    (3, '3 months'),
-    (6, '6 months'),
-    (12, '1 year'),
-    (24, '2 years'),
-    (36, '3 years'),
+        (1, '1 month'),
+        (3, '3 months'),
+        (6, '6 months'),
+        (12, '1 year'),
+        (24, '2 years'),
+        (36, '3 years'),
     ]
 
     title = models.CharField(max_length=255, verbose_name='Title')
