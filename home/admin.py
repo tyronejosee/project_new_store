@@ -1,4 +1,5 @@
 """Admin for Home App."""
+
 from django.contrib import admin
 
 from home.models import Page

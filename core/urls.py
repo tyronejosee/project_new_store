@@ -1,4 +1,5 @@
 """URLs for the core app."""
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -21,5 +22,5 @@ if settings.DEBUG:
 
 # Custom attributes for admin
 admin.site.site_header = "New Store"
-admin.site.index_title = "Admin"
 admin.site.site_title = "New Store"
+admin.site.index_title = "Admin"

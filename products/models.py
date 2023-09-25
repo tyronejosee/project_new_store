@@ -1,4 +1,5 @@
 """Models for Products App."""
+
 from django.db import models
 from ckeditor.fields import RichTextField
 

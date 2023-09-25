@@ -1,4 +1,5 @@
 """Views for Products App."""
+
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
@@ -6,7 +7,6 @@ from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django import forms
 from users.forms import UserCreationFormWithEmail, CustomUserForm, EmailForm
-
 from users.models import CustomUser
 
 

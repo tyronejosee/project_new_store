@@ -1,4 +1,5 @@
 """URLs for Products App."""
+
 from django.urls import path
 from users.views import SignUpView, CustomUserUpdate, EmailUpdate
 

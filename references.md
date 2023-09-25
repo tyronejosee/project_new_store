@@ -36,3 +36,9 @@ python manage.py check --deploy
 
 - debo documentar mi codigo basandome en pep 8 y sphinx
 - modelos, vistas y configuraciones son los puntos donde debo enfocarme
+
+## Super user test
+
+tyronejose
+alt.tyronejose@gmail.com
+bernardoreyes

@@ -1,9 +1,9 @@
 """Views for Products App."""
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.views import View
-
 from products.models import Product
 
 

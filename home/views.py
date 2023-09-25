@@ -1,7 +1,7 @@
 """Views for Home App."""
+
 from django.shortcuts import render
 from django.views import View
-
 from home.models import Page
 from products.models import Product
 

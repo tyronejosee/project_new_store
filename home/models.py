@@ -1,4 +1,5 @@
 """Models for Home App."""
+
 from django.db import models
 
 

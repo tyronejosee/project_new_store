@@ -1,6 +1,6 @@
 """Admin for Products App."""
-from django.contrib import admin
 
+from django.contrib import admin
 from products.models import Product, Category, Brand
 
 
