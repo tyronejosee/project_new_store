@@ -3,18 +3,14 @@
 ## TODO List
 
 - [ ] Crear acordion en about y terminos y condiciones
+- [ ] Conectar mi barra de búsqueda con la vista
 - [ ] Funcion en modelos de productos que eliminen la imagen antigua y mantengan solo la nueva
 
 ## Apps
 
 - [ ] pagos
-- [ ] analisis
 
 ## Comandos
-
-```bash
-npm i tailwind-scrollbar-hide
-```
 
 ```bash
 python manage.py tailwind init

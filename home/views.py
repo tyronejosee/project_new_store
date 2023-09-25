@@ -13,10 +13,12 @@ def landing_page(request):
 
 
 class TermsAndConditionsView(View):
-    """pending."""
+    """"View to display Terms & Conditions information."""
+    # Set the template
     template_name = 'home/terms.html'
 
     def get(self, request):
+        """Handles GET requests for the view."""
         terms = Page.objects.get(pk=1)
         context = {
             'terms': terms,
@@ -25,10 +27,12 @@ class TermsAndConditionsView(View):
 
 
 class AboutView(View):
-    """pending."""
+    """"View to display About information."""
+    # Set the template
     template_name = 'home/about.html'
 
     def get(self, request):
+        """Handles GET requests for the view."""
         about = Page.objects.get(pk=2)
         context = {
             'about': about,
