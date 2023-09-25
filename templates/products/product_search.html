@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Products List{% endblock title %}
+{% block content %}
+    <form method="get">
+        {{ form }}
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for product in products %}
+        <li>{{ product.name }} - {{ product.description }} - ${{ product.normal_price }}</li>
+        {% empty %}
+        <li>No se encontraron resultados.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

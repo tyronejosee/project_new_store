@@ -1,24 +1,14 @@
 # References
 
+## TODO List
+
+- [ ] Crear acordion en about y terminos y condiciones
+- [ ] Funcion en modelos de productos que eliminen la imagen antigua y mantengan solo la nueva
+
 ## Apps
 
-pagos
-analisis
-
-## Implementaciones
-
-- Funcion en modelos de productos que eliminen la imagen antigua y mantengan solo la nueva
-
-## Documentar
-
-- debo documentar mi codigo basandome en pep 8 y sphinx
-- modelos, vistas y configuraciones son los puntos donde debo enfocarme
-
-## User and Password
-
-- tyronejose
-- alt.tyronejose@gmail.com
-- bernardoreyes
+- [ ] pagos
+- [ ] analisis
 
 ## Comandos
 
@@ -33,3 +23,7 @@ python manage.py tailwind init
 ```bash
 python manage.py check --deploy
 ```
+
+- tyronejose
+- alt.tyronejose@gmail.com
+- bernardoreyes
