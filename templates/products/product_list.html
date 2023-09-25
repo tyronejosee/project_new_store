@@ -1,17 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block title %}Products List{% endblock title %}
-
 {% block content %}
-
     <ul>
         {% for product in products %}
-            <li>{{ product.title }} - Precio: ${{ product.normal_price }}</li>
-            
+        <li>{{ product.title }} - Precio: ${{ product.normal_price }}</li>
         {% empty %}
-            <li>No hay productos disponibles en este momento.</li>
+        <li>No hay productos disponibles en este momento.</li>
         {% endfor %}
     </ul>
-
 {% endblock content %}

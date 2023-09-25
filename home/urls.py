@@ -1,7 +1,6 @@
 """URLs for Home App."""
 
 from django.urls import path
-
 from home.views import landing_page, TermsAndConditionsView, AboutView
 
 

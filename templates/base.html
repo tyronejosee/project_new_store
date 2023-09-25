@@ -10,25 +10,9 @@
     <link rel="icon" type="image/x-icon" href="{% static 'favicon/icon.ico' %}">
 </head>
 <body>
-
-    <!-- Header -->
-    {% block navbar %}
-    {% include "components/navbar.html" %}
-    {% endblock navbar %}
-
-    <!-- Products Cards -->
-    {% block content %}
-    <!--Content-->
-    {% endblock content %}
-
-    <!-- Footer -->
-    {% block footer %}
-    {% include "components/footer.html" %}
-    {% endblock footer %}
-
-    <!-- JavaScript -->
-    {% block javascript %}
-    {% endblock javascript %}
-
+    {% block navbar %}{% include "components/navbar.html" %}{% endblock navbar %}
+    {% block content %}{% endblock content %}
+    {% block footer %}{% include "components/footer.html" %}{% endblock footer %}
+    {% block javascript %}{% endblock javascript %}
 </body>
 </html>
