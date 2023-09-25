@@ -1,8 +1,12 @@
+# Project
+.superuser
+desktop.ini
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-.superuser
+
 # C extensions
 *.so
 references.md

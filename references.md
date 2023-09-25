@@ -31,3 +31,8 @@ python manage.py check --deploy
 
 [Proyecto de Interés](https://youtu.be/RF-A7lBUnmY)
 [AlpineJS](https://alpinejs.dev/start-here)
+
+# Documentar
+
+- debo documentar mi codigo basandome en pep 8 y sphinx
+- modelos, vistas y configuraciones son los puntos donde debo enfocarme

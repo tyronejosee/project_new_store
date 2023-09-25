@@ -1,4 +1,4 @@
-"""Admin Configuration for Store Models."""
+"""Admin for Products App."""
 from django.contrib import admin
 
 from products.models import Product, Category, Brand

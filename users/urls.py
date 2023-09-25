@@ -1,5 +1,7 @@
+"""URLs for Products App."""
 from django.urls import path
 from users.views import SignUpView, CustomUserUpdate, EmailUpdate
+
 
 urlpatterns = [
     path('signup/', SignUpView.as_view(), name="signup"),

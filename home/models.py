@@ -4,6 +4,7 @@ from django.db import models
 
 class Page(models.Model):
     """Entity type model for Pages."""
+
     CATEGORY_CHOICES = (
         ('terms', 'Terms & Conditions'),
         ('about', 'About'),

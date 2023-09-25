@@ -1,4 +1,4 @@
-"""Global project settings."""
+"""Global Project Configurations."""
 from pathlib import Path
 import os
 import environ

@@ -1,4 +1,4 @@
-"""URLs for Core."""
+"""URLs for the core app."""
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings

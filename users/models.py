@@ -21,5 +21,6 @@ class CustomUser(models.Model):
 
 @receiver(post_save, sender=User)
 def ensure_profile_exists(sender, instance, **kwargs):
+    """Creates a CustomUser profile when a new User is saved."""
     if kwargs.get('created', False):
         CustomUser.objects.get_or_create(user=instance)

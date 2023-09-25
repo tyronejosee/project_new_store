@@ -8,11 +8,9 @@ from products.models import Product
 
 
 class StaffRequiredMixin(object):
-    """
-    Mixin requirirá que el usuario sea staff o si no redirecciona a login de admin.
-    """
+    """Mixin will require the user to be staff, or else it redirects to the admin login."""
     def dispatch(self, request, *args, **kwargs):
-        """Función principal del mixin"""
+        """Main function of the mixin."""
         if not request.user.is_staff:
             return redirect(reverse_lazy('admin:login'))
         return super(StaffRequiredMixin, self).dispatch(request, *args, **kwargs)

@@ -4,9 +4,8 @@ from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
-    """
-    Catalog type model for Category.
-    """
+    """Catalog type model for Category."""
+
     SECTION_CHOICES = [
         (1, 'pending'),
         (2, 'Electronic Deals'),
@@ -30,17 +29,14 @@ class Category(models.Model):
         return str(self.title)
 
     class Meta:
-        """
-        Adds extra metadata to the Category model.
-        """
+        """Adds extra metadata to the Category model."""
         verbose_name_plural = "Categories"
         ordering = ['title']
 
 
 class Brand(models.Model):
-    """
-    Catalog type model for Brand.
-    """
+    """Catalog type model for Brand."""
+
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
@@ -54,9 +50,8 @@ class Brand(models.Model):
 
 
 class Product(models.Model):
-    """
-    Entity type model for Products.
-    """
+    """Entity type model for Products."""
+
     WARRANTY_CHOICES = [
         (1, '1 month'),
         (3, '3 months'),
@@ -86,8 +81,6 @@ class Product(models.Model):
         return str(self.title)
 
     class Meta:
-        """
-        Adds extra metadata to the Product model.
-        """
+        """Adds extra metadata to the Product model."""
         verbose_name_plural = "Products"
         ordering = ['-created_at', 'title']
