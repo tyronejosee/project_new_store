@@ -5,7 +5,6 @@ from django.views import View
 from home.models import Page
 from products.models import Product
 
-
 def landing_page(request):
     """Simple view to test functionality."""
     featured_products = Product.objects.filter(featured=True)

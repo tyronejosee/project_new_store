@@ -3,7 +3,6 @@
 from django.contrib import admin
 from products.models import Product, Category, Brand
 
-
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     """Admin configuration for the Category model."""

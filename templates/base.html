@@ -10,7 +10,7 @@
     <title>New Store | {% block title %}{% endblock title %}</title>
     <link rel="icon" type="image/x-icon" href="{% static 'favicon/icon.ico' %}">
 </head>
-<body>
+<body class="bg-white border-gray-200 dark:bg-gray-900 px-8">
     {% block navbar %}{% include "components/navbar.html" %}{% endblock navbar %}
     {% block search %}{% include "components/search.html" %}{% endblock search %}
     {% block content %}{% endblock content %}
