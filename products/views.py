@@ -4,8 +4,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.views import View
+from django.db.models import Q
 from products.models import Product
-from products.forms import ProductSearchForm
 
 class StaffRequiredMixin(object):
     """Mixin will require the user to be staff, or else it redirects to the admin login."""
@@ -33,11 +33,11 @@ class ProductListView(View):
 
 def product_search(request):
     """Search Bar."""
-    form = ProductSearchForm(request.GET)
-    products = Product.objects.all()
-
-    if form.is_valid() and form.cleaned_data['search_query']:
-        search_query = form.cleaned_data['search_query']
-        products = products.filter(name__icontains=search_query)
-
-    return render(request, 'products/product_search.html', {'products': products, 'form': form})
+    queryset = request.GET.get("search")
+    products = Product.objects.filter(show_hide = True)
+    if queryset:
+        products = Product.objects.filter(
+            Q(title__icontains = queryset) |
+            Q(description__icontains = queryset)
+        ).distinct()
+    return render(request, 'products/product_search.html', {'products':products})
