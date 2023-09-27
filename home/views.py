@@ -11,6 +11,20 @@ def landing_page(request):
     return render(request, 'home/index.html', {'featured_products': featured_products})
 
 
+class AboutView(View):
+    """"View to display About information."""
+    # Set the template
+    template_name = 'home/about.html'
+
+    def get(self, request):
+        """Handles GET requests for the view."""
+        about = Page.objects.get(pk=2)
+        context = {
+            'about': about,
+        }
+        return render(request, self.template_name, context)
+
+
 class TermsAndConditionsView(View):
     """"View to display Terms & Conditions information."""
     # Set the template
@@ -25,15 +39,15 @@ class TermsAndConditionsView(View):
         return render(request, self.template_name, context)
 
 
-class AboutView(View):
-    """"View to display About information."""
+class PrivacyView(View):
+    """"View to display Privacy information."""
     # Set the template
-    template_name = 'home/about.html'
+    template_name = 'home/privacy.html'
 
     def get(self, request):
         """Handles GET requests for the view."""
-        about = Page.objects.get(pk=2)
+        privacy = Page.objects.get(pk=3)
         context = {
-            'about': about,
+            'privacy': privacy,
         }
         return render(request, self.template_name, context)

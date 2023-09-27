@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Privacy{% endblock title %}
+{% block content %}
+    <div class="container mx-auto mt-6 p-6 bg-white shadow-lg rounded-lg text-left">
+        <h1 class="text-2xl font-semibold mb-4">{{ privacy.title }}</h1>
+        <p class="text-gray-700 mb-4 pl-4">{{ privacy.content | safe }}</p>
+    </div>
+{% endblock content %}

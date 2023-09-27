@@ -9,6 +9,16 @@
 ## Apps
 
 - [ ] pagos
+- [ ] deals
+
+- Preguntas frecuentes
+- ofertas
+- privacy
+- stores
+- carrito
+- formulario de entrega
+- devoluciones y cambios
+- 
 
 ## Comandos
 
