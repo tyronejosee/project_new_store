@@ -8,7 +8,7 @@ class PageModelTestCase(TestCase):
 
     def test_create_page(self):
         """Test the creation of a Page object in the database"""
-        
+
         # Create an initial Page object with test title and content
         page = Page.objects.create(
             title="Test Title",
