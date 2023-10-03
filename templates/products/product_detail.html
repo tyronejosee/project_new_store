@@ -2,7 +2,9 @@
 {% load static %}
 {% block title %}{{ product.title }}{% endblock title %}
 {% block content %}
-    <h1 class="text-2xl font-bold">Product Detail</h1>
-    <h2>{{ product.title }}</h2>
+    <h1 class="text-2xl font-bold">{{ product.title }}</h1>
+    <img src="{{ product.image.url }}" class="rounded-lg" alt="Producto">
     <p>${{ product.normal_price }}</p>
+    <p>{{ product.specifications | safe }}</p>
+    <p>{{ product.description | safe }}</p>
 {% endblock content %}

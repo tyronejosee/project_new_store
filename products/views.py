@@ -1,11 +1,11 @@
 """Views for Products App."""
 
-from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.db.models import Q
 from products.models import Product
+
 
 class StaffRequiredMixin(object):
     """Mixin will require the user to be staff, or else it redirects to the admin login."""
@@ -13,7 +13,7 @@ class StaffRequiredMixin(object):
         """Main function of the mixin."""
         if not request.user.is_staff:
             return redirect(reverse_lazy('admin:login'))
-        return super(StaffRequiredMixin, self).dispatch(request, *args, **kwargs) 
+        return super(StaffRequiredMixin, self).dispatch(request, *args, **kwargs)
 
 
 class ProductListView(ListView):
@@ -26,6 +26,7 @@ class ProductListView(ListView):
 
 
 class ProductDetailView(DetailView):
+    """View generates the product detail."""
     model = Product
     template_name = 'products/product_detail.html'
     context_object_name = 'product'
