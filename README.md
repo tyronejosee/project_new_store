@@ -4,39 +4,21 @@
 LICENCIAS
 CONTRIBUCION
 
-Breve descripción del proyecto.
+New Stores es una plataforma de comercio electrónico especializada en la venta de una amplia gama de electrodomésticos de alta calidad. Desarrollada en Python con el marco de trabajo Django, nuestra aplicación web ofrece a los usuarios una experiencia de compra intuitiva y segura. Una robusta base de datos PostgreSQL, inventario y pedidos, asegurando un flujo eficiente de datos. El diseño de la interfaz, implementado con Tailwind, proporciona una apariencia moderna y receptiva, mejorando la usabilidad y la experiencia del usuario en todas las pantallas y dispositivos.
 
 [CAPTURAS]
 
 ## Características
 
-Enumera las principales características de tu proyecto, destacando lo que lo hace único o valioso. Por ejemplo:
-
-- Característica 1: Descripción de la característica.
-- Característica 2: Descripción de la característica.
-
-## Tabla de Contenidos
-
-- [New Store](#new-store)
-  - [Características](#características)
-  - [Tabla de Contenidos](#tabla-de-contenidos)
-  - [Requisitos Previos](#requisitos-previos)
-  - [Instalación](#instalación)
-    - [1. Clona el repositorio](#1-clona-el-repositorio)
-    - [2. Entra al directorio del proyecto](#2-entra-al-directorio-del-proyecto)
-    - [3. Crea un entorno virtual](#3-crea-un-entorno-virtual)
-    - [4. Activa el entorno virtual](#4-activa-el-entorno-virtual)
-    - [5. Instala las dependencias](#5-instala-las-dependencias)
-    - [6. Realiza las migraciones de la base de datos](#6-realiza-las-migraciones-de-la-base-de-datos)
-    - [7. Inicia el servidor de desarrollo](#7-inicia-el-servidor-de-desarrollo)
-  - [Configuración](#configuración)
-  - [Uso](#uso)
-  - [Contribución](#contribución)
-  - [Licencia](#licencia)
+- Búsqueda Inteligente: Nuestra función de búsqueda avanzada utiliza algoritmos de coincidencia para ayudar a los usuarios a encontrar rápidamente los productos que desean, incluso si cometen errores ortográficos.
+- Gestión de Cuenta de Usuario: Los clientes pueden crear y administrar fácilmente sus cuentas de usuario, guardar información de envío y ver su historial de pedidos para una experiencia de compra personalizada.
+- Carrito de Compras: Los usuarios pueden agregar y eliminar productos de su carrito de compras de manera sencilla, y ver un resumen de los productos seleccionados antes de la compra.
+- Pasarela de pago con PayPal: Los usuarios pueden usar paypal como método de pago al momento de tener listo su carrito de compras.
+- Gestión de Inventarios: Mantenemos un seguimiento en tiempo real del inventario de productos, lo que garantiza que los clientes puedan comprar productos disponibles y evita problemas de agotamiento de stock.
+- Ofertas y Promociones: Publicamos ofertas y promociones especiales periódicamente, lo que permite a los clientes obtener descuentos y ahorrar en sus compras.
+- Diseño Responsivo: Nuestra interfaz está diseñada con Django-Tailwind para ser completamente receptiva, lo que significa que los usuarios pueden comprar desde dispositivos móviles, tabletas o computadoras de escritorio sin problemas.
 
 ## Requisitos Previos
-
-Enumera aquí los requisitos previos que deben cumplirse para poder ejecutar el proyecto, como versiones de Python, Django, PostgreSQL, etc. Por ejemplo:
 
 - Python 3.x
 - Django 3.x
@@ -88,8 +70,6 @@ python manage.py runserver
 ```
 
 ## Configuración
-
-Explica cómo configurar las variables de entorno, archivos de configuración u otros ajustes necesarios. Por ejemplo:
 
 ```bash
 # Crea un archivo de variables de entorno .env
