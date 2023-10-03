@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ product.title }}{% endblock title %}
+{% block content %}
+    <h1 class="text-2xl font-bold">Product Detail</h1>
+    <h2>{{ product.title }}</h2>
+    <p>${{ product.normal_price }}</p>
+{% endblock content %}

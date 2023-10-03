@@ -2,11 +2,12 @@
 {% load static %}
 {% block title %}Products List{% endblock title %}
 {% block content %}
+    <h1 class="text-2xl font-bold">Lista de Productos</h1>
     <ul>
-        {% for product in products %}
-        <li>{{ product.title }} - Precio: ${{ product.normal_price }}</li>
-        {% empty %}
-        <li>No hay productos disponibles en este momento.</li>
+        {% for product in products_list %}
+        <li>
+            <a href="{% url 'product_detail' product.pk %}">{{ product.title }}</a> - $ {{ product.normal_price }}
+        </li>
         {% endfor %}
     </ul>
 {% endblock content %}

@@ -3,7 +3,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
-from django.views import View
+from django.views.generic import ListView, DetailView
 from django.db.models import Q
 from products.models import Product
 
@@ -16,19 +16,20 @@ class StaffRequiredMixin(object):
         return super(StaffRequiredMixin, self).dispatch(request, *args, **kwargs) 
 
 
-class ProductListView(View):
+class ProductListView(ListView):
     """View generates a list of all products."""
+    model = Product
+    paginate_by = 12
     template_name = 'products/product_list.html'
+    context_object_name = 'products_list'
+    queryset = Product.objects.filter(show_hide = True, stock__gte = 1)
 
-    def get(self, request):
-        """Retrieve the list of products from the database."""
-        products = Product.objects.all()
 
-        context = {
-            'products': products,
-        }
-
-        return render(request, self.template_name, context)
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'products/product_detail.html'
+    context_object_name = 'product'
+    pk_url_kwarg = 'pk'
 
 
 def product_search(request):
