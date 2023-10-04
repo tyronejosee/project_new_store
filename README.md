@@ -1,97 +1,101 @@
 # New Store
 
-[BADGE HERE]
-LICENCIAS
-CONTRIBUCION
+- [BADGE HERE]
+- [LICENSE]
+- [CONTRIBUTION]
 
-New Stores es una plataforma de comercio electrónico especializada en la venta de una amplia gama de electrodomésticos de alta calidad. Desarrollada en Python con el marco de trabajo Django, nuestra aplicación web ofrece a los usuarios una experiencia de compra intuitiva y segura. Una robusta base de datos PostgreSQL, inventario y pedidos, asegurando un flujo eficiente de datos. El diseño de la interfaz, implementado con Tailwind, proporciona una apariencia moderna y receptiva, mejorando la usabilidad y la experiencia del usuario en todas las pantallas y dispositivos.
+**New Store**: A personal project that simulates an appliance e-commerce platform. Developed using Django, PostgreSQL, and styled with Tailwind CSS for a modern and responsive user experience.
 
-[CAPTURAS]
+Key features of New Store include:
 
-## Características
+- Smart Search.
+- User Registration.
+- Shopping Cart.
+- PayPal Payment Gateway.
+- Inventory Management.
+- Offers and Promotions.
+- Responsive Design.
 
-- Búsqueda Inteligente: Nuestra función de búsqueda avanzada utiliza algoritmos de coincidencia para ayudar a los usuarios a encontrar rápidamente los productos que desean, incluso si cometen errores ortográficos.
-- Gestión de Cuenta de Usuario: Los clientes pueden crear y administrar fácilmente sus cuentas de usuario, guardar información de envío y ver su historial de pedidos para una experiencia de compra personalizada.
-- Carrito de Compras: Los usuarios pueden agregar y eliminar productos de su carrito de compras de manera sencilla, y ver un resumen de los productos seleccionados antes de la compra.
-- Pasarela de pago con PayPal: Los usuarios pueden usar paypal como método de pago al momento de tener listo su carrito de compras.
-- Gestión de Inventarios: Mantenemos un seguimiento en tiempo real del inventario de productos, lo que garantiza que los clientes puedan comprar productos disponibles y evita problemas de agotamiento de stock.
-- Ofertas y Promociones: Publicamos ofertas y promociones especiales periódicamente, lo que permite a los clientes obtener descuentos y ahorrar en sus compras.
-- Diseño Responsivo: Nuestra interfaz está diseñada con Django-Tailwind para ser completamente receptiva, lo que significa que los usuarios pueden comprar desde dispositivos móviles, tabletas o computadoras de escritorio sin problemas.
+## Screenshots
 
-## Requisitos Previos
+- ![pending](pending)
+- ![pending](pending)
+- ![pending](pending)
 
-- Python 3.x
-- Django 3.x
-- PostgreSQL
+## Installation
 
-## Instalación
-
-### 1. Clona el repositorio
+**1. Clone the repository**:
 
 ```bash
-git clone https://github.com/tuusuario/tuproyecto.git
+git clone git@github.com:tyronejosee/project_new_store.git
 ```
 
-### 2. Entra al directorio del proyecto
+**2. Navigate to the project directory**:
 
 ```bash
-cd tuproyecto
+cd project_new_store
 ```
 
-### 3. Crea un entorno virtual
+**3. Create a virtual environment**:
 
 ```bash
 python -m venv venv
 ```
 
-### 4. Activa el entorno virtual
+**4. Activate the virtual environment**:
 
 ```bash
-source venv/bin/activate  # En sistemas Unix/Linux
-venv\Scripts\activate     # En Windows
+# Windows
+venv\Scripts\activate
+
+# Unix/Linux
+source venv/bin/activate  
 ```
 
-### 5. Instala las dependencias
+**5. Install dependencies**:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 6. Realiza las migraciones de la base de datos
+**6. Perform database migrations**:
 
 ```bash
 python manage.py migrate
 ```
 
-### 7. Inicia el servidor de desarrollo
+**7. Start the development server**:
 
 ```bash
 python manage.py runserver
 ```
 
-## Configuración
+## Configuration
+
+Environment variables.
 
 ```bash
-# Crea un archivo de variables de entorno .env
+# Create an environment variable file .env
 cp .env.example .env
 
-# Abre .env y configura las variables de entorno, como la configuración de la base de datos y las claves secretas
+# Open .env and configure environment variables such as database settings and secret keys
 ```
 
-## Uso
+## Usage
 
-Detalla cómo utilizar y ejecutar el proyecto. Proporciona ejemplos de comandos o código para ejecutar las tareas comunes. Por ejemplo:
+Create a superuser to access the admin panel.
 
 ```bash
-# Crea un superusuario para acceder al panel de administración
 python manage.py createsuperuser
-
-# Inicia el servidor de desarrollo
-python manage.py runserver
-
-# Accede al panel de administración en http://localhost:8000/admin/
 ```
 
-## Contribución
+Start the development server and log in to `admin`.
 
-## Licencia
+```bash
+python manage.py runserver
+http://localhost:8000/admin/
+```
+
+## Contribution
+
+## License
