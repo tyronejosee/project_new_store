@@ -3,7 +3,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from users.models import CustomUser
+from users.models import Profile
 
 
 class UserCreationFormWithEmail(UserCreationForm):
@@ -22,15 +22,15 @@ class UserCreationFormWithEmail(UserCreationForm):
         return email
 
 
-class CustomUserForm(forms.ModelForm):
-    """Form for editing custom user profile information."""
+class ProfileForm(forms.ModelForm):
+    """Form for editing user profile information."""
     class Meta:
-        model = CustomUser
-        fields = ['address', 'city', 'country']
+        model = Profile
+        fields = ['avatar', 'bio', 'link']
         widgets = {
-            'address': forms.Textarea(attrs={'class':'form-control mt-3', 'rows':3, 'placeholder':'Biografía'}),
-            'city': forms.Textarea(attrs={'class':'form-control mt-3', 'rows':3, 'placeholder':'Biografía'}),
-            'country': forms.Textarea(attrs={'class':'form-control mt-3', 'rows':3, 'placeholder':'Biografía'}),
+            'avatar': forms.ClearableFileInput(attrs={'class':'form-control-file mt-3'}),
+            'bio': forms.Textarea(attrs={'class':'form-control mt-3', 'rows':3, 'placeholder':'Biography'}),
+            'link': forms.URLInput(attrs={'class':'form-control mt-3', 'placeholder':'Links'}),
         }
 
 
