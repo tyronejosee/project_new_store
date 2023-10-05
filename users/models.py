@@ -1,27 +1,31 @@
 """Models for Users App."""
 
 from django.db import models
-from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
+from django.db.models.signals import post_save
+
+def custom_upload_to(instance, filename):
+    old_instance = Profile.objects.get(pk=instance.pk)
+    old_instance.avatar.delete()
+    return 'profiles/' + filename
 
 
-class CustomUser(models.Model):
+class Profile(models.Model):
     """Model extending fields from the User class."""
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address = models.CharField(max_length=255, verbose_name='Address', blank=True, null=True)
-    city = models.CharField(max_length=255, verbose_name='City', blank=True, null=True)
-    country = models.CharField(max_length=255, verbose_name='Country', blank=True, null=True)
-    tax_number = models.CharField(max_length=50, verbose_name='Tax Number', blank=True, null=True)
+    avatar = models.ImageField(upload_to=custom_upload_to, null=True, blank=True)
+    bio = models.TextField(null=True, blank=True)
+    link = models.URLField(max_length=200, null=True, blank=True)
 
     class Meta:
-        """Adds extra metadata to the CustomUser model."""
+        """Adds extra metadata to the Profile model."""
         ordering = ['user__username']
 
 
 @receiver(post_save, sender=User)
 def ensure_profile_exists(sender, instance, **kwargs):
-    """Creates a CustomUser profile when a new User is saved."""
+    """Signal creates a User profile when a new User is saved."""
     if kwargs.get('created', False):
-        CustomUser.objects.get_or_create(user=instance)
+        Profile.objects.get_or_create(user=instance)
