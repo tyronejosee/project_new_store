@@ -2,6 +2,20 @@
 {% load static %}
 {% block title %}Home{% endblock title %}
 {% block content %}
+    <section>
+        <div class="container mx-auto m-20 flex flex-row bg-slate-500">
+            <div class="flex-1 w-64 m-2 bg-slate-50">
+            01
+            </div>
+            <div class="flex-1 w-64 m-2 bg-slate-50">
+            02
+            </div>
+            <div class="flex-1 w-64 m-2 bg-slate-50">
+            03
+            </div>
+        </div>
+    </section>
+
     {% for product in featured_products %}
     <section class="grid grid-cols-6 gap-4">
         <div class="p-2 bg-white hover:bg-red-200 rounded-lg">
@@ -14,5 +28,4 @@
     </section>
     {% endfor %}
 {% endblock content %}
-
 {% block javascript %}{% endblock javascript %}

@@ -1,8 +1,23 @@
-# New Store
+<p align="center">
+  <a href="https://github.com/tyronejosee/docs_backend#gh-light-mode-only" target="_blank">
+    <img src="./assets/logo_light.svg" alt="logo-light" width="300">
+  </a>
+  <a href="https://github.com/tyronejosee/docs_backend#gh-dark-mode-only" target="_blank">
+    <img src="./assets/logo_dark.svg" alt="logo-dark" width="300">
+  </a>
+</p>
 
-- [BADGE HERE]
-- [LICENSE]
-- [CONTRIBUTION]
+<p align="center">
+    <a href="#">
+    <img src="https://img.shields.io/badge/python-3.11.3-blue" alt="python-version">
+    </a>
+    <a href="#">
+    <img src="https://img.shields.io/badge/django-4.2.4-blue" alt="django-version">
+    </a>
+    <a href="#">
+    <img src="https://img.shields.io/badge/tailwindcss-3.3.2-blue" alt="tailwind-version">
+    </a>
+</p>
 
 **New Store**: A personal project that simulates an appliance e-commerce platform. Developed using Django, PostgreSQL, and styled with Tailwind CSS for a modern and responsive user experience.
 

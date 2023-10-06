@@ -17,20 +17,20 @@ class SignUpView(CreateView):
 
     def get_success_url(self):
         """Get the URL to redirect to after a successful registration."""
-        return reverse_lazy('login') + '?register'   
+        return reverse_lazy('login') + '?register'
 
     def get_form(self, form_class=None):
         """Customize the appearance of the registration form fields."""
         form = super(SignUpView, self).get_form()
         # Modificar en tiempo real
         form.fields['username'].widget = forms.TextInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Nombre de usuario'})
+            attrs={'class':'form-control mb-2', 'placeholder':'Username'})
         form.fields['email'].widget = forms.EmailInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Dirección email'})
+            attrs={'class':'form-control mb-2', 'placeholder':'Email'})
         form.fields['password1'].widget = forms.PasswordInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Contraseña'})
+            attrs={'class':'form-control mb-2', 'placeholder':'Password'})
         form.fields['password2'].widget = forms.PasswordInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Repite la contraseña'})
+            attrs={'class':'form-control mb-2', 'placeholder':'Confirm the password'})
         return form
 
 
