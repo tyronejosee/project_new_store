@@ -4,10 +4,39 @@
 {% block content %}
     <h1 class="text-2xl font-bold">Lista de Productos</h1>
     <ul>
-        {% for product in products_list %}
+        {% for product in products %}
         <li>
             <a href="{% url 'product_detail' product.pk %}">{{ product.title }}</a> - $ {{ product.normal_price }}
         </li>
         {% endfor %}
     </ul>
+    
+    <!--PAGINATION-->
+    <div class="flex flex-col items-center">
+        <!-- Help text -->
+        <!-- Buttons -->
+        <div class="inline-flex mt-2 xs:mt-0">
+            {% if page_obj.has_previous %}
+            <button class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <a href="?page=1">First</a>
+            </button>
+            <button class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <a href="?page={{ page_obj.previous_page_number }}">Prev</a>
+            </button>
+            {% endif %}
+            <button class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <span class="current">
+                    {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+            </button>
+            {% if page_obj.has_next %}
+            <button class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            </button>
+            <button class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            </button>
+            {% endif %}
+        </div>
+    </div>
 {% endblock content %}

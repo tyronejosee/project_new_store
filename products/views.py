@@ -19,9 +19,9 @@ class StaffRequiredMixin(object):
 class ProductListView(ListView):
     """View generates a list of all products."""
     model = Product
-    paginate_by = 12
+    paginate_by = 6
     template_name = 'products/product_list.html'
-    context_object_name = 'products_list'
+    context_object_name = 'products'
     queryset = Product.objects.filter(show_hide = True, stock__gte = 1)
 
 

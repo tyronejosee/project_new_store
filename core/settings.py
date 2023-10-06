@@ -42,8 +42,8 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'products_list'
+LOGOUT_REDIRECT_URL = 'products_list' 
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
