@@ -2,8 +2,17 @@
 
 from django.shortcuts import render, get_object_or_404
 from django.views import View
+from django.views.generic import ListView
 from home.models import Page
 from products.models import Product
+
+
+class FeaturedProductListView(ListView):
+    model = Product
+    template_name = 'home/index.html'
+    context_object_name = 'featured_products'
+    queryset = Product.objects.filter(featured=True)
+
 
 class AboutView(View):
     """View to display About information."""
@@ -45,9 +54,3 @@ class PrivacyView(View):
             'privacy': privacy,
         }
         return render(request, self.template_name, context)
-
-
-def landing_page(request):
-    """Simple view to test functionality."""
-    featured_products = Product.objects.filter(featured=True)
-    return render(request, 'home/index.html', {'featured_products': featured_products})
