@@ -2,12 +2,23 @@
 
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView, CreateView
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django import forms
 from users.models import Profile
 from users.forms import UserCreationFormWithEmail, ProfileForm, EmailForm
+
+
+class WelcomeView(LoginRequiredMixin, TemplateView):
+    """User welcome view."""
+    template_name = 'users/welcome.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['username'] = self.request.user.username
+        return context
 
 
 class SignUpView(CreateView):

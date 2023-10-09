@@ -51,8 +51,8 @@ INSTALLED_APPS = CORE_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'products_list'
-LOGOUT_REDIRECT_URL = 'products_list' 
+LOGIN_REDIRECT_URL = 'welcome'
+LOGOUT_REDIRECT_URL = 'products_list'
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
@@ -70,8 +70,6 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 AUTHENTICATION_BACKENDS = [
     # Needed to log in by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 MIDDLEWARE = [
