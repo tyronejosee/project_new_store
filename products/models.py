@@ -3,6 +3,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
+
 class Category(models.Model):
     """Catalog type model for Category."""
 
@@ -25,13 +26,13 @@ class Category(models.Model):
     section = models.IntegerField(choices=SECTION_CHOICES, default='1')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
-    def __str__(self):
-        return str(self.title)
-
     class Meta:
         """Adds extra metadata to the Category model."""
         verbose_name_plural = "Categories"
         ordering = ['title']
+
+    def __str__(self):
+        return str(self.title)
 
 
 class Brand(models.Model):
@@ -40,13 +41,13 @@ class Brand(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
-    def __str__(self):
-        return str(self.name)
-
     class Meta:
         """Adds extra metadata to the Brand model."""
         verbose_name_plural = "Brands"
         ordering = ['name']
+
+    def __str__(self):
+        return str(self.name)
 
 
 class Product(models.Model):
@@ -77,10 +78,10 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
-    def __str__(self):
-        return str(self.title)
-
     class Meta:
         """Adds extra metadata to the Product model."""
         verbose_name_plural = "Products"
         ordering = ['-created_at', 'title']
+
+    def __str__(self):
+        return str(self.title)

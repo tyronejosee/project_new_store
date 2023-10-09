@@ -11,10 +11,10 @@ class Page(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
-    def __str__(self):
-        return str(self.title)
-
     class Meta:
         """Adds extra metadata to the Page model."""
         verbose_name_plural = "Pages"
         ordering = ['-created_at',]
+    
+    def __str__(self):
+        return str(self.title)
