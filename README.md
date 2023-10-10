@@ -7,7 +7,8 @@
   </a>
 </p>
 <p align="center">
-  <strong>New Store</strong>:
+  <strong>New Store</strong>
+  <br>
   A personal project that simulates an appliance e-commerce platform. Developed using <b>Django</b>, <b>PostgreSQL</b>, and styled with <b>Tailwind CSS</b> for a modern and responsive user experience.
 <p>
 <p align="center">
