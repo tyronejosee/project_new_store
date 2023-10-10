@@ -6,7 +6,7 @@ from home.views import TermsAndConditionsView, AboutView, PrivacyView, FeaturedP
 
 urlpatterns = [
     path("", FeaturedProductListView.as_view(), name="featured_product"),
-    path('company/about/', AboutView.as_view(), name='about'),
-    path('legal/terms-and-conditions/', TermsAndConditionsView.as_view(), name='terms'),
-    path('legal/privacy/', PrivacyView.as_view(), name='privacy'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('terms/', TermsAndConditionsView.as_view(), name='terms'),
+    path('privacy/', PrivacyView.as_view(), name='privacy'),
 ]

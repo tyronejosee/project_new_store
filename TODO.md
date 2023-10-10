@@ -1,22 +1,14 @@
-# References
+# TODO List
 
-## TODO List
-
-- [ ] Funcion en modelos de productos que eliminen la imagen antigua y mantengan solo la nueva
-
-## Apps
-
-- [ ] pagos
-- [ ] deals
-
-- Preguntas frecuentes
-- ofertas
-- stores
 - carrito
+- aplicacion de ofertas
+- Soporte tecnico
+- Preguntas frecuentes
 - formulario de entrega
 - devoluciones y cambios
+- Funcion en modelos de productos que eliminen la imagen antigua y mantengan solo la nueva
 
-## Comandos
+## Comands
 
 ```bash
 python manage.py tailwind init
@@ -26,12 +18,15 @@ python manage.py tailwind init
 python manage.py check --deploy
 ```
 
+```bash
 - tyronejose
 - alt.tyronejose@gmail.com
 - bernardoreyes
+```
 
----
+## Texts
 
+```
 # Terms and Conditions of Use for New Store
 
 ## Last Updated: 29-09-2023
@@ -79,9 +74,9 @@ Thank you for choosing New Store. If you have any questions about these Terms an
 [New Store]
 [support@newstore.com]
 [THIS PAGE IS A SIMULATION, DO NOT ENTER REAL DATA]
+```
 
----
-
+```
 # New Store Privacy Policy
 
 **Last Updated: 09-29-2023**.
@@ -144,3 +139,4 @@ If you have any questions about this privacy policy or how we handle your inform
 - **Phone**: +123456789
 
 [THIS PAGE IS A SIMULATION, DO NOT ENTER REAL DATA]
+```

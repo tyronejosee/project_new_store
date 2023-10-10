@@ -8,6 +8,7 @@ from products.models import Product
 
 
 class FeaturedProductListView(ListView):
+    """View for displaying a list of featured products."""
     model = Product
     template_name = 'home/index.html'
     context_object_name = 'featured_products'
@@ -16,12 +17,11 @@ class FeaturedProductListView(ListView):
 
 class AboutView(View):
     """View to display About information."""
-    # Set the template
     template_name = 'home/about.html'
 
     def get(self, request):
         """Handles GET requests for the view."""
-        about = get_object_or_404(Page, pk=2)
+        about = get_object_or_404(Page, key='about')
         context = {
             'about': about,
         }
@@ -30,12 +30,11 @@ class AboutView(View):
 
 class TermsAndConditionsView(View):
     """View to display Terms & Conditions information."""
-    # Set the template
     template_name = 'home/terms.html'
 
     def get(self, request):
         """Handles GET requests for the view."""
-        terms = get_object_or_404(Page, pk=1)
+        terms = get_object_or_404(Page, key='terms')
         context = {
             'terms': terms,
         }
@@ -44,12 +43,11 @@ class TermsAndConditionsView(View):
 
 class PrivacyView(View):
     """View to display Privacy information."""
-    # Set the template
     template_name = 'home/privacy.html'
 
     def get(self, request):
         """Handles GET requests for the view."""
-        privacy = get_object_or_404(Page, pk=3)
+        privacy = get_object_or_404(Page, key='privacy')
         context = {
             'privacy': privacy,
         }
