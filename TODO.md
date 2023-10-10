@@ -1,9 +1,9 @@
 # TODO List
 
-- carrito
-- aplicacion de ofertas
 - Soporte tecnico
 - Preguntas frecuentes
+- carrito
+- aplicacion de ofertas
 - formulario de entrega
 - devoluciones y cambios
 - Funcion en modelos de productos que eliminen la imagen antigua y mantengan solo la nueva
