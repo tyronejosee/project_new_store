@@ -8,7 +8,7 @@ from products.models import Product
 class Cart(models.Model):
     """Entity type model for Cart."""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ManyToManyField(Product, through='')
+    product = models.ManyToManyField(Product, through='CartItem')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
