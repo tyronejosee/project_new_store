@@ -1,28 +1,11 @@
 # TODO List
 
-- Soporte tecnico
-- Preguntas frecuentes
-- carrito
-- aplicacion de ofertas
-- formulario de entrega
+- Support
+- FQs
+- Deals
+- Delivery
 - devoluciones y cambios
 - Funcion en modelos de productos que eliminen la imagen antigua y mantengan solo la nueva
-
-## Comands
-
-```bash
-python manage.py tailwind init
-```
-
-```bash
-python manage.py check --deploy
-```
-
-```bash
-- tyronejose
-- alt.tyronejose@gmail.com
-- bernardoreyes
-```
 
 ## Texts
 
