@@ -7,6 +7,7 @@ from django.db.models.signals import post_save
 
 
 def custom_upload_to(instance, filename):
+    """Custom file upload path for profile avatars."""
     old_instance = Profile.objects.get(pk=instance.pk)
     old_instance.avatar.delete()
     return 'profiles/' + filename
@@ -22,7 +23,7 @@ class Profile(models.Model):
     link = models.URLField(max_length=200, null=True, blank=True)
 
     class Meta:
-        """Adds extra metadata to the Profile model."""
+        """Meta definition for Profile."""
         ordering = ['user__username']
 
 

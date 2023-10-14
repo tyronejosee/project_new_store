@@ -35,13 +35,13 @@ class SignUpView(CreateView):
         form = super(SignUpView, self).get_form()
         # Modificar en tiempo real
         form.fields['username'].widget = forms.TextInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Username'})
+            attrs={'class': 'form-control mb-2', 'placeholder': 'Username'})
         form.fields['email'].widget = forms.EmailInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Email'})
+            attrs={'class': 'form-control mb-2', 'placeholder': 'Email'})
         form.fields['password1'].widget = forms.PasswordInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Password'})
+            attrs={'class': 'form-control mb-2', 'placeholder': 'Password'})
         form.fields['password2'].widget = forms.PasswordInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Confirm the password'})
+            attrs={'class': 'form-control mb-2', 'placeholder': 'Confirm the password'})
         return form
 
 
@@ -54,7 +54,8 @@ class ProfileUpdate(UpdateView):
 
     def get_object(self):
         """Get the user's custom profile object for editing."""
-        profile, created = Profile.objects.get_or_create(user=self.request.user)
+        profile, created = Profile.objects.get_or_create(
+            user=self.request.user)
         return profile
 
 
@@ -73,5 +74,5 @@ class EmailUpdate(UpdateView):
         form = super(EmailUpdate, self).get_form()
         # Modify in real-time
         form.fields['email'].widget = forms.EmailInput(
-            attrs={'class':'form-control mb-2', 'placeholder':'Email'})
+            attrs={'class': 'form-control mb-2', 'placeholder': 'Email'})
         return form

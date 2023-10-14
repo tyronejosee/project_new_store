@@ -22,12 +22,13 @@ class Category(models.Model):
         (12, 'Wi-Fi & Networking'),
     ]
 
-    title = models.CharField(max_length=50, unique=True, verbose_name='Category')
+    title = models.CharField(
+        max_length=50, unique=True, verbose_name='Category')
     section = models.IntegerField(choices=SECTION_CHOICES, default='1')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
     class Meta:
-        """Adds extra metadata to the Category model."""
+        """Meta definition for Category."""
         verbose_name_plural = "Categories"
         ordering = ['title']
 
@@ -42,7 +43,7 @@ class Brand(models.Model):
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
     class Meta:
-        """Adds extra metadata to the Brand model."""
+        """Meta definition for Brands."""
         verbose_name_plural = "Brands"
         ordering = ['name']
 
@@ -63,23 +64,32 @@ class Product(models.Model):
     ]
 
     title = models.CharField(max_length=255, verbose_name='Title')
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, verbose_name='Brand')
-    normal_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Category')
+    brand = models.ForeignKey(
+        Brand, on_delete=models.CASCADE, verbose_name='Brand')
+    normal_price = models.DecimalField(
+        max_digits=10, decimal_places=2, verbose_name='Price')
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, verbose_name='Category')
     image = models.ImageField(upload_to='products/', verbose_name='Image')
-    stock = models.PositiveIntegerField(default=100, blank=True, null=True, verbose_name='Stock')
-    warranty = models.IntegerField(choices=WARRANTY_CHOICES, default='12', blank=True, null=True)
-    discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    stock = models.PositiveIntegerField(
+        default=100, blank=True, null=True, verbose_name='Stock')
+    warranty = models.IntegerField(
+        choices=WARRANTY_CHOICES, default='12', blank=True, null=True)
+    discount_percentage = models.DecimalField(
+        max_digits=5, decimal_places=2, blank=True, null=True)
     discount_end_date = models.DateField(blank=True, null=True)
     featured = models.BooleanField(default=False, verbose_name='Featured')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
-    description = RichTextField(blank=True, null=True, verbose_name='Description')
-    specifications = RichTextField(blank=True, null=True, verbose_name='Specifications')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
+    description = RichTextField(
+        blank=True, null=True, verbose_name='Description')
+    specifications = RichTextField(
+        blank=True, null=True, verbose_name='Specifications')
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
     class Meta:
-        """Adds extra metadata to the Product model."""
+        """Meta definition for Product."""
         verbose_name_plural = "Products"
         ordering = ['-created_at', 'title']
 
