@@ -44,6 +44,7 @@ THIRD_PARTY_APPS = [
     'ckeditor',
     'tailwind',
     'theme',
+    'import_export',
 ]
 
 INSTALLED_APPS = CORE_APPS + DJANGO_APPS + THIRD_PARTY_APPS
