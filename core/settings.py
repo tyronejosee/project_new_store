@@ -60,9 +60,13 @@ INSTALLED_APPS = CORE_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 SITE_ID = 1
 
 
+# Auth model settings
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
 # Login/Logout settings
-LOGIN_REDIRECT_URL = 'welcome'
-LOGOUT_REDIRECT_URL = 'products_list'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # NPM

@@ -1,34 +1,69 @@
 """Models for Users App."""
 
 from django.db import models
-from django.contrib.auth.models import User
-from django.dispatch import receiver
-from django.db.models.signals import post_save
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.utils import timezone
 
 
-def custom_upload_to(instance, filename):
-    """Custom file upload path for profile avatars."""
-    old_instance = Profile.objects.get(pk=instance.pk)
-    old_instance.avatar.delete()
-    return 'profiles/' + filename
+class CustomUserManager(BaseUserManager):
+    """Class required by BaseAbstractUser."""
+
+    def create_user(self, username, email, first_name, last_name, password=None):
+        if not email:
+            raise ValueError('The user must have an email.')
+
+        custom_user = self.model(
+            username=username,
+            email=self.normalize_email(email),
+            first_name=first_name,
+            last_name=last_name
+        )
+
+        custom_user.set_password(password)
+        custom_user.save()
+        return custom_user
+
+    def create_superuser(self, username, email, first_name, last_name, password):
+        custom_user = self.create_user(
+            username=username,
+            email,  # Pending
+            first_name=first_name,
+            last_name=last_name
+        )
+
+        custom_user.is_staff = True
+        custom_user.save()
+        return custom_user
 
 
-class Profile(models.Model):
-    """Model extending fields from the User class."""
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    """Entity type model for CustomUser."""
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(
-        upload_to=custom_upload_to, null=True, blank=True)
-    bio = models.TextField(null=True, blank=True)
-    link = models.URLField(max_length=200, null=True, blank=True)
+    username = models.CharField(max_length=100, unique=True, verbose_name='Username')
+    email = models.EmailField(max_length=254, unique=True, verbose_name='Email')
+    first_name = models.CharField(max_length=200, blank=True, null=True, verbose_name='First Name')
+    last_name = models.CharField(max_length=200, blank=True, null=True, verbose_name='Last Name')
+    address = models.TextField(blank=True, verbose_name='Adress')
+    phone_number = models.CharField(max_length=15, blank=True, verbose_name='Phone Number')
+    date_joined = models.DateTimeField(default=timezone.now, verbose_name='Date Joined')
+    is_active = models.BooleanField(default=True, verbose_name='Is Active')
+    is_staff = models.BooleanField(default=False, verbose_name='Is Staff')
 
-    class Meta:
-        """Meta definition for Profile."""
-        ordering = ['user__username']
+    objects = CustomUserManager()
 
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
 
-@receiver(post_save, sender=User)
-def ensure_profile_exists(sender, instance, **kwargs):
-    """Signal creates a User profile when a new User is saved."""
-    if kwargs.get('created', False):
-        Profile.objects.get_or_create(user=instance)
+    def __str__(self):
+        return f'{self.username}: {self.email}'
+
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_module_perms(self, app_label):
+        return True
+
+    @property
+    def is_staff(self):
+        """Property to check if the user is staff."""
+        return self.is_staff
