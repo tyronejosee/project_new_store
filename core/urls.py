@@ -9,11 +9,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
+    path('users/', include('users.urls')),
     path("products/", include("products.urls")),
     path("cart/", include("cart.urls")),
 ]
 
-# path('users/', include('users.urls')),
 
 # Debug Config
 if settings.DEBUG:
