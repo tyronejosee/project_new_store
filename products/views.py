@@ -16,11 +16,19 @@ class ProductListView(ListView):
 
 
 class ProductDetailView(DetailView):
-    "DetailView that expands product information."
+    """DetailView that expands product information."""
     model = Product
     template_name = 'products/product_detail.html'
     context_object_name = 'product'
     pk_url_kwarg = 'pk'
+
+
+class RecentProductsListView(ListView):
+    """View to display a list of recent products."""
+    model = Product
+    template_name = 'products/recent_products.html'
+    context_object_name = 'products'
+    ordering = ['-created_at', 'title']
 
 
 def product_search(request):
