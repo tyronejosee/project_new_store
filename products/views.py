@@ -38,6 +38,6 @@ def product_search(request):
     if queryset:
         products = Product.objects.filter(
             Q(title__icontains=queryset) |
-            Q(description__icontains=queryset)
+            Q(brand__name__icontains=queryset)
         ).distinct()
     return render(request, 'products/product_search.html', {'products': products})
