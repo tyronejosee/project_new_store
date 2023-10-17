@@ -13,6 +13,7 @@ class ProductListView(ListView):
     context_object_name = 'products'
     queryset = Product.objects.filter(show_hide=True, stock__gte=1)
     paginate_by = 8
+    ordering = ['normal_price']
 
 
 class ProductDetailView(DetailView):
@@ -32,7 +33,7 @@ class RecentProductsListView(ListView):
 
 
 def product_search(request):
-    """Search bar, filtering by product title and description."""
+    """Search bar, filtering by product title and brand."""
     queryset = request.GET.get("search")
     products = Product.objects.filter(show_hide=True)
     if queryset:
