@@ -6,9 +6,10 @@ from django.utils import timezone
 
 
 class CustomUserManager(BaseUserManager):
-    """Class required by BaseAbstractUser."""
+    """Manages CustomUser instances, including superusers."""
 
     def create_user(self, username, email, first_name, last_name, password=None):
+        """Create a standard user."""
         if not email:
             raise ValueError('The user must have an email.')
 
@@ -24,6 +25,7 @@ class CustomUserManager(BaseUserManager):
         return custom_user
 
     def create_superuser(self, username, email, first_name, last_name, password):
+        """Create a superuser or staff user."""
         custom_user = self.create_user(
             username=username,
             email=email,

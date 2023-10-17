@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+    <div class="mx-auto max-w-lg">
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                {{ form.password1 }}
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password Repeat</label>
+                {{ form.password2 }}
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+                {{ form.first_name }}
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+                {{ form.last_name }}
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Adress</label>
+                {{ form.address }}
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                {{ form.phone_number }}
+            </div>
+
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button>
+        </form>
+    </div>
+{% endblock content %}
