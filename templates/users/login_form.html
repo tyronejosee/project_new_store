@@ -6,10 +6,7 @@
     <form method="POST">
         {% csrf_token %}
         {% if form.error_messages %}
-            <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss = "alert" aria-label = "Close">
-                <span aria-hidden = "true">&times;</span>
-            </button>
+            <div class="#" role="alert">
             <strong>{{ form.get_invalid_login_error }}</strong>
             </div>
         {% endif %}
