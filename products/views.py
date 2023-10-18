@@ -29,6 +29,7 @@ class RecentProductsListView(ListView):
     model = Product
     template_name = 'products/recent_products.html'
     context_object_name = 'products'
+    paginate_by = 8
     ordering = ['-created_at', 'title']
 
 
