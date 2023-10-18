@@ -2,34 +2,10 @@
 {% load static %}
 {% block title %}Profile{% endblock title %}
 {% block content %}
-    <h1>Welcome, {{ username }}</h1>
-    <p>Thank for register us.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!--Title-->
+    <div class="flex flex-col items-center my-8">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Welcome {{ username }}</h2>
+    </div>
 
     <!--Wishlist-->
     {% if request.session.wishlist.items %}
@@ -64,7 +40,8 @@
                         ${{ value.acumulado|floatformat:2 }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{% url 'wishlist:remove' value.product_id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Remove</a>
+                        <a href="{% url 'wishlist:remove' value.product_id %}" class="bg-red-600 text-white px-2 py-1 rounded-lg">Remove</a>
+                        <a href="{% url 'cart:add' value.product_id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
                     </td>
                 </tr>
                 {% endfor %}

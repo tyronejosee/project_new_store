@@ -47,4 +47,4 @@ class UserRegistrationView(CreateView):
     model = CustomUser
     form_class = UserRegistrationForm
     template_name = 'users/registration_form.html'
-    success_url = 'featured_product'
+    success_url = reverse_lazy('featured_product')

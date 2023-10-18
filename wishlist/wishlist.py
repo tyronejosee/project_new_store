@@ -24,6 +24,10 @@ class Wishlist:
                 "acumulado": float(product.normal_price),
                 "cantidad": 1,
             }
+        else:
+            self.wishlist[id]["cantidad"] += 1
+            self.wishlist[id]["acumulado"] += float(product.normal_price)
+        self.save_wishlist()
 
     def save_wishlist(self):
         """Save the wishlist to the session."""
