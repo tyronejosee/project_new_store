@@ -2,7 +2,7 @@
 
 
 def total_cart(request):
-    """Pending."""
+    """Calculate and return the total cart value."""
     total = 0.0
     if request.user.is_authenticated:
         if "cart" in request.session:

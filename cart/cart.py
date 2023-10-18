@@ -1,8 +1,8 @@
-"""Pending."""
+"""Cart Logic."""
 
 
 class Cart:
-    """Pending."""
+    """A simple shopping cart implementation."""
 
     def __init__(self, request):
         self.request = request
@@ -15,7 +15,7 @@ class Cart:
             self.cart = cart
 
     def add(self, product):
-        """Pending."""
+        """Add a product to the cart."""
         id = str(product.id)
         if id not in self.cart.keys():
             self.cart[id] = {
@@ -30,19 +30,19 @@ class Cart:
         self.save_cart()
 
     def save_cart(self):
-        """Pending."""
+        """Save the cart to the session."""
         self.session["cart"] = self.cart
         self.session.modified = True
 
     def remove(self, product):
-        """Pending."""
+        """Remove a product from the cart."""
         id = str(product.id)
         if id in self.cart:
             del self.cart[id]
             self.save_cart()
 
     def subtract(self, product):
-        """Pending."""
+        """Subtract one unit of a product from the cart."""
         id = str(product.id)
         if id in self.cart.keys():
             self.cart[id]["cantidad"] -= 1
@@ -52,6 +52,6 @@ class Cart:
             self.save_cart()
 
     def clear(self):
-        """Pending."""
+        """Clear the cart."""
         self.session["cart"] = {}
         self.session.modified = True

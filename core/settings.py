@@ -36,6 +36,7 @@ CORE_APPS = [
     'home',
     'products',
     'cart',
+    'wishlist',
 ]
 
 DJANGO_APPS = [
