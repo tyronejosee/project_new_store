@@ -75,9 +75,6 @@ class Product(models.Model):
         default=100, blank=True, null=True, verbose_name='Stock')
     warranty = models.IntegerField(
         choices=WARRANTY_CHOICES, default='12', blank=True, null=True)
-    discount_percentage = models.DecimalField(
-        max_digits=5, decimal_places=2, blank=True, null=True)
-    discount_end_date = models.DateField(blank=True, null=True)
     featured = models.BooleanField(default=False, verbose_name='Featured')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
     description = RichTextField(
