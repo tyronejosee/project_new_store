@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}Terms and Conditions{% endblock title %}
-{% block content %}
-    <div class="container mx-auto mt-6 p-6 bg-white shadow-lg rounded-lg text-left">
-        <div><img src="{{ terms.image.url }}" alt="Terms Image"></div>
-        <p>{{ terms.content | safe }}</p>
-    </div>
-{% endblock content %}

@@ -11,7 +11,7 @@ class Page(models.Model):
         max_length=50, default='pending', verbose_name='Unique Key')
     content = RichTextField(blank=True, null=True, verbose_name='Content')
     image = models.ImageField(
-        upload_to='pages/', null=True, verbose_name='Image')
+        upload_to='pages/', blank=True, null=True, verbose_name='Image')
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')

@@ -8,13 +8,13 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">About Us</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="{% url 'about' %}" class=" hover:underline">About</a>
+                        <a href="{% url 'page_detail' key='about' %}" class=" hover:underline">About</a>
                     </li>
                     <li class="mb-4">
                         <a href="#" class="hover:underline">Careers</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Support</a>
+                        <a href="{% url 'page_detail' key='pruebas' %}" class="hover:underline">PRUEBASSSS</a>
                     </li>
                 </ul>
             </div>
@@ -36,13 +36,13 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="{% url 'privacy' %}" class="hover:underline">Privacy Policy</a>
+                        <a href="{% url 'page_detail' key='privacy' %}" class="hover:underline">Privacy Policy</a>
                     </li>
                     <li class="mb-4">
                         <a href="#" class="hover:underline">Licensing</a>
                     </li>
                     <li class="mb-4">
-                        <a href="{% url 'terms' %}" class="hover:underline">Terms & Conditions</a>
+                        <a href="{% url 'page_detail' key='terms' %}" class="hover:underline">Terms & Conditions</a>
                     </li>
                 </ul>
             </div>
