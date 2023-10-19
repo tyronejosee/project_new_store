@@ -2,6 +2,7 @@
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
+from users.util import get_common_widget_attrs
 from users.models import CustomUser
 
 
@@ -20,21 +21,11 @@ class UserRegistrationForm(forms.ModelForm):
     """Base form for user registration."""
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
-        attrs={
-            'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-            'placeholder': 'Password',
-            'id': 'password1',
-            'required': 'required',
-        }
+        attrs=get_common_widget_attrs('Password')
     ))
 
     password2 = forms.CharField(label='Repeat your password', widget=forms.PasswordInput(
-        attrs={
-            'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-            'placeholder': 'Repeat your password',
-            'id': 'password2',
-            'required': 'required',
-        }
+        attrs=get_common_widget_attrs('Repeat your password')
     ))
 
     class Meta:
@@ -43,42 +34,12 @@ class UserRegistrationForm(forms.ModelForm):
         fields = ('username', 'email', 'first_name',
                   'last_name', 'address', 'phone_number')
         widgets = {
-            'username': forms.TextInput(
-                attrs={
-                    'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-                    'placeholder': 'Username',
-                }
-            ),
-            'email': forms.EmailInput(
-                attrs={
-                    'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-                    'placeholder': 'Email',
-                }
-            ),
-            'first_name': forms.TextInput(
-                attrs={
-                    'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-                    'placeholder': 'First Name',
-                }
-            ),
-            'last_name': forms.TextInput(
-                attrs={
-                    'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-                    'placeholder': 'Last Name',
-                }
-            ),
-            'address': forms.TextInput(
-                attrs={
-                    'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-                    'placeholder': 'Adress',
-                }
-            ),
-            'phone_number': forms.TextInput(
-                attrs={
-                    'class': 'shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light',
-                    'placeholder': 'Phone Number',
-                }
-            )
+            'username': forms.TextInput(attrs=get_common_widget_attrs('Username')),
+            'email': forms.EmailInput(attrs=get_common_widget_attrs('Email')),
+            'first_name': forms.TextInput(attrs=get_common_widget_attrs('First Name')),
+            'last_name': forms.TextInput(attrs=get_common_widget_attrs('Last Name')),
+            'address': forms.TextInput(attrs=get_common_widget_attrs('Address')),
+            'phone_number': forms.TextInput(attrs=get_common_widget_attrs('Phone Number')),
         }
 
     def clean_password2(self):
@@ -86,7 +47,8 @@ class UserRegistrationForm(forms.ModelForm):
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
         if password1 != password2:
-            raise forms.ValidationError('Contraseñas no coinciden!')
+            raise forms.ValidationError('Passwords do not match.')
+        return password2
 
     def save(self, commit=True):
         """Save the user instance with password hashing."""

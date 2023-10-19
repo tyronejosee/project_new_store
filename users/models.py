@@ -8,18 +8,17 @@ from django.utils import timezone
 class CustomUserManager(BaseUserManager):
     """Manages CustomUser instances, including superusers."""
 
-    def create_user(self, username, email, first_name, last_name, password=None):
+    def create_user(self, username, email, first_name, last_name, password):
         """Create a standard user."""
         if not email:
             raise ValueError('The user must have an email.')
-
+        email = self.normalize_email(email)
         custom_user = self.model(
             username=username,
-            email=self.normalize_email(email),
+            email=email,
             first_name=first_name,
             last_name=last_name
         )
-
         custom_user.set_password(password)
         custom_user.save()
         return custom_user
@@ -27,14 +26,9 @@ class CustomUserManager(BaseUserManager):
     def create_superuser(self, username, email, first_name, last_name, password):
         """Create a superuser or staff user."""
         custom_user = self.create_user(
-            username=username,
-            email=email,
-            first_name=first_name,
-            last_name=last_name,
-            password=password
-        )
-
+            username, email, first_name, last_name, password)
         custom_user.is_staff = True
+        custom_user.is_superuser = True
         custom_user.save()
         return custom_user
 
@@ -53,10 +47,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     address = models.TextField(blank=True, verbose_name='Adress')
     phone_number = models.CharField(
         max_length=15, blank=True, verbose_name='Phone Number')
-    date_joined = models.DateTimeField(
-        default=timezone.now, verbose_name='Date Joined')
     is_active = models.BooleanField(default=True, verbose_name='Is Active')
     is_staff = models.BooleanField(default=False, verbose_name='Is Staff')
+    date_joined = models.DateTimeField(
+        default=timezone.now, verbose_name='Date Joined')
 
     objects = CustomUserManager()
 
