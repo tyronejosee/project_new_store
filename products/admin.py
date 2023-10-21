@@ -3,8 +3,10 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from products.models import Product, Category, Brand
+from products.models import Product, Deal, Category, Brand, ProductDeal
 
+
+# Import-Export Class
 
 class CategoryResource(resources.ModelResource):
     """Class for importing and exporting data for the Category model."""
@@ -18,11 +20,25 @@ class BrandResource(resources.ModelResource):
         model = Brand
 
 
+class DealResource(resources.ModelResource):
+    """Class for importing and exporting data for the Deal model."""
+    class Meta:
+        model = Deal
+
+
 class ProductResource(resources.ModelResource):
     """Class for importing and exporting data for the Product model."""
     class Meta:
         model = Product
 
+
+class ProductDealResource(resources.ModelResource):
+    """Class for importing and exporting data for the ProductDeal model."""
+    class Meta:
+        model = ProductDeal
+
+
+# Models Class
 
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
@@ -40,6 +56,14 @@ class BrandAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = BrandResource
 
 
+@admin.register(Deal)
+class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    """Admin config for the Deal model."""
+    list_display = ('name', 'discount', 'start_date', 'end_date')
+    ordering = ('-start_date',)
+    resource_class = DealResource
+
+
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Product model."""
@@ -54,3 +78,11 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         css = {
             'all': ('pages/css/custom_ckeditor.css',)
         }
+
+
+@admin.register(ProductDeal)
+class ProductDealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    """Admin config for the ProductDeal model."""
+    list_display = ('product', 'deal')
+    ordering = ('-product',)
+    resource_class = ProductDealResource

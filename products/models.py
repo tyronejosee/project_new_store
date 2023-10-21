@@ -51,6 +51,20 @@ class Brand(models.Model):
         return str(self.name)
 
 
+class Deal(models.Model):
+    """Entity type model for Deals."""
+
+    name = models.CharField(max_length=50, unique=True, verbose_name='Name')
+    description = models.TextField(verbose_name='Description')
+    discount = models.DecimalField(
+        max_digits=5, decimal_places=2, verbose_name='Discount')
+    start_date = models.DateField(verbose_name='Start Date')
+    end_date = models.DateField(verbose_name='End Date')
+
+    def __str__(self):
+        return str(self.name)
+
+
 class Product(models.Model):
     """Entity type model for Products."""
 
@@ -92,3 +106,15 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+
+class ProductDeal(models.Model):
+    """Pivot model for Products and Offers."""
+
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, verbose_name='Product')
+    deal = models.ForeignKey(
+        Deal, on_delete=models.CASCADE, verbose_name='Deal')
+
+    def __str__(self):
+        return f'{self.deal} {self.product}'
