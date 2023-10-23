@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4285f4">
     {% tailwind_css %}
-    <title>{% block title %} | New Store{% endblock title %}</title>
+    <title>New Store | {% block title %}{% endblock title %}</title>
     <link rel="icon" type="image/x-icon" href="{% static 'favicon/icon.ico' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-white border-gray-200 dark:bg-gray-900 px-8">
     {% block navbar %}{% include "components/navbar.html" %}{% endblock navbar %}
