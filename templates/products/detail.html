@@ -2,38 +2,68 @@
 {% load static %}
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
-    <div class="container mx-auto p-8">
-        <!-- Content -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white shadow-md rounded-lg p-4">
+    <!-- Content -->
+    <div class="max-w-screen-xl mx-auto p-4">
+        <div class="border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-700 p-4 mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Image -->
             <div>
-                <img src="{{ product.image.url }}" class="rounded-lg w-300 h-300" alt="product">
+                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="w-96 h-96">
             </div>
+    
+            <!-- Details -->
             <div>
-                <h1 class="text-2xl font-bold">{{ product.title }}</h1>
-                <p class="text-gray-800 text-lg font-semibold mb-2">Details</p>
-                <ul class="list-disc pl-6">
+                <h1 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ product.title }}</h1>
+                <p class="text-gray-600 mb-2">Details</p>
+                <ul class="mb-4">
                     <li>Category: {{ product.category.title }}</li>
                     <li>Brand: {{ product.brand.name }}</li>
                     <li>Price: ${{ product.normal_price }}</li>
                     <li>Stock: {{ product.stock }}</li>
                     <li>Warranty: {{ product.get_warranty_display }}</li>
                 </ul>
-                <!-- Buttoms -->
-                <div class="flex items-center justify-between mt-4">
-                    <a href="{% url 'cart:add' product.id %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
-                    <a href="{% url 'wishlist:add' product.id %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to wishlist</a>
+                <div class="space-x-2">
+                    <a href="{% url 'cart:add' product.id %}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</a>
+                    <a href="{% url 'wishlist:add' product.id %}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Add to Wishlist</a>
                 </div>
             </div>
         </div>
-        <!-- Description -->
-        <div class="bg-white shadow-md rounded-lg p-4 mt-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-2">Description</h2>
-            <p class="text-gray-700 mb-4">{{ product.description | safe }}</p>
-        </div>
-        <!-- Especifications -->
-        <div class="bg-white shadow-md rounded-lg p-4 mt-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-2">Specifications</h2>
-            <p class="text-gray-700">{{ product.specifications | safe }}</p>
+    
+        <!-- Tabs -->
+        <div class="mt-8">
+            <ul class="flex border-b" id="product-tabs">
+                <li class="-mb-px mr-1">
+                    <a class="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-500 font-semibold" href="#description-tab">Description</a>
+                </li>
+                <li class="mr-1">
+                    <a class="bg-white inline-block py-2 px-4 text-gray-500 hover:text-gray-700 font-semibold" href="#specifications-tab">Specifications</a>
+                </li>
+            </ul>
+    
+            <div class="border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-700 p-4 mt-4">
+                <!-- Description -->
+                <div id="description-tab" class="tab-content">
+                    <h2 class="text-2xl font-semibold mb-4">Description</h2>
+                    <p class="text-white">{{ product.description | safe }}</p>
+                </div>
+        
+                <!-- Specifications -->
+                <div id="specifications-tab" class="tab-content hidden">
+                    <h2 class="text-2xl font-semibold mb-4">Specifications</h2>
+                    <p class="text-white ">{{ product.specifications | safe }}</p>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- jQuery -->
+    <script>
+        $(document).ready(function () {
+          $("#product-tabs a").click(function (e) {
+            e.preventDefault();
+            $(".tab-content").addClass("hidden");
+            $($(this).attr("href")).removeClass("hidden");
+          });
+        });
+    </script>
 {% endblock content %}
