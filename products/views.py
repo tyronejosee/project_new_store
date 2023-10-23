@@ -3,7 +3,7 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from django.db.models import Q
-from products.models import Product
+from products.models import Product, Brand
 from products.forms import CategoriesForm
 
 
@@ -78,7 +78,23 @@ def product_search(request):
     products = Product.objects.filter(show_hide=True)
     if queryset:
         products = Product.objects.filter(
-            Q(title__icontains=queryset) |
-            Q(brand__name__icontains=queryset)
+            Q(title__icontains=queryset)
         ).distinct()
     return render(request, 'products/search_bar.html', {'products': products})
+
+
+class BrandListView(ListView):
+    """Display a list of all products from a brand."""
+    model = Product
+    template_name = 'products/brand.html'
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        brand_name = self.kwargs['brand_name']
+        return Product.objects.filter(brand__name=brand_name)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['brand'] = Brand.objects.get(name=self.kwargs['brand_name'])
+        return context

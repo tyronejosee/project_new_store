@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Categories{% endblock title %}
+{% block content %}
+    <!-- Content -->
+    <div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+        {% for product in products %}
+        <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/6 px-2 sm:px-4 md:px-4 lg:px-4 mb-4">
+            <div class="w-full max-w-xs border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-700">
+                <a href="{% url 'product_detail' product.pk %}">
+                    <img class="w-full h-auto rounded-t-lg" src="{{ product.image.url }}" alt="product image" />
+                </a>
+                <div class="p-4">
+                    <a href="{% url 'product_detail' product.pk %}">
+                        <h5 class="text-base font-semibold tracking-tight text-gray-900 dark:text-white">
+                            {{ product.title|truncatechars:50 }}
+                        </h5>
+                    </a>
+                    <div class="flex justify-between items-center mt-2 mb-4">
+                        <span class="text-sm text-teal-700">{{ product.brand.name }}</span>
+                        <div>
+                            <a href="{% url 'wishlist:add' product.id %}" class="text-gray-700 dark:text-white hover:text-red-500 dark:hover:text-red-500 ml-2">Fav</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-bold text-gray-900 dark:text-white">${{ product.normal_price }}</span>
+                        <a href="{% url 'cart:add' product.id %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 text-center dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <h2 class="text-3xl font-bold text-blue-700 mb-4 dark:text-white">No products match the selected filters.</h2>
+        {% endfor %}
+    </div>
+{% endblock content %}
