@@ -66,8 +66,14 @@
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-sm font-bold text-gray-900 dark:text-white">${{ product.normal_price }}</span>
-                        <a href="{% url 'cart:add' product.id %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 text-center dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                        {% if product.deal %}
+                        <span class="text-sm font-bold text-gray-900 dark:text-white">${{ product.price_with_discount|floatformat:2 }}</span>
+                        <span class="text-sm font-bold text-gray-900 dark:text-white">{{ product.deal.discount|floatformat:0 }}%</span>
+                        {% endif %}
                     </div>
+                </div>
+                <div class="mt-4">
+                    <a href="{% url 'cart:add' product.id %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 text-center dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
                 </div>
             </div>
         </div>

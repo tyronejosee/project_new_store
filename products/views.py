@@ -3,7 +3,7 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from django.db.models import Q
-from products.models import Product, Brand
+from products.models import Product, Brand, Deal
 from products.forms import CategoriesForm
 
 
@@ -27,16 +27,10 @@ class ProductDetailView(DetailView):
 
 class CategoriesListView(ListView):
     """Display a list of products filtered by categories."""
-
     model = Product
     template_name = 'products/categories.html'
     context_object_name = 'products'
     paginate_by = 18
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = CategoriesForm()
-        return context
 
     def get_queryset(self):
         queryset = Product.objects.filter(show_hide=True, stock__gte=1)
@@ -54,13 +48,18 @@ class CategoriesListView(ListView):
             if brand:
                 queryset = queryset.filter(brand=brand)
             if deal:
-                queryset = queryset.filter(productdeal__deal=deal)
+                queryset = queryset.filter(deal=deal)
             if min_price:
                 queryset = queryset.filter(normal_price__gte=min_price)
             if max_price:
                 queryset = queryset.filter(normal_price__lte=max_price)
-
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = CategoriesForm()
+        context['deals'] = Deal.objects.all()
+        return context
 
 
 class RecentProductsListView(ListView):
@@ -70,18 +69,6 @@ class RecentProductsListView(ListView):
     context_object_name = 'products'
     paginate_by = 8
     ordering = ['-created_at', 'title']
-
-
-def product_search(request):
-    """Search bar, filtering by product title and brand."""
-    queryset = request.GET.get("search")
-    products = Product.objects.filter(show_hide=True)
-    if queryset:
-        products = Product.objects.filter(
-            Q(title__icontains=queryset) |
-            Q(brand__name__icontains=queryset)
-        ).distinct()
-    return render(request, 'products/search_bar.html', {'products': products})
 
 
 class BrandListView(ListView):
@@ -99,3 +86,15 @@ class BrandListView(ListView):
 
         context['brand'] = Brand.objects.get(name=self.kwargs['brand_name'])
         return context
+
+
+def product_search(request):
+    """Search bar, filtering by product title and brand."""
+    queryset = request.GET.get("search")
+    products = Product.objects.filter(show_hide=True)
+    if queryset:
+        products = Product.objects.filter(
+            Q(title__icontains=queryset) |
+            Q(brand__name__icontains=queryset)
+        ).distinct()
+    return render(request, 'products/search_bar.html', {'products': products})

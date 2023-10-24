@@ -82,6 +82,8 @@ class Product(models.Model):
         Brand, on_delete=models.CASCADE, verbose_name='Brand')
     normal_price = models.DecimalField(
         max_digits=10, decimal_places=2, verbose_name='Price')
+    deal = models.ForeignKey(
+        Deal, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Deal')
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, verbose_name='Category')
     image = models.ImageField(upload_to='products/', verbose_name='Image')
@@ -107,14 +109,8 @@ class Product(models.Model):
     def __str__(self):
         return str(self.title)
 
-
-class ProductDeal(models.Model):
-    """Pivot model for Products and Offers."""
-
-    product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, verbose_name='Product')
-    deal = models.ForeignKey(
-        Deal, on_delete=models.CASCADE, verbose_name='Deal')
-
-    def __str__(self):
-        return f'{self.deal} {self.product}'
+    def price_with_discount(self):
+        """Pending."""
+        if self.deal:
+            return self.normal_price - (self.normal_price * (self.deal.discount / 100))
+        return self.normal_price

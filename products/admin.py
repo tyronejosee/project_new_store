@@ -3,7 +3,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from products.models import Product, Deal, Category, Brand, ProductDeal
+from products.models import Product, Deal, Category, Brand
 
 
 # Import-Export Class
@@ -20,22 +20,16 @@ class BrandResource(resources.ModelResource):
         model = Brand
 
 
-class DealResource(resources.ModelResource):
-    """Class for importing and exporting data for the Deal model."""
-    class Meta:
-        model = Deal
-
-
 class ProductResource(resources.ModelResource):
     """Class for importing and exporting data for the Product model."""
     class Meta:
         model = Product
 
 
-class ProductDealResource(resources.ModelResource):
-    """Class for importing and exporting data for the ProductDeal model."""
+class DealResource(resources.ModelResource):
+    """Class for importing and exporting data for the Deal model."""
     class Meta:
-        model = ProductDeal
+        model = Deal
 
 
 # Models Class
@@ -56,14 +50,6 @@ class BrandAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = BrandResource
 
 
-@admin.register(Deal)
-class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    """Admin config for the Deal model."""
-    list_display = ('name', 'discount', 'start_date', 'end_date')
-    ordering = ('-start_date',)
-    resource_class = DealResource
-
-
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Product model."""
@@ -80,9 +66,9 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         }
 
 
-@admin.register(ProductDeal)
-class ProductDealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    """Admin config for the ProductDeal model."""
-    list_display = ('product', 'deal')
-    ordering = ('-product',)
-    resource_class = ProductDealResource
+@admin.register(Deal)
+class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    """Admin config for the Deal model."""
+    list_display = ('name', 'discount', 'start_date', 'end_date')
+    ordering = ('-start_date',)
+    resource_class = DealResource
