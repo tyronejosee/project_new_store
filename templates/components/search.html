@@ -1,6 +1,7 @@
 {% load static %}
 {% load static tailwind_tags %}
-{% block search %}
+
+    <!-- Search bar -->
     <div class="m-5">
         <form method="get" action="{% url 'products:search' %}" class="mb-4 md:w-1/2 mx-auto"> 
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -15,4 +16,3 @@
             </div>
         </form>
     </div>
-{% endblock search %}

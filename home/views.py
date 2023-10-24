@@ -9,7 +9,7 @@ class FeaturedProductListView(ListView):
     """View for displaying a list of featured products."""
     model = Product
     template_name = 'home/index.html'
-    context_object_name = 'featured_products'
+    context_object_name = 'products'
     queryset = Product.objects.filter(featured=True)
 
 
