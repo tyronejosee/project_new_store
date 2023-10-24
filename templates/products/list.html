@@ -2,7 +2,6 @@
 {% load static %}
 {% block title %}Categories{% endblock title %}
 {% block content %}
-
     <!-- Title -->
     <div class="flex flex-col items-center my-8">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Categories</h2>
@@ -10,11 +9,8 @@
             <strong>{{ page_obj.start_index }}</strong> - <strong>{{ page_obj.end_index }}</strong> of <strong>{{ page_obj.paginator.count }}</strong> products
         </span>
     </div>
-
     <!-- Content -->
     {% include "components/card.html" %}
-
     <!-- Pagination -->
     {% include "components/pagination.html" %}
-
 {% endblock content %}

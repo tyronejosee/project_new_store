@@ -2,16 +2,13 @@
 {% load static %}
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
-
     <!-- Content -->
     <div class="max-w-screen-xl mx-auto p-4">
         <div class="border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-700 p-4 mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-
             <!-- Image -->
             <div>
                 <img src="{{ product.image.url }}" alt="{{ product.title }}" class="w-96 h-96">
             </div>
-    
             <!-- Details -->
             <div>
                 <h1 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ product.title }}</h1>
@@ -29,7 +26,6 @@
                 </div>
             </div>
         </div>
-    
         <!-- Tabs -->
         <div class="mt-8">
             <ul class="flex border-b" id="product-tabs">
@@ -40,14 +36,12 @@
                     <a class="bg-white inline-block py-2 px-4 text-gray-500 hover:text-gray-700 font-semibold" href="#specifications-tab">Specifications</a>
                 </li>
             </ul>
-    
             <div class="border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-700 p-4 mt-4">
                 <!-- Description -->
                 <div id="description-tab" class="tab-content">
                     <h2 class="text-2xl font-semibold mb-4">Description</h2>
                     <p class="text-white">{{ product.description | safe }}</p>
                 </div>
-        
                 <!-- Specifications -->
                 <div id="specifications-tab" class="tab-content hidden">
                     <h2 class="text-2xl font-semibold mb-4">Specifications</h2>
@@ -56,7 +50,6 @@
             </div>
         </div>
     </div>
-
     <!-- jQuery -->
     <script>
         $(document).ready(function () {
