@@ -13,10 +13,10 @@ class IndexTemplateView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['all_products'] = Product.objects.filter(
             show_hide=True, stock__gte=1
-        )[:12]
+        ).order_by('title')[:12]
         context['recent_products'] = Product.objects.filter(
             show_hide=True, stock__gte=1
-        ).order_by('updated_at')[:12]
+        ).order_by('-updated_at')[:12]
         return context
 
 

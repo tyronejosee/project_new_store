@@ -1,5 +1,6 @@
 """Models for Products App."""
 
+import os
 from django.db import models
 from ckeditor.fields import RichTextField
 
@@ -86,9 +87,9 @@ class Product(models.Model):
         Deal, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Deal')
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, verbose_name='Category')
-    image = models.ImageField(upload_to='products/', verbose_name='Image')
-    stock = models.PositiveIntegerField(
-        default=100, blank=True, null=True, verbose_name='Stock')
+    image = models.ImageField(
+        upload_to='products/', blank=True, null=True, verbose_name='Image')
+    stock = models.PositiveIntegerField(default=100, verbose_name='Stock')
     warranty = models.IntegerField(
         choices=WARRANTY_CHOICES, default='12', blank=True, null=True)
     featured = models.BooleanField(default=False, verbose_name='Featured')
@@ -108,6 +109,18 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+    def save(self, *args, **kwargs):
+        """Override the save method to rename the image before saving it."""
+        if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
+            # Gets the original file name
+            file_name, file_extension = os.path.splitext(self.image.name)
+            # Creates the new name in the format 'item-pk.webp'
+            new_file_name = f'item-{self.id}{file_extension}'
+            # Changes the file name
+            self.image.name = new_file_name
+
+        super(Product, self).save(*args, **kwargs)
 
     def price_with_discount(self):
         """Pending."""

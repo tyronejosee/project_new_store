@@ -1,5 +1,6 @@
 """Models for Home App."""
 
+import os
 from django.db import models
 from ckeditor.fields import RichTextField
 
@@ -23,3 +24,15 @@ class Page(models.Model):
 
     def __str__(self):
         return str(self.key)
+
+    def save(self, *args, **kwargs):
+        """Override the save method to rename the image before saving it."""
+        if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
+            # Gets the original file name
+            file_name, file_extension = os.path.splitext(self.image.name)
+            # Creates the new name in the format 'visual-key.webp'
+            new_file_name = f'visual-{self.key}{file_extension}'
+            # Changes the file name
+            self.image.name = new_file_name
+
+        super(Page, self).save(*args, **kwargs)
