@@ -4,7 +4,12 @@
 {% block content %}
     <!-- Pagination -->
     {% include "components/pagination.html" %}
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="flex justify-center my-4">
+        <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Create</a>
+        <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Pending</a>
+        <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Pending</a>
+    </div>
+    <div class="max-w-screen-xl items-center justify-between mx-auto p-4 relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -46,8 +51,8 @@
                     <td class="px-6 py-4">{{ product.featured }}</td>
                     <td class="px-6 py-4">{{ product.show_hide }}</td>
                     <td class="flex items-center px-6 py-4 space-x-3">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                        <a href="{% url 'management:prod_update' pk=product.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="{% url 'management:prod_delete' pk=product.pk %}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -67,7 +72,7 @@
 
     <script>
         $(document).ready(function() {
-        // Abrir el popup al hacer clic en el enlace de la imagen
+        // Open the popup when clicking on the image.
         $('.show-image-popup').on('click', function(e) {
             e.preventDefault();
             var imageUrl = $(this).data('src');
@@ -76,12 +81,12 @@
             $('#imagePopup').removeClass('hidden');
         });
 
-        // Cerrar el popup al hacer clic en el botón de cierre
+        // Close the popup when clicking on the close button.
         $('#closeImagePopup').on('click', function() {
             $('#imagePopup').addClass('hidden');
         });
 
-        // Cerrar el popup al hacer clic en la capa de superposición
+        // Close the popup when clicking outside the overlay.
         $('.modal-overlay').on('click', function() {
             $('#imagePopup').addClass('hidden');
         });

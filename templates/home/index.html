@@ -6,6 +6,91 @@
     <div class="flex flex-col items-center my-8">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Featured Products</h2>
     </div>
+    <!-- Slider -->
+    <div id="gallery" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            {% for product in products %}
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="{{ product.image.url }}" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var currentIndex = 0;
+            var items = $("[data-carousel-item]");
+            var numItems = items.length;
+
+            // Inicializa el slider
+            items.hide();
+            items.eq(currentIndex).show();
+
+            // Función para avanzar al siguiente slide con animación
+            function nextSlide() {
+                var nextIndex = (currentIndex + 1) % numItems;
+                items.eq(currentIndex).fadeOut(1000); // Desvanecer la imagen actual
+                items.eq(nextIndex).fadeIn(1000);     // Mostrar la siguiente imagen
+                currentIndex = nextIndex;
+                resetAutoSlide(); // Reinicia el temporizador de desplazamiento automático
+            }
+
+            // Función para retroceder al slide anterior con animación
+            function prevSlide() {
+                var prevIndex = (currentIndex - 1 + numItems) % numItems;
+                items.eq(currentIndex).fadeOut(1000); // Desvanecer la imagen actual
+                items.eq(prevIndex).fadeIn(1000);     // Mostrar la imagen anterior
+                currentIndex = prevIndex;
+                resetAutoSlide(); // Reinicia el temporizador de desplazamiento automático
+            }
+
+            // Configura el evento de clic para los botones de control
+            $("[data-carousel-prev]").on("click", function () {
+                prevSlide();
+            });
+
+            $("[data-carousel-next]").on("click", function () {
+                nextSlide();
+            });
+
+            // Configura el temporizador para el desplazamiento automático
+            var autoSlideInterval = 5000; // Cambia el valor para ajustar la velocidad (milisegundos)
+            var autoSlideTimer;
+
+            function startAutoSlide() {
+                autoSlideTimer = setInterval(function () {
+                    nextSlide();
+                }, autoSlideInterval);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideTimer);
+                startAutoSlide();
+            }
+
+            startAutoSlide();
+        });
+    </script>
     <!-- Content -->
     {% include "components/card.html" %}
 {% endblock content %}
