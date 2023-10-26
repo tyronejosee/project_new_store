@@ -13,8 +13,7 @@ class ProductListView(ListView):
     template_name = 'products/list.html'
     context_object_name = 'products'
     queryset = Product.objects.filter(show_hide=True, stock__gte=1)
-    paginate_by = 8
-    ordering = ['normal_price']
+    paginate_by = 18
 
 
 class ProductDetailView(DetailView):
@@ -67,7 +66,7 @@ class RecentProductsListView(ListView):
     model = Product
     template_name = 'products/recent.html'
     context_object_name = 'products'
-    paginate_by = 8
+    paginate_by = 18
     ordering = ['-created_at', 'title']
 
 

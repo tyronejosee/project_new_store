@@ -1,16 +1,23 @@
 """Views for Home App."""
 
-from django.views.generic import ListView, DetailView
+from django.views.generic import TemplateView, DetailView
 from home.models import Page
 from products.models import Product
 
 
-class FeaturedProductListView(ListView):
+class IndexTemplateView(TemplateView):
     """View for displaying a list of featured products."""
-    model = Product
     template_name = 'home/index.html'
-    context_object_name = 'products'
-    queryset = Product.objects.filter(featured=True)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['all_products'] = Product.objects.filter(
+            show_hide=True, stock__gte=1
+        )[:12]
+        context['recent_products'] = Product.objects.filter(
+            show_hide=True, stock__gte=1
+        ).order_by('updated_at')[:12]
+        return context
 
 
 class PageDetailView(DetailView):
