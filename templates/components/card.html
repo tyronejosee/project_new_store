@@ -1,24 +1,24 @@
 {% load static %}
 {% load static tailwind_tags %}
-        <div class="w-full sm:w-1/2 md:w-1/4 lg:w-1/6 px-2 sm:px-4 md:px-4 lg:px-4 mb-4">
-            <div class="w-full max-w-xs border border-gray-200 rounded-lg shadow bg-white dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full sm:w-1/4 md:w-1/4 lg:w-1/6 px-2 mb-4">
+            <div class="w-full max-w-xs border border-gray-200 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700">
                 <a href="{% url 'products:detail' product.pk %}">
-                    <img class="w-full h-auto rounded-t-lg" src="{{ product.image.url }}" alt="product image" />
+                    <img class="w-full h-auto rounded-3xl" src="{{ product.image.url }}" alt="product image" />
                 </a>
                 <div class="p-4">
-                    <div class="flex justify-between items-start mt-2 mb-2">
+                    <div class="h-20 w-auto">
                         <a href="{% url 'products:detail' product.pk %}">
                             <h2 class="text-base font-semibold tracking-tight text-gray-900 dark:text-white">
                                 {{ product.title|truncatechars:50 }}
                             </h2>
                         </a>
                     </div>
-                    <div class="flex justify-between items-center mt-2 mb-2">
+                    <div class="flex justify-between items-center">
                         <div class="ml-0">
-                            <a href="{% url 'products:brands' brand_name=product.brand.name %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-600">{{ product.brand.name }}</a>
+                            <a href="{% url 'products:brands' brand_name=product.brand.name %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-blue-600">{{ product.brand.name }}</a>
                         </div>
                         <div class="mr-0">
-                            <a href="{% url 'wishlist:add' product.id %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-600">Fav</a>
+                            <a href="{% url 'wishlist:add' product.id %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-500">Fav</a>
                         </div>
                     </div>
                     <div class="flex items-center justify-between">
@@ -28,9 +28,9 @@
                         <span class="text-sm font-bold text-gray-900 dark:text-white">{{ product.deal.discount|floatformat:0 }}%</span>
                         {% endif %}
                     </div>
-                </div>
-                <div class="mt-4">
-                    <a href="{% url 'cart:add' product.id %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-2 text-center dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                    <div class="p-2 text-center">
+                        <a href="{% url 'cart:add' product.id %}" class="w-full text-white bg-sky-500 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-xs px-3 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                    </div>
                 </div>
             </div>
         </div>
