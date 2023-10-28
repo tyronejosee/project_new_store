@@ -9,13 +9,13 @@
         <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Pending</a>
         <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Pending</a>
     </div>
-    <div class="max-w-screen-xl items-center justify-between mx-auto p-4 relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="max-screen-xl relative overflow-x-auto rounded-3xl">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="p-4">
                         <div class="flex items-center">
-                            <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-neutral-800 dark:border-neutral-700">
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </div>
                     </th>
@@ -30,23 +30,22 @@
             </thead>
             <tbody>
                 {% for product in products %}
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="w-4 p-4">
                         <div class="flex items-center">
-                            <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-neutral-800 dark:border-neutral-700">
                             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                         </div>
                     </td>
                     <td class="px-6 py-4">
                         <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-                            <img src="{{ product.image.url }}" width="30" height="30" alt="{{ product.title }}">
+                            <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
                         </a>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ product.title|truncatechars:50 }}
                     </th>
                     <td class="px-6 py-4">${{ product.normal_price }}</td>
-                    
                     <td class="px-6 py-4">{{ product.stock }}</td>
                     <td class="px-6 py-4">{{ product.featured }}</td>
                     <td class="px-6 py-4">{{ product.show_hide }}</td>
@@ -61,8 +60,8 @@
     </div>
     <!-- PopUp -->
     <div id="imagePopup" class="fixed inset-0 flex items-center justify-center z-10 hidden">
-        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
-        <div class="modal-container bg-white w-1/2 md:w-1/3 mx-auto rounded shadow-lg z-50 overflow-y-auto">
+        <div class="modal-overlay absolute w-full h-full bg-neutral-900 opacity-75"></div>
+        <div class="modal-container bg-white w-1/2 md:w-1/3 mx-auto rounded-3xl z-50 overflow-y-auto">
             <div class="modal-content py-4 text-left px-6">
                 <span class="modal-close cursor-pointer z-50 absolute top-0 right-0 mt-4 mr-4 text-3xl" id="closeImagePopup">&times;</span>
                 <img class="popup-image" id="expandedImage" src="">
