@@ -9,13 +9,15 @@
       <div class="flex-grow md:order-1 px-12">
         <!-- Search bar -->
         <div class="relative">
-          <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-200 rounded-3xl bg-gray-50 focus:ring-sky-500 focus:border-sky-500 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
-          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-            </svg>
-            <span class="sr-only">Search icon</span>
-          </div>
+          <form method="get" action="{% url 'products:search' %}">
+            <input type="search" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-200 rounded-3xl bg-gray-50 focus:ring-sky-500 focus:border-sky-500 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
+              <span class="sr-only">Search icon</span>
+            </div>
+          </form>
         </div>
       </div>
       <!-- Dropdown menu -->
