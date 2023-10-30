@@ -1,7 +1,6 @@
-# Project
-.superuser
+temp/
 desktop.ini
-TODO.md
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
