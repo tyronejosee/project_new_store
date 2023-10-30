@@ -6,51 +6,51 @@
         {% csrf_token %}
         {{ form.non_field_errors }}
         <div class="form-group">
-            <label for="{{ form.title.id_for_label }}">Title:</label>
+            <label for="{{ form.title.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title:</label>
             {{ form.title }}
         </div>
         <div class="form-group">
-            <label for="{{ form.brand.id_for_label }}">Brand:</label>
+            <label for="{{ form.brand.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand:</label>
             {{ form.brand }}
         </div>
         <div class="form-group">
-            <label for="{{ form.normal_price.id_for_label }}">Normal Price:</label>
+            <label for="{{ form.normal_price.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Normal Price:</label>
             {{ form.normal_price }}
         </div>
         <div class="form-group">
-            <label for="{{ form.deal.id_for_label }}">Deal:</label>
+            <label for="{{ form.deal.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deal:</label>
             {{ form.deal }}
         </div>
         <div class="form-group">
-            <label for="{{ form.category.id_for_label }}">Category:</label>
+            <label for="{{ form.category.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category:</label>
             {{ form.category }}
         </div>
         <div class="form-group">
-            <label for="{{ form.image.id_for_label }}">Image:</label>
+            <label for="{{ form.image.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image:</label>
             {{ form.image }}
         </div>
         <div class="form-group">
-            <label for="{{ form.stock.id_for_label }}">Stock:</label>
+            <label for="{{ form.stock.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock:</label>
             {{ form.stock }}
         </div>
         <div class="form-group">
-            <label for="{{ form.warranty.id_for_label }}">Warranty:</label>
+            <label for="{{ form.warranty.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Warranty:</label>
             {{ form.warranty }}
         </div>
         <div class="form-group">
-            <label for="{{ form.featured.id_for_label }}">Featured:</label>
+            <label for="{{ form.featured.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Featured:</label>
             {{ form.featured }}
         </div>
         <div class="form-group">
-            <label for="{{ form.show_hide.id_for_label }}">Show/Hide:</label>
+            <label for="{{ form.show_hide.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Show/Hide:</label>
             {{ form.show_hide }}
         </div>
         <div class="form-group">
-            <label for="{{ form.description.id_for_label }}">Description:</label>
+            <label for="{{ form.description.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description:</label>
             {{ form.description }}
         </div>
         <div class="form-group">
-            <label for="{{ form.specifications.id_for_label }}">Specifications:</label>
+            <label for="{{ form.specifications.id_for_label }}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Specifications:</label>
             {{ form.specifications }}
         </div>
         <button type="submit">Save</button>

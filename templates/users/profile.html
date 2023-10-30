@@ -2,12 +2,10 @@
 {% load static %}
 {% block title %}Profile{% endblock title %}
 {% block content %}
-
     <!--Title-->
     <div class="flex flex-col items-center my-8">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Welcome {{ username }}</h2>
     </div>
-
     <!--Wishlist-->
     {% if request.session.wishlist.items %}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -49,7 +47,6 @@
             </tbody>
         </table>
     </div>
-
     <!--Wishlist Empty-->
     {% else %}
     <div class="bg-red-500 text-white text-center">Your wishlist is empty.</div>
