@@ -2,53 +2,53 @@
 {% load static %}
 {% block title %}Profile{% endblock title %}
 {% block content %}
-    <!--Title-->
-    <div class="flex flex-col items-center my-8">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Welcome {{ username }}</h2>
-    </div>
-    <!--Wishlist-->
-    {% if request.session.wishlist.items %}
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        Product
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Category
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Price
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for key, value in request.session.wishlist.items %}
-                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ value.nombre|truncatechars:30 }}
-                    </th>
-                    <td class="px-6 py-4">
-                        Categories
-                    </td>
-                    <td class="px-6 py-4">
-                        ${{ value.acumulado|floatformat:2 }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="{% url 'wishlist:remove' value.product_id %}" class="bg-red-600 text-white px-2 py-1 rounded-lg">Remove</a>
-                        <a href="{% url 'cart:add_product' value.product_id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <!--Wishlist Empty-->
-    {% else %}
-    <div class="bg-red-500 text-white text-center">Your wishlist is empty.</div>
-    {% endif %}
+<!--Title-->
+<div class="flex flex-col items-center my-8">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Welcome {{ username }}</h2>
+</div>
+<!--Wishlist-->
+{% if request.session.wishlist.items %}
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Product
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Category
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in request.session.wishlist.items %}
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ value.nombre|truncatechars:30 }}
+                </th>
+                <td class="px-6 py-4">
+                    Categories
+                </td>
+                <td class="px-6 py-4">
+                    ${{ value.acumulado|floatformat:2 }}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="{% url 'wishlist:remove' value.product_id %}" class="bg-red-600 text-white px-2 py-1 rounded-lg">Remove</a>
+                    <a href="{% url 'cart:add_product' value.product_id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<!--Wishlist Empty-->
+{% else %}
+<div class="bg-red-500 text-white text-center">Your wishlist is empty.</div>
+{% endif %}
 {% endblock content %}

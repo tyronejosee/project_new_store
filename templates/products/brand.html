@@ -2,12 +2,12 @@
 {% load static %}
 {% block title %}{{ brand }}{% endblock title %}
 {% block content %}
-    <!-- Product cards -->
-    <div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
-        {% for product in products %}
-        {% include "components/card.html" %}
-        {% empty %}
-        <h2 class="text-3xl font-bold text-sky-500 mb-4 dark:text-white">No products match the selected filters.</h2>
-        {% endfor %}
-    </div>
+<!-- Product cards -->
+<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+    {% for product in products %}
+    {% include "components/card.html" %}
+    {% empty %}
+    <h2 class="text-3xl font-bold text-sky-500 mb-4 dark:text-white">No products match the selected filters.</h2>
+    {% endfor %}
+</div>
 {% endblock content %}
