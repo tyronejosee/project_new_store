@@ -2,41 +2,47 @@
 
 from django.shortcuts import render, redirect
 from products.models import Product
-from cart.cart import Cart
+from cart.models import Cart
 
 
 def store(request):
     """Render the cart view."""
-    products = Product.objects.all()
-    return render(request, "cart/cart_list.html", {'products': products})
+    user = request.user
+    cart, created = Cart.objects.get_or_create(user=user)
+    products = cart.products.all()
+    return render(request, "cart/cart_list.html", {'products': products, 'cart': cart})
 
 
 def add_product(request, product_id):
     """Add a product to the cart."""
-    cart = Cart(request)
+    user = request.user
     product = Product.objects.get(id=product_id)
-    cart.add(product)
+    cart, created = Cart.objects.get_or_create(user=user)
+    cart.add_product(product)
     return redirect("cart:store")
 
 
 def remove_product(request, product_id):
     """Remove a product from the cart."""
-    cart = Cart(request)
+    user = request.user
     product = Product.objects.get(id=product_id)
-    cart.remove(product)
+    cart, created = Cart.objects.get_or_create(user=user)
+    cart.remove_product(product)
     return redirect("cart:store")
 
 
 def subtract_product(request, product_id):
     """Subtract a product from the cart."""
-    cart = Cart(request)
+    user = request.user
     product = Product.objects.get(id=product_id)
-    cart.subtract(product)
+    cart, created = Cart.objects.get_or_create(user=user)
+    cart.subtract_product(product)
     return redirect("cart:store")
 
 
 def clear_cart(request):
     """Clear the cart."""
-    cart = Cart(request)
-    cart.clear()
+    user = request.user
+    cart, created = Cart.objects.get_or_create(user=user)
+    cart.clear_cart()
     return redirect("cart:store")

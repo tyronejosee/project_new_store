@@ -1,3 +1,10 @@
-from django.contrib import admin
+"""Admin for Products App."""
 
-# Register your models here.
+from django.contrib import admin
+from cart.models import Cart
+
+
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    """Admin config for the Cart model."""
+    ordering = ('-user',)

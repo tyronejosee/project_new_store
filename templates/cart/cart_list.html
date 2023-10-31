@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Cart{% endblock title %}
 {% block content %}
-  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -10,10 +10,10 @@
                     Product
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Price
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    Quantity
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
@@ -21,41 +21,39 @@
             </tr>
         </thead>
         <tbody>
-            {% if request.session.cart.items %}
-            {% for key, value in request.session.cart.items %}
+            {% if cart.products.all %}
+            {% for product in cart.products.all %}
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ value.nombre|truncatechars:30 }}
+                    {{ product.title|truncatechars:50 }}
                 </th>
                 <td class="px-6 py-4">
-                    Categories
+                    ${{ product.normal_price|floatformat:2 }}
                 </td>
                 <td class="px-6 py-4">
-                    ${{ value.acumulado|floatformat:2 }}
+                    pending
                 </td>
                 <td class="px-6 py-4">
-                    <a href="{% url 'cart:add' value.product_id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">+</a>
-                    {{ value.cantidad }}
-                    <a href="{% url 'cart:subtract' value.product_id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">-</a>
+                    <a href="{% url 'cart:add_product' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add</a>
+                    <a href="{% url 'cart:subtract_product' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Subtract</a>
+                    <a href="{% url 'cart:remove_product' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
                 </td>
             </tr>
             {% endfor %}
+            <tr>
+                <td>
+                    <a href="{% url 'cart:clear_cart' %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
+                    <a href="#" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
+                </td>
+            </tr>
             {% else %}
             <tr>
-              <td colspan="5">
-                <div class="bg-red-500 text-white text-center">Empty cart.</div>
-              </td>
+                <td colspan="5">
+                    <div class="bg-red-500 text-white text-center">Empty cart.</div>
+                </td>
             </tr>
             {% endif %}
-            <tr>
-              <th>Total:</th>
-              <td colspan="1">$ {{ total_cart|floatformat:2 }}</td>
-            </tr>
         </tbody>
     </table>
-  </div>
-  <div class="flex justify-center">
-    <a href="{% url 'cart:clear' %}" class="bg-red-500 text-white p-2 mx-2 rounded-lg">Clean Cart</a>
-    <a href="#" class="bg-green-500 text-white p-2 mx-2 rounded-lg">Checkout</a>
-  </div>
-{% endblock content %}
+</div>
+{% endblock %}
