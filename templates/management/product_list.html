@@ -6,23 +6,17 @@
     {% include "components/pagination.html" %}
     <div class="flex justify-center my-4">
         <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Create</a>
-        <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Pending</a>
-        <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Pending</a>
+        <a href="{% url 'management:prod_deleted' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Deleted</a>
+        <a href="{% url 'management:prod_available' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Available</a>
     </div>
     <div class="max-screen-xl relative overflow-x-auto rounded-3xl">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-neutral-800 dark:border-neutral-700">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                        </div>
-                    </th>
                     <th scope="col" class="px-6 py-3">Image</th>
+                    <th scope="col" class="px-6 py-3">Stock</th>
                     <th scope="col" class="px-6 py-3">Title</th>
                     <th scope="col" class="px-6 py-3">Price</th>
-                    <th scope="col" class="px-6 py-3">Stock</th>
                     <th scope="col" class="px-6 py-3">Featured</th>
                     <th scope="col" class="px-6 py-3">Show/Hide</th>
                     <th scope="col" class="px-6 py-3">Action</th>
@@ -31,27 +25,28 @@
             <tbody>
                 {% for product in products %}
                 <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td class="w-4 p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-neutral-800 dark:border-neutral-700">
-                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                        </div>
-                    </td>
                     <td class="px-6 py-4">
                         <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
                             <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
                         </a>
                     </td>
+                    <td class="px-6 py-4">{{ product.stock }}</td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{ product.title|truncatechars:50 }}
                     </th>
                     <td class="px-6 py-4">${{ product.normal_price }}</td>
-                    <td class="px-6 py-4">{{ product.stock }}</td>
                     <td class="px-6 py-4">{{ product.featured }}</td>
                     <td class="px-6 py-4">{{ product.show_hide }}</td>
                     <td class="flex items-center px-6 py-4 space-x-3">
                         <a href="{% url 'management:prod_update' pk=product.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <a href="{% url 'management:prod_delete' pk=product.pk %}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                        <form method="post" action="{% url 'management:prod_delete' product.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                        <form method="post" action="{% url 'management:prod_reactivate' product.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Reactivate</button>
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
