@@ -6,7 +6,7 @@ from products.models import Product
 
 
 class IndexTemplateView(TemplateView):
-    """View for displaying a list of featured products."""
+    """Renders the site's landing page."""
     template_name = 'home/index.html'
 
     def get_context_data(self, **kwargs):

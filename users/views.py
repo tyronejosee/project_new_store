@@ -1,10 +1,12 @@
 """Views for Users App."""
 
+
 from django.views.generic.edit import FormView
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, CreateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -27,7 +29,7 @@ class UserLoginView(FormView):
     """View for user login."""
     template_name = 'users/login_form.html'
     form_class = UserLoginForm
-    success_url = reverse_lazy('featured_product')
+    success_url = reverse_lazy('home:index')
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
@@ -40,6 +42,13 @@ class UserLoginView(FormView):
     def form_valid(self, form):
         login(self.request, form.get_user())
         return super(UserLoginView, self).form_valid(form)
+
+
+@login_required
+def user_logout(request):
+    """Closes the current user's session and redirects them to the site's homepage."""
+    logout(request)
+    return HttpResponseRedirect('/')
 
 
 class UserRegistrationView(CreateView):

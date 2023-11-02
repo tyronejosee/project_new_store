@@ -66,11 +66,6 @@ SITE_ID = 1
 AUTH_USER_MODEL = 'users.CustomUser'
 
 
-# Login/Logout settings
-LOGIN_REDIRECT_URL = 'users:profile'
-LOGOUT_REDIRECT_URL = '/'
-
-
 # NPM
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 

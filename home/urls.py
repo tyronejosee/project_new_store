@@ -6,6 +6,6 @@ from home.views import IndexTemplateView, PageDetailView
 app_name = 'home'
 
 urlpatterns = [
-    path("", IndexTemplateView.as_view(), name="featured_product"),
+    path("", IndexTemplateView.as_view(), name="index"),
     path("company/<str:key>/", PageDetailView.as_view(), name="page_detail"),
 ]

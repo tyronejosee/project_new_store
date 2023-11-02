@@ -1,19 +1,25 @@
 {% load static %}
 {% load static tailwind_tags %}
-<nav class="bg-gray-100 border-gray-200 dark:bg-neutral-900"> 
+<nav class="bg-gray-100 border-gray-200 dark:bg-neutral-900">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="{% url 'home:featured_product' %}" class="flex items-center">
+    <a href="{% url 'home:index' %}" class="flex items-center">
       <img src="{% static 'logo.svg' %}" class="h-8 mr-3" alt="new-store-logo" />
-      <span class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 dark:text-sky-500 hidden md:block">New Store</span>
+      <span
+        class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 dark:text-sky-500 hidden md:block">New
+        Store</span>
     </a>
     <!-- Search bar -->
     <div class="flex-grow md:order-1 px-12">
       <div class="relative">
         <form method="get" action="{% url 'products:search' %}">
-          <input type="search" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-200 rounded-3xl bg-gray-50 focus:ring-sky-500 focus:border-sky-500 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
+          <input type="search" id="search-navbar"
+            class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-200 rounded-3xl bg-gray-50 focus:ring-sky-500 focus:border-sky-500 dark:bg-neutral-800 dark:border-neutral-700 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
             </svg>
             <span class="sr-only">Search icon</span>
           </div>
@@ -22,30 +28,40 @@
     </div>
     <!-- Dropdown menu -->
     <div class="flex items-center md:order-2 relative group">
-      <button type="button" class="flex mr-3 text-sm bg-sky-500 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom-start">
+      <button type="button"
+        class="flex mr-3 text-sm bg-sky-500 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+        data-dropdown-placement="bottom-start">
         <span class="sr-only">Open user menu</span>
         <img class="w-8 h-8 rounded-full" src="{% static 'logo.svg' %}" alt="user photo">
       </button>
-      <div class="z-50 absolute left-0 top-full hidden mt-2 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+      <div
+        class="z-50 absolute left-0 top-full hidden mt-2 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+        id="user-dropdown">
         <div class="px-4 py-3">
           <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
           <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover-bg-gray-600 dark:text-gray-200 dark:hover-text-white">Dashboard</a>
+            <a href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover-bg-gray-600 dark:text-gray-200 dark:hover-text-white">Dashboard</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Settings</a>
+            <a href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Settings</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Earnings</a>
+            <a href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Earnings</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Sign out</a>
+            <a href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Sign
+              out</a>
           </li>
         </ul>
       </div>
-    </div>    
+    </div>
   </div>
 </nav>
