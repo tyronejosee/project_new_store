@@ -9,5 +9,18 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['title', 'brand', 'normal_price', 'deal', 'category', 'image',
-                  'stock', 'warranty', 'featured', 'show_hide', 'description', 'specifications']
+        fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs={'class': ''}),
+            'brand': forms.Select(attrs={'class': ''}),
+            'normal_price': forms.NumberInput(attrs={'class': ''}),
+            'deal': forms.Select(attrs={'class': ''}),
+            'category': forms.Select(attrs={'class': ''}),
+            'image': forms.ClearableFileInput(attrs={'class': ''}),
+            'stock': forms.NumberInput(attrs={'class': ''}),
+            'warranty': forms.Select(attrs={'class': ''}),
+            'featured': forms.CheckboxInput(attrs={'class': ''}),
+            'show_hide': forms.CheckboxInput(attrs={'class': ''}),
+            'description': forms.Textarea(attrs={'class': ''}),
+            'specifications': forms.Textarea(attrs={'class': ''}),
+        }

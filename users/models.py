@@ -27,8 +27,8 @@ class CustomUserManager(BaseUserManager):
         """Create a superuser or staff user."""
         custom_user = self.create_user(
             username, email, first_name, last_name, password)
-        custom_user.is_staff = True
         custom_user.is_superuser = True
+        custom_user.is_staff = True
         custom_user.save()
         return custom_user
 

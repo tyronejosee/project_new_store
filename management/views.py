@@ -1,11 +1,36 @@
 """Views for Management App."""
 
+from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
+from home.models import Page
 from products.models import Product
 from management.forms import ProductForm
+
+
+class ManagementPageView(TemplateView):
+    """Pending."""
+    template_name = 'management/management_page.html'
+
+
+class PageListView(ListView):
+    """Pending."""
+
+    model = Page
+    template_name = 'management/page_list.html'
+    context_object_name = 'pages'
+    paginate_by = 8
+
+
+class PageUpdateView(UpdateView):
+    """Pending."""
+
+    model = Page
+    form_class = None
+    template_name = 'management/page_form.html'
+    success_url = reverse_lazy('management:prod_available')
 
 
 class ProductListView(ListView):
