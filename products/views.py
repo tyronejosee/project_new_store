@@ -12,8 +12,11 @@ class ProductListView(ListView):
     model = Product
     template_name = 'products/list.html'
     context_object_name = 'products'
-    queryset = Product.objects.filter(show_hide=True, stock__gte=1)
     paginate_by = 18
+
+    def get_queryset(self):
+        queryset = Product.objects.filter(show_hide=True, stock__gte=1)
+        return queryset
 
 
 class ProductDetailView(DetailView):
@@ -67,7 +70,11 @@ class RecentProductsListView(ListView):
     template_name = 'products/recent.html'
     context_object_name = 'products'
     paginate_by = 18
-    ordering = ['-created_at', 'title']
+
+    def get_queryset(self):
+        queryset = Product.objects.filter(show_hide=True, stock__gte=1)
+        queryset = queryset.order_by('-updated_at', 'title')
+        return queryset
 
 
 class BrandListView(ListView):
@@ -75,6 +82,8 @@ class BrandListView(ListView):
     model = Product
     template_name = 'products/brand.html'
     context_object_name = 'products'
+    paginate_by = 18
+    ordering = ['title']
 
     def get_queryset(self):
         brand_name = self.kwargs['brand_name']
@@ -82,7 +91,6 @@ class BrandListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         context['brand'] = Brand.objects.get(name=self.kwargs['brand_name'])
         return context
 
