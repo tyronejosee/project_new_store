@@ -26,6 +26,7 @@
         </form>
       </div>
     </div>
+    {% if user.is_authenticated %}
     <!-- Dropdown menu -->
     <div class="flex items-center md:order-2 relative group">
       <button type="button"
@@ -63,5 +64,11 @@
         </ul>
       </div>
     </div>
+    {% else %}
+    <div class="flex items-center md:order-2 relative group">
+      <a href="{% url 'users:login' %}" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-neutral-800 focus:outline-none dark:focus:ring-neutral-700">Login</a>
+      <a href="{% url 'users:registration' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-sky-500 dark:hover:bg-sky-600 focus:outline-none dark:focus:ring-neutral-700">Sign Up</a>
+    </div>
+    {% endif %}
   </div>
 </nav>
