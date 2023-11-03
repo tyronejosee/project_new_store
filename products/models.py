@@ -8,24 +8,8 @@ from ckeditor.fields import RichTextField
 class Category(models.Model):
     """Catalog type model for Category."""
 
-    SECTION_CHOICES = [
-        (1, 'pending'),
-        (2, 'Electronic Deals'),
-        (3, 'TVs & Home Theater'),
-        (4, 'Cell Phones'),
-        (5, 'Computers & Office'),
-        (6, 'Kids Electronics'),
-        (7, 'Headphones'),
-        (8, 'Cameras'),
-        (9, 'Speakers & Audio Systems'),
-        (10, 'Tablets & E-Readers'),
-        (11, 'Wearable Technology'),
-        (12, 'Wi-Fi & Networking'),
-    ]
-
     title = models.CharField(
         max_length=50, unique=True, verbose_name='Category')
-    section = models.IntegerField(choices=SECTION_CHOICES, default='1')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
     class Meta:

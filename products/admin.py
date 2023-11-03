@@ -37,8 +37,8 @@ class DealResource(resources.ModelResource):
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Category model."""
-    list_display = ('title', 'section', 'show_hide',)
-    ordering = ('section', 'title',)
+    list_display = ('title', 'show_hide',)
+    ordering = ('title',)
     resource_class = CategoryResource
 
 
