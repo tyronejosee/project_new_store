@@ -2,6 +2,7 @@
 
 from django.urls import path
 from management.views import (
+    ManagementView,
     ProductListView,
     DeletedProductListView,
     ProductCreateView,
@@ -12,6 +13,7 @@ from management.views import (
 app_name = 'management'
 
 urlpatterns = [
+    path('', ManagementView.as_view(), name='management'),
     path('products/available/', ProductListView.as_view(), name='prod_available'),
     path('products/deleted/', DeletedProductListView.as_view(),
          name='prod_deleted'),

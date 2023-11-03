@@ -10,9 +10,9 @@ from products.models import Product
 from management.forms import ProductForm
 
 
-class ManagementPageView(TemplateView):
+class ManagementView(TemplateView):
     """Pending."""
-    template_name = 'management/management_page.html'
+    template_name = 'management/management.html'
 
 
 class PageListView(ListView):
@@ -39,11 +39,11 @@ class ProductListView(ListView):
     model = Product
     template_name = 'management/product_list.html'
     context_object_name = 'products'
-    paginate_by = 18
+    paginate_by = 8
 
     def get_queryset(self):
         """Select specific fields from the 'Product' model using the 'only' method"""
-        return Product.objects.only(
+        return Product.objects.filter(show_hide=True).only(
             'title', 'normal_price', 'image', 'stock',
             'featured', 'show_hide'
         )
@@ -55,7 +55,7 @@ class DeletedProductListView(ListView):
     model = Product
     template_name = 'management/product_list.html'
     context_object_name = 'products'
-    paginate_by = 18
+    paginate_by = 8
 
     def get_queryset(self):
         """Select specific fields from the 'Product' model using the 'only' method"""
