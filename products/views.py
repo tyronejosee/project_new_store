@@ -3,7 +3,7 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from django.db.models import Q
-from products.models import Product, Brand, Deal
+from products.models import Product, Brand, Deal, Category
 from products.forms import CategoriesForm
 
 
@@ -77,7 +77,25 @@ class RecentProductsListView(ListView):
         return queryset
 
 
-class BrandListView(ListView):
+class CategoryFilterListView(ListView):
+    """Display a list of all products from a category."""
+    model = Product
+    template_name = 'products/brand.html'
+    context_object_name = 'products'
+    paginate_by = 18
+    ordering = ['title']
+
+    def get_queryset(self):
+        category_title = self.kwargs['category_title']
+        return Product.objects.filter(category__title=category_title)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = Category.objects.get(title=self.kwargs['category_title'])
+        return context
+
+
+class BrandFilterListView(ListView):
     """Display a list of all products from a brand."""
     model = Product
     template_name = 'products/brand.html'

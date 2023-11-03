@@ -2,7 +2,7 @@
 
 from django.urls import path, include
 from products.views import (
-    ProductListView, ProductDetailView, RecentProductsListView, product_search, CategoriesListView, BrandListView
+    ProductListView, ProductDetailView, RecentProductsListView, product_search, CategoriesListView, BrandFilterListView, CategoryFilterListView
 )
 
 app_name = 'products'
@@ -16,6 +16,7 @@ urlpatterns = [
     path('categories/', CategoriesListView.as_view(), name='categories'),
     path('items/', ProductListView.as_view(), name='items'),
     path('items/<int:pk>/', ProductDetailView.as_view(), name='detail'),
-    path('brands/<str:brand_name>/', BrandListView.as_view(), name='brands'),
+    path('category/<str:category_title>/', CategoryFilterListView.as_view(), name='category_filter'),
+    path('brands/<str:brand_name>/', BrandFilterListView.as_view(), name='brand_filter'),
     path('recent/', RecentProductsListView.as_view(), name="recent"),
 ]
