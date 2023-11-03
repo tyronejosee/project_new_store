@@ -6,7 +6,7 @@ from cart.views import store, add_product, remove_product, subtract_product, cle
 app_name = 'cart'
 
 urlpatterns = [
-    path('store/', store, name='store'),
+    path('', store, name='store'),
     path('add_product/<int:product_id>/', add_product, name='add_product'),
     path('remove_product/<int:product_id>/',
          remove_product, name='remove_product'),

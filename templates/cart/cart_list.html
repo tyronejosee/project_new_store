@@ -2,58 +2,50 @@
 {% load static %}
 {% block title %}Cart{% endblock title %}
 {% block content %}
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+{% if cart.products.all %}
+<div class="max-screen-xl relative overflow-x-auto rounded-3xl">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
-                    Product
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Price
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Quantity
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Action
-                </th>
+                <th scope="col" class="px-6 py-3">Image</th>
+                <th scope="col" class="px-6 py-3">Product</th>
+                <th scope="col" class="px-6 py-3">Price</th>
+                <th scope="col" class="px-6 py-3">Quantity</th>
+                <th scope="col" class="px-6 py-3">Action</th>
             </tr>
         </thead>
         <tbody>
-            {% if cart.products.all %}
             {% for product in cart.products.all %}
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="px-6 py-4">
+                    <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
+                        <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
+                    </a>
+                </td>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ product.title|truncatechars:50 }}
                 </th>
+                <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
+                <td class="px-6 py-4">pending</td>
                 <td class="px-6 py-4">
-                    ${{ product.normal_price|floatformat:2 }}
-                </td>
-                <td class="px-6 py-4">
-                    pending
-                </td>
-                <td class="px-6 py-4">
-                    <a href="{% url 'cart:add_product' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add</a>
-                    <a href="{% url 'cart:subtract_product' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Subtract</a>
-                    <a href="{% url 'cart:remove_product' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
+                    <a href="{% url 'cart:remove_product' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">
+                        Remove
+                    </a>
                 </td>
             </tr>
             {% endfor %}
-            <tr>
-                <td>
-                    <a href="{% url 'cart:clear_cart' %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
-                    <a href="#" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
-                </td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="5">
-                    <div class="bg-red-500 text-white text-center">Empty cart.</div>
-                </td>
-            </tr>
-            {% endif %}
         </tbody>
     </table>
 </div>
+{% else %}
+<div class="p-4">
+    <div class="w-full h-80 dark:bg-neutral-800 rounded-3xl text-white flex items-center justify-center">Empty cart.</div>
+</div>
+{% endif %}
+{% if cart.products.all %}
+<div class="p-4">
+    <a href="{% url 'cart:clear_cart' %}" class=" bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
+    <a href="#" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
+</div >
+{% endif%}
 {% endblock %}
