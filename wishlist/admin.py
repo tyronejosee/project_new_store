@@ -1,3 +1,10 @@
-from django.contrib import admin
+"""Admin for Wishlist App."""
 
-# Register your models here.
+from django.contrib import admin
+from wishlist.models import Wishlist
+
+
+@admin.register(Wishlist)
+class WishlistAdmin(admin.ModelAdmin):
+    """Admin config for the Wishlist model."""
+    ordering = ('-user',)

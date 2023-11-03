@@ -26,7 +26,7 @@
                     <a href="{% url 'products:brands' brand_name=product.brand.name %}" class="font-medium text-gray-400 hover:text-sky-500 dark:text-gray-400 dark:hover:text-sky-500">{{ product.brand.name }}</a>
                 </div>
                 <div class="mr-0">
-                    <a href="{% url 'wishlist:add' product.id %}" class="text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-500">
+                    <a href="{% url 'wishlist:add_product' product.id %}" class="text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-500">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                           <path
                             stroke-linecap="round"

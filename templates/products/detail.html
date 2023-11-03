@@ -31,7 +31,7 @@
             </ul>
             <div class="space-x-2">
                 <a href="{% url 'cart:add_product' product.id %}" class="bg-sky-500 text-white px-4 py-2 rounded-3xl hover:bg-sky-800">Add to Cart</a>
-                <a href="{% url 'wishlist:add' product.id %}" class="bg-sky-500 text-white px-4 py-2 rounded-3xl hover:bg-sky-800">Add to Wishlist</a>
+                <a href="{% url 'wishlist:add_product' product.id %}" class="bg-sky-500 text-white px-4 py-2 rounded-3xl hover:bg-sky-800">Add to Wishlist</a>
             </div>
         </div>
     </div>
