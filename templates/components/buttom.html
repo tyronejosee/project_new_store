@@ -1,19 +1,19 @@
 <button id="scrollToTop" class="fixed bottom-6 right-6 bg-sky-500 hover:bg-sky-600 px-4 py-4 rounded-full z-50">
-    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
-    </svg>
+  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
+  </svg>
 </button>
 
 <script>
-    $(document).ready(function() {
-      $("#scrollToTop").click(function() {
-        $("html, body").animate(
-          {
-            scrollTop: 0
-          },
-          // Animation duration
-          500
-        );
-      });
+  $(document).ready(function() {
+    $("#scrollToTop").click(function() {
+      $("html, body").animate(
+        {
+          scrollTop: 0
+        },
+        // Animation duration
+        500
+      );
     });
+  });
 </script>

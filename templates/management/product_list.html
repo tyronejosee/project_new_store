@@ -2,87 +2,78 @@
 {% load static %}
 {% block title %}Product List{% endblock title %}
 {% block content %}
-<!-- Pagination -->
 {% include "components/pagination.html" %}
 <div class="flex justify-center my-4">
-    <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Create</a>
-    <a href="{% url 'management:prod_deleted' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Deleted</a>
-    <a href="{% url 'management:prod_available' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Available</a>
+  <a href="{% url 'management:prod_create' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Create</a>
+  <a href="{% url 'management:prod_deleted' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Deleted</a>
+  <a href="{% url 'management:prod_available' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Available</a>
 </div>
 <div class="max-screen-xl relative overflow-x-auto rounded-3xl">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">Image</th>
-                <th scope="col" class="px-6 py-3">Stock</th>
-                <th scope="col" class="px-6 py-3">Title</th>
-                <th scope="col" class="px-6 py-3">Price</th>
-                <th scope="col" class="px-6 py-3">Featured</th>
-                <th scope="col" class="px-6 py-3">Show/Hide</th>
-                <th scope="col" class="px-6 py-3">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for product in products %}
-            <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="px-6 py-4">
-                    <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-                        <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
-                    </a>
-                </td>
-                <td class="px-6 py-4">{{ product.stock }}</td>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ product.title|truncatechars:50 }}
-                </th>
-                <td class="px-6 py-4">${{ product.normal_price }}</td>
-                <td class="px-6 py-4">{{ product.featured }}</td>
-                <td class="px-6 py-4">{{ product.show_hide }}</td>
-                <td class="flex items-center px-6 py-4 space-x-3">
-                    <a href="{% url 'management:prod_update' pk=product.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <form method="post" action="{% url 'management:prod_delete' product.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Delete</button>
-                    </form>
-                    <form method="post" action="{% url 'management:prod_reactivate' product.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Reactivate</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">Image</th>
+        <th scope="col" class="px-6 py-3">Stock</th>
+        <th scope="col" class="px-6 py-3">Title</th>
+        <th scope="col" class="px-6 py-3">Price</th>
+        <th scope="col" class="px-6 py-3">Featured</th>
+        <th scope="col" class="px-6 py-3">Show/Hide</th>
+        <th scope="col" class="px-6 py-3">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <td class="px-6 py-4">
+          <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
+            <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
+          </a>
+        </td>
+        <td class="px-6 py-4">{{ product.stock }}</td>
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          {{ product.title|truncatechars:50 }}
+        </th>
+        <td class="px-6 py-4">${{ product.normal_price }}</td>
+        <td class="px-6 py-4">{{ product.featured }}</td>
+        <td class="px-6 py-4">{{ product.show_hide }}</td>
+        <td class="flex items-center px-6 py-4 space-x-3">
+          <a href="{% url 'management:prod_update' pk=product.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+          <form method="post" action="{% url 'management:prod_delete' product.id %}">{% csrf_token %}
+            <button type="submit">Delete</button>
+          </form>
+          <form method="post" action="{% url 'management:prod_reactivate' product.id %}">{% csrf_token %}
+            <button type="submit">Reactivate</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
-<!-- PopUp -->
 <div id="imagePopup" class="fixed inset-0 flex items-center justify-center z-10 hidden">
-    <div class="modal-overlay absolute w-full h-full bg-neutral-900 opacity-75"></div>
-    <div class="modal-container bg-white w-1/2 md:w-1/3 mx-auto rounded-3xl z-50 overflow-y-auto">
-        <div class="modal-content py-4 text-left px-6">
-            <span class="modal-close cursor-pointer z-50 absolute top-0 right-0 mt-4 mr-4 text-3xl" id="closeImagePopup">&times;</span>
-            <img class="popup-image" id="expandedImage" src="">
-        </div>
+  <div class="modal-overlay absolute w-full h-full bg-neutral-900 opacity-75"></div>
+  <div class="modal-container bg-white w-1/2 md:w-1/3 mx-auto rounded-3xl z-50 overflow-y-auto">
+    <div class="modal-content py-4 text-left px-6">
+      <span class="modal-close cursor-pointer z-50 absolute top-0 right-0 mt-4 mr-4 text-3xl" id="closeImagePopup">&times;</span>
+      <img class="popup-image" id="expandedImage" src="">
     </div>
+  </div>
 </div>
 <script>
-    $(document).ready(function() {
-    // Open the popup when clicking on the image.
+  $(document).ready(function() {
     $('.show-image-popup').on('click', function(e) {
-        e.preventDefault();
-        var imageUrl = $(this).data('src');
-        var modalImg = $('#expandedImage');
-        modalImg.attr('src', imageUrl);
-        $('#imagePopup').removeClass('hidden');
+      e.preventDefault();
+      var imageUrl = $(this).data('src');
+      var modalImg = $('#expandedImage');
+      modalImg.attr('src', imageUrl);
+      $('#imagePopup').removeClass('hidden');
     });
-
-    // Close the popup when clicking on the close button.
     $('#closeImagePopup').on('click', function() {
-        $('#imagePopup').addClass('hidden');
+      $('#imagePopup').addClass('hidden');
     });
-
-    // Close the popup when clicking outside the overlay.
     $('.modal-overlay').on('click', function() {
-        $('#imagePopup').addClass('hidden');
+      $('#imagePopup').addClass('hidden');
     });
-    });
+  });
 </script>
 {% endblock content %}

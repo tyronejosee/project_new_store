@@ -2,21 +2,20 @@
 {% load static %}
 {% block title %}List{% endblock title %}
 {% block content %}
-<!-- Title -->
 <div class="flex flex-col items-center my-8">
-    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Categories</h2>
-    <span>
-        <strong>{{ page_obj.start_index }}</strong> - <strong>{{ page_obj.end_index }}</strong> of <strong>{{ page_obj.paginator.count }}</strong> products
-    </span>
+  <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Categories</h2>
+  <span>
+    {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
+  </span>
 </div>
-<!-- Product cards -->
 <div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
-    {% for product in products %}
-    {% include "components/card.html" %}
-    {% empty %}
-    <h2 class="text-3xl font-bold text-blue-700 mb-4 dark:text-white">No products match the selected filters.</h2>
-    {% endfor %}
+  {% for product in products %}
+  {% include "components/card.html" %}
+  {% empty %}
+  <h2 class="text-3xl font-bold text-blue-700 mb-4 dark:text-white">
+    No products match the selected filters.
+  </h2>
+  {% endfor %}
 </div>
-<!-- Pagination -->
 {% include "components/pagination.html" %}
 {% endblock content %}
