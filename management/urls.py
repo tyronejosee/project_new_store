@@ -3,6 +3,8 @@
 from django.urls import path
 from management.views import (
     ManagementView,
+    PageListView,
+    PageUpdateView,
     ProductListView,
     DeletedProductListView,
     ProductCreateView,
@@ -14,6 +16,8 @@ app_name = 'management'
 
 urlpatterns = [
     path('', ManagementView.as_view(), name='management'),
+    path('pages/', PageListView.as_view(), name='page_list'),
+    path('pages/update/<int:pk>', PageUpdateView.as_view(), name='page_update'),
     path('products/available/', ProductListView.as_view(), name='prod_available'),
     path('products/deleted/', DeletedProductListView.as_view(),
          name='prod_deleted'),

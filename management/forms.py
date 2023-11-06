@@ -1,7 +1,16 @@
 """Forms for Management App."""
 
 from django import forms
+from home.models import Page
 from products.models import Product
+
+
+class PageForm(forms.ModelForm):
+    """Base form for page update."""
+
+    class Meta:
+        model = Page
+        fields = '__all__'
 
 
 class ProductForm(forms.ModelForm):

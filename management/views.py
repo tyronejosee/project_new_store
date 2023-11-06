@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from home.models import Page
 from products.models import Product
-from management.forms import ProductForm
+from management.forms import PageForm, ProductForm
 
 
 class ManagementView(TemplateView):
@@ -28,9 +28,9 @@ class PageUpdateView(UpdateView):
     """Pending."""
 
     model = Page
-    form_class = None
+    form_class = PageForm
     template_name = 'management/page_form.html'
-    success_url = reverse_lazy('management:prod_available')
+    success_url = reverse_lazy('management:page_list')
 
 
 class ProductListView(ListView):

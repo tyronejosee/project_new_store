@@ -1,0 +1,18 @@
+{% extends 'management/management.html' %}
+{% load static %}
+{% block title %}Page Form{% endblock title %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+  <div class="form-group">
+    <label for="{{ form.key.id_for_label }}"
+    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Key</label>
+    {{ form.key }}
+  </div>
+  <div class="form-group">
+    <label for="{{ form.brand.id_for_label }}"
+    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
+    {{ form.content }}
+  </div>
+  <button type="submit">Save</button>
+</form>
+{% endblock content %}
