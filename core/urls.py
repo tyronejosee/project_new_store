@@ -11,10 +11,10 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path("", include("home.urls")),
     path("products/", include("products.urls")),
-    path("cart/", include("cart.urls")),
     path("wishlist/", include("wishlist.urls")),
     path("management/", include("management.urls")),
 ]
+
 
 # Debug Config
 if settings.DEBUG:

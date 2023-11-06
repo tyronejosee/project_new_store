@@ -8,10 +8,10 @@ from products.views import (
 app_name = 'products'
 
 urlpatterns = [
-    # Others
+    # Third-party URLs
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
-    # Public paths
+    # Products URLs
     path('', product_search, name='search'),
     path('categories/', CategoriesListView.as_view(), name='categories'),
     path('items/', ProductListView.as_view(), name='items'),

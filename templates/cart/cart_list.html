@@ -28,7 +28,7 @@
         <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
         <td class="px-6 py-4">pending</td>
         <td class="px-6 py-4">
-          <a href="{% url 'cart:remove_product' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">
+          <a href="{% url 'users:remove_prod_to_cart' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">
             Remove
           </a>
         </td>
@@ -44,7 +44,7 @@
 {% endif %}
 {% if cart.products.all %}
 <div class="p-4">
-  <a href="{% url 'cart:clear_cart' %}" class=" bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
+  <a href="{% url 'users:clear_cart' %}" class=" bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
   <a href="#" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
 </div >
 {% endif%}

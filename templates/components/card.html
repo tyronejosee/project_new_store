@@ -43,7 +43,7 @@
         {% endif %}
       </div>
       <div class="p-2 text-center">
-        <a href="{% url 'cart:add_product' product.id %}" class="block w-full text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-neutral-200 font-medium rounded-3xl text-xs px-3 py-2 dark:bg-sky-500 dark:hover:bg-sky-600 dark:focus:ring-neutral-700">
+        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="block w-full text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-neutral-200 font-medium rounded-3xl text-xs px-3 py-2 dark:bg-sky-500 dark:hover:bg-sky-600 dark:focus:ring-neutral-700">
           Add to cart
         </a>
       </div>

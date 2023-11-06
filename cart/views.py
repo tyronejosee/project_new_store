@@ -5,7 +5,7 @@ from products.models import Product
 from cart.models import Cart
 
 
-def store(request):
+def cart(request):
     """Render the cart view."""
     user = request.user
     cart, created = Cart.objects.get_or_create(user=user)
@@ -19,7 +19,7 @@ def add_product(request, product_id):
     product = Product.objects.get(id=product_id)
     cart, created = Cart.objects.get_or_create(user=user)
     cart.add_product(product)
-    return redirect("cart:store")
+    return redirect("users:cart")
 
 
 def remove_product(request, product_id):
@@ -28,7 +28,7 @@ def remove_product(request, product_id):
     product = Product.objects.get(id=product_id)
     cart, created = Cart.objects.get_or_create(user=user)
     cart.remove_product(product)
-    return redirect("cart:store")
+    return redirect("users:cart")
 
 
 def subtract_product(request, product_id):
@@ -37,7 +37,7 @@ def subtract_product(request, product_id):
     product = Product.objects.get(id=product_id)
     cart, created = Cart.objects.get_or_create(user=user)
     cart.subtract_product(product)
-    return redirect("cart:store")
+    return redirect("users:cart")
 
 
 def clear_cart(request):
@@ -45,4 +45,4 @@ def clear_cart(request):
     user = request.user
     cart, created = Cart.objects.get_or_create(user=user)
     cart.clear_cart()
-    return redirect("cart:store")
+    return redirect("users:cart")
