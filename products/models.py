@@ -2,6 +2,7 @@
 
 import os
 from django.db import models
+from django.dispatch import receiver
 from ckeditor.fields import RichTextField
 
 
@@ -96,18 +97,28 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         """Override the save method to rename the image before saving it."""
-        if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-            # Gets the original file name
-            file_name, file_extension = os.path.splitext(self.image.name)
-            # Creates the new name in the format 'item-pk.webp'
-            new_file_name = f'item-{self.id}{file_extension}'
-            # Changes the file name
-            self.image.name = new_file_name
+        if self.image and self.image.name:
+            if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
+                # Gets the original file name
+                file_name, file_extension = os.path.splitext(self.image.name)
+                # Create a new name in lowercase, example 'item-title.webp'
+                title_in_lowercase = self.title.lower()
+                new_file_name = f'item-{title_in_lowercase}{file_extension}'
+                # Changes the file name
+                self.image.name = new_file_name
 
-        super(Product, self).save(*args, **kwargs)
+            super(Product, self).save(*args, **kwargs)
 
     def price_with_discount(self):
         """Pending."""
         if self.deal:
             return self.normal_price - (self.normal_price * (self.deal.discount / 100))
         return self.normal_price
+
+
+@receiver(models.signals.post_delete, sender=Product)
+def auto_remove_image(sender, instance, **kwargs):
+    """Signal to remove the related image when deleting a product."""
+    if instance.image:
+        if os.path.isfile(instance.image.path):
+            os.remove(instance.image.path)

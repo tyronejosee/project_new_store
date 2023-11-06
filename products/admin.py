@@ -65,6 +65,13 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
             'all': ('pages/css/custom_ckeditor.css',)
         }
 
+    def save_model(self, request, obj, form, change):
+        "Override the save_model method to remove the image when clearing the path in the prod."
+        if change and 'image' in form.changed_data:
+            old_product = Product.objects.get(pk=obj.pk)
+            old_product.image.delete(save=False)
+        super().save_model(request, obj, form, change)
+
 
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
