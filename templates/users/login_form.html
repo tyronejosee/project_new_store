@@ -6,7 +6,7 @@
   <form method="POST">{% csrf_token %}
     {% if form.error_messages %}
     <div class="#" role="alert">
-      <strong>{{ form.get_invalid_login_error }}</strong>
+      {{ form.get_invalid_login_error }}
     </div>
     {% endif %}
     <div class="mb-6">

@@ -5,10 +5,10 @@
     <a href="{% url 'home:index' %}" class="flex items-center">
       <img src="{% static 'logo.svg' %}" class="h-8 mr-3" alt="new-store-logo" />
       <span
-        class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 dark:text-sky-500 hidden md:block">New
-        Store</span>
+        class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 dark:text-sky-500 hidden md:block">
+        New Store
+      </span>
     </a>
-    <!-- Search bar -->
     <div class="flex-grow md:order-1 px-12">
       <div class="relative">
         <form method="get" action="{% url 'products:search' %}">
@@ -27,7 +27,6 @@
       </div>
     </div>
     {% if user.is_authenticated %}
-    <!-- Dropdown menu -->
     <div class="flex items-center md:order-2 relative group">
       <button type="button"
         class="flex mr-3 text-sm bg-sky-500 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -58,8 +57,7 @@
           </li>
           <li>
             <a href="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Sign
-              out</a>
+              class="block px-4 py-2 text-sm text-gray-700 hover-bg-gray-100 dark-hover-bg-gray-600 dark-text-gray-200 dark-hover-text-white">Sign out</a>
           </li>
         </ul>
       </div>

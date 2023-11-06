@@ -3,11 +3,10 @@
 {% block title %}Login{% endblock title %}
 {% block content %}
 <div class="mx-auto max-w-lg">
-  <form method="POST">
-    {% csrf_token %}
+  <form method="POST">{% csrf_token %}
     <div class="mb-6">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-        {{ form.username }}
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+      {{ form.username }}
     </div>
     <div class="mb-6">
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
@@ -43,4 +42,4 @@
     </button>
   </form>
 </div>
-{% endblock %}
+{% endblock content %}

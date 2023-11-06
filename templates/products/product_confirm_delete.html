@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}What's New{% endblock title %}
+{% block title %}Confirm{% endblock title %}
 {% block content %}
 <form method="post">{% csrf_token %}
   <p>Are you sure you want to delete "{{ object }}"?</p>
