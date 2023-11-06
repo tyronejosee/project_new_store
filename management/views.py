@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from home.models import Page
+from users.models import CustomUser
 from products.models import Product
 from management.forms import PageForm, ProductForm
 
@@ -31,6 +32,14 @@ class PageUpdateView(UpdateView):
     form_class = PageForm
     template_name = 'management/page_form.html'
     success_url = reverse_lazy('management:page_list')
+
+
+class UserListView(ListView):
+    """Pending."""
+
+    model = CustomUser
+    template_name = 'management/user_list.html'
+    context_object_name = 'users'
 
 
 class ProductListView(ListView):
