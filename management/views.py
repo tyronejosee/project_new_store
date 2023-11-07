@@ -3,7 +3,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from home.models import Page
 from users.models import CustomUser
@@ -12,12 +12,12 @@ from management.forms import PageForm, ProductForm
 
 
 class ManagementView(TemplateView):
-    """Pending."""
+    """View for the management dashboard."""
     template_name = 'management/management.html'
 
 
 class PageListView(ListView):
-    """Pending."""
+    """View for displaying a list of pages."""
 
     model = Page
     template_name = 'management/page_list.html'
@@ -26,7 +26,7 @@ class PageListView(ListView):
 
 
 class PageUpdateView(UpdateView):
-    """Pending."""
+    """View for updating a Page."""
 
     model = Page
     form_class = PageForm
@@ -35,7 +35,7 @@ class PageUpdateView(UpdateView):
 
 
 class UserListView(ListView):
-    """Pending."""
+    """View to display a list of users."""
 
     model = CustomUser
     template_name = 'management/user_list.html'
@@ -43,7 +43,7 @@ class UserListView(ListView):
 
 
 class ProductListView(ListView):
-    """Display a list of available products."""
+    """View to display a list of available products."""
 
     model = Product
     template_name = 'management/product_list.html'
@@ -58,8 +58,8 @@ class ProductListView(ListView):
         )
 
 
-class DeletedProductListView(ListView):
-    """Display a list of deleted products."""
+class DeactivatedProductListView(ListView):
+    """View to display a list of deactivated products."""
 
     model = Product
     template_name = 'management/product_list.html'
@@ -75,25 +75,25 @@ class DeletedProductListView(ListView):
 
 
 class ProductCreateView(CreateView):
-    """Create a new product."""
+    """View to create a new product."""
 
     model = Product
     form_class = ProductForm
     template_name = 'management/product_form.html'
-    success_url = reverse_lazy('management:prod_available')
+    success_url = reverse_lazy('management:product_list')
 
 
 class ProductUpdateView(UpdateView):
-    """Update the information of a product."""
+    """"View to update a product's information."""
 
     model = Product
     form_class = ProductForm
     template_name = 'management/product_form.html'
-    success_url = reverse_lazy('management:prod_available')
+    success_url = reverse_lazy('management:product_list')
 
 
 class ProductDeleteView(DeleteView):
-    """Remove an item from the products logically."""
+    """View to update a product's information."""
 
     model = Product
     success_url = None
@@ -103,24 +103,24 @@ class ProductDeleteView(DeleteView):
         object = Product.objects.get(id=pk)
         object.show_hide = False
         object.save()
-        return redirect('management:prod_available')
+        return redirect('management:product_list')
 
 
 class ProductStatusToggleView(DeleteView):
-    """Toggle the status of a product (delete or reactivate)."""
+    """View to change a product's status (activate/deactivate)."""
 
     model = Product
     success_url = None
 
     def post(self, request, pk, action, *args, **kwargs):
-        """Toggle the status of the product (delete or reactivate)."""
+        """Toggle the status of the product (deactivate or activate)."""
         product = Product.objects.get(id=pk)
 
-        if action == "delete":
+        if action == "deactivate":
             product.show_hide = False
             product.save()
-            return redirect('management:prod_available')
-        elif action == "reactivate":
+            return redirect('management:product_list')
+        elif action == "activate":
             product.show_hide = True
             product.save()
-            return redirect('management:prod_deleted')
+            return redirect('management:product_deactivated_list')
