@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Deals{% endblock title %}
+{% block content %}
+<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+  {% for deal in deals %}
+  <a href="#" class="w-full md:w-1/2 lg:w-1/2 p-4">
+    {% if deal.image %}
+    <div class="text-white text-center">{{ deal.name }}</div>
+    <img class="w-full h-auto max-w-lg mx-auto transition-all duration-300 rounded-3xl cursor-pointer filter grayscale hover:grayscale-0" src="{{ deal.image.url }}" alt="image description">
+    {% else %}
+    <div class="bg-gray-200 w-full h-auto max-w-lg p-4 rounded-3xl text-center">
+      <span class="text-gray-500">NO IMAGE</span>
+    </div>
+    {% endif %}
+  </a>
+  {% empty %}
+  <span class="text-3xl font-bold text-sky-500 mb-4 dark:text-white">No deals available.</span>
+  {% endfor %}
+</div>
+{% endblock content %}

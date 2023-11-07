@@ -1,6 +1,6 @@
 """Views for Products App."""
 
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.shortcuts import render
 from django.db.models import Q
 from products.models import Product, Brand, Deal, Category
@@ -62,6 +62,13 @@ class CategoriesListView(ListView):
         context['form'] = CategoriesForm()
         context['deals'] = Deal.objects.all()
         return context
+
+
+class DealListView(ListView):
+    """View to display a list of deals."""
+    model = Deal
+    template_name = 'products/deal.html'
+    context_object_name = 'deals'
 
 
 class RecentProductsListView(ListView):
