@@ -12,10 +12,10 @@
       <span class="text-gray-600 mb-2">Details</span>
       <ul class="mb-4 dark:text-white">
         <li>
-          <a href="{% url 'products:brand_filter' brand_name=product.brand.name %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-blue-600">{{ product.brand.name }}</a>
+          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-blue-600">{{ product.brand.name }}</a>
         </li>
         <li>
-          <a href="{% url 'products:category_filter' category_title=product.category.title %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-blue-600">{{ product.category.title }}</a>
+          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-blue-600">{{ product.category.title }}</a>
         </li>
         <li>ID: item-{{ product.id }}</li>
         <li>Category: {{ product.category.title }}</li>

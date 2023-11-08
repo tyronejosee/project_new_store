@@ -93,12 +93,12 @@ class CategoryFilterListView(ListView):
     ordering = ['title']
 
     def get_queryset(self):
-        category_title = self.kwargs['category_title']
-        return Product.objects.filter(category__title=category_title)
+        category_slug = self.kwargs['category_slug']
+        return Product.objects.filter(category__slug=category_slug)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['category'] = Category.objects.get(title=self.kwargs['category_title'])
+        context['category'] = Category.objects.get(slug=self.kwargs['category_slug'])
         return context
 
 

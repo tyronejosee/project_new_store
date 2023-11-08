@@ -10,8 +10,8 @@ from ckeditor.fields import RichTextField
 class Category(models.Model):
     """Catalog type model for Category."""
 
-    title = models.CharField(
-        max_length=50, unique=True, verbose_name='Category')
+    title = models.CharField(max_length=50, unique=True, verbose_name='Category')
+    slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
     class Meta:
@@ -21,6 +21,12 @@ class Category(models.Model):
 
     def __str__(self):
         return str(self.title)
+    
+    def save(self, *args, **kwargs):
+        """Override the method to save a slug if it is not defined."""
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class Brand(models.Model):
@@ -105,21 +111,18 @@ class Product(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        """Override the save method to rename the image before saving it."""
+        """Override the method to rename the image before saving it."""
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-                # Gets the original file name
-                file_name, file_extension = os.path.splitext(self.image.name)
-                # Create a new name in lowercase, example 'item-title.webp'
-                title_in_lowercase = self.title.lower()
+                file_name, file_extension = os.path.splitext(self.image.name)   # Gets the original file name
+                title_in_lowercase = self.title.lower()    # Create a new name in lowercase
                 new_file_name = f'item-{title_in_lowercase}{file_extension}'
-                # Changes the file name
-                self.image.name = new_file_name
+                self.image.name = new_file_name    # Changes the file name
 
             super(Product, self).save(*args, **kwargs)
 
     def price_with_discount(self):
-        """Pending."""
+        """Method applies a discount with a percentage to the normal_price of a product."""
         if self.deal:
             return self.normal_price - (self.normal_price * (self.deal.discount / 100))
         return self.normal_price
