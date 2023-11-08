@@ -10,7 +10,12 @@ class PageForm(forms.ModelForm):
 
     class Meta:
         model = Page
-        fields = '__all__'
+        fields = ['key', 'content', 'image']
+        widgets = {
+            'key': forms.TextInput(attrs={'class': 'w-full p-2 border rounded-3xl'}),
+            'content': forms.Textarea(attrs={'class': 'w-full p-2 border rounded-3xl'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'w-full p-2 border rounded-3xl'}),
+        }
 
 
 class ProductForm(forms.ModelForm):
