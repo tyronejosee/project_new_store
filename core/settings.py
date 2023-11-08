@@ -66,6 +66,10 @@ SITE_ID = 1
 AUTH_USER_MODEL = 'users.CustomUser'
 
 
+# Log setting
+LOGIN_URL = '/users/login/'
+
+
 # NPM
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
