@@ -25,6 +25,6 @@ urlpatterns = [
     path('items/<int:pk>/', ProductDetailView.as_view(), name='detail'),
     path('category/<str:category_title>/', CategoryFilterListView.as_view(), name='category_filter'),
     path('deals/', DealListView.as_view(), name='deal_list'),
-    path('brands/<str:brand_name>/', BrandFilterListView.as_view(), name='brand_filter'),
+    path('brands/<str:brand_slug>/', BrandFilterListView.as_view(), name='brand_filter'),
     path('recent/', RecentProductsListView.as_view(), name="recent"),
 ]

@@ -19,3 +19,16 @@ class DealTemplateView(TemplateView):
         ).order_by('-updated_at')[:6]
 
         return context
+
+---
+
+from django.utils.text import slugify
+from products.models import Brand
+
+entries = Brand.objects.filter(slug__isnull=True)
+
+for entry in entries:
+    entry.slug = slugify(entry.name)
+    entry.save()
+
+---

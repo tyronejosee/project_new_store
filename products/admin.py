@@ -45,7 +45,7 @@ class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 @admin.register(Brand)
 class BrandAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Brand model."""
-    list_display = ('name', 'show_hide',)
+    list_display = ('name', 'slug', 'show_hide',)
     ordering = ('name',)
     resource_class = BrandResource
 

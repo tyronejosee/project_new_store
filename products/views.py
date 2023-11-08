@@ -111,12 +111,12 @@ class BrandFilterListView(ListView):
     ordering = ['title']
 
     def get_queryset(self):
-        brand_name = self.kwargs['brand_name']
-        return Product.objects.filter(brand__name=brand_name)
+        brand_slug = self.kwargs['brand_slug']
+        return Product.objects.filter(brand__slug=brand_slug)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['brand'] = Brand.objects.get(name=self.kwargs['brand_name'])
+        context['brand'] = Brand.objects.get(slug=self.kwargs['brand_slug'])
         return context
 
 

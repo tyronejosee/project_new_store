@@ -3,6 +3,7 @@
 import os
 from django.db import models
 from django.dispatch import receiver
+from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 
 
@@ -26,6 +27,7 @@ class Brand(models.Model):
     """Catalog type model for Brand."""
 
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
+    slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
 
     class Meta:
@@ -35,6 +37,12 @@ class Brand(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+    def save(self, *args, **kwargs):
+        """Override the method to save a slug if it is not defined."""
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class Deal(models.Model):
