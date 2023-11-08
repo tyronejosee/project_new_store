@@ -1,6 +1,6 @@
 """Views for Products App."""
 
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from django.db.models import Q
 from products.models import Product, Brand, Deal, Category
