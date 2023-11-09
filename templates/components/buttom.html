@@ -4,23 +4,14 @@
   </svg>
 </button>
 <script>
-  $(function() {
-    var timeout;
-
-    $("#scrollToTop").hide();
-
-    $(window).scroll(function() {
-      $("#scrollToTop").fadeToggle($(this).scrollTop() > 100);
-      resetTimeout();
+  $(document).ready(function() {
+    $("#scrollToTop").click(function() {
+      $("html, body").animate(
+        {
+          scrollTop: 0
+        },
+        500
+      );
     });
-
-    $(window).on('scroll', resetTimeout);
-
-    function resetTimeout() {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => $("#scrollToTop").fadeOut(), 3000);
-    }
-
-    $("#scrollToTop").click(() => $("html, body").animate({ scrollTop: 0 }, 500));
   });
 </script>

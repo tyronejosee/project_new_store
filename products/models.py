@@ -134,9 +134,10 @@ class Product(models.Model):
 
     def price_with_discount(self):
         """Method applies a discount with a percentage to the normal_price of a product."""
-        if self.deal:
+        if self.deal.discount is not None:
             return self.normal_price - (self.normal_price * (self.deal.discount / 100))
-        return self.normal_price
+        else:
+            return self.normal_price
 
 
 @receiver(models.signals.post_delete, sender=Product)
