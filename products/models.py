@@ -23,8 +23,8 @@ class Category(models.Model):
         return str(self.title)
     
     def save(self, *args, **kwargs):
-        """Override the method to save a slug if it is not defined."""
-        if not self.slug:
+        """Override method to save a slug if not existing or different from the title."""
+        if not self.slug or self.slug != slugify(self.title):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
@@ -45,8 +45,8 @@ class Brand(models.Model):
         return str(self.name)
 
     def save(self, *args, **kwargs):
-        """Override the method to save a slug if it is not defined."""
-        if not self.slug:
+        """Override method to save a slug if not existing or different from the name."""
+        if not self.slug or self.slug != slugify(self.name):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
@@ -55,6 +55,7 @@ class Deal(models.Model):
     """Entity type model for Deals."""
 
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
+    slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
     image = models.ImageField(upload_to='deals/', blank=True, null=True, verbose_name='Image')
     description = models.TextField(blank=True, null=True, verbose_name='Description')
     discount = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name='Discount')
@@ -64,6 +65,12 @@ class Deal(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+    def save(self, *args, **kwargs):
+        """Override method to save a slug if not existing or different from the name."""
+        if not self.slug or self.slug != slugify(self.name):
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class Product(models.Model):
@@ -79,6 +86,7 @@ class Product(models.Model):
     ]
 
     title = models.CharField(max_length=255, verbose_name='Title')
+    slug = models.SlugField(max_length=100, unique=True, null=True, blank=True, verbose_name='Slug')
     brand = models.ForeignKey(
         Brand, on_delete=models.CASCADE, verbose_name='Brand')
     normal_price = models.DecimalField(
@@ -111,7 +119,10 @@ class Product(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        """Override the method to rename the image before saving it."""
+        """Override the method to rename the image and save a slug."""
+        if not self.slug or self.slug != slugify(self.title):
+            self.slug = slugify(self.title)
+
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
                 file_name, file_extension = os.path.splitext(self.image.name)   # Gets the original file name
@@ -119,7 +130,7 @@ class Product(models.Model):
                 new_file_name = f'item-{title_in_lowercase}{file_extension}'
                 self.image.name = new_file_name    # Changes the file name
 
-            super(Product, self).save(*args, **kwargs)
+        super(Product, self).save(*args, **kwargs)
 
     def price_with_discount(self):
         """Method applies a discount with a percentage to the normal_price of a product."""

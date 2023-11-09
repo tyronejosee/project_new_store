@@ -53,7 +53,7 @@ class BrandAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Product model."""
-    list_display = ('title', 'normal_price', 'category',
+    list_display = ('title', 'slug', 'normal_price', 'category',
                     'brand', 'stock', 'featured', 'show_hide')
     readonly_fields = ('created_at', 'updated_at')
     ordering = ('-created_at',)
@@ -76,6 +76,6 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Deal model."""
-    list_display = ('name', 'discount', 'start_date', 'end_date')
+    list_display = ('name', 'slug', 'discount', 'start_date', 'end_date')
     ordering = ('-start_date',)
     resource_class = DealResource
