@@ -3,8 +3,8 @@
 {% block title %}Page List{% endblock title %}
 {% block content %}
 <div class="max-screen-xl relative overflow-x-auto rounded-3xl">
-  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
+  <table class="w-full text-sm text-left text-neutral-800 dark:text-neutral-200">
+    <thead class="border-b dark:border-b-neutral-700 text-neutral-800 bg-neutral-50 dark:bg-neutral-800 dark:text-neutral-200">
       <tr>
         <th scope="col" class="px-6 py-3">Image</th>
         <th scope="col" class="px-6 py-3">Unique Key</th>
@@ -15,8 +15,8 @@
     </thead>
     <tbody>
       {% for page in pages %}
-      <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-        <td class="px-6 py-4">
+      <tr class=" bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
+        <td class="px-6 py-2">
           {% if page.image %}
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">
             <img src="{{ page.image.url }}" class="rounded" width="30" height="30" alt="{{ page.key }}">
@@ -29,8 +29,8 @@
         <td class="px-6 py-4">{{ page.created_at|date:"d/m/Y - g:i a" }}</td>
         <td class="px-6 py-4">{{ page.updated_at|date:"d/m/Y - g:i a" }}</td>
         <td class="flex items-center px-6 py-4 space-x-3">
-          <a href="{% url 'management:page_update' pk=page.pk %}" class="text-gray-400 dark:text-gray-400 hover:text-sky-500">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <a href="{% url 'management:page_update' pk=page.pk %}" class="text-neutral-800 dark:text-neutral-200 hover:text-sky-500">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
               <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
               <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
             </svg>                        

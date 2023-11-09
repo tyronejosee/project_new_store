@@ -2,8 +2,8 @@
 {% block title %}Users{% endblock title %}
 {% block content %}
 <div class="max-screen-xl relative overflow-x-auto rounded-3xl">
-  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
+  <table class="w-full text-sm text-left text-neutral-800 dark:text-gray-400">
+    <thead class="bg-white dark:bg-neutral-700 dark:text-neutral-100">
       <tr>
         <th scope="col" class="px-6 py-3">Username</th>
         <th scope="col" class="px-6 py-3">Email</th>
@@ -13,7 +13,7 @@
     </thead>
     <tbody>
       {% for user in users %}
-      <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <tr class="bg-white hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700">
         <td class="px-6 py-4">{{ user.username }}</td>
         <td class="px-6 py-4">{{ user.email }}</td>
         <td class="px-6 py-4">{{ user.is_active }}</td>
