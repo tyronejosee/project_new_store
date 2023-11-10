@@ -2,9 +2,9 @@
 {% load static %}
 {% block title %}Page List{% endblock title %}
 {% block content %}
-<div class="max-screen-xl relative overflow-x-auto rounded-3xl">
+<div class="max-screen-xl relative overflow-x-auto rounded-3xl border border-neutral-300">
   <table class="w-full text-sm text-left text-neutral-800 dark:text-neutral-200">
-    <thead class="border-b dark:border-b-neutral-700 text-neutral-800 bg-neutral-50 dark:bg-neutral-800 dark:text-neutral-200">
+    <thead class="text-neutral-800 bg-white dark:bg-neutral-800 dark:text-neutral-200">
       <tr>
         <th scope="col" class="px-6 py-3">Image</th>
         <th scope="col" class="px-6 py-3">Unique Key</th>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       {% for page in pages %}
-      <tr class=" bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
+      <tr class=" bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700">
         <td class="px-6 py-2">
           {% if page.image %}
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">

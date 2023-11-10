@@ -2,17 +2,17 @@
 {% load static %}
 {% block title %}{{ page.key|title }}{% endblock title %}
 {% block content %}
-<div class="container mx-auto p-6">
-  <div class="border border-gray-200 bg-white dark:bg-neutral-800 dark:border-neutral-700 rounded-3xl text-left">
+<div class="mx-2 py-4">
+  <div class="bg-white dark:bg-neutral-800 rounded-xl text-left">
     <div class="relative">
       {% if page.image %}
-      <img src="{{ page.image.url }}" alt="page-image" class="w-full h-64 object-cover rounded-3xl" />
+      <img src="{{ page.image.url }}" alt="page-image" class="w-full h-64 object-cover rounded-xl" />
       {% else %}
-      <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-full h-64 object-cover rounded-3xl" />
+      <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-full h-64 object-cover rounded-xl" />
       {% endif %}
-      <div class="absolute inset-0 opacity-30 rounded-3xl"></div>
+      <div class="absolute inset-0 opacity-30 rounded-xl"></div>
     </div>
-    <div class="text-base tracking-tight text-gray-900 dark:text-white p-6">
+    <div class="text-base text-neutral-800 dark:text-neutral-200 p-6">
       {{ page.content|safe }}
     </div>
   </div>

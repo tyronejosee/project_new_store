@@ -2,50 +2,50 @@
 {% load static %}
 {% block title %}Home{% endblock title %}
 {% block content %}
-<div class="flex flex-col items-center my-8">
-  <h2 class="text-3xl font-bold text-sky-500 dark:text-white">All Products</h2>
+<div class="flex flex-col items-center">
+  <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200 my-4">All Products</h2>
 </div>
-<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+<div class="flex flex-wrap">
   {% for product in all_products %}
   {% include "components/card.html" %}
   {% empty %}
   <span class="text-3xl font-bold text-sky-500 mb-4 dark:text-white">No products available.</span>
   {% endfor %}
 </div>
-<div class="flex flex-col items-center my-8">
-  <h2 class="text-3xl font-bold text-sky-500 dark:text-white">Recent Products</h2>
+<div class="flex flex-col items-center">
+  <h2 class="text-3xl font-bold text-neutral-800 dark:text-neutral-200">Recent Products</h2>
 </div>
-<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+<div class="flex flex-wrap">
   {% for product in recent_products %}
   {% include "components/card.html" %}
   {% empty %}
   <span class="text-3xl font-bold text-blue-700 mb-4 dark:text-white">No products available.</span>
   {% endfor %}
 </div>
-<div class="flex flex-col items-center my-8">
-  <span class="text-3xl font-bold text-sky-500 dark:text-white">Headphones</span>
+<div class="flex flex-col items-center">
+  <span class="text-3xl font-bold text-neutral-800 dark:text-neutral-200">Headphones</span>
 </div>
-<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+<div class="flex flex-wrap">
   {% for product in apple %}
   {% include "components/card.html" %}
   {% empty %}
   <span class="text-3xl font-bold text-blue-700 mb-4 dark:text-white">No products available.</span>
   {% endfor %}
 </div>
-<div class="flex flex-col items-center my-8">
-  <span class="text-3xl font-bold text-sky-500 dark:text-white">Samsung</span>
+<div class="flex flex-col items-center">
+  <span class="text-3xl font-bold text-neutral-800 dark:text-neutral-200">Samsung</span>
 </div>
-<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+<div class="flex flex-wrap">
   {% for product in samsung %}
   {% include "components/card.html" %}
   {% empty %}
   <span class="text-3xl font-bold text-blue-700 mb-4 dark:text-white">No products available.</span>
   {% endfor %}
 </div>
-<div class="flex flex-col items-center my-8">
-  <span class="text-3xl font-bold text-sky-500 dark:text-white">Computer Monitors</span>
+<div class="flex flex-col items-center">
+  <span class="text-3xl font-bold text-neutral-800 dark:text-neutral-200">Computer Monitors</span>
 </div>
-<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+<div class="flex flex-wrap">
   {% for product in computer_monitors %}
   {% include "components/card.html" %}
   {% empty %}

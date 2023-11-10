@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'favicon/icon.ico' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
-  <body class="bg-gray-100 dark:bg-neutral-900 mx-4 sm:mx-8 md:mx-12 lg:mx-16">
+  <body class="max-w-screen-xl mx-4 sm:mx-8 md:mx-12 lg:mx-auto bg-neutral-100 dark:bg-neutral-900">
     {% include "components/navbar.html" %}
     {% include "components/header.html" %}
     {% block content %}{% endblock content %}
