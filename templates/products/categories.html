@@ -2,9 +2,9 @@
 {% load static %}
 {% block title %}Categories{% endblock title %}
 {% block content %}
-<div class="flex flex-col items-center">
-  <h2 class="text-3xl font-bold text-sky-500 mb-4 dark:text-blue-700">Categories</h2>
-  <span class="text-sky-500 mb-4 dark:text-white">
+<div class="flex justify-center">
+  <h2 class="text-xl font-bold text-sky-500">Categories</h2>
+  <span class="text-sm text-sky-500 dark:text-white">
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
 </div>

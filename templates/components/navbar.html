@@ -13,7 +13,7 @@
       <div class="relative">
         <form method="get" action="{% url 'products:search' %}">
           <input type="search" id="search-navbar"
-            class="w-full p-2 pl-10 text-sm text-neutral-800 rounded-xl border-hidden bg-white dark:bg-neutral-800 dark:placeholder-neutral-200 text-center dark:text-neutral-200"
+            class="w-full p-2 pl-10 text-sm text-center placeholder:text-neutral-800 rounded-xl border-hidden bg-white dark:bg-neutral-800 dark:placeholder-neutral-200  dark:text-neutral-200"
             placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

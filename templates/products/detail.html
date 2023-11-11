@@ -3,12 +3,12 @@
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
 <div class="flex flex-wrap mx-2 mt-4">
-  <div class="rounded-xl bg-white dark:bg-neutral-800 p-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <div class="w-full bg-white dark:bg-neutral-800 rounded-xl p-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div class="w-96 h-96">
       <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-xl">
     </div>
     <div>
-      <h1 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ product.title }}</h1>
+      <h1 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-200">{{ product.title }}</h1>
       <span class="text-gray-600 mb-2">Details</span>
       <ul class="mb-4 dark:text-white">
         <li>
@@ -35,27 +35,23 @@
       </div>
     </div>
   </div>
-  <div class="mt-4">
+  <div class="w-full mt-4">
     <ul class="flex" id="product-tabs">
-      <li class="-mb-px mr-1">
-        <a class=" bg-white rounded-xl py-2 px-4 text-sky-500 hover:text-gray-700 font-semibold dark:bg-neutral-800 dark:text-white" href="#description-tab">
-          Description
-        </a>
+      <li class="-mb-px mr-4 py-2 px-4 bg-white rounded-xl text-neutral-800 hover:text-sky-500 font-semibold dark:bg-neutral-800 dark:text-neutral-200">
+        <a href="#description-tab">Description</a>
       </li>
-      <li class="mr-1">
-        <a class="bg-white rounded-xl py-2 px-4 text-sky-500 hover:text-gray-700 font-semibold dark:bg-neutral-800 dark:text-white" href="#specifications-tab">
-          Specifications
-        </a>
+      <li class="mr-1 py-2 px-4 bg-white rounded-xl text-neutral-800 hover:text-sky-500 font-semibold dark:bg-neutral-800 dark:text-neutral-200">
+        <a href="#specifications-tab">Specifications</a>
       </li>
     </ul>
-    <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 mt-4">
+    <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 mt-4 mx-auto">
       <div id="description-tab" class="tab-content">
-        <h2 class="text-2xl font-semibold mb-4 dark:text-white">Description</h2>
-        <div class="dark:text-white">{{ product.description | safe }}</div>
+        <h2 class="text-2xl font-semibold mb-4 text-neutral-800 dark:text-white">Description</h2>
+        <div class="text-sm text-neutral-800 dark:text-neutral-200">{{ product.description | safe }}</div>
       </div>
-      <div id="specifications-tab" class="tab-content hidden">
-        <h2 class="text-2xl font-semibold mb-4 dark:text-white">Specifications</h2>
-        <div class="dark:text-white">{{ product.specifications | safe }}</div>
+      <div id="specifications-tab" class="tab-content hidden w-full">
+        <h2 class="text-2xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">Specifications</h2>
+        <div class="text-sm leading-loose text-neutral-800 dark:text-neutral-200">{{ product.specifications|safe }}</div>
       </div>
     </div>
   </div>
