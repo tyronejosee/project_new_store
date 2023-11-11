@@ -3,8 +3,8 @@
 {% block title %}Categories{% endblock title %}
 {% block content %}
 <div class="flex justify-center">
-  <h2 class="text-xl font-bold text-sky-500">Categories</h2>
-  <span class="text-sm text-sky-500 dark:text-white">
+  <h2>Categories</h2>
+  <span>
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
 </div>
@@ -34,7 +34,7 @@
   {% for product in products %}
   {% include "components/card.html" %}
   {% empty %}
-  <span>No products match the selected filters.</span>
+  <span>No products available.</span>
   {% endfor %}
 </div>
 {% include "components/pagination.html" %}

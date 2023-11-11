@@ -1,6 +1,6 @@
 {% extends 'management/management.html' %}
 {% load static %}
-{% block title %}Product List{% endblock title %}
+{% block title %}Product{% endblock title %}
 {% block content %}
 {% include "components/pagination.html" %}
 <div class="flex justify-center my-4">
@@ -8,8 +8,8 @@
   <a href="{% url 'management:product_deactivated_list' %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-block mx-4">Deactivated</a>
 </div>
 <div class="max-screen-xl relative overflow-x-auto rounded-3xl">
-  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 dark:text-gray-400">
+  <table class="w-full text-left">
+    <thead class="uppercase bg-gray-50 dark:bg-neutral-700">
       <tr>
         <th scope="col" class="px-6 py-3">Image</th>
         <th scope="col" class="px-6 py-3">Stock</th>
@@ -22,14 +22,14 @@
     </thead>
     <tbody>
       {% for product in products %}
-      <tr class="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <tr class="bg-white dark:bg-neutral-800 hover:bg-gray-50 dark:hover:bg-gray-600">
         <td class="px-6 py-4">
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
             <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
           </a>
         </td>
         <td class="px-6 py-4">{{ product.stock }}</td>
-        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        <th scope="row" class="px-6 py-4 whitespace-nowrap">
           {{ product.title|truncatechars:50 }}
         </th>
         <td class="px-6 py-4">${{ product.normal_price }}</td>

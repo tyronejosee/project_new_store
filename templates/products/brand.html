@@ -6,7 +6,7 @@
   {% for product in products %}
   {% include "components/card.html" %}
   {% empty %}
-  <span class="text-3xl font-bold text-sky-500 mb-4 dark:text-white">No products match the selected filters.</span>
+  <span>No products available.</span>
   {% endfor %}
 </div>
 {% endblock content %}

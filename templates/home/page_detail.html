@@ -3,7 +3,7 @@
 {% block title %}{{ page.key|title }}{% endblock title %}
 {% block content %}
 <div class="mx-2 py-4">
-  <div class="bg-white dark:bg-neutral-800 rounded-xl text-left">
+  <div class="bg-white dark:bg-neutral-800 rounded-xl">
     <div class="relative">
       {% if page.image %}
       <img src="{{ page.image.url }}" alt="page-image" class="w-full h-64 object-cover rounded-xl" />
@@ -12,7 +12,7 @@
       {% endif %}
       <div class="absolute inset-0 opacity-30 rounded-xl"></div>
     </div>
-    <div class="text-base text-neutral-800 dark:text-neutral-200 p-6">
+    <div class="p-6">
       {{ page.content|safe }}
     </div>
   </div>

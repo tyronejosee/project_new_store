@@ -3,9 +3,7 @@
 {% block title %}Recent{% endblock title %}
 {% block content %}
 <div class="flex flex-col items-center my-8">
-  <h2 class="text-3xl font-bold text-sky-500 dark:text-white">
-    Recent Products
-  </h2>
+  <h2 class="text-3xl">Recent Products</h2>
   <span>
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
@@ -14,9 +12,7 @@
   {% for product in products %}
   {% include "components/card.html" %}
   {% empty %}
-  <span class="text-3xl font-bold text-blue-700 mb-4 dark:text-white">
-    No products match the selected filters.
-  </span>
+  <span>No products available.</span>
   {% endfor %}
 </div>
 {% include "components/pagination.html" %}

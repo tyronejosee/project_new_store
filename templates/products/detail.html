@@ -8,50 +8,52 @@
       <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-xl">
     </div>
     <div>
-      <h1 class="text-2xl font-semibold text-neutral-800 dark:text-neutral-200">{{ product.title }}</h1>
-      <span class="text-gray-600 mb-2">Details</span>
-      <ul class="mb-4 dark:text-white">
+      <h1 class="text-2xl font-semibold">{{ product.title }}</h1>
+      <span class="mb-2">Details</span>
+      <ul class="mb-4">
         <li>
-          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-blue-600">{{ product.brand.name }}</a>
+          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-medium hover:text-sky-500">
+            {{ product.brand.name }}
+          </a>
         </li>
         <li>
-          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-medium text-gray-400 dark:text-gray-400 hover:text-sky-500 dark:hover:text-blue-600">{{ product.category.title }}</a>
+          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-medium hover:text-sky-500">{{ product.category.title }}</a>
         </li>
         <li>ID: item-{{ product.id }}</li>
         <li>Category: {{ product.category.title }}</li>
         <li>Stock: {{ product.stock }}</li>
         <li>Warranty: {{ product.get_warranty_display }}</li>
         <div class="flex items-center justify-between">
-          <span class="text-3xl font-bold text-gray-900 dark:text-white">${{ product.normal_price }}</span>
+          <span class="text-3xl">${{ product.normal_price }}</span>
           {% if product.deal %}
-          <span class="text-3xl font-bold text-gray-900 dark:text-white">${{ product.price_with_discount|floatformat:2 }}</span>
-          <span class="text-3xl font-bold text-gray-900 dark:text-white">{{ product.deal.discount|floatformat:0 }}%</span>
+          <span class="text-3xl">${{ product.price_with_discount|floatformat:2 }}</span>
+          <span class="text-3xl">{{ product.deal.discount|floatformat:0 }}%</span>
           {% endif %}
         </div>
       </ul>
       <div class="space-x-2">
-        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="bg-sky-500 text-white px-4 py-2 rounded-xl hover:bg-sky-800">Add to Cart</a>
-        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="bg-sky-500 text-white px-4 py-2 rounded-xl hover:bg-sky-800">Add to Wishlist</a>
+        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="bg-sky-500 hover:bg-sky-800 text-white px-4 py-2 rounded-xl">Add to Cart</a>
+        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="bg-sky-500 hover:bg-sky-800 text-white px-4 py-2 rounded-xl">Add to Wishlist</a>
       </div>
     </div>
   </div>
   <div class="w-full mt-4">
     <ul class="flex" id="product-tabs">
-      <li class="-mb-px mr-4 py-2 px-4 bg-white rounded-xl text-neutral-800 hover:text-sky-500 font-semibold dark:bg-neutral-800 dark:text-neutral-200">
+      <li class="-mb-px mr-4 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-sky-500 font-semibold rounded-xl">
         <a href="#description-tab">Description</a>
       </li>
-      <li class="mr-1 py-2 px-4 bg-white rounded-xl text-neutral-800 hover:text-sky-500 font-semibold dark:bg-neutral-800 dark:text-neutral-200">
+      <li class="mr-1 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-sky-500 font-semibold rounded-xl">
         <a href="#specifications-tab">Specifications</a>
       </li>
     </ul>
     <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 mt-4 mx-auto">
       <div id="description-tab" class="tab-content">
-        <h2 class="text-2xl font-semibold mb-4 text-neutral-800 dark:text-white">Description</h2>
-        <div class="text-sm text-neutral-800 dark:text-neutral-200">{{ product.description | safe }}</div>
+        <h2 class="font-semibold mb-4">Description</h2>
+        <p>{{ product.description | safe }}</p>
       </div>
       <div id="specifications-tab" class="tab-content hidden w-full">
-        <h2 class="text-2xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">Specifications</h2>
-        <div class="text-sm leading-loose text-neutral-800 dark:text-neutral-200">{{ product.specifications|safe }}</div>
+        <h2 class="font-semibold mb-4">Specifications</h2>
+        <p class="leading-loose">{{ product.specifications|safe }}</p>
       </div>
     </div>
   </div>

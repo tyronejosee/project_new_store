@@ -2,9 +2,9 @@
 {% load static tailwind_tags %}
 <div class="flex flex-col items-center my-4">
   <nav aria-label="Page navigation example" class="bg-white dark:bg-neutral-800 rounded-xl">
-    <ul class="flex items-center -space-x-px h-10 text-base">
+    <ul class="flex items-center -space-x-px h-10">
       <li>
-        <a href="?page=1" class="flex items-center justify-center px-4 h-10 ml-0 mx-1 leading-tight text-neutral-800 hover:bg-neutral-200 rounded-xl dark:text-neutral-200 dark:hover:bg-neutral-700">
+        <a href="?page=1" class="flex items-center justify-center px-4 h-10 ml-0 mx-1 leading-tight hover:bg-neutral-200 rounded-xl dark:hover:bg-neutral-700">
           <span class="sr-only">Previous</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -15,16 +15,16 @@
       <li>
         <a href="?page={{ page }}" class="flex items-center justify-center px-4 h-10 mx-1 leading-tight 
           {% if page_obj.number == page %}
-          text-sm text-neutral-800 bg-neutral-200 hover:bg-neutral-300 rounded-xl dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600
+          hover:bg-neutral-300 rounded-xl dark:bg-neutral-700 dark:hover:bg-neutral-600
           {% else %}
-          text-sm text-neutral-800 hover:bg-neutral-200 rounded-xl dark:text-neutral-200 dark:hover:bg-neutral-700
+          rounded-xl dark:hover:bg-neutral-700
           {% endif %}">
           {{ page }}
         </a>
       </li>
       {% endfor %}
       <li>
-        <a href="?page={{ page_obj.paginator.num_pages }}" class="flex items-center justify-center px-4 h-10 mr-0 mx-1 leading-tight text-neutral-800 rounded-xl hover:bg-neutral-200 dark:text-neutral-200 dark:hover:bg-neutral-700">
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="flex items-center justify-center px-4 h-10 mr-0 mx-1 leading-tight rounded-xl hover:bg-neutral-200 dark:hover:bg-neutral-700">
           <span class="sr-only">Next</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

@@ -13,10 +13,10 @@
       <div class="relative">
         <form method="get" action="{% url 'products:search' %}">
           <input type="search" id="search-navbar"
-            class="w-full p-2 pl-10 text-sm text-center placeholder:text-neutral-800 rounded-xl border-hidden bg-white dark:bg-neutral-800 dark:placeholder-neutral-200  dark:text-neutral-200"
+            class="w-full p-2 pl-10 text-center text-sm placeholder:text-neutral-800 rounded-xl bg-white dark:bg-neutral-800 dark:placeholder-neutral-200 border-hidden"
             placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               fill="none" viewBox="0 0 20 20">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -29,43 +29,43 @@
     {% if user.is_authenticated %}
     <div class="flex items-center md:order-2 relative group">
       <button type="button"
-        class="flex mr-3 text-sm bg-sky-500 rounded-xl md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+        class="flex mr-3 bg-sky-500 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
         data-dropdown-placement="bottom-start">
         <span class="sr-only">Open user menu</span>
         <img class="w-8 h-8 rounded-full" src="{% static 'logo.svg' %}" alt="user-photo">
       </button>
       <div
-        class="z-50 absolute left-0 top-full hidden mt-2 text-sm list-none bg-white divide-y divide-gray-100 rounded-3xl shadow-xl dark:bg-gray-700 dark:divide-gray-600"
+        class="z-50 absolute left-0 top-full hidden mt-2 list-none bg-white divide-y divide-gray-100 rounded-xl shadow-xl dark:bg-neutral-800 dark:divide-gray-600"
         id="user-dropdown">
         <div class="px-4 py-3">
-          <span class="block text-lg text-neutral-800 dark:text-neutral-200">{{ user.first_name }} {{ user.last_name }}</span>
-          <span class="block text-sm text-neutral-800 truncate dark:text-neutral-200">{{ user.email }}</span>
+          <span class="block">{{ user.first_name }} {{ user.last_name }}</span>
+          <span class="block truncate">{{ user.email }}</span>
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
             <a href="{% url 'users:profile' %}"
-              class="block px-4 py-2 text-sm text-neutral-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover-bg-gray-600 dark:hover-text-white">Profile</a>
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover-bg-gray-600">Profile</a>
           </li>
           <li>
             <a href="{% url 'users:cart' %}"
-              class="block px-4 py-2 text-sm text-neutral-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover-bg-gray-600 dark:hover-text-white">Cart</a>
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover-bg-gray-600">Cart</a>
           </li>
           <li>
             <a href="{% url 'users:wishlist' %}"
-              class="block px-4 py-2 text-sm text-neutral-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover-bg-gray-600 dark:hover-text-white">Wishlist</a>
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover-bg-gray-600">Wishlist</a>
           </li>
           <li>
             <a href="{% url 'users:logout' %}"
-              class="block px-4 py-2 text-sm text-neutral-800 dark:text-neutral-200 hover:bg-gray-100 dark:hover-bg-gray-600 dark:hover-text-white">Logout</a>
+              class="block px-4 py-2 hover:bg-gray-100 dark:hover-bg-gray-600">Logout</a>
           </li>
         </ul>
       </div>
     </div>
     {% else %}
     <div class="flex items-center md:order-2 relative group">
-      <a href="{% url 'users:login' %}" class="text-neutral-800 dark:text-neutral-200 hover:bg-white focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-neutral-800 focus:outline-none dark:focus:ring-neutral-700">Login</a>
-      <a href="{% url 'users:registration' %}" class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-3xl text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 bg-sky-500 hover:bg-sky-600 focus:outline-none dark:focus:ring-neutral-700">Sign Up</a>
+      <a href="{% url 'users:login' %}" class="hover:bg-white focus:ring-4 focus:ring-gray-300 font-medium rounded-xl px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-neutral-800 focus:outline-none dark:focus:ring-neutral-700">Login</a>
+      <a href="{% url 'users:registration' %}" class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-xl px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 bg-sky-500 hover:bg-sky-600 focus:outline-none dark:focus:ring-neutral-700">Sign Up</a>
     </div>
     {% endif %}
   </div>

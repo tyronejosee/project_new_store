@@ -2,9 +2,9 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-<div class="mx-auto relative w-full max-w-md max-h-full">
+<div class="relative w-full max-w-md max-h-full mx-auto">
   <div class="px-6 py-6 lg:px-8">
-      <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Log in to our platform</h3>
+      <h3 class="mb-4 text-xl font-medium">Log in to our platform</h3>
       <form class="space-y-6" method="POST">{% csrf_token %}
           {% if form.error_messages %}
           <div class="text-white" role="alert">
