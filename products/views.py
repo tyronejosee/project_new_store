@@ -124,9 +124,13 @@ def product_search(request):
     """Search bar, filtering by product title and brand."""
     queryset = request.GET.get("search")
     products = Product.objects.filter(show_hide=True)
+
     if queryset:
         products = Product.objects.filter(
             Q(title__icontains=queryset) |
             Q(brand__name__icontains=queryset)
         ).distinct()
-    return render(request, 'products/search_bar.html', {'products': products, 'queryset': queryset})
+
+    results = products.count()
+
+    return render(request, 'products/search_bar.html', {'products': products, 'queryset': queryset, 'results':results})

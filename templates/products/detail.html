@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
-<div class="flex flex-wrap mx-2 mt-4">
+<div class="flex flex-wrap mt-4">
   <div class="w-full bg-white dark:bg-neutral-800 rounded-xl p-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div class="w-96 h-96">
       <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-xl">

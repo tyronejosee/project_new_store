@@ -3,7 +3,7 @@
 {% block title %}Cart{% endblock title %}
 {% block content %}
 {% if cart.products.all %}
-<div class="max-screen-xl relative overflow-x-auto rounded-xl">
+<div class="relative overflow-x-auto rounded-xl mt-4">
   <table class="w-full text-left">
     <thead class="uppercase bg-gray-50 dark:bg-neutral-700">
       <tr>
@@ -38,9 +38,7 @@
   </table>
 </div>
 {% else %}
-<div class="p-4">
-  <div class="w-full h-80 dark:bg-neutral-800 rounded-3xl text-white flex items-center justify-center">Empty cart.</div>
-</div>
+<div class="w-full h-96 dark:bg-neutral-800 rounded-xl text-white flex items-center justify-center mt-4">Empty cart.</div>
 {% endif %}
 {% if cart.products.all %}
 <div class="p-4">

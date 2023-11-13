@@ -8,7 +8,7 @@
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
 </div>
-<div class="flex flex-wrap -mx-2 sm:-mx-4 md:-mx-4 lg:-mx-4">
+<div class="flex flex-wrap">
   {% for product in products %}
   {% include "components/card.html" %}
   {% empty %}

@@ -2,12 +2,11 @@
 {% load static %}
 {% block title %}Profile{% endblock title %}
 {% block content %}
-<a href="{% url 'users:logout' %}">Logout</a>
-<div class="flex flex-col items-center my-8">
+<div class="flex flex-col items-center my-6">
   <h1 class="text-2xl">Welcome {{ user.first_name }}</h1>
 </div>
 {% if wishlist.products.all %}
-<div class="max-screen-xl relative overflow-x-auto rounded-xl">
+<div class="relative overflow-x-auto rounded-xl">
   <table class="w-full text-left">
     <thead class="uppercase bg-gray-50 dark:bg-neutral-700">
       <tr>
@@ -42,8 +41,7 @@
   </table>
 </div>
 {% else %}
-<div class="p-4">
-  <div class="w-full h-80 dark:bg-neutral-800 rounded-xl text-white flex items-center justify-center">Empty wishlist.</div>
-</div>
+<div class="w-full h-80 bg-white dark:bg-neutral-800 rounded-xl flex items-center justify-center">Empty wishlist.</div>
+<a href="{% url 'users:logout' %}">Logout</a>
 {% endif %}
 {% endblock content %}
