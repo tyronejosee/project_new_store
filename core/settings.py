@@ -51,8 +51,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'ckeditor',
-    'tailwind',
-    'theme',
+    'compressor',
     'import_export',
 ]
 
@@ -60,6 +59,11 @@ INSTALLED_APPS = CORE_APPS + DJANGO_APPS + THIRD_PARTY_APPS
 
 
 SITE_ID = 1
+
+# Compressor settings
+COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ENABLED = True
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 
 # Auth model settings
@@ -78,12 +82,6 @@ NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
 
-
-# Django-tailwind settings
-TAILWIND_APP_NAME = 'theme'
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
 
 # CKEditor settings
 CKEDITOR_UPLOAD_PATH = "uploads/"
