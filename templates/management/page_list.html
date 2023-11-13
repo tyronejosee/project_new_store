@@ -2,24 +2,31 @@
 {% load static %}
 {% block title %}Page List{% endblock title %}
 {% block content %}
-<div class="max-screen-xl relative overflow-x-auto rounded-xl">
+<div class="bg-neutral-800 rounded-xl flex items-center justify-between h-12">
+  <div class="flex-none">
+    {% include "components/pagination.html" %}
+  </div>
+</div>
+<main class="relative overflow-x-auto rounded-xl mt-4">
   <table class="w-full text-left">
     <thead class="bg-white dark:bg-neutral-800">
       <tr>
-        <th scope="col" class="px-6 py-3">Image</th>
-        <th scope="col" class="px-6 py-3">Unique Key</th>
-        <th scope="col" class="px-6 py-3">Created at</th>
-        <th scope="col" class="px-6 py-3">Update at</th>
-        <th scope="col" class="px-6 py-3">Action</th>
+        <th scope="col" class="px-6 py-4">ID</th>
+        <th scope="col" class="px-6 py-4">IMAGE</th>
+        <th scope="col" class="px-6 py-4">UNIQUE KEY</th>
+        <th scope="col" class="px-6 py-4">CREATED AT</th>
+        <th scope="col" class="px-6 py-4">UPDATED AT</th>
+        <th scope="col" class="px-6 py-4">OPTIONS</th>
       </tr>
     </thead>
     <tbody>
       {% for page in pages %}
-      <tr class=" bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700">
-        <td class="px-6 py-2">
+      <tr class="bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700">
+        <td class="px-6 py-4">{{ page.id }}</td>
+        <td class="px-6 py-4">
           {% if page.image %}
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">
-            <img src="{{ page.image.url }}" class="rounded" width="30" height="30" alt="{{ page.key }}">
+            <img src="{{ page.image.url }}" class="rounded" width="25" height="25" alt="{{ page.key }}">
           </a>
           {% else %}
           <span>False</span>
@@ -40,5 +47,5 @@
       {% endfor %}
     </tbody>
   </table>
-</div>
+</main>
 {% endblock content %}
