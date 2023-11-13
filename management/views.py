@@ -3,7 +3,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from home.models import Page
 from users.models import CustomUser
@@ -13,7 +13,7 @@ from management.forms import PageForm, ProductForm
 
 class ManagementView(TemplateView):
     """View for the management dashboard."""
-    template_name = 'management/management.html'
+    template_name = 'management/dashboard.html'
 
 
 class PageListView(ListView):

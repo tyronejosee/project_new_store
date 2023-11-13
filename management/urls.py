@@ -17,7 +17,7 @@ from management.views import (
 app_name = 'management'
 
 urlpatterns = [
-    path('', ManagementView.as_view(), name='management'),
+    path('dashboard/', ManagementView.as_view(), name='management'),
     path('pages/', PageListView.as_view(), name='page_list'),
     path('pages/update/<int:pk>', PageUpdateView.as_view(), name='page_update'),
     path('users/', UserListView.as_view(), name='user_list'),
