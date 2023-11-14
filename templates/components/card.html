@@ -2,7 +2,7 @@
 <article class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 mb-4">
   <div class="bg-white dark:bg-neutral-800 mx-2 rounded-xl relative">
     {% if product.is_new %}
-    <span class="absolute top-0 left-0 ml-2 mt-2 p-1 rounded-lg bg-red-600 text-white text-xs font-bold">New</span>
+    <span class="absolute top-0 left-0 ml-2 mt-2 p-1 rounded-lg bg-primary text-white text-xs font-bold">New</span>
     {% endif %}
     <a href="{% url 'products:detail' product.pk %}">
       <img class="w-full h-auto rounded-xl" src="{{ product.image.url }}" alt="{{ product.title|lower|slugify }}" />
@@ -17,7 +17,7 @@
         <span class="font-bold">${{ product.normal_price }}</span>
         {% endif %}
         <div>
-          <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="hover:text-sky-500">
+          <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="hover:text-primary">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
               <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
             </svg>            
@@ -30,7 +30,7 @@
         </a>
       </div>
       <div class="text-center">
-        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="block w-full font-semibold text-white bg-sky-500 hover:bg-sky-600 focus:ring-4 focus:outline-none focus:ring-neutral-200 rounded-lg px-2 py-2">
+        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="primary-button block w-full">
           Add to cart
         </a>
       </div>

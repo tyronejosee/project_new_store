@@ -4,7 +4,7 @@
     <a href="{% url 'home:index' %}" class="flex items-center">
       <img src="{{ company.logo.url }}" class="h-8 mr-3" alt="{{ company.name }}" />
       <span
-        class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 hidden md:block">
+        class="self-center text-2xl font-semibold whitespace-nowrap text-primary hidden md:block">
         {{ company.name|default:'Company' }}
       </span>
     </a>
@@ -67,7 +67,7 @@
     {% else %}
     <div class="flex items-center md:order-2 relative group">
       <a href="{% url 'users:login' %}" class="hover:bg-white focus:ring-4 focus:ring-gray-300 font-medium rounded-xl px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-neutral-800 focus:outline-none dark:focus:ring-neutral-700">Login</a>
-      <a href="{% url 'users:registration' %}" class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-xl px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 bg-sky-500 hover:bg-sky-600 focus:outline-none dark:focus:ring-neutral-700">Sign Up</a>
+      <a href="{% url 'users:registration' %}" class="primary-button px-6">Sign Up</a>
     </div>
     {% endif %}
   </div>

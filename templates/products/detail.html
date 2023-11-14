@@ -10,17 +10,17 @@
     <div>
       <h1 class="text-2xl font-semibold">{{ product.title }}</h1>
       {% if product.is_new %}
-      <span class="rounded-lg bg-red-600 text-white text-xs font-bold">New</span>
+      <span class="rounded-lg bg-primary text-white text-xs font-bold">New</span>
       {% endif %}
       <span class="mb-2">Details</span>
       <ul class="mb-4">
         <li>
-          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-medium hover:text-sky-500">
+          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-medium hover:text-primary">
             {{ product.brand.name }}
           </a>
         </li>
         <li>
-          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-medium hover:text-sky-500">{{ product.category.title }}</a>
+          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-medium hover:text-primary">{{ product.category.title }}</a>
         </li>
         <li>ID: item-{{ product.id }}</li>
         <li>Category: {{ product.category.title }}</li>
@@ -35,17 +35,17 @@
         </div>
       </ul>
       <div class="space-x-2">
-        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="bg-sky-500 hover:bg-sky-800 text-white px-4 py-2 rounded-xl">Add to Cart</a>
-        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="bg-sky-500 hover:bg-sky-800 text-white px-4 py-2 rounded-xl">Add to Wishlist</a>
+        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="primary-button">Add to Cart</a>
+        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="primary-button">Add to Wishlist</a>
       </div>
     </div>
   </div>
   <div class="w-full mt-4">
     <ul class="flex" id="product-tabs">
-      <li class="-mb-px mr-4 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-sky-500 font-semibold rounded-xl">
+      <li class="-mb-px mr-4 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-primary font-semibold rounded-xl">
         <a href="#description-tab">Description</a>
       </li>
-      <li class="mr-1 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-sky-500 font-semibold rounded-xl">
+      <li class="mr-1 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-primary font-semibold rounded-xl">
         <a href="#specifications-tab">Specifications</a>
       </li>
     </ul>
