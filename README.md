@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://github.com/tyronejosee/project_new_store#gh-light-mode-only" target="_blank">
-    <img src="./static/favicon/logo_light.svg" alt="logo-light" width="80">
+    <img src="./static/icon/logo_light.svg" alt="logo-light" width="80">
   </a>
   <a href="https://github.com/tyronejosee/project_new_store#gh-dark-mode-only" target="_blank">
-    <img src="./static/favicon/logo_dark.svg" alt="logo-dark" width="80">
+    <img src="./static/icon/logo_dark.svg" alt="logo-dark" width="80">
   </a>
 </p>
 <p align="center">
