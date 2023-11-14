@@ -2,10 +2,10 @@
 <nav class="bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10 rounded-b-xl">
   <div class="flex flex-wrap items-center justify-between py-4">
     <a href="{% url 'home:index' %}" class="flex items-center">
-      <img src="{% static 'icon/logo.svg' %}" class="h-8 mr-3" alt="new-store-logo" />
+      <img src="{{ company.logo.url }}" class="h-8 mr-3" alt="{{ company.name }}" />
       <span
         class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 hidden md:block">
-        New Store
+        {{ company.name|default:'Company' }}
       </span>
     </a>
     <div class="flex-grow md:order-1 px-12">

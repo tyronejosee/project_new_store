@@ -5,6 +5,25 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 
+class Company(models.Model):
+    """Entity type model for Company."""
+
+    name = models.CharField(max_length=50, verbose_name='Name')
+    logo = models.FileField(upload_to='company/', verbose_name='Logo')
+    copy = models.CharField(max_length=150, verbose_name='Copy')
+    description = models.TextField(verbose_name='Description')
+    email = models.EmailField(verbose_name='Email')
+    github = models.URLField(verbose_name='GitHub')
+    linkedin = models.URLField(verbose_name='LinkedIn')
+
+    class Meta:
+        """Adds extra metadata to the Company model."""
+        verbose_name_plural = "Company"
+
+    def __str__(self):
+        return str(self.name)
+
+
 class Page(models.Model):
     """Entity type model for Pages."""
 

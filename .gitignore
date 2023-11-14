@@ -1,6 +1,7 @@
 dump/
 desktop.ini
 node_modules/
+static/admin/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

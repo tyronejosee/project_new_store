@@ -3,13 +3,18 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-from home.models import Page
+from home.models import Company, Page
 
 
 class PageResource(resources.ModelResource):
     """Class for importing and exporting data for the Page model."""
     class Meta:
         model = Page
+
+
+@admin.register(Company)
+class CompanyAdmin(admin.ModelAdmin):
+    """Admin configuration for the Company model."""
 
 
 @admin.register(Page)
