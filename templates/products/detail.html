@@ -9,6 +9,9 @@
     </div>
     <div>
       <h1 class="text-2xl font-semibold">{{ product.title }}</h1>
+      {% if product.is_new %}
+      <span class="rounded-lg bg-red-600 text-white text-xs font-bold">New</span>
+      {% endif %}
       <span class="mb-2">Details</span>
       <ul class="mb-4">
         <li>

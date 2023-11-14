@@ -3,6 +3,7 @@
 import os
 from django.db import models
 from django.dispatch import receiver
+from django.utils import timezone
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 
@@ -138,6 +139,14 @@ class Product(models.Model):
             return self.normal_price - (self.normal_price * (self.deal.discount / 100))
         else:
             return self.normal_price
+
+    def is_new(self):
+        """Method returns True if the product is new, created, or updated within a week."""
+        return (
+            self.created_at >= timezone.now() - timezone.timedelta(weeks=1) or
+            self.updated_at >= timezone.now() - timezone.timedelta(weeks=1)
+        )
+
 
 
 @receiver(models.signals.post_delete, sender=Product)
