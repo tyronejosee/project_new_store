@@ -31,3 +31,8 @@ class Cart(models.Model):
     def clear_cart(self):
         """Clear the cart."""
         self.products.clear()
+
+    def total_price(self):
+        """Calculate the total price of all products in the cart."""
+        total_price = sum(product.normal_price for product in self.products.all())
+        return total_price
