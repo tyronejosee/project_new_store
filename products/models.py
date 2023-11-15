@@ -68,10 +68,18 @@ class Deal(models.Model):
         return str(self.name)
 
     def save(self, *args, **kwargs):
-        """Override method to save a slug if not existing or different from the name."""
+        """Override the method to rename the image and save a slug."""
         if not self.slug or self.slug != slugify(self.name):
             self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
+
+        if self.image and self.image.name:
+            if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
+                file_name, file_extension = os.path.splitext(self.image.name)   # Gets the original file name
+                title_in_lowercase = self.name.lower()    # Create a new name in lowercase
+                new_file_name = f'deal-{title_in_lowercase}{file_extension}'
+                self.image.name = new_file_name    # Changes the file name
+
+        super(Deal, self).save(*args, **kwargs)
 
 
 class Product(models.Model):
@@ -89,13 +97,13 @@ class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name='Title')
     slug = models.SlugField(max_length=100, unique=True, null=True, blank=True, verbose_name='Slug')
     brand = models.ForeignKey(
-        Brand, on_delete=models.CASCADE, verbose_name='Brand')
+        Brand, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Brand')
     normal_price = models.DecimalField(
         max_digits=10, decimal_places=2, verbose_name='Price')
     deal = models.ForeignKey(
         Deal, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Deal')
     category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, verbose_name='Category')
+        Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Category')
     image = models.ImageField(
         upload_to='products/', blank=True, null=True, verbose_name='Image')
     stock = models.PositiveIntegerField(default=100, verbose_name='Stock')
@@ -148,9 +156,16 @@ class Product(models.Model):
         )
 
 
+@receiver(models.signals.post_delete, sender=Deal)
+def deal_auto_remove_image(sender, instance, **kwargs):
+    """Signal to remove the related image when deleting a deal."""
+    if instance.image:
+        if os.path.isfile(instance.image.path):
+            os.remove(instance.image.path)
+
 
 @receiver(models.signals.post_delete, sender=Product)
-def auto_remove_image(sender, instance, **kwargs):
+def product_auto_remove_image(sender, instance, **kwargs):
     """Signal to remove the related image when deleting a product."""
     if instance.image:
         if os.path.isfile(instance.image.path):
