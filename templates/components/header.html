@@ -1,5 +1,5 @@
 {% load static %}
-<div class="flex items-center justify-center bg-white dark:bg-neutral-800 rounded-xl" id="navbar-sticky">
+<nav class="flex items-center justify-center bg-white dark:bg-neutral-800 rounded-xl font-semibold" id="navbar-sticky">
   <ul class="flex flex-row p-0 space-x-1 border-0">
     <li>
         <a href="{% url 'products:categories' %}" class="block py-2 pl-3 pr-4 hover:bg-neutral-700 rounded-xl" aria-current="page">
@@ -29,4 +29,4 @@
     </li>
     {% endif %}
   </ul>
-</div>
+</nav>

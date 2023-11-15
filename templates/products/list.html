@@ -8,12 +8,12 @@
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
 </div>
-<div class="flex flex-wrap">
+<section class="flex flex-wrap">
   {% for product in products %}
   {% include "components/card.html" %}
   {% empty %}
   <span>No products available.</span>
   {% endfor %}
-</div>
+</section>
 {% include "components/pagination.html" %}
 {% endblock content %}

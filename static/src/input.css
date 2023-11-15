@@ -4,11 +4,19 @@
 
 @layer components{
 
-    .primary-button{
+    .container{
+        @apply max-w-screen-xl mx-4 sm:mx-4 md:mx-4 lg:mx-auto bg-neutral-100 dark:bg-neutral-900 text-sm text-neutral-800 dark:text-neutral-200;
+    }
+    .box{
+        @apply bg-white dark:bg-neutral-800 rounded-xl;
+    }
+    .primary-btn{
         @apply bg-primary hover:bg-primaryHover px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-primaryFocus font-semibold text-white rounded-xl;
     }
-
-    .secondary-button{
-
+    .secondary-btn{
+        @apply bg-secondary hover:bg-secondaryHover px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-secondaryFocus font-semibold text-neutral-800 rounded-xl;
+    }
+    .tertiary-btn{
+        @apply hover:bg-neutral-200 hover:text-primary px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-neutral-100 font-semibold text-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 rounded-xl;
     }
 }

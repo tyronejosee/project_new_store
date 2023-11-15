@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-<div class="relative dark:bg-neutral-800 rounded-xl p-4 mt-4">
+<div class="box relative p-4 mt-4">
   <form method="POST" class="max-w-screen-md mx-auto">{% csrf_token %}
     <div class="mb-4">
       <label class="block mb-2">Username</label>
@@ -38,10 +38,10 @@
     </div>
     <div class="flex justify-center">
       <button type="submit"
-        class="primary-button mr-4">
+        class="primary-btn mr-4">
         Sign Up
       </button>
-      <a href="#" class="primary-button">
+      <a href="#" class="primary-btn">
         Cancel
       </a>
     </div>

@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-<div class="relative w-full max-w-md max-h-full mx-auto">
+<section class="relative w-full max-w-md max-h-full mx-auto">
   <div class="px-6 py-6 lg:px-8">
       <h3 class="mb-4 text-xl font-medium">Log in to our platform</h3>
       <form class="space-y-6" method="POST">{% csrf_token %}
@@ -28,11 +28,11 @@
               </div>
               <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
           </div>
-          <button type="submit" class="primary-button w-full">Login</button>
+          <button type="submit" class="primary-btn w-full">Login</button>
           <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
               Not registered? <a href="{% url 'users:registration' %}" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
           </div>
       </form>
   </div>
-</div>
+</section>
 {% endblock content %}

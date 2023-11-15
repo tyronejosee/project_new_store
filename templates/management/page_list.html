@@ -2,12 +2,12 @@
 {% load static %}
 {% block title %}Page List{% endblock title %}
 {% block content %}
-<div class="bg-neutral-800 rounded-xl flex items-center justify-between h-12">
+<nav class="bg-neutral-800 rounded-xl flex items-center justify-between h-12">
   <div class="flex-none">
     {% include "components/pagination.html" %}
   </div>
-</div>
-<main class="relative overflow-x-auto rounded-xl mt-4">
+</nav>
+<section class="relative overflow-x-auto rounded-xl mt-4">
   <table class="w-full text-left">
     <thead class="bg-white dark:bg-neutral-800">
       <tr>
@@ -47,5 +47,5 @@
       {% endfor %}
     </tbody>
   </table>
-</main>
+</section>
 {% endblock content %}

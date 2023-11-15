@@ -2,25 +2,25 @@
 {% load static %}
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
-<div class="flex flex-wrap mt-4">
-  <div class="w-full bg-white dark:bg-neutral-800 rounded-xl p-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
+<section class="flex flex-wrap mt-4">
+  <div class="box w-full p-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div class="w-96 h-96">
       <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-xl">
     </div>
     <div>
       <h1 class="text-2xl font-semibold">{{ product.title }}</h1>
       {% if product.is_new %}
-      <span class="rounded-lg bg-primary text-white text-xs font-bold">New</span>
+      <span class="rounded-lg bg-primary text-white text-xs font-semibold">New</span>
       {% endif %}
       <span class="mb-2">Details</span>
       <ul class="mb-4">
         <li>
-          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-medium hover:text-primary">
+          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-semibold hover:text-primary">
             {{ product.brand.name }}
           </a>
         </li>
         <li>
-          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-medium hover:text-primary">{{ product.category.title }}</a>
+          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-semibold hover:text-primary">{{ product.category.title }}</a>
         </li>
         <li>ID: item-{{ product.id }}</li>
         <li>Category: {{ product.category.title }}</li>
@@ -35,21 +35,22 @@
         </div>
       </ul>
       <div class="space-x-2">
-        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="primary-button">Add to Cart</a>
-        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="primary-button">Add to Wishlist</a>
+        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="primary-btn">Add to Cart</a>
+        
+        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="secondary-btn">Add to Wishlist</a>
       </div>
     </div>
   </div>
-  <div class="w-full mt-4">
+  <article class="w-full mt-4">
     <ul class="flex" id="product-tabs">
-      <li class="-mb-px mr-4 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-primary font-semibold rounded-xl">
+      <li class="box -mb-px mr-4 py-2 px-4 font-semibold hover:text-primary">
         <a href="#description-tab">Description</a>
       </li>
-      <li class="mr-1 py-2 px-4 bg-white dark:bg-neutral-800 hover:text-primary font-semibold rounded-xl">
+      <li class="box mr-1 py-2 px-4 hover:text-primary font-semibold">
         <a href="#specifications-tab">Specifications</a>
       </li>
     </ul>
-    <div class="bg-white dark:bg-neutral-800 rounded-xl p-4 mt-4 mx-auto">
+    <div class="box p-4 mt-4 mx-auto">
       <div id="description-tab" class="tab-content">
         <h2 class="font-semibold mb-4">Description</h2>
         <p>{{ product.description | safe }}</p>
@@ -59,8 +60,8 @@
         <p class="leading-loose">{{ product.specifications|safe }}</p>
       </div>
     </div>
-  </div>
-</div>
+  </article>
+</section>
 <script>
   $(document).ready(function () {
     $("#product-tabs a").click(function (e) {

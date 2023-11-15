@@ -8,16 +8,14 @@
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
 </div>
-<div class="">
+<nav class="">
   <form method="get" class="mb-4">
     <div class="flex space-x-4">
       <div class="flex items-center justify-center w-1/4">{{ form.category }}</div>
       <div class="flex items-center justify-center w-1/4">{{ form.brand }}</div>
       <div class="flex items-center justify-center w-1/4">{{ form.deal }}</div>
       <div class="flex items-center justify-center w-1/4">
-        <button type="submit" class="primary-button w-full">
-          Apply
-        </button>
+        <button type="submit" class="primary-btn w-full">Apply</button>
       </div>
     </div>
     <!-- <div class="flex space-x-4">
@@ -29,13 +27,13 @@
       </div>
     </div> -->
   </form>
-</div>
-<div class="flex flex-wrap">
+</nav>
+<section class="flex flex-wrap">
   {% for product in products %}
   {% include "components/card.html" %}
   {% empty %}
   <span>No products available.</span>
   {% endfor %}
-</div>
+</section>
 {% include "components/pagination.html" %}
 {% endblock content %}

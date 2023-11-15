@@ -2,11 +2,10 @@
 {% load static %}
 {% block title %}Deals{% endblock title %}
 {% block content %}
-<div class="flex flex-wrap">
+<section class="flex flex-wrap my-4">
   {% for deal in deals %}
   <a href="#" class="w-full md:w-1/2 lg:w-1/3">
     {% if deal.image %}
-    <div class="text-center">{{ deal.name }}</div>
     <img class="transition-all duration-300 rounded-3xl cursor-pointer filter grayscale hover:grayscale-0" src="{{ deal.image.url }}" alt="image description">
     {% else %}
     <div class="bg-gray-200 rounded-3xl text-center">
@@ -17,5 +16,5 @@
   {% empty %}
   <span>No products available.</span>
   {% endfor %}
-</div>
+</section>
 {% endblock content %}

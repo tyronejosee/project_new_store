@@ -3,7 +3,7 @@
 {% block title %}Cart{% endblock title %}
 {% block content %}
 {% if cart.products.all %}
-<div class="relative overflow-x-auto rounded-xl mt-4">
+<section class="relative overflow-x-auto rounded-xl mt-4">
   <table class="w-full text-left">
     <thead class="uppercase bg-gray-50 dark:bg-neutral-700">
       <tr>
@@ -16,7 +16,7 @@
     </thead>
     <tbody>
       {% for product in cart.products.all %}
-      <tr class="bg-white hover:bg-gray-50 dark:bg-neutral-800 dark:hover:bg-gray-600">
+      <tr class="box hover:bg-gray-50 dark:hover:bg-gray-600">
         <td class="px-6 py-4">
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
             <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
@@ -36,14 +36,14 @@
       {% endfor %}
     </tbody>
   </table>
-</div>
+</section>
 {% else %}
-<div class="w-full h-96 dark:bg-neutral-800 rounded-xl text-white flex items-center justify-center mt-4">Empty cart.</div>
+<section class="box w-full h-96 flex items-center justify-center mt-4">Empty cart.</section>
 {% endif %}
 {% if cart.products.all %}
-<div class="p-4">
-  <a href="{% url 'users:clear_cart' %}" class=" bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
+<nav class="p-4">
+  <a href="{% url 'users:clear_cart' %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
   <a href="#" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
-</div >
+</nav >
 {% endif%}
 {% endblock content %}

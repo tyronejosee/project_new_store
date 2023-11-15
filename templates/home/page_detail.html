@@ -2,8 +2,8 @@
 {% load static %}
 {% block title %}{{ page.key|title }}{% endblock title %}
 {% block content %}
-<div class="py-4">
-  <div class="bg-white dark:bg-neutral-800 rounded-xl">
+<section class="py-4">
+  <div class="box">
     <div class="relative p-4">
       {% if page.image %}
       <img src="{{ page.image.url }}" alt="page-image" class="w-full h-64 object-cover rounded-lg" />
@@ -12,9 +12,9 @@
       {% endif %}
       <div class="absolute inset-0 opacity-30 rounded-xl"></div>
     </div>
-    <div class="px-4 pb-4">
+    <article class="px-4 pb-4">
       {{ page.content|safe }}
-    </div>
+    </article>
   </div>
-</div>
+</section>
 {% endblock content %}

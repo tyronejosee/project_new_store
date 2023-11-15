@@ -6,7 +6,7 @@
   <h1 class="text-2xl">Welcome {{ user.first_name }}</h1>
 </div>
 {% if wishlist.products.all %}
-<div class="relative overflow-x-auto rounded-xl">
+<section class="relative overflow-x-auto rounded-xl">
   <table class="w-full text-left">
     <thead class="uppercase bg-gray-50 dark:bg-neutral-700">
       <tr>
@@ -39,9 +39,9 @@
       {% endfor %}
     </tbody>
   </table>
-</div>
+</section>
 {% else %}
-<div class="w-full h-80 bg-white dark:bg-neutral-800 rounded-xl flex items-center justify-center">Empty wishlist.</div>
+<div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
 <a href="{% url 'users:logout' %}">Logout</a>
 {% endif %}
 {% endblock content %}
