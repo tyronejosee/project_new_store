@@ -24,3 +24,10 @@ class PageAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at')
     ordering = ('key',)
     resource_class = PageResource
+
+    def save_model(self, request, obj, form, change):
+        "Override the save_model method to remove the image when clearing the path in the page."
+        if change and 'image' in form.changed_data:
+            old_product = Page.objects.get(pk=obj.pk)
+            old_product.image.delete(save=False)
+        super().save_model(request, obj, form, change)
