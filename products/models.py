@@ -135,7 +135,7 @@ class Product(models.Model):
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
                 file_name, file_extension = os.path.splitext(self.image.name)   # Gets the original file name
-                title_in_lowercase = self.title.lower()    # Create a new name in lowercase
+                title_in_lowercase = self.slug.lower()[:25]    # Create a new name in lowercase and 25 characters
                 new_file_name = f'item-{title_in_lowercase}{file_extension}'
                 self.image.name = new_file_name    # Changes the file name
 
