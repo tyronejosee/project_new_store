@@ -8,7 +8,7 @@
 {% if wishlist.products.all %}
 <section class="relative overflow-x-auto rounded-xl">
   <table class="w-full text-left">
-    <thead class="uppercase bg-gray-50 dark:bg-neutral-700">
+    <thead class="table-head">
       <tr>
         <th scope="col" class="px-6 py-3">Image</th>
         <th scope="col" class="px-6 py-3">Product</th>
@@ -17,17 +17,17 @@
         <th scope="col" class="px-6 py-3">Action</th>
       </tr>
     </thead>
-    <tbody>
-      {% for product in wishlist.products.all %}
-      <tr class="bg-white hover:bg-gray-50 dark:bg-neutral-800 dark:hover:bg-gray-600">
+    {% for product in wishlist.products.all %}
+    <tbody class="table-body">
+      <tr>
         <td class="px-6 py-4">
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
             <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
           </a>
         </td>
-        <th scope="row" class="px-6 py-4 whitespace-nowrap">
+        <td class="px-6 py-4">
           {{ product.title|truncatechars:50 }}
-        </th>
+        </td>
         <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
         <td class="px-6 py-4">pending</td>
         <td class="px-6 py-4">
@@ -36,12 +36,11 @@
           <a href="{% url 'users:remove_prod_to_wishlist' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
         </td>
       </tr>
-      {% endfor %}
     </tbody>
+    {% endfor %}
   </table>
 </section>
 {% else %}
 <div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
-<a href="{% url 'users:logout' %}">Logout</a>
 {% endif %}
 {% endblock content %}

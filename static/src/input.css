@@ -19,4 +19,10 @@
     .tertiary-btn{
         @apply hover:bg-neutral-200 hover:text-primary px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-neutral-100 font-semibold text-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 rounded-xl;
     }
+    .table-head{
+        @apply bg-white dark:bg-neutral-800 font-medium uppercase;
+    }
+    .table-body{
+        @apply bg-white hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700;
+    }
 }

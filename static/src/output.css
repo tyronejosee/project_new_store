@@ -679,6 +679,42 @@ video {
   --tw-ring-color: rgb(245 245 245 / var(--tw-ring-opacity));
 }
 
+.table-head {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-head {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+}
+
+.table-body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.table-body:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .table-body {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+
+  .table-body:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

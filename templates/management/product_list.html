@@ -12,8 +12,8 @@
   </div>
 </div>
 <section class="relative overflow-x-auto rounded-xl mt-4">
-  <table class="w-full text-left bg-gray-50 dark:bg-neutral-800">
-    <thead class="uppercase">
+  <table class="w-full text-left">
+    <thead class="table-head">
       <tr>
         <th scope="col" class="px-6 py-4">ID</th>
         <th scope="col" class="px-6 py-4">IMAGE</th>
@@ -25,9 +25,9 @@
         <th scope="col" class="px-6 py-4">OPTIONS</th>
       </tr>
     </thead>
-    <tbody>
-      {% for product in products %}
-      <tr class="bg-white dark:bg-neutral-800 hover:bg-gray-50 dark:hover:bg-neutral-700">
+    {% for product in products %}
+    <tbody class="table-body">
+      <tr>
         <td class="px-6 py-4">{{ product.id }}</td>
         <td class="px-6 py-4">
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
@@ -48,7 +48,7 @@
           {% if request.path == "/management/products/" %}
           <form method="post" action="{% url 'management:product_deactivate' product.id %}">{% csrf_token %}
             <button type="submit">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 hover:text-primary">
                 <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
                 <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
                 <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
@@ -68,8 +68,8 @@
           {% endif %}
         </td>
       </tr>
-      {% endfor %}
     </tbody>
+    {% endfor %}
   </table>
 </section>
 <div id="imagePopup" class="fixed inset-0 flex items-center justify-center z-10 hidden">

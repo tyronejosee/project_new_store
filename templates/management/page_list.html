@@ -9,7 +9,7 @@
 </nav>
 <section class="relative overflow-x-auto rounded-xl mt-4">
   <table class="w-full text-left">
-    <thead class="bg-white dark:bg-neutral-800">
+    <thead class="table-head">
       <tr>
         <th scope="col" class="px-6 py-4">ID</th>
         <th scope="col" class="px-6 py-4">IMAGE</th>
@@ -19,9 +19,9 @@
         <th scope="col" class="px-6 py-4">OPTIONS</th>
       </tr>
     </thead>
-    <tbody>
-      {% for page in pages %}
-      <tr class="bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700">
+    {% for page in pages %}
+    <tbody class="table-body">
+      <tr>
         <td class="px-6 py-4">{{ page.id }}</td>
         <td class="px-6 py-4">
           {% if page.image %}
@@ -44,8 +44,8 @@
           </a>
         </td>
       </tr>
-      {% endfor %}
     </tbody>
+    {% endfor %}
   </table>
 </section>
 {% endblock content %}

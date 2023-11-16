@@ -5,7 +5,7 @@
 {% if cart.products.all %}
 <section class="relative overflow-x-auto rounded-xl mt-4">
   <table class="w-full text-left">
-    <thead class="uppercase bg-gray-50 dark:bg-neutral-700">
+    <thead class="table-head">
       <tr>
         <th scope="col" class="px-6 py-3">Image</th>
         <th scope="col" class="px-6 py-3">Product</th>
@@ -14,9 +14,9 @@
         <th scope="col" class="px-6 py-3">Action</th>
       </tr>
     </thead>
-    <tbody>
-      {% for product in cart.products.all %}
-      <tr class="box hover:bg-gray-50 dark:hover:bg-gray-600">
+    {% for product in cart.products.all %}
+    <tbody class="table-body">
+      <tr>
         <td class="px-6 py-4">
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
             <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
@@ -33,8 +33,8 @@
           </a>
         </td>
       </tr>
-      {% endfor %}
     </tbody>
+    {% endfor %}
   </table>
 </section>
 <span class="p-4">{{ total_price }}</span>
