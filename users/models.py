@@ -19,6 +19,7 @@ class CustomUserManager(BaseUserManager):
             first_name=first_name,
             last_name=last_name
         )
+        custom_user.is_staff = False
         custom_user.set_password(password)
         custom_user.save()
         return custom_user
@@ -36,21 +37,15 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     """Entity type model for CustomUser."""
 
-    username = models.CharField(
-        max_length=100, unique=True, verbose_name='Username')
-    email = models.EmailField(
-        max_length=254, unique=True, verbose_name='Email')
-    first_name = models.CharField(
-        max_length=200, blank=True, null=True, verbose_name='First Name')
-    last_name = models.CharField(
-        max_length=200, blank=True, null=True, verbose_name='Last Name')
+    username = models.CharField(max_length=100, unique=True, verbose_name='Username')
+    email = models.EmailField(max_length=254, unique=True, verbose_name='Email')
+    first_name = models.CharField(max_length=200, blank=True, null=True, verbose_name='First Name')
+    last_name = models.CharField(max_length=200, blank=True, null=True, verbose_name='Last Name')
     address = models.TextField(blank=True, verbose_name='Adress')
-    phone_number = models.CharField(
-        max_length=15, blank=True, verbose_name='Phone Number')
+    phone_number = models.CharField(max_length=15, blank=True, verbose_name='Phone Number')
     is_active = models.BooleanField(default=True, verbose_name='Is Active')
     is_staff = models.BooleanField(default=False, verbose_name='Is Staff')
-    date_joined = models.DateTimeField(
-        default=timezone.now, verbose_name='Date Joined')
+    date_joined = models.DateTimeField(default=timezone.now, verbose_name='Date Joined')
 
     objects = CustomUserManager()
 
