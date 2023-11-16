@@ -144,4 +144,4 @@ http://localhost:8000/admin/
 
 ## License
 
-This project is under the [MIT license](https://github.com/tyronejosee/project_new_store/blob/main/LICENSE).
+This project is under the [Apache-2.0 license](https://github.com/tyronejosee/project_new_store/blob/main/LICENSE).
