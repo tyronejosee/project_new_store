@@ -4,7 +4,7 @@
 {% block content %}
 <section class="flex flex-wrap my-4">
   {% for deal in deals %}
-  <a href="#" class="w-full md:w-1/2 lg:w-1/3">
+  <a href="{% url 'products:deal_detail' slug=deal.slug %}" class="w-full md:w-1/2 lg:w-1/3">
     {% if deal.image %}
     <img class="transition-all duration-300 rounded-3xl cursor-pointer filter grayscale hover:grayscale-0" src="{{ deal.image.url }}" alt="image description">
     {% else %}

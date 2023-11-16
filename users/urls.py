@@ -4,11 +4,11 @@ from django.urls import path
 from users.views import UserProfileView, UserRegistrationView, UserLoginView, user_logout
 from cart.views import cart, add_product, remove_product, subtract_product, clear_cart
 from wishlist.views import (
-     wishlist,
-     add_prod_to_wishlist,
-     remove_prod_to_wishlist,
-     subtract_prod_to_wishlist
-     )
+    wishlist,
+    add_prod_to_wishlist,
+    remove_prod_to_wishlist,
+    subtract_prod_to_wishlist
+    )
 
 
 app_name = 'users'

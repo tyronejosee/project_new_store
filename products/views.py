@@ -67,8 +67,23 @@ class CategoriesListView(ListView):
 class DealListView(ListView):
     """View to display a list of deals."""
     model = Deal
-    template_name = 'products/deal.html'
+    template_name = 'products/deal_list.html'
     context_object_name = 'deals'
+
+
+class DealDetailView(DetailView):
+    """View to display in detail all the products of an offer."""
+    model = Deal
+    template_name = 'products/deal_detail.html'
+    context_object_name = 'deal'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Pass the products as context
+        context['products'] = self.object.products.all()
+        return context
 
 
 class RecentProductsListView(ListView):
