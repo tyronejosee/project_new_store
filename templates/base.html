@@ -14,10 +14,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body class="container">
-    {% include "components/navbar.html" %}
     {% include "components/header.html" %}
+    {% include "components/nav.html" %}
     {% block content %}{% endblock content %}
     {% include "components/footer.html" %}
-    {% include "components/buttom.html" %}
+    {% include "fragments/buttom.html" %}
   </body>
 </html>

@@ -2,9 +2,8 @@
 {% load static %}
 {% block title %}Home{% endblock title %}
 {% block content %}
-<div class="flex flex-col items-center">
-  <h2 class="text-3xl font-bold my-4">All Products</h2>
-</div>
+
+{% include "fragments/title.html" with title="Prueba" %}
 <section class="flex flex-wrap">
   {% for product in all_products %}
   {% include "components/card.html" %}
@@ -12,9 +11,8 @@
   <span>No products available.</span>
   {% endfor %}
 </section>
-<div class="flex flex-col items-center">
-  <h2 class="text-3xl font-bold">Recent Products</h2>
-</div>
+
+{% include "fragments/title.html" with title="Recent Products" %}
 <section class="flex flex-wrap">
   {% for product in recent_products %}
   {% include "components/card.html" %}
@@ -22,9 +20,8 @@
   <span>No products available.</span>
   {% endfor %}
 </section>
-<div class="flex flex-col items-center">
-  <h2 class="text-3xl font-bold">Headphones</h2>
-</div>
+
+{% include "fragments/title.html" with title="Headphones" %}
 <section class="flex flex-wrap">
   {% for product in apple %}
   {% include "components/card.html" %}
@@ -32,9 +29,8 @@
   <span>No products available.</span>
   {% endfor %}
 </section>
-<div class="flex flex-col items-center">
-  <h2 class="text-3xl font-bold">Samsung</h2>
-</div>
+
+{% include "fragments/title.html" with title="Samsung" %}
 <section class="flex flex-wrap">
   {% for product in samsung %}
   {% include "components/card.html" %}
@@ -42,9 +38,8 @@
   <span>No products available.</span>
   {% endfor %}
 </section>
-<div class="flex flex-col items-center">
-  <h2 class="text-3xl font-bold">Computer Monitors</h2>
-</div>
+
+{% include "fragments/title.html" with title="Computer Monitors" %}
 <section class="flex flex-wrap">
   {% for product in computer_monitors %}
   {% include "components/card.html" %}
@@ -52,4 +47,5 @@
   <span>No products available.</span>
   {% endfor %}
 </section>
+
 {% endblock content %}

@@ -1174,6 +1174,10 @@ video {
   white-space: nowrap;
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
 }
@@ -1211,6 +1215,10 @@ video {
   border-width: 0px;
 }
 
+.border-t {
+  border-top-width: 1px;
+}
+
 .border-hidden {
   border-style: hidden;
 }
@@ -1218,6 +1226,21 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-t-red-600 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+
+.border-t-yellow-500 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(234 179 8 / var(--tw-border-opacity));
+}
+
+.border-t-slate-700 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(51 65 85 / var(--tw-border-opacity));
 }
 
 .bg-blue-100 {
@@ -1283,6 +1306,11 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-slate-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
 }
 
 .object-cover {
@@ -1409,6 +1437,16 @@ video {
   line-height: 1rem;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1419,6 +1457,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-black {
+  font-weight: 900;
 }
 
 .uppercase {
@@ -1621,6 +1663,16 @@ video {
     border-color: rgb(107 114 128 / var(--tw-border-opacity));
   }
 
+  .dark\:border-t-slate-700 {
+    --tw-border-opacity: 1;
+    border-top-color: rgb(51 65 85 / var(--tw-border-opacity));
+  }
+
+  .dark\:border-t-neutral-700 {
+    --tw-border-opacity: 1;
+    border-top-color: rgb(64 64 64 / var(--tw-border-opacity));
+  }
+
   .dark\:bg-blue-200 {
     --tw-bg-opacity: 1;
     background-color: rgb(191 219 254 / var(--tw-bg-opacity));
@@ -1659,11 +1711,6 @@ video {
   .dark\:bg-neutral-900 {
     --tw-bg-opacity: 1;
     background-color: rgb(23 23 23 / var(--tw-bg-opacity));
-  }
-
-  .dark\:bg-red-900 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(127 29 29 / var(--tw-bg-opacity));
   }
 
   .dark\:bg-sky-500 {

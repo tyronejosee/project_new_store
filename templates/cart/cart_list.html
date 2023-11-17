@@ -2,6 +2,9 @@
 {% load static %}
 {% block title %}Cart{% endblock title %}
 {% block content %}
+
+{% include "fragments/title.html" with title="Cart" %}
+
 {% if cart.products.all %}
 <section class="relative overflow-x-auto rounded-xl mt-4">
   <table class="w-full text-left">
