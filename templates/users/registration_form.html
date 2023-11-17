@@ -2,9 +2,20 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-<div class="box relative p-4 mt-4">
-  <form method="POST" class="max-w-screen-md mx-auto">{% csrf_token %}
-    <div class="mb-4">
+<section class="box relative mt-4">
+  {% include "fragments/title.html" with title="Registration" %}
+  <form method="POST" class="max-w-screen-sm mx-auto">{% csrf_token %}
+    <div class="mb-4 flex justify-between">
+      <div class="flex-grow mr-4">
+        <label class="block mb-2">First Name</label>
+        {{ form.first_name }}
+      </div>
+      <div class="flex-grow">
+        <label class="block mb-2">Last Name</label>
+        {{ form.last_name }}
+      </div>
+    </div>
+    <div class="mb-2">
       <label class="block mb-2">Username</label>
       {{ form.username }}
     </div>
@@ -12,21 +23,15 @@
       <label class="block mb-2">Email</label>
       {{ form.email }}
     </div>
-    <div class="mb-4">
-      <label class="block mb-2">Password</label>
-      {{ form.password1 }}
-    </div>
-    <div class="mb-4">
-      <label class="block mb-2">Password Repeat</label>
-      {{ form.password2 }}
-    </div>
-    <div class="mb-4">
-      <label class="block mb-2">First Name</label>
-      {{ form.first_name }}
-    </div>
-    <div class="mb-4">
-      <label class="block mb-2">Last Name</label>
-      {{ form.last_name }}
+    <div class="mb-4 flex justify-between">
+      <div class="flex-grow mr-4">
+        <label class="block mb-2">Password</label>
+        {{ form.password1 }}
+      </div>
+      <div class="flex-grow">
+        <label class="block mb-2">Password Repeat</label>
+        {{ form.password2 }}
+      </div>
     </div>
     <div class="mb-4">
       <label class="block mb-2">Adress</label>
@@ -36,15 +41,10 @@
       <label class="block mb-2">Phone Number</label>
       {{ form.phone_number }}
     </div>
-    <div class="flex justify-center">
-      <button type="submit"
-        class="primary-btn mr-4">
-        Sign Up
-      </button>
-      <a href="#" class="primary-btn">
-        Cancel
-      </a>
+    <div class="flex justify-center mb-4">
+      <button type="submit" class="primary-btn mr-4">Sign Up</button>
+      <a href="#" class="secondary-btn">Cancel</a>
     </div>
   </form>
-</div>
+</section>
 {% endblock content %}
