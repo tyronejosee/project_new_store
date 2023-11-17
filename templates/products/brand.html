@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}{{ brand }}{% endblock title %}
+{% block title %}{{ products }}{% endblock title %}
 {% block content %}
-<section class="flex flex-wrap">
-  {% for product in products %}
-  {% include "components/card.html" %}
-  {% empty %}
-  <span>No products available.</span>
-  {% endfor %}
+<section>
+  {% include "fragments/title.html" %}
+  <section class="flex flex-wrap">
+    {% for product in products %}
+    {% include "components/card.html" %}
+    {% empty %}
+    <span>No products available.</span>
+    {% endfor %}
+  </section>
 </section>
 {% endblock content %}

@@ -1,3 +1,27 @@
-<div class="mt-4 flex justify-center border-t dark:border-t-neutral-700">
-    <h2 class="text-4xl font-black my-8">{{ title }}</h2>
+<div class="my-8 text-center">
+  {% if title %}
+  <h2 class="text-4xl font-black">{{ title }}</h2>
+  {% endif %}
+
+  {% if request.path == '/users/profile/' %}
+  <h2 class="text-4xl font-black">Welcome {{ user.first_name }}</h2>
+  {% endif %}
+
+  {% if category %}
+  <h2 class="text-4xl font-black">{{ category }}</h2>
+  {% endif %}
+
+  {% if brand %}
+  <h2 class="text-4xl font-black">{{ brand }}</h2>
+  {% endif %}
+
+  {% if results %}
+  <h2 class="text-4xl font-black">{{ results }} results for "{{ queryset }}"</h2>
+  {% endif %}
+
+  {% if page_obj.paginator.count > 0 %}
+  <span class="font-medium">
+    {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
+  </span>
+  {% endif %}
 </div>

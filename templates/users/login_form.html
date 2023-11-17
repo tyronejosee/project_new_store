@@ -3,9 +3,9 @@
 {% block title %}Login{% endblock title %}
 {% block content %}
 <section class="box mt-4">
-  <div class="relative max-w-screen-sm mx-auto px-6 py-6 lg:px-8">
+  <div class="relative max-w-screen-sm mx-auto">
     {% include "fragments/title.html" with title="Log in to our platform" %}
-    <form class="space-y-6" method="POST">{% csrf_token %}
+    <form class="space-y-6 mb-4" method="POST">{% csrf_token %}
       {% if form.error_messages %}
       <div class="bg-neutral-700 p-4 rounded-xl text-white mx-4" role="alert">
         {{ form.get_invalid_login_error }}

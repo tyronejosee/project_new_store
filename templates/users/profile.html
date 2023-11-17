@@ -2,45 +2,45 @@
 {% load static %}
 {% block title %}Profile{% endblock title %}
 {% block content %}
-<div class="flex flex-col items-center my-6">
-  <h1 class="text-2xl">Welcome {{ user.first_name }}</h1>
-</div>
-{% if wishlist.products.all %}
-<section class="relative overflow-x-auto rounded-xl">
-  <table class="w-full text-left">
-    <thead class="table-head">
-      <tr>
-        <th scope="col" class="px-6 py-3">Image</th>
-        <th scope="col" class="px-6 py-3">Product</th>
-        <th scope="col" class="px-6 py-3">Price</th>
-        <th scope="col" class="px-6 py-3">Quantity</th>
-        <th scope="col" class="px-6 py-3">Action</th>
-      </tr>
-    </thead>
-    {% for product in wishlist.products.all %}
-    <tbody class="table-body">
-      <tr>
-        <td class="px-6 py-4">
-          <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-            <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
-          </a>
-        </td>
-        <td class="px-6 py-4">
-          {{ product.title|truncatechars:50 }}
-        </td>
-        <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
-        <td class="px-6 py-4">pending</td>
-        <td class="px-6 py-4">
-          <a href="{% url 'users:add_prod_to_cart' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
-          <a href="{% url 'users:subtract_prod_to_wishlist' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Subtract</a>
-          <a href="{% url 'users:remove_prod_to_wishlist' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
-        </td>
-      </tr>
-    </tbody>
-    {% endfor %}
-  </table>
+<section>
+  {% include "fragments/title.html" %}
+  {% if wishlist.products.all %}
+  <section class="relative overflow-x-auto rounded-xl">
+    <table class="w-full text-left">
+      <thead class="table-head">
+        <tr>
+          <th scope="col" class="px-6 py-3">Image</th>
+          <th scope="col" class="px-6 py-3">Product</th>
+          <th scope="col" class="px-6 py-3">Price</th>
+          <th scope="col" class="px-6 py-3">Quantity</th>
+          <th scope="col" class="px-6 py-3">Action</th>
+        </tr>
+      </thead>
+      {% for product in wishlist.products.all %}
+      <tbody class="table-body">
+        <tr>
+          <td class="px-6 py-4">
+            <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
+              <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
+            </a>
+          </td>
+          <td class="px-6 py-4">
+            {{ product.title|truncatechars:50 }}
+          </td>
+          <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
+          <td class="px-6 py-4">pending</td>
+          <td class="px-6 py-4">
+            <a href="{% url 'users:add_prod_to_cart' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
+            <a href="{% url 'users:subtract_prod_to_wishlist' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Subtract</a>
+            <a href="{% url 'users:remove_prod_to_wishlist' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
+          </td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </section>
+  {% else %}
+  <div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
+  {% endif %}
 </section>
-{% else %}
-<div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
-{% endif %}
 {% endblock content %}

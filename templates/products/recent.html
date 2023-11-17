@@ -2,20 +2,17 @@
 {% load static %}
 {% block title %}Recent{% endblock title %}
 {% block content %}
-<div class="flex flex-col items-center my-8">
-  <h2 class="text-3xl">Recent Products</h2>
-  <span>
-    {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
-  </span>
-</div>
-<section class="flex flex-wrap">
-  {% for product in products %}
-  {% include "components/card.html" %}
-  {% empty %}
-  <span>No products available.</span>
-  {% endfor %}
+<section>
+  {% include "fragments/title.html" with title="Recent Products" %}
+  <div class="flex flex-wrap">
+    {% for product in products %}
+    {% include "components/card.html" %}
+    {% empty %}
+    <span>No products available.</span>
+    {% endfor %}
+  </div>
 </section>
 <nav class="flex flex-col items-center">
-{% include "components/pagination.html" %}
+  {% include "components/pagination.html" %}
 </nav>
 {% endblock content %}
