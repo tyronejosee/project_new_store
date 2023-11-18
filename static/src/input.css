@@ -5,10 +5,13 @@
 @layer components{
 
     .container{
-        @apply max-w-screen-xl min-h-screen flex flex-col mx-auto bg-neutral-100 dark:bg-neutral-900 text-sm text-neutral-800 dark:text-neutral-200;
+        @apply max-w-screen-xl min-h-screen flex flex-col px-4 lg:mx-auto bg-neutral-100 dark:bg-neutral-900 text-sm text-neutral-800 dark:text-neutral-200;
     }
     .box{
         @apply bg-white dark:bg-neutral-800 rounded-xl;
+    }
+    .card{
+        @apply grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:md:grid-cols-6;
     }
     .primary-btn{
         @apply bg-primary hover:bg-primaryHover px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-primaryFocus font-semibold text-white rounded-xl;

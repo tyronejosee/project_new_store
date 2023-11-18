@@ -7,16 +7,8 @@
   <h2 class="text-4xl font-black">Welcome {{ user.first_name }}</h2>
   {% endif %}
 
-  {% if category %}
-  <h2 class="text-4xl font-black">{{ category }}</h2>
-  {% endif %}
-
-  {% if brand %}
-  <h2 class="text-4xl font-black">{{ brand }}</h2>
-  {% endif %}
-
   {% if results %}
-  <h2 class="text-4xl font-black">{{ results }} results for "{{ queryset }}"</h2>
+  <h2 class="text-4xl font-black">{{ results }} results for "{{ title }}"</h2>
   {% endif %}
 
   {% if page_obj.paginator.count > 0 %}

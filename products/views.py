@@ -10,7 +10,7 @@ from products.forms import CategoriesForm
 class ProductListView(ListView):
     """Display the complete list of all products, active and in stock."""
     model = Product
-    template_name = 'products/list.html'
+    template_name = 'components/section.html'
     context_object_name = 'products'
     paginate_by = 18
 
@@ -89,7 +89,7 @@ class DealDetailView(DetailView):
 class RecentProductsListView(ListView):
     """Display a list of recent products."""
     model = Product
-    template_name = 'products/recent.html'
+    template_name = 'components/section.html'
     context_object_name = 'products'
     paginate_by = 18
 
@@ -98,11 +98,16 @@ class RecentProductsListView(ListView):
         queryset = queryset.order_by('-updated_at', 'title')
         return queryset
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Recent Products'
+        return context
+
 
 class CategoryFilterListView(ListView):
     """Display a list of all products from a category."""
     model = Product
-    template_name = 'products/brand.html'
+    template_name = 'components/section.html'
     context_object_name = 'products'
     paginate_by = 18
     ordering = ['title']
@@ -113,14 +118,16 @@ class CategoryFilterListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['category'] = Category.objects.get(slug=self.kwargs['category_slug'])
+        category = Category.objects.get(slug=self.kwargs['category_slug'])
+        context['category'] = category
+        context['title'] = f'{category.title}'
         return context
 
 
 class BrandFilterListView(ListView):
     """Display a list of all products from a brand."""
     model = Product
-    template_name = 'products/brand.html'
+    template_name = 'components/section.html'
     context_object_name = 'products'
     paginate_by = 18
     ordering = ['title']
@@ -131,7 +138,9 @@ class BrandFilterListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['brand'] = Brand.objects.get(slug=self.kwargs['brand_slug'])
+        brand = Brand.objects.get(slug=self.kwargs['brand_slug'])
+        context['brand'] = brand
+        context['title'] = (f'{brand.name}')
         return context
 
 
@@ -148,4 +157,8 @@ def product_search(request):
 
     results = products.count()
 
-    return render(request, 'products/search_bar.html', {'products': products, 'queryset': queryset, 'results':results})
+    return render(request, 'components/section.html', {
+        'products':products,
+        'title':queryset,
+        'results':results
+    })

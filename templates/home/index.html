@@ -4,7 +4,7 @@
 {% block content %}
 
 {% include "fragments/title.html" with title="Prueba" %}
-<section class="flex flex-wrap">
+<section class="card">
   {% for product in all_products %}
   {% include "components/card.html" %}
   {% empty %}
@@ -13,7 +13,7 @@
 </section>
 
 {% include "fragments/title.html" with title="Recent Products" %}
-<section class="flex flex-wrap">
+<section class="card">
   {% for product in recent_products %}
   {% include "components/card.html" %}
   {% empty %}
@@ -22,7 +22,7 @@
 </section>
 
 {% include "fragments/title.html" with title="Headphones" %}
-<section class="flex flex-wrap">
+<section class="card">
   {% for product in apple %}
   {% include "components/card.html" %}
   {% empty %}
@@ -31,7 +31,7 @@
 </section>
 
 {% include "fragments/title.html" with title="Samsung" %}
-<section class="flex flex-wrap">
+<section class="card">
   {% for product in samsung %}
   {% include "components/card.html" %}
   {% empty %}
@@ -40,7 +40,7 @@
 </section>
 
 {% include "fragments/title.html" with title="Computer Monitors" %}
-<section class="flex flex-wrap">
+<section class="card">
   {% for product in computer_monitors %}
   {% include "components/card.html" %}
   {% empty %}

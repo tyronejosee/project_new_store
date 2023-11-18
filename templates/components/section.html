@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}{{ context }}{% endblock title %}
+{% block title %}{{ title|title }}{% endblock title %}
 {% block content %}
 <section>
   {% include "fragments/title.html" %}
-  <section class="flex flex-wrap">
+  <section class="card mb-4">
     {% for product in products %}
     {% include "components/card.html" %}
     {% empty %}
     <span>No products available.</span>
     {% endfor %}
   </section>
+  {% include "components/pagination.html" %}
 </section>
 {% endblock content %}
