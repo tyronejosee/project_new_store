@@ -71,15 +71,3 @@
     {% endif %}
   </div>
 </header>
-<script>
-  $(document).ready(function () {
-    $("#user-menu-button").on("click", function () {
-      var $userDropdown = $("#user-dropdown");
-      if ($userDropdown.is(":hidden")) {
-        $userDropdown.slideDown("fast");
-      } else {
-        $userDropdown.slideUp("fast");
-      }
-    });
-  });
-</script>

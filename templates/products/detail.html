@@ -2,10 +2,10 @@
 {% load static %}
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
-<section class="flex flex-wrap mt-4">
-  <div class="box w-full p-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <div class="w-96 h-96">
-      <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-xl">
+<main class="mt-4">
+  <section class="box p-4 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    <div class="mx-auto">
+      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 rounded-xl">
     </div>
     <div>
       <h1 class="text-2xl font-semibold">{{ product.title }}</h1>
@@ -36,11 +36,10 @@
       </ul>
       <div class="space-x-2">
         <a href="{% url 'users:add_prod_to_cart' product.id %}" class="primary-btn">Add to Cart</a>
-        
         <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="secondary-btn">Add to Wishlist</a>
       </div>
     </div>
-  </div>
+  </section>
   <article class="w-full mt-4">
     <ul class="flex" id="product-tabs">
       <li class="box -mb-px mr-4 py-2 px-4 font-semibold hover:text-primary">
@@ -61,14 +60,5 @@
       </div>
     </div>
   </article>
-</section>
-<script>
-  $(document).ready(function () {
-    $("#product-tabs a").click(function (e) {
-      e.preventDefault();
-      $(".tab-content").addClass("hidden");
-      $($(this).attr("href")).removeClass("hidden");
-    });
-  });
-</script>
+</main>
 {% endblock content %}

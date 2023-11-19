@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ title|title }}{% endblock title %}
 {% block content %}
-<section>
+<main>
   {% include "fragments/title.html" %}
   <section class="card mb-4">
     {% for product in products %}
@@ -12,5 +12,5 @@
     {% endfor %}
   </section>
   {% include "components/pagination.html" %}
-</section>
+</main>
 {% endblock content %}

@@ -3,20 +3,22 @@
 {% block title %}{{ deal.name }}{% endblock title %}
 {% block content %}
 <main>
-    <div class="box mt-4 p-4">
-        <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="rounded-xl">
-        <h2 class="text-center p-4 text-2xl font-medium">{{ deal.name }}</h2>
-        <p>{{ deal.description }}</p>
+
+  <div class="box mt-4 p-4">
+    <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="rounded-xl">
+    <h2 class="text-center p-4 text-2xl font-medium">{{ deal.name }}</h2>
+    <p>{{ deal.description }}</p>
+  </div>
+
+  <section class="box mt-4">
+    <h3 class="text-2xl font-medium py-4 text-center">Related Products</h3>
+    <div class="flex flex-wrap">
+      {% for product in products %}
+      {% include "components/card.html" %}
+      {% empty %}
+      <span>No products available.</span>
+      {% endfor %}
     </div>
-    <section class="box mt-4">
-        <h3 class="text-2xl font-medium py-4 text-center">Related Products</h3>
-        <div class="flex flex-wrap">
-        {% for product in products %}
-        {% include "components/card.html" %}
-        {% empty %}
-        <span>No products available.</span>
-        {% endfor %}
-        </div>
-    </section>
+  </section>
 </main>
 {% endblock content %}
