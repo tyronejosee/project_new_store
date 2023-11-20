@@ -77,7 +77,7 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     class Media:
         """Additional configuration for CKEditor."""
         css = {
-            'all': ('pages/css/custom_ckeditor.css',)
+            'all': ('css/ckeditor.css',)
         }
 
     def save_model(self, request, obj, form, change):

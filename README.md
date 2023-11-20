@@ -109,7 +109,7 @@ npm install -D tailwindcss
 **2. Compile Tailwind CSS styles**:
 
 ```bash
-npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch
+npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch
 ```
 
 Remember not to run `npx tailwindcss init` because there are already predefined styles for this project, and this command will overwrite the `tailwind.config.js` file.
