@@ -140,7 +140,7 @@ class BrandFilterListView(ListView):
         context = super().get_context_data(**kwargs)
         brand = Brand.objects.get(slug=self.kwargs['brand_slug'])
         context['brand'] = brand
-        context['title'] = (f'{brand.name}')
+        context['title'] = f'{brand.name}'
         return context
 
 

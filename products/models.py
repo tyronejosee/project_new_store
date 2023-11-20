@@ -75,10 +75,13 @@ class Deal(models.Model):
 
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-                file_name, file_extension = os.path.splitext(self.image.name)   # Gets the original file name
-                title_in_lowercase = self.name.lower()    # Create a new name in lowercase
-                new_file_name = f'deal-{title_in_lowercase}{file_extension}'
-                self.image.name = new_file_name    # Changes the file name
+                # Gets the original file name
+                file_name, file_extension = os.path.splitext(self.image.name)
+                # Generate a new name from the slug, up to 100 characters
+                title = self.slug[:100]
+                file_name = f'{title}{file_extension}'
+                # Changes the file name
+                self.image.name = file_name
 
         super(Deal, self).save(*args, **kwargs)
 
@@ -130,10 +133,13 @@ class Product(models.Model):
 
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-                file_name, file_extension = os.path.splitext(self.image.name)   # Gets the original file name
-                title_in_lowercase = self.slug.lower()[:25]    # Create a new name in lowercase and 25 characters
-                new_file_name = f'item-{title_in_lowercase}{file_extension}'
-                self.image.name = new_file_name    # Changes the file name
+                # Gets the original file name
+                file_name, file_extension = os.path.splitext(self.image.name)
+                # Generate a new name from the slug, up to 100 characters
+                title = self.slug[:100]
+                file_name = f'{title}{file_extension}'
+                # Changes the file name
+                self.image.name = file_name
 
         super(Product, self).save(*args, **kwargs)
 
