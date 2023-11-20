@@ -15,6 +15,16 @@ class ManagementView(TemplateView):
     """View for the management dashboard."""
     template_name = 'management/dashboard.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # TODO: Add logic here
+
+        total_products = Product.objects.count()
+        context['total_products'] = total_products
+
+        return context
+
 
 class PageListView(ListView):
     """View for displaying a list of pages."""

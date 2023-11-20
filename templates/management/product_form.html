@@ -2,75 +2,76 @@
 {% load static %}
 {% block title %}Product Form{% endblock title %}
 {% block content %}
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-  {{ form.non_field_errors }}
-  <div class="form-group">
-    <label for="{{ form.title.id_for_label }}"
-    class="block mb-2">Title</label>
-    {{ form.title }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.brand.id_for_label }}"
-    class="block mb-2">Brand</label>
-    {{ form.brand }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.normal_price.id_for_label }}"
-    class="block mb-2">Normal Price</label>
-    {{ form.normal_price }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.deal.id_for_label }}"
-    class="block mb-2">Deal</label>
-    {{ form.deal }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.category.id_for_label }}"
-    class="block mb-2">Category</label>
-    {{ form.category }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.image.id_for_label }}"
-    class="block mb-2">Image</label>
-    {{ form.image }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.stock.id_for_label }}"
-    class="block mb-2">Stock</label>
-    {{ form.stock }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.warranty.id_for_label }}"
-    class="block mb-2">Warranty</label>
-    {{ form.warranty }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.featured.id_for_label }}"
-    class="block mb-2">Featured</label>
-    {{ form.featured }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.show_hide.id_for_label }}"
-    class="block mb-2">Show/Hide</label>
-    {{ form.show_hide }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.description.id_for_label }}"
-    class="block mb-2">Description</label>
-    {{ form.description }}
-  </div>
-  <div class="form-group">
-    <label for="{{ form.specifications.id_for_label }}"
-    class="block mb-2">Specifications</label>
-    {{ form.specifications }}
-  </div>
-  <div class="m-4 flex justify-center">
-    <button type="submit" class="primary-btn mr-4">
-      Save product
-    </button>
-    <a href="{% url 'management:product_list' %}" class="primary-btn">
-      Cancel
-    </a>
-  </div>
-</form>
+<section class="box relative mt-4">
+  {% include "fragments/title.html" with title="Create and update product" %}
+  <form method="post" enctype="multipart/form-data" class="max-w-screen-sm mx-auto">{% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+      <label for="{{ form.title.id_for_label }}"
+      class="block mb-2">Title</label>
+      {{ form.title }}
+    </div>
+    <div class="form-group flex justify-beetween">
+      <div class="flex-grow mr-4">
+        <label for="{{ form.normal_price.id_for_label }}" class="block mb-2">Price</label>
+        {{ form.normal_price }}
+      </div>
+      <div class="flex-grow">
+        <label for="{{ form.stock.id_for_label }}" class="block mb-2">Stock</label>
+        {{ form.stock }}
+      </div>
+    </div>
+    <div class="form-group flex justify-beetween">
+      <div class="flex-grow mr-4">
+        <label for="{{ form.category.id_for_label }}" class="block mb-2">Category</label>
+        {{ form.category }}
+      </div>
+      <div class="flex-grow">
+        <label for="{{ form.brand.id_for_label }}" class="block mb-2">Brand</label>
+        {{ form.brand }}
+      </div>
+    </div>
+    <div class="form-group flex justify-beetween">
+      <div class="flex-grow mr-4">
+        <label for="{{ form.deal.id_for_label }}" class="block mb-2">Deal</label>
+        {{ form.deal }}
+      </div>
+      <div class="flex-grow">
+        <label for="{{ form.warranty.id_for_label }}"
+        class="block mb-2">Warranty</label>
+        {{ form.warranty }}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="{{ form.image.id_for_label }}" class="block mb-2">Image</label>
+      {{ form.image }}
+    </div>
+    <div>
+      <div class="">
+        <label for="{{ form.show_hide.id_for_label }}" class="block mb-2">Show/Hide</label>
+        {{ form.show_hide }}
+      </div>
+      <div class="">
+        <label for="{{ form.featured.id_for_label }}" class="block mb-2">Featured</label>
+        {{ form.featured }}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="{{ form.description.id_for_label }}" class="block mb-2">Description</label>
+      {{ form.description }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.specifications.id_for_label }}" class="block mb-2">Specifications</label>
+      {{ form.specifications }}
+    </div>
+    <div class="m-4 flex justify-center">
+      <button type="submit" class="primary-btn mr-4">
+        Save product
+      </button>
+      <a href="{% url 'management:product_list' %}" class="secondary-btn">
+        Cancel
+      </a>
+    </div>
+  </form>
+</section>
 {% endblock content %}
