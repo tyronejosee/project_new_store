@@ -3,6 +3,10 @@
   <h2 class="text-4xl font-black">{{ title }}</h2>
   {% endif %}
 
+  {% if subtitle %}
+  <h2 class="text-4xl font-black">{{ subtitle }}</h2>
+  {% endif %}
+
   {% if request.path == '/users/profile/' %}
   <h2 class="text-4xl font-black">Welcome {{ user.first_name }}</h2>
   {% endif %}

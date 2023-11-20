@@ -3,59 +3,84 @@
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
 <main class="mt-4">
+  <!--TODO: create nav
+  <div>
+    <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-semibold hover:text-primary">
+      {{ product.category.title }}
+    </a>
+  </div>-->
+  {% include "components/heading.html" %}
   <section class="box p-4 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
     <div class="mx-auto">
-      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 rounded-xl">
+      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-48 lg:w-96 rounded-xl">
     </div>
-    <div>
-      <h1 class="text-2xl font-semibold">{{ product.title }}</h1>
-      {% if product.is_new %}
-      <span class="rounded-lg bg-primary text-white text-xs font-semibold">New</span>
-      {% endif %}
-      <span class="mb-2">Details</span>
-      <ul class="mb-4">
-        <li>
-          <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="font-semibold hover:text-primary">
-            {{ product.brand.name }}
-          </a>
-        </li>
-        <li>
-          <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-semibold hover:text-primary">{{ product.category.title }}</a>
-        </li>
-        <li>ID: item-{{ product.id }}</li>
-        <li>Category: {{ product.category.title }}</li>
-        <li>Stock: {{ product.stock }}</li>
-        <li>Warranty: {{ product.get_warranty_display }}</li>
-        <div class="flex items-center justify-between">
-          <span class="text-3xl">${{ product.normal_price }}</span>
-          {% if product.deal %}
-          <span class="text-3xl">${{ product.price_with_discount|floatformat:2 }}</span>
-          <span class="text-3xl">{{ product.deal.discount|floatformat:0 }}%</span>
-          {% endif %}
+    <div class="flex flex-col h-full">
+      <div class="flex justify-between items-center mb-4">
+        <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="flex items-center underline focus:text-primary">
+          <span class="font-medium mr-2">Shop all {{ product.brand.name }}</span>
+        </a>
+        {% if product.is_new %}
+        <div class="px-4 bg-primary rounded-lg text-center">
+          <span class="text-white font-semibold">New</span>
         </div>
-      </ul>
-      <div class="space-x-2">
-        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="primary-btn">Add to Cart</a>
-        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="secondary-btn">Add to Wishlist</a>
+        {% endif %}
+      </div>
+      <div class="flex justify-between border-b overflow-hidden">
+        <h1 class="text-2xl font-semibold mb-4">{{ product.title }}</h1>
+        <a href="{% url 'users:add_prod_to_wishlist' product.id %}" class="hover:text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ml-6 w-6 h-6">
+            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
+          </svg>         
+        </a>
+      </div>
+      <div class="flex justify-between">
+        <span>ID: {{ product.id }}</span>
+        <span>Stock: {{ product.stock }}</span>
+      </div>
+      <div>
+        {% if product.deal %}
+        <span class="text-3xl block font-medium text-red-600">${{ product.price_with_discount|floatformat:2 }}</span>
+        <span class="text-xl text-neutral-500 line-through">${{ product.normal_price }}</span>
+        <span class="text-xl">-{{ product.deal.discount|floatformat:0 }}%</span>
+        {% endif %}
+        {% if not product.deal %}
+        <span class="text-3xl font-semibold">${{ product.normal_price }}</span>
+        {% endif %}
+      </div>
+      <div>
+        <h4>Warranty: {{ product.get_warranty_display }}</h4>     
+        <h4>Available payment methods: PayPal</h4>
+        <h4>Terms and Conditions:</h4>
+      </div>
+
+      <div class="mt-auto flex">
+        <span class="secondary-btn mr-4">Quantity</span>
+        <a href="{% url 'users:add_prod_to_cart' product.id %}" class="primary-btn px-32 flex mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-2">
+            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+          </svg>
+          <span class="flex-item">Add to Cart</span>
+        </a>
       </div>
     </div>
   </section>
-  <article class="w-full mt-4">
+
+  <article class="mt-4">
     <ul class="flex" id="product-tabs">
-      <li class="box -mb-px mr-4 py-2 px-4 font-semibold hover:text-primary">
+      <li class="w-full text-center box -mb-px mr-4 py-2 px-4 font-semibold hover:text-primary">
         <a href="#description-tab">Description</a>
       </li>
-      <li class="box mr-1 py-2 px-4 hover:text-primary font-semibold">
+      <li class="w-full text-center box mr-1 py-2 px-4 font-semibold hover:text-primary">
         <a href="#specifications-tab">Specifications</a>
       </li>
     </ul>
-    <div class="box p-4 mt-4 mx-auto">
+    <div class="box p-4 mt-4">
       <div id="description-tab" class="tab-content">
-        <h2 class="font-semibold mb-4">Description</h2>
-        <p>{{ product.description | safe }}</p>
+        {% include "fragments/subtitle.html" with subtitle="Description" %}
+        <p>{{ product.description|safe }}</p>
       </div>
-      <div id="specifications-tab" class="tab-content hidden w-full">
-        <h2 class="font-semibold mb-4">Specifications</h2>
+      <div id="specifications-tab" class="tab-content hidden">
+        {% include "fragments/subtitle.html" with subtitle="Specifications" %}
         <p class="leading-loose">{{ product.specifications|safe }}</p>
       </div>
     </div>

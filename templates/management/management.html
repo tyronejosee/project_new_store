@@ -5,12 +5,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ company.name }} | Management</title>
+    <title>{{ company.name|default:'Company' }} | Management</title>
     {% compress css %}
     <link rel="stylesheet" href="{% static 'src/output.css' %}">
     {% endcompress %}
-    <link rel="icon" type="image/x-icon" href="{% static 'icon/icon.ico' %}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/svg+xml" href="{{ company.logo.url }}">
   </head>
   <body class="container">
     <nav class="flex items-center justify-between sticky top-0 z-10 py-4 rounded-b-xl">
@@ -44,6 +43,7 @@
       </div>
     </nav>
     {% block content %}{% endblock content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
