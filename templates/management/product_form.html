@@ -46,23 +46,29 @@
       <label for="{{ form.image.id_for_label }}" class="block mb-2">Image</label>
       {{ form.image }}
     </div>
-    <div>
-      <div class="">
+    <div class="py-4">
+      <div class="flex gap-4 items-center">
+        <div class="flex h-5">
+          {{ form.show_hide }}
+        </div>
         <label for="{{ form.show_hide.id_for_label }}" class="block mb-2">Show/Hide</label>
-        {{ form.show_hide }}
       </div>
-      <div class="">
+      <div class="flex gap-4 items-center">
+        <div class="flex h-5">
+          {{ form.featured }}
+        </div>
         <label for="{{ form.featured.id_for_label }}" class="block mb-2">Featured</label>
-        {{ form.featured }}
       </div>
     </div>
-    <div class="form-group">
-      <label for="{{ form.description.id_for_label }}" class="block mb-2">Description</label>
-      {{ form.description }}
-    </div>
-    <div class="form-group">
-      <label for="{{ form.specifications.id_for_label }}" class="block mb-2">Specifications</label>
-      {{ form.specifications }}
+    <div class="form-group flex justify-beetween">
+      <div class="flex-grow">
+        <label for="{{ form.description.id_for_label }}" class="block mb-2">Description</label>
+        {{ form.description }}
+      </div>
+      <div class="flex-grow">
+        <label for="{{ form.specifications.id_for_label }}" class="block mb-2">Specifications</label>
+        {{ form.specifications }}
+      </div>
     </div>
     <div class="m-4 flex justify-center">
       <button type="submit" class="primary-btn mr-4">

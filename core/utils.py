@@ -7,7 +7,6 @@ def form_text_input(placeholder):
         'placeholder': placeholder,
     }
 
-
 def form_number_input(placeholder):
     """Utility classes for number input."""
     return {
@@ -15,13 +14,23 @@ def form_number_input(placeholder):
         'placeholder': placeholder,
     }
 
+def form_checkbox_input():
+    """Utility classes for checkbox input."""
+    return {
+        'class': 'w-4 h-4 border border-gray-300 rounded-xl dark:bg-primary focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800'
+    }
+
+def form_file_input():
+    """Utility classes for file input."""
+    return {
+        'class': 'absolute inset-0 w-full h-full opacity-0 cursor-pointer'
+    }
 
 def form_select():
     """Utility classes for select."""
     return {
         'class': 'bg-neutral-100 dark:bg-neutral-900 w-full p-2 rounded-xl p-4',
     }
-
 
 def form_textarea():
     """Utility classes for text area."""
