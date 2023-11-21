@@ -1,6 +1,5 @@
 """Context Processors for Cart App."""
 
-
 from cart.models import Cart
 
 
@@ -11,5 +10,4 @@ def cart_total_price(request):
         total_price = user_cart.total_price() if user_cart else 0
     else:
         total_price = 0
-
     return {'total_price': total_price}

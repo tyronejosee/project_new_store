@@ -5,7 +5,7 @@ from users.models import CustomUser
 
 
 @admin.register(CustomUser)
-class BrandAdmin(admin.ModelAdmin):
+class CustomUserAdmin(admin.ModelAdmin):
     """Admin config for the CustomUser model."""
     list_display = ('username', 'email', 'date_joined', 'is_active',)
     ordering = ('username',)

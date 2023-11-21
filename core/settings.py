@@ -48,7 +48,6 @@ CORE_APPS = [
     'home',
     'products',
     'cart',
-    'wishlist',
     'management',
 ]
 

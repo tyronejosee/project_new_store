@@ -1,10 +1,16 @@
-"""Admin for Products App."""
+"""Admin for Cart App."""
 
 from django.contrib import admin
-from cart.models import Cart
+from cart.models import Cart, Wishlist
 
 
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
     """Admin config for the Cart model."""
+    ordering = ('-user',)
+
+
+@admin.register(Wishlist)
+class WishlistAdmin(admin.ModelAdmin):
+    """Admin config for the Wishlist model."""
     ordering = ('-user',)
