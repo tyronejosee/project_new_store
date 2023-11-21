@@ -1,5 +1,8 @@
+argon2-cffi==23.1.0
+argon2-cffi-bindings==21.2.0
 asgiref==3.7.2
 astroid==3.0.1
+cffi==1.16.0
 colorama==0.4.6
 defusedxml==0.7.1
 diff-match-patch==20230430
@@ -20,6 +23,7 @@ openpyxl==3.1.2
 Pillow==10.0.0
 platformdirs==4.0.0
 psycopg2==2.9.7
+pycparser==2.21
 pylint==3.0.2
 pylint-django==2.5.5
 pylint-plugin-utils==0.8.2
