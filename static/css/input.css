@@ -3,29 +3,190 @@
 @tailwind utilities;
 
 @layer components{
-
+    /* Main container */
     .container{
-        @apply max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-neutral-100 dark:bg-neutral-900 text-sm text-neutral-800 dark:text-neutral-200;
+        @apply
+            max-w-screen-xl
+            min-h-screen
+            min-w-[320px]
+            flex
+            flex-col
+            px-4
+            lg:mx-auto
+            bg-neutral-100
+            dark:bg-neutral-900
+            text-sm
+            text-neutral-800
+            dark:text-neutral-200
+        ;
     }
+
+    /* Box */
     .box{
-        @apply bg-white dark:bg-neutral-800 rounded-xl;
+        @apply
+            bg-white
+            dark:bg-neutral-800
+            rounded-xl
+        ;
     }
+
+    /* Card */
     .card{
-        @apply grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:md:grid-cols-6;
+        @apply
+            grid
+            gap-4
+            grid-cols-2
+            sm:grid-cols-3
+            md:grid-cols-4
+            lg:md:grid-cols-6
+        ;
     }
+    .card-wrapper{
+        @apply
+            box
+            relative
+            hover:shadow-xl
+            p-2
+            hover-scale
+            transform
+            hover:scale-105
+        ;
+    }
+    .card-image{
+        @apply
+            w-full
+            h-auto
+            rounded-xl
+        ;
+    }
+    .card-content{
+        @apply
+            flex
+            justify-between
+            items-center
+            mt-2
+        ;
+    }
+    .card-title{
+        @apply
+            h-14
+            overflow-hidden
+            mt-2
+        ;
+    }
+    .card-price-d{
+        @apply
+            font-semibold
+            text-red-600
+        ;
+    }
+    .card-price-n{
+        @apply
+            font-semibold
+        ;
+    }
+    .card-price-nt{
+        @apply
+            text-xs
+            text-neutral-500
+            line-through
+        ;
+    }
+    .card-btn{
+        @apply
+            primary-btn
+            block
+            w-full
+            text-center
+        ;
+    }
+
+    /* Buttoms */
     .primary-btn{
-        @apply bg-primary hover:bg-primaryHover px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-primaryFocus font-semibold text-white rounded-xl;
+        @apply
+            bg-primary
+            hover:bg-primaryHover
+            px-4
+            py-2.5
+            focus:ring-4
+            focus:outline-none
+            focus:ring-primaryFocus
+            font-semibold
+            text-white rounded-xl
+        ;
     }
     .secondary-btn{
-        @apply bg-secondary hover:bg-secondaryHover px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-secondaryFocus font-semibold text-neutral-800 rounded-xl;
+        @apply
+            bg-secondary
+            hover:bg-secondaryHover
+            px-4
+            py-2.5
+            focus:ring-4
+            focus:outline-none
+            focus:ring-secondaryFocus
+            font-semibold
+            text-neutral-800
+            rounded-xl
+        ;
     }
     .tertiary-btn{
-        @apply hover:bg-neutral-200 hover:text-primary px-4 py-2.5 focus:ring-4 focus:outline-none focus:ring-neutral-100 font-semibold text-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 rounded-xl;
+        @apply
+            hover:bg-neutral-200
+            hover:text-primary
+            px-4
+            py-2.5
+            focus:ring-4
+            focus:outline-none
+            focus:ring-neutral-100
+            font-semibold
+            text-neutral-800
+            dark:text-neutral-200
+            dark:hover:bg-neutral-700
+            rounded-xl
+        ;
     }
+
+    /* Tables */
     .table-head{
-        @apply bg-white dark:bg-neutral-800 font-medium uppercase;
+        @apply
+            bg-white
+            dark:bg-neutral-800
+            font-medium
+            uppercase
+        ;
     }
     .table-body{
-        @apply bg-white hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700;
+        @apply
+            bg-white
+            hover:bg-neutral-200
+            dark:bg-neutral-800
+            dark:hover:bg-neutral-700
+        ;
+    }
+
+    .tag{
+        @apply
+            absolute
+            top-0
+            left-0
+            ml-4
+            mt-4
+            p-1
+            rounded-lg
+            bg-primary
+            text-white
+            text-xs
+            font-semibold
+        ;
+    }
+
+    .icon{
+        @apply
+            hover:text-primary
+        ;
+    }
+
+    .hover-scale {
+        transition: transform 0.3s ease;
     }
 }
