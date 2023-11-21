@@ -5,7 +5,11 @@
     <span class="absolute top-0 left-0 ml-2 mt-2 p-1 rounded-lg bg-primary text-white text-xs font-semibold">New</span>
     {% endif %}
     <a href="{% url 'products:detail' product.pk %}">
+      {% if product.image %}
       <img class="w-full h-auto rounded-xl" src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
+      {% else %}
+      <img class="w-full h-auto rounded-xl" src="{% static 'image/default-image-front.webp' %}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
+      {% endif %}
     </a>
     <div class="p-4">
       <div class="flex justify-between items-center">
