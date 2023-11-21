@@ -24,12 +24,24 @@ DEBUG = 'RENDER' not in os.environ
 ALLOWED_HOSTS = [
     '*'
 ]
+
+
+# Render settings
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Installed Apps categories
+DJANGO_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
 CORE_APPS = [
     'users',
     'core',
@@ -40,22 +52,13 @@ CORE_APPS = [
     'management',
 ]
 
-DJANGO_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-
 THIRD_PARTY_APPS = [
     'ckeditor',
     'compressor',
     'import_export',
 ]
 
-INSTALLED_APPS = CORE_APPS + DJANGO_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS = DJANGO_APPS + CORE_APPS + THIRD_PARTY_APPS
 
 
 SITE_ID = 1

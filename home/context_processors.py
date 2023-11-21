@@ -1,6 +1,5 @@
 """Context Processors for Home App."""
 
-
 from home.models import Company
 
 

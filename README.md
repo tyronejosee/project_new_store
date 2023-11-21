@@ -64,17 +64,17 @@ cd project_new_store
 **3. Create a virtual environment**:
 
 ```bash
-python -m venv venv
+python -m venv env
 ```
 
 **4. Activate the virtual environment**:
 
 ```bash
 # Windows
-venv\Scripts\activate
+env\Scripts\activate
 
 # Unix/Linux
-source venv/bin/activate  
+source env/bin/activate  
 ```
 
 **5. Install dependencies**:
