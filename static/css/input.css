@@ -105,10 +105,13 @@
     /* Buttoms */
     .primary-btn{
         @apply
+            flex
+            items-center
+            justify-center
             bg-primary
             hover:bg-primaryHover
             px-4
-            py-2.5
+            py-2
             focus:ring-4
             focus:outline-none
             focus:ring-primaryFocus
@@ -118,10 +121,13 @@
     }
     .secondary-btn{
         @apply
+            flex
+            items-center
+            justify-center
             bg-secondary
             hover:bg-secondaryHover
             px-4
-            py-2.5
+            py-2
             focus:ring-4
             focus:outline-none
             focus:ring-secondaryFocus
@@ -132,10 +138,13 @@
     }
     .tertiary-btn{
         @apply
+            flex
+            items-center
+            justify-center
             hover:bg-neutral-200
             hover:text-primary
             px-4
-            py-2.5
+            py-2
             focus:ring-4
             focus:outline-none
             focus:ring-neutral-100
@@ -167,17 +176,22 @@
 
     .tag{
         @apply
-            absolute
-            top-0
-            left-0
-            ml-4
-            mt-4
-            p-1
             rounded-lg
             bg-primary
             text-white
             text-xs
             font-semibold
+            p-1
+        ;
+    }
+    .tag-absolute{
+        @apply
+            tag
+            absolute
+            top-0
+            left-0
+            ml-4
+            mt-4
         ;
     }
 

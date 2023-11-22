@@ -1,7 +1,7 @@
 {% load static %}
 <article class="card-wrapper">
 
-  {% if product.is_new %}<span class="tag">New</span>{% endif %}
+  {% if product.is_new %}<span class="tag-absolute">New</span>{% endif %}
 
   <a href="{% url 'products:detail' product.pk %}">
     {% if product.image %}

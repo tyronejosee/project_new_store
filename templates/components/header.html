@@ -6,7 +6,7 @@
     <a href="{% url 'home:index' %}" class="sm:w-1/4 order-1 flex items-center pb-4 sm:pb-0">
       <img src="{{ company.logo.url }}" class="h-8 mr-3" alt="{{ company.name }}"/>
       <span
-        class="self-center text-2xl font-bold whitespace-nowrap text-primary hidden lg:block">
+        class="self-center text-2xl font-bold whitespace-nowrap hidden lg:block">
         {{ company.name|default:'Company' }}
       </span>
     </a>
