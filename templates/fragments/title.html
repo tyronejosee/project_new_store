@@ -1,22 +1,24 @@
-<div class="my-8 text-center">
+<div class="mb-4 mt-12 flex items-center">
+  <div class="w-2 h-6 bg-primary mr-4"></div>
   {% if title %}
-  <h2 class="text-4xl font-black">{{ title }}</h2>
+  <h2 class="text-2xl font-bold self-center tracking-tight">{{ title }}</h2>
   {% endif %}
 
   {% if subtitle %}
-  <h2 class="text-4xl font-black">{{ subtitle }}</h2>
+  <h2 class="text-2xl font-bold">{{ subtitle }}</h2>
   {% endif %}
 
   {% if request.path == '/users/profile/' %}
-  <h2 class="text-4xl font-black">Welcome {{ user.first_name }}</h2>
+  <h2 class="text-2xl font-bold">Welcome {{ user.first_name }}</h2>
   {% endif %}
 
   {% if results %}
-  <h2 class="text-4xl font-black">{{ results }} results for "{{ title }}"</h2>
+  <span class="text-2xl font-medium">{{ results }} results </span>
+  <span class="text-base font-normal">for "{{ title }}"</span>
   {% endif %}
 
   {% if page_obj.paginator.count > 0 %}
-  <span class="font-medium">
+  <span class="text-base font-normal">
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
   {% endif %}

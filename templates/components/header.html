@@ -6,7 +6,7 @@
     <a href="{% url 'home:index' %}" class="sm:w-1/4 order-1 flex items-center pb-4 sm:pb-0">
       <img src="{{ company.logo.url }}" class="h-8 mr-3" alt="{{ company.name }}"/>
       <span
-        class="self-center text-2xl font-semibold whitespace-nowrap text-primary hidden lg:block">
+        class="self-center text-2xl font-bold whitespace-nowrap text-primary hidden lg:block">
         {{ company.name|default:'Company' }}
       </span>
     </a>
@@ -16,7 +16,7 @@
       <div class="relative">
         <form method="get" action="{% url 'products:search' %}">
           <input type="search" id="search-navbar"
-            class="w-full p-2 pl-10 text-sm placeholder:text-neutral-800 rounded-xl bg-white dark:bg-neutral-800 dark:placeholder-neutral-200 border-hidden"
+            class="w-full p-2 pl-10 placeholder:text-neutral-800 rounded-xl bg-white dark:bg-neutral-800 dark:placeholder-neutral-200 border-hidden outline-none focus:outline-none"
             placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
