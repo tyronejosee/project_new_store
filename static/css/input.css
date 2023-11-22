@@ -102,6 +102,46 @@
         ;
     }
 
+    /* Footer */
+    .footer-wrapper{
+        @apply
+            grid
+            gap-4
+            grid-cols-2
+            px-4
+            py-8
+            md:grid-cols-4
+        ;
+    }
+
+    .footer-title{
+        @apply
+            mb-4
+            font-medium
+            text-primary
+            uppercase
+        ;
+    }
+
+    .footer-copy{
+        @apply
+            pb-4
+            md:flex
+            md:items-center
+            md:justify-between
+        ;
+    }
+    
+    .footer-copy div{
+        @apply
+            flex
+            mt-4
+            space-x-5
+            justify-center
+            md:mt-0
+        ;
+    }
+
     /* Buttoms */
     .primary-btn{
         @apply

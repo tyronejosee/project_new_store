@@ -1,8 +1,8 @@
 {% load static %}
 <footer class="mt-auto">
-  <div class="grid gap-4 grid-cols-2 px-4 py-8 md:grid-cols-4">
+  <div class="footer-wrapper">
     <div>
-      <h2 class="mb-4 font-medium text-primary uppercase">About Us</h2>
+      <h2 class="footer-title">About Us</h2>
       <ul>
         <li class="mb-4">
           <a href="{% url 'home:page_detail' key='about' %}" title="About" class="hover:underline">About</a>
@@ -13,7 +13,7 @@
       </ul>
     </div>
     <div>
-      <h2 class="mb-4 font-medium text-primary uppercase">Help</h2>
+      <h2 class="footer-title">Help</h2>
       <ul>
         <li class="mb-4">
           <a href="{% url 'home:page_detail' key='returns' %}" title="Returns" class="hover:underline">Returns</a>
@@ -24,7 +24,7 @@
       </ul>
     </div>
     <div>
-      <h2 class="mb-4 font-medium text-primary uppercase">Legal</h2>
+      <h2 class="footer-title">Legal</h2>
       <ul>
         <li class="mb-4">
           <a href="{% url 'home:page_detail' key='privacy' %}" title="Privacy Policy" class="hover:underline">Privacy Policy</a>
@@ -35,7 +35,7 @@
       </ul>
     </div>
     <div>
-      <h2 class="mb-4 font-medium text-primary uppercase">Services</h2>
+      <h2 class="footer-title">Services</h2>
       <ul>
         <li class="mb-4">
           <a href="{% url 'home:page_detail' key='delivery' %}" title="Delivery" class="hover:underline">Delivery</a>
@@ -46,11 +46,11 @@
       </ul>
     </div>
   </div>
-  <div class="pb-4 md:flex md:items-center md:justify-between">
+  <div class="footer-copy">
     <span class="flex justify-center">
       {{ company.copy|default:'Copyright' }}
     </span>
-    <div class="flex mt-4 space-x-5 justify-center md:mt-0">
+    <div>
       <a href="{{ company.email|default:'Email' }}" title="Gmail" target="_blank" class="hover:text-primary">
         <svg class="w-4 h-4" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
