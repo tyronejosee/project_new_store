@@ -31,7 +31,7 @@
         <td class="px-6 py-4">{{ product.id }}</td>
         <td class="px-6 py-4">
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-            <img src="{{ product.image.url }}" class="rounded" width="25" height="25" alt="{{ product.title }}">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded" width="25" height="25">
           </a>
         </td>
         <td class="px-6 py-4">{{ product.stock }}</td>
@@ -40,7 +40,7 @@
         <td class="px-6 py-4">{{ product.featured }}</td>
         <td class="px-6 py-4">{{ product.show_hide }}</td>
         <td class="flex items-center px-6 py-4 space-x-3">
-          <a href="{% url 'management:product_update' pk=product.pk %}" class="hover:text-primary">
+          <a href="{% url 'management:product_update' pk=product.pk %}" title="Update product" class="hover:text-primary">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
               <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
             </svg>            

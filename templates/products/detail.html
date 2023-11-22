@@ -21,7 +21,7 @@
     <div class="flex flex-col h-full">
 
       <div class="flex justify-between items-center mb-4">
-        <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" class="flex items-center focus:text-primary">
+        <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="flex items-center focus:text-primary">
           <span class="hover:underline font-medium">Shop all {{ product.brand.name }}</span>
         </a>
         <div class="flex items-center">

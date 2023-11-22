@@ -14,8 +14,8 @@
   <body class="container">
     <nav class="flex items-center justify-between sticky top-0 z-10 py-4 rounded-b-xl">
       <div class="flex-initial">
-        <a href="{% url 'home:index' %}" class="flex items-center">
-          <img src="{{ company.logo.url }}" class="h-8 mr-3" alt="{{ company.name }}" />
+        <a href="{% url 'home:index' %}" title="Home" class="flex items-center">
+          <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="h-8 mr-3" />
           <span
             class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 hidden md:block">
             {{ company.name|default:'Company' }}

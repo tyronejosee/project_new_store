@@ -26,11 +26,11 @@
           </div>
           <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
         </div>
-        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+        <a href="#" title="Lost password?" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost password?</a>
       </div>
       <button type="submit" class="primary-btn w-full">Login</button>
       <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-        Not registered? <a href="{% url 'users:registration' %}" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+        Not registered? <a href="{% url 'users:registration' %}" title="Registration" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
       </div>
     </form>
   </div>

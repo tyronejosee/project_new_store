@@ -6,7 +6,7 @@
   <div class="box">
     <div class="relative p-4">
       {% if page.image %}
-      <img src="{{ page.image.url }}" alt="page-image" class="w-full h-64 object-cover rounded-lg" />
+      <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-64 object-cover rounded-lg" />
       {% else %}
       <img src="{% static 'image/default-image-front.webp' %}" alt="default-image" class="w-full h-64 object-cover rounded-xl" />
       {% endif %}

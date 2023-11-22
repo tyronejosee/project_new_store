@@ -21,8 +21,8 @@
     <tbody class="table-body">
       <tr>
         <td class="px-6 py-4">
-          <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-            <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
+          <a href="#" title="{{ product.title }}" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded" width="30" height="30">
           </a>
         </td>
         <th scope="row" class="px-6 py-4 whitespace-nowrap">
@@ -31,7 +31,7 @@
         <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
         <td class="px-6 py-4">pending</td>
         <td class="px-6 py-4">
-          <a href="{% url 'cart:remove_prod_cart' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">
+          <a href="{% url 'cart:remove_prod_cart' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 rounded-lg">
             Remove
           </a>
         </td>
@@ -46,8 +46,8 @@
 {% endif %}
 {% if cart.products.all %}
 <nav class="p-4">
-  <a href="{% url 'cart:clear_cart' %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
-  <a href="#" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
+  <a href="{% url 'cart:clear_cart' %}" title="Clear cart" class="bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
+  <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
 </nav >
 {% endif%}
 {% include "fragments/title.html" with title="Wishlist" %}
@@ -67,8 +67,8 @@
     <tbody class="table-body">
       <tr>
         <td class="px-6 py-4">
-          <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-            <img src="{{ product.image.url }}" class="rounded" width="30" height="30" alt="{{ product.title }}">
+          <a href="#" title="{{ product.title }}" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded" width="30" height="30">
           </a>
         </td>
         <td class="px-6 py-4">
@@ -77,9 +77,9 @@
         <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
         <td class="px-6 py-4">pending</td>
         <td class="px-6 py-4">
-          <a href="{% url 'cart:add_prod_cart' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
-          <a href="{% url 'cart:subtract_prod_wishlist' product.id %}" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Subtract</a>
-          <a href="{% url 'cart:remove_prod_wishlist' product.id %}" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
+          <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
+          <a href="{% url 'cart:subtract_prod_wishlist' product.id %}" title="Subtract" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Subtract</a>
+          <a href="{% url 'cart:remove_prod_wishlist' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
         </td>
       </tr>
     </tbody>
