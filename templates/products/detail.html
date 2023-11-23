@@ -4,14 +4,9 @@
 {% block content %}
 <main class="mt-4">
 
-  <!--<div>
-    <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-semibold hover:text-primary">
-      {{ product.category.title }}
-    </a>
-  </div>-->
-  {% include "components/heading.html" %}
-  <section class="box p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
+  {% include "components/routes.html" %}
 
+  <section class="box p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
     <!-- Image -->
     <div class="flex items-center pb-8 mb-2 border-b border-neutral-700 md:pb-0 md:mb-0 md:border-none">
       <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 md:w-full max-w-md mx-auto rounded-xl">

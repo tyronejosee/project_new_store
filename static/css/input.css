@@ -6,20 +6,24 @@
     /* Main container */
     .container{
         @apply
+            text-sm
+            font-normal
             max-w-screen-xl
             min-h-screen
             min-w-[320px]
             flex
             flex-col
             px-4
-            lg:mx-auto
             bg-neutral-100
-            dark:bg-neutral-900
-            text-base
-            font-normal
             text-neutral-800
+
+            md:text-base
+            
+            lg:mx-auto
+            
+            dark:bg-neutral-900
             dark:text-neutral-200
-        ;
+            ;
     }
 
     /* Box */

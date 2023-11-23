@@ -21,10 +21,10 @@ urlpatterns = [
 
     # Products URLs
     path('', product_search, name='search'),
+    path('', ProductListView.as_view(), name='prod_list'),
+    path('<int:pk>/', ProductDetailView.as_view(), name='detail'),
     path('categories/', CategoriesListView.as_view(), name='categories'),
-    path('items/', ProductListView.as_view(), name='items'),
-    path('items/<int:pk>/', ProductDetailView.as_view(), name='detail'),
-    path('category/<str:category_slug>/', CategoryFilterListView.as_view(), name='category_filter'),
+    path('categories/<str:category_slug>/', CategoryFilterListView.as_view(), name='category_filter'),
     path('deals/', DealListView.as_view(), name='deal_list'),
     path('deals/<slug:slug>/', DealDetailView.as_view(), name='deal_detail'),
     path('brands/<str:brand_slug>/', BrandFilterListView.as_view(), name='brand_filter'),
