@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Payment Success{% endblock title %}
+{% block content %}
+<section>
+  <h1>Payment successful</h1>
+  <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-xl mx-auto w-full">
+  <p>{{product.title}}</p>
+  <p>Price: $ {{product.normal_price}}</p>
+</section>
+{% endblock content %}

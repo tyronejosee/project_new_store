@@ -53,7 +53,13 @@
         <h4>Terms and Conditions:</h4>
       </div>
 
+
+
       <span class="secondary-btn w-1/4">Quantity here</span>
+
+      <a href="{% url 'payment:checkout' product.id %}" class="secondary-btn w-1/4">
+        Buy Now
+      </a>
 
       <div class="mt-auto grid gap-4 grid-cols-3">
         <a href="{% url 'cart:add_prod_cart' product.id %}" class="primary-btn col-span-2 flex items-center px-auto">

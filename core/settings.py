@@ -12,6 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Environment Variable settings
 env = environ.Env()
 environ.Env.read_env()
+
 ENVIRONMENT = env
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
@@ -49,9 +50,11 @@ CORE_APPS = [
     'products',
     'cart',
     'management',
+    'payment',
 ]
 
 THIRD_PARTY_APPS = [
+    'paypal.standard.ipn',
     'ckeditor',
     'compressor',
     'import_export',
@@ -61,6 +64,12 @@ INSTALLED_APPS = DJANGO_APPS + CORE_APPS + THIRD_PARTY_APPS
 
 
 SITE_ID = 1
+
+
+# Paypal settings
+PAYPAL_RECEIVER_EMAIL = 'sb-bjeh4728354490@business.example.com' # Sandbox email
+PAYPAL_TEST = True
+
 
 # Compressor settings
 COMPRESS_ROOT = BASE_DIR / 'static'

@@ -7,12 +7,19 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    # Django URLs
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),
+
+    # Core URLs
     path("", include("home.urls")),
+    path('users/', include('users.urls')),
     path("products/", include("products.urls")),
     path("cart/", include("cart.urls")),
     path("management/", include("management.urls")),
+    path("payment/", include("payment.urls")),
+
+    # Third party URLs
+    path('paypal/', include("paypal.standard.ipn.urls")),
 ]
 
 
