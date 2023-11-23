@@ -7,22 +7,11 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from users.models import CustomUser
 from users.forms import UserLoginForm, UserRegistrationForm
-
-
-class UserProfileView(TemplateView):
-    """View for user profile."""
-    template_name = 'users/profile.html'
-
-    def get_context_data(self, **kwargs):
-        """Provides the username as context."""
-        context = super().get_context_data(**kwargs)
-        context['username'] = self.request.user.username
-        return context
 
 
 class UserLoginView(FormView):
@@ -56,7 +45,7 @@ class UserRegistrationView(CreateView):
     model = CustomUser
     form_class = UserRegistrationForm
     template_name = 'users/registration_form.html'
-    success_url = reverse_lazy('users:profile')
+    success_url = reverse_lazy('cart:cart')
 
     def form_valid(self, form):
         response = super().form_valid(form)
