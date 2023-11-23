@@ -7,7 +7,7 @@
     {% if product.image %}
     <img class="card-image" src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
     {% else %}
-    <img class="card-image" src="{% static 'image/default-image-front.webp' %}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
+    <img class="card-image" src="{% static 'img/default-image-front.webp' %}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
     {% endif %}
   </a>
 

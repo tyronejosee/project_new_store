@@ -3,8 +3,8 @@
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
 <main class="mt-4">
-  <!--
-  <div>
+
+  <!--<div>
     <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="font-semibold hover:text-primary">
       {{ product.category.title }}
     </a>
@@ -78,7 +78,8 @@
     </div>
   </section>
 
-  <article class="mt-4">
+  <!-- Descriptions and Specifications -->
+  <aside class="mt-4">
     <nav class="flex" id="product-tabs">
       <a href="#description-tab" class="tertiary-btn box w-full -mb-px mr-4">
         Description
@@ -97,6 +98,16 @@
         <p class="leading-loose">{{ product.specifications|safe }}</p>
       </div>
     </div>
-  </article>
+  </aside>
+
+  <!-- Featured products -->
+  <section class="card mt-4">
+    {% for product in featured_products %}
+    {% include "components/card.html" %}
+    {% empty %}
+    <span>No products available.</span>
+    {% endfor %}
+  </section>
+
 </main>
 {% endblock content %}

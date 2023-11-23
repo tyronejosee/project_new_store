@@ -140,6 +140,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'home.context_processors.company_context',
                 'cart.context_processors.cart_total_price',
+                'products.context_processors.featured_products',
             ],
         },
     },
