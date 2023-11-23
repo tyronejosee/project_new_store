@@ -3,7 +3,7 @@
 {% block title %}Cart{% endblock title %}
 {% block content %}
 
-{% include "fragments/title.html" with title="Cart" %}
+{% include "fragments/title.html" %}
 
 {% if cart.products.all %}
 <section class="relative overflow-x-auto rounded-xl mt-4">
@@ -50,7 +50,8 @@
   <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
 </nav >
 {% endif%}
-{% include "fragments/title.html" with title="Wishlist" %}
+
+{% include "fragments/subtitle.html" %}
 {% if wishlist.products.all %}
 <section class="relative overflow-x-auto rounded-xl">
   <table class="w-full text-left">

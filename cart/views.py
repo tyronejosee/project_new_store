@@ -15,13 +15,16 @@ def cart(request):
 
     cart, created = Cart.objects.get_or_create(user=user)
     cart_products = cart.products.all()
+    cart_count = cart_products.count()
 
     wishlist, created = Wishlist.objects.get_or_create(user=user)
     wishlist_products = wishlist.products.all()
+    wishlist_count = wishlist.products.count()
 
     return render(request, "cart/cart.html", {
-        'cart_products': cart_products, 'wishlist_products': wishlist_products,
-        'cart': cart, 'wishlist': wishlist
+        'cart': cart, 'cart_products': cart_products, 'cart_count': cart_count,
+        'wishlist': wishlist, 'wishlist_products': wishlist_products,
+        'wishlist_count': wishlist_count,
         }
     )
 

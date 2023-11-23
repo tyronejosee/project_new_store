@@ -1,5 +1,10 @@
-{% if subtitle %}
-<div class="my-4">
-  <h2 class="text-xl font-medium">{{ subtitle }}</h2>
+<div class="mb-4 mt-12 flex items-center">
+  <div class="w-2 h-6 bg-primary mr-4"></div>
+  {% if subtitle %}
+  <h2 class="text-2xl font-bold self-center tracking-tight mr-4">{{ subtitle }}</h2>
+  {% endif %}
+
+  {% if wishlist_count %}
+  <h2 class="text-2xl font-bold self-center tracking-tight mr-4">Wishlist ({{ wishlist_count }})</h2>
+  {% endif %}
 </div>
-{% endif %}

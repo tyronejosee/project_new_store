@@ -4,12 +4,8 @@
   <h2 class="text-2xl font-bold self-center tracking-tight mr-4">{{ title }}</h2>
   {% endif %}
 
-  {% if subtitle %}
-  <h2 class="text-2xl font-bold">{{ subtitle }}</h2>
-  {% endif %}
-
-  {% if request.path == '/users/profile/' %}
-  <h2 class="text-2xl font-bold">Welcome {{ user.first_name }}</h2>
+  {% if cart_count %}
+  <h2 class="text-2xl font-bold block self-center tracking-tight mr-4">Cart ({{ cart_count }})</h2>
   {% endif %}
 
   {% if results %}
