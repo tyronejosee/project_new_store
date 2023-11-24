@@ -12,11 +12,10 @@
     <link rel="icon" type="image/svg+xml" href="{{ company.logo.url }}">
     <meta name="description" content="Explore New Store's catalog to discover innovative products at friendly prices. From technological gadgets to home essentials, we offer modern solutions that fit your budget." />
     <!-- <link rel="canonical" href="canonical_url_here" /> -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow" />    
   </head>
   <body class="container">
     {% include "components/header.html" %}
-    {% include "components/nav.html" %}
     {% block content %}{% endblock content %}
     {% include "components/signup.html" %}
     {% include "components/footer.html" %}

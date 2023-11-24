@@ -3,6 +3,7 @@ desktop.ini
 node_modules/
 static/admin/
 static/CACHE/
+static/ckeditor/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -101,8 +101,8 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-        'height': 300,
-        'width': 300,
+        'height': 600,
+        'width': 600,
     },
 }
 

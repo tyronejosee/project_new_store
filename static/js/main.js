@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+    $('#dropdownCategories').click(function() {
+      $('#dropdown').slideToggle(250);
+    });
+
     $('.show-image-popup').on('click', function(e) {
       e.preventDefault();
       var imageUrl = $(this).data('src');
