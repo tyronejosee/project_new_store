@@ -1,16 +1,19 @@
-<div class="mb-4 mt-12 flex items-center">
-  <div class="w-2 h-6 bg-primary mr-4"></div>
-  {% if title %}
-  <h2 class="text-2xl font-bold self-center tracking-tight mr-4">{{ title }}</h2>
-  {% endif %}
+<div class="my-4 flex items-center">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 mr-4 text-primary">
+    <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 00-3-3h-3.879a.75.75 0 01-.53-.22L11.47 3.66A2.25 2.25 0 009.879 3H6a3 3 0 00-3 3v3.162A3.756 3.756 0 014.094 9h15.812zM4.094 10.5a2.25 2.25 0 00-2.227 2.568l.857 6A2.25 2.25 0 004.951 21H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-2.227-2.568H4.094z" />
+  </svg>
 
-  {% if cart_count %}
-  <h2 class="text-2xl font-bold block self-center tracking-tight mr-4">Cart ({{ cart_count }})</h2>
+  {% if title and "search=" not in request.get_full_path %}
+  <h1 class="title-h1 mr-4">{{ title }}</h1>
   {% endif %}
 
   {% if results %}
-  <span class="text-2xl font-medium">{{ results }} results </span>
-  <span class="text-base font-normal">for "{{ title }}"</span>
+  <h1 class="title-h1 mr-2">{{ results }} results </h1>
+  <span>for "{{ title }}"</span>
+  {% endif %}
+
+  {% if cart_count %}
+  <h1 class="title-h1 mr-4">Cart ({{ cart_count }})</h1>
   {% endif %}
 
   {% if page_obj.paginator.count > 0 %}

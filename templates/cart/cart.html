@@ -79,7 +79,6 @@
         <td class="px-6 py-4">pending</td>
         <td class="px-6 py-4">
           <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
-          <a href="{% url 'cart:subtract_prod_wishlist' product.id %}" title="Subtract" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Subtract</a>
           <a href="{% url 'cart:remove_prod_wishlist' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
         </td>
       </tr>

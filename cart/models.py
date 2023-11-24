@@ -53,8 +53,3 @@ class Wishlist(models.Model):
     def remove_product(self, product):
         """Remove a product from the Wishlist."""
         self.products.remove(product)
-
-    def subtract_product(self, product):
-        """Subtract a product from the Wishlist."""
-        if product in self.products.all():
-            self.products.remove(product)

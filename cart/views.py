@@ -86,12 +86,3 @@ def remove_prod_wishlist(request, product_id):
     wishlist, created = Wishlist.objects.get_or_create(user=user)
     wishlist.remove_product(product)
     return redirect("cart:cart")
-
-
-def subtract_prod_wishlist(request, product_id):
-    """Subtract a product from the wishlist."""
-    user = request.user
-    product = Product.objects.get(id=product_id)
-    wishlist, created = Wishlist.objects.get_or_create(user=user)
-    wishlist.subtract_product(product)
-    return redirect("cart:cart")

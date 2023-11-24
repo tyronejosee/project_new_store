@@ -8,8 +8,7 @@ from cart.views import (
     subtract_prod_cart,
     clear_cart,
     add_prod_wishlist,
-    remove_prod_wishlist,
-    subtract_prod_wishlist
+    remove_prod_wishlist
 )
 
 
@@ -27,5 +26,4 @@ urlpatterns = [
     # Wishlist URLs
     path('wishlist/add/<int:product_id>/', add_prod_wishlist, name='add_prod_wishlist'),
     path('wishlist/remove/<int:product_id>/', remove_prod_wishlist, name='remove_prod_wishlist'),
-    path('wishlist/subtract/<int:product_id>/', subtract_prod_wishlist, name='subtract_prod_wishlist'),
 ]
