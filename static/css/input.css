@@ -3,28 +3,23 @@
 @tailwind utilities;
 
 @layer components{
+
     /* Main container */
     .container{
         @apply
-            text-sm
-            font-normal
+            font-base
             max-w-screen-xl
             min-h-screen
             min-w-[320px]
             flex
             flex-col
             px-4
-            bg-neutral-100
-            text-neutral-800
-
-            md:text-base
-            
             lg:mx-auto
-            
+            bg-neutral-100
             dark:bg-neutral-900
-            dark:text-neutral-200
             ;
     }
+
 
     /* Box */
     .box{
@@ -34,6 +29,41 @@
             rounded-xl
         ;
     }
+
+
+    /* Texts */
+    .font-base{
+        @apply
+            text-sm
+            font-normal
+            lg:text-base
+            text-neutral-800
+            dark:text-neutral-200
+        ;
+    }
+
+    .title-h1{
+        @apply
+            text-2xl
+            font-bold
+            tracking-tight
+        ;
+    }
+
+    .title-h2{
+        @apply
+            text-xl
+            font-semibold
+        ;
+    }
+
+    .link{
+        @apply
+            font-medium
+            hover:underline
+        ;
+    }
+
 
     /* Card */
     .card{
@@ -236,6 +266,34 @@
             left-0
             ml-4
             mt-4
+        ;
+    }
+
+    /* CHECKOUT */
+    .checkout-wrapper{
+        @apply
+            box
+            p-4
+            grid
+            gap-4
+            grid-cols-1
+            md:grid-cols-2
+        ;
+    }
+
+    .checkout-image{
+        @apply
+            rounded-xl
+            mx-auto
+            w-96
+        ;
+    }
+
+    .checkout-info{
+        @apply
+            flex
+            flex-col
+            h-full
         ;
     }
 

@@ -69,6 +69,7 @@ SITE_ID = 1
 # Paypal settings
 PAYPAL_RECEIVER_EMAIL = 'sb-bjeh4728354490@business.example.com' # Sandbox email
 PAYPAL_TEST = True
+PAYPAL_BUY_BUTTON_IMAGE = '/static/img/buttom_paypal.svg'
 
 
 # Compressor settings
