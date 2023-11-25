@@ -2,16 +2,16 @@
 {% load static %}
 {% block title %}Product{% endblock title %}
 {% block content %}
-<div class="bg-neutral-800 rounded-xl flex items-center justify-between h-12">
+<div class="bg-neutral-800 cs-rounded flex items-center justify-between h-12">
   <div class="flex-none">
-    <a href="{% url 'management:product_create' %}" class="hover:bg-neutral-100 focus:outline-none focus:ring-4 focus:ring-sky-500 font-medium rounded-lg px-6 py-2 text-center dark:hover:bg-neutral-700 inline-block">Create new</a>
-    <a href="{% url 'management:product_deactivated_list' %}" class="hover:bg-neutral-100 focus:outline-none focus:ring-4 focus:ring-sky-500 font-medium rounded-lg px-6 py-2 text-center dark:hover:bg-neutral-700 inline-block">Deactivated</a>
+    <a href="{% url 'management:product_create' %}" class="hover:bg-neutral-100 focus:outline-none focus:ring-4 focus:ring-sky-500 font-medium cs-rounded px-6 py-2 text-center dark:hover:bg-neutral-700 inline-block">Create new</a>
+    <a href="{% url 'management:product_deactivated_list' %}" class="hover:bg-neutral-100 focus:outline-none focus:ring-4 focus:ring-sky-500 font-medium cs-rounded px-6 py-2 text-center dark:hover:bg-neutral-700 inline-block">Deactivated</a>
   </div>
   <div class="flex-none">
     {% include "components/pagination.html" %}
   </div>
 </div>
-<section class="relative overflow-x-auto rounded-xl mt-4">
+<section class="relative overflow-x-auto cs-rounded mt-4">
   <table class="w-full text-left">
     <thead class="table-head">
       <tr>
@@ -31,7 +31,7 @@
         <td class="px-6 py-4">{{ product.id }}</td>
         <td class="px-6 py-4">
           <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded" width="25" height="25">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="25" height="25">
           </a>
         </td>
         <td class="px-6 py-4">{{ product.stock }}</td>

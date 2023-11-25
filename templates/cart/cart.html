@@ -6,7 +6,7 @@
 {% include "fragments/title.html" %}
 
 {% if cart.products.all %}
-<section class="relative overflow-x-auto rounded-xl mt-4">
+<section class="relative overflow-x-auto cs-rounded mt-4">
   <table class="w-full text-left">
     <thead class="table-head">
       <tr>
@@ -22,7 +22,7 @@
       <tr>
         <td class="px-6 py-4">
           <a href="#" title="{{ product.title }}" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded" width="30" height="30">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="30" height="30">
           </a>
         </td>
         <th scope="row" class="px-6 py-4 whitespace-nowrap">
@@ -31,7 +31,7 @@
         <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
         <td class="px-6 py-4">pending</td>
         <td class="px-6 py-4">
-          <a href="{% url 'cart:remove_prod_cart' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 rounded-lg">
+          <a href="{% url 'cart:remove_prod_cart' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 cs-rounded">
             Remove
           </a>
         </td>
@@ -46,14 +46,14 @@
 {% endif %}
 {% if cart.products.all %}
 <nav class="p-4">
-  <a href="{% url 'cart:clear_cart' %}" title="Clear cart" class="bg-red-500 text-white px-2 py-1 rounded-lg">Clear Cart</a>
-  <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 rounded-lg">Checkout</a>
+  <a href="{% url 'cart:clear_cart' %}" title="Clear cart" class="bg-red-500 text-white px-2 py-1 cs-rounded">Clear Cart</a>
+  <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 cs-rounded">Checkout</a>
 </nav >
 {% endif%}
 
 {% include "fragments/subtitle.html" %}
 {% if wishlist.products.all %}
-<section class="relative overflow-x-auto rounded-xl">
+<section class="relative overflow-x-auto cs-rounded">
   <table class="w-full text-left">
     <thead class="table-head">
       <tr>
@@ -69,7 +69,7 @@
       <tr>
         <td class="px-6 py-4">
           <a href="#" title="{{ product.title }}" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded" width="30" height="30">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="30" height="30">
           </a>
         </td>
         <td class="px-6 py-4">
@@ -78,8 +78,8 @@
         <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
         <td class="px-6 py-4">pending</td>
         <td class="px-6 py-4">
-          <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="bg-blue-600 text-white px-2 py-1 rounded-lg">Add to cart</a>
-          <a href="{% url 'cart:remove_prod_wishlist' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 rounded-lg">Remove</a>
+          <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="bg-blue-600 text-white px-2 py-1 cs-rounded">Add to cart</a>
+          <a href="{% url 'cart:remove_prod_wishlist' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 cs-rounded">Remove</a>
         </td>
       </tr>
     </tbody>

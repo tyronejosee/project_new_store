@@ -1,32 +1,43 @@
-<nav aria-label="Page navigation example" class="bg-white dark:bg-neutral-800 rounded-xl">
-  <ul class="flex items-center justify-center -space-x-px h-10 mx-auto">
-    <li>
-      <a href="?page=1" title="Previus Page" class="flex items-center justify-center px-4 h-10 ml-0 mx-1 leading-tight hover:bg-neutral-200 rounded-xl dark:hover:bg-neutral-700">
-        <span class="sr-only">Previous</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-        </svg>          
-      </a>
-    </li>
+<nav class="bg-white dark:bg-neutral-800 cs-rounded">
+  <div class="flex items-center justify-center">
+    {% if page_obj.has_previous %}
+    <!-- FIRST PAGE -->
+    <a href="?page=1" title="Firt page" class="flex items-center justify-center px-4 h-10 mx-1 cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700">          
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+      </svg>
+    </a>
+    <!-- PREVIUS PAGE -->
+    <a href="?page={{ page_obj.previous_page_number }}" title="Previus page" class="flex items-center justify-center px-4 h-10 mx-1 cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>          
+    </a>
+    {% endif %}
+    <!-- CURRENT AND TOTAL PAGES -->
     {% for page in page_obj.paginator.page_range %}
-    <li>
-      <a href="?page={{ page }}" title="Current page" class="flex items-center justify-center px-4 h-10 mx-1 leading-tight 
-        {% if page_obj.number == page %}
-        hover:bg-neutral-300 rounded-xl dark:bg-neutral-700 dark:hover:bg-neutral-600
-        {% else %}
-        rounded-xl dark:hover:bg-neutral-700
-        {% endif %}">
-        {{ page }}
-      </a>
-    </li>
+    <a href="?page={{ page }}" title="Current page" class="flex items-center justify-center px-4 h-10 mx-1 leading-tight 
+      {% if page_obj.number == page %}
+      bg-neutral-200 hover:bg-neutral-300 cs-rounded dark:bg-neutral-700 dark:hover:bg-neutral-600
+      {% else %}
+      cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700
+      {% endif %}">
+      {{ page }}
+    </a>
     {% endfor %}
-    <li>
-      <a href="?page={{ page_obj.paginator.num_pages }}" title="Next page" class="flex items-center justify-center px-4 h-10 mr-0 mx-1 leading-tight rounded-xl hover:bg-neutral-200 dark:hover:bg-neutral-700">
-        <span class="sr-only">Next</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>          
-      </a>
-    </li>
-  </ul>
+    {% if page_obj.has_next %}
+    <!-- NEXT PAGE -->
+    <a href="?page={{ page_obj.next_page_number }}" title="Next page" class="flex items-center justify-center px-4 h-10 mr-0 mx-1 leading-tight cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>          
+    </a>
+    <!-- LAST PAGE -->
+    <a href="?page={{ page_obj.paginator.num_pages }}" title="Last page" class="flex items-center justify-center px-4 h-10 mx-1 cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+      </svg>
+    </a>
+    {% endif %}
+  </div>
 </nav>

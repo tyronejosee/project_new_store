@@ -9,7 +9,7 @@
   <section class="box p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
     <!-- Image -->
     <div class="flex items-center pb-8 mb-2 border-b border-neutral-700 md:pb-0 md:mb-0 md:border-none">
-      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 md:w-full max-w-md mx-auto rounded-xl">
+      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 md:w-full max-w-md mx-auto cs-rounded">
     </div>
 
     <!-- Content -->
@@ -26,7 +26,7 @@
       </div>
 
       <div class="relative flex items-center mb-4 overflow-hidden">
-        <h1 class="text-xl font-semibold lg:text-2xl">{{ product.title }}{% if product.is_new %}<span class="absolute tag ml-3 my-1">New</span>{% endif %}</h1>
+        <h1 class="headline-1 lg:text-2xl">{{ product.title }}{% if product.is_new %}<span class="absolute tag ml-3 my-1">New</span>{% endif %}</h1>
       </div>
 
       <div class="mb-4">

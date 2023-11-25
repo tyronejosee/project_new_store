@@ -2,12 +2,12 @@
 {% load static %}
 {% block title %}Page List{% endblock title %}
 {% block content %}
-<nav class="bg-neutral-800 rounded-xl flex items-center justify-between h-12">
+<nav class="bg-neutral-800 cs-rounded flex items-center justify-between h-12">
   <div class="flex-none">
     {% include "components/pagination.html" %}
   </div>
 </nav>
-<section class="relative overflow-x-auto rounded-xl mt-4">
+<section class="relative overflow-x-auto cs-rounded mt-4">
   <table class="w-full text-left">
     <thead class="table-head">
       <tr>
@@ -26,7 +26,7 @@
         <td class="px-6 py-4">
           {% if page.image %}
           <a href="#" title="{{ page.key }}" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">
-            <img src="{{ page.image.url }}" alt="{{ page.key }}" class="rounded" width="25" height="25">
+            <img src="{{ page.image.url }}" alt="{{ page.key }}" class="cs-rounded" width="25" height="25">
           </a>
           {% else %}
           <span>False</span>

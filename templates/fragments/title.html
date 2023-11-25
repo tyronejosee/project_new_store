@@ -4,20 +4,20 @@
   </svg>  
 
   {% if title and "search=" not in request.get_full_path %}
-  <h1 class="title-h1 mr-4">{{ title }}</h1>
+  <h1 class="headline-1 mr-4">{{ title }}</h1>
   {% endif %}
 
   {% if results %}
-  <h1 class="title-h1 mr-2">{{ results }} results </h1>
+  <h1 class="headline-1 mr-2">{{ results }} results </h1>
   <span>for "{{ title }}"</span>
   {% endif %}
 
   {% if cart_count %}
-  <h1 class="title-h1 mr-4">Cart ({{ cart_count }})</h1>
+  <h1 class="headline-1 mr-4">Cart ({{ cart_count }})</h1>
   {% endif %}
 
   {% if page_obj.paginator.count > 0 %}
-  <span class="text-base font-normal">
+  <span class="body">
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
   </span>
   {% endif %}
