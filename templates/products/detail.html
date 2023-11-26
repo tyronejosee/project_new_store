@@ -3,18 +3,14 @@
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
 <main class="mt-4">
-
   {% include "components/routes.html" %}
-
   <section class="box p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
-    <!-- Image -->
-    <div class="flex items-center pb-8 mb-2 border-b border-neutral-700 md:pb-0 md:mb-0 md:border-none">
+    <!-- IMAGE -->
+    <figure class="flex items-center pb-8 mb-2 border-b border-neutral-700 md:pb-0 md:mb-0 md:border-none">
       <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 md:w-full max-w-md mx-auto cs-rounded">
-    </div>
-
-    <!-- Content -->
-    <div class="flex flex-col h-full">
-
+    </figure>
+    <!-- INFO -->
+    <article class="flex flex-col h-full">
       <div class="flex justify-between items-center mb-4">
         <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="flex items-center focus:text-primary">
           <span class="hover:underline font-medium">Shop all {{ product.brand.name }}</span>
@@ -24,38 +20,28 @@
           <span>Stock: {{ product.stock }}</span>
         </div>
       </div>
-
       <div class="relative flex items-center mb-4 overflow-hidden">
         <h1 class="headline-1 lg:text-2xl">{{ product.title }}{% if product.is_new %}<span class="absolute tag ml-3 my-1">New</span>{% endif %}</h1>
       </div>
-
       <div class="mb-4">
         {% if product.deal %}
-        <span class="text-3xl block font-medium text-red-600">${{ product.price_with_discount|floatformat:2 }}</span>
-        <span class="text-xl text-neutral-500 line-through">${{ product.normal_price }}</span>
-        <span class="text-xl">-{{ product.deal.discount|floatformat:0 }}%</span>
+          <span class="text-3xl block font-medium text-red-600">${{ product.price_with_discount|floatformat:2 }}</span>
+          <span class="text-xl text-neutral-500 line-through">${{ product.normal_price }}</span>
+          <span class="text-xl">-{{ product.deal.discount|floatformat:0 }}%</span>
         {% endif %}
         {% if not product.deal %}
-        <span class="text-3xl font-semibold">${{ product.normal_price }}</span>
+          <span class="text-3xl font-semibold">${{ product.normal_price }}</span>
         {% endif %}
       </div>
-
-
-
       <div class="mb-4">
-        <h4>Warranty: {{ product.get_warranty_display }}</h4>     
-        <h4>Available payment methods: PayPal</h4>
-        <h4>Terms and Conditions:</h4>
+        <span>Warranty: {{ product.get_warranty_display }}</span>     
+        <span>Available payment methods: PayPal</s>
+        <span>Terms and Conditions:</span>
       </div>
-
-
-
       <span class="secondary-btn w-1/4">Quantity here</span>
-
       <a href="{% url 'payment:checkout' product.id %}" class="secondary-btn w-1/4">
         Buy Now
       </a>
-
       <div class="mt-auto grid gap-4 grid-cols-3">
         <a href="{% url 'cart:add_prod_cart' product.id %}" class="primary-btn col-span-2 flex items-center px-auto">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-2">
@@ -70,9 +56,8 @@
           <span class="flex-item">Add to wishlist</span>
         </a>
       </div>
-    </div>
+    </article>
   </section>
-
   <!-- Descriptions and Specifications -->
   <aside class="mt-4">
     <nav class="flex" id="product-tabs">
@@ -84,25 +69,26 @@
       </a>
     </nav>
     <div class="box p-4 mt-4">
-      <div id="description-tab" class="tab-content">
+      <article id="description-tab" class="tab-content">
         {% include "fragments/subtitle.html" with subtitle="Description" %}
         <p>{{ product.description|safe }}</p>
-      </div>
-      <div id="specifications-tab" class="tab-content hidden">
+      </article>
+      <article id="specifications-tab" class="tab-content hidden">
         {% include "fragments/subtitle.html" with subtitle="Specifications" %}
         <p class="leading-loose">{{ product.specifications|safe }}</p>
-      </div>
+      </article>
     </div>
   </aside>
-
   <!-- Featured products -->
-  <section class="card mt-4">
-    {% for product in featured_products %}
-    {% include "components/card.html" %}
-    {% empty %}
-    <span>No products available.</span>
-    {% endfor %}
+  <section>
+    <h2 class="headline-2">Featured products</h2>
+    <div class="card mt-4">
+      {% for product in featured_products %}
+        {% include "components/card.html" %}
+      {% empty %}
+        <h3>No products available.</h3>
+      {% endfor %}
+    </div>
   </section>
-
 </main>
-{% endblock content %}
+{% endblock %}

@@ -124,7 +124,7 @@
         @apply
             w-full
             h-auto
-            rounded-xl
+            cs-rounded
         ;
     }
 

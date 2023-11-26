@@ -1,9 +1,12 @@
 <div class="mb-4 mt-8 flex items-center">
   {% if subtitle %}
-  <h2 class="headline-2 mr-4">{{ subtitle }}</h2>
+  <div class="mr-4">
+    <h2 class="headline-2">{{ subtitle }}</h2>
+  </div>
   {% endif %}
-
   {% if wishlist_count %}
-  <h2 class="headline-2 mr-4">Wishlist ({{ wishlist_count }})</h2>
+  <div class="mr-4">
+    <h2 class="headline-2">Wishlist ({{ wishlist_count }})</h2>
+  </div>
   {% endif %}
 </div>

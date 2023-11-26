@@ -3,7 +3,7 @@
 {% block title %}Categories{% endblock title %}
 {% block content %}
 <main>
-  {% include "fragments/title.html" with title="Categories" %}
+  <!-- CATEGORIES -->
   <nav class="box p-4 mb-4">
     <form method="get">
       <div class="flex space-x-4">
@@ -20,6 +20,8 @@
       </div> -->
     </form>
   </nav>
+  <!-- SECTION MAIN -->
+  {% include "fragments/title.html" with title="Categories" %}
   <section class="card mb-12">
     {% for product in products %}
     {% include "components/card.html" %}
@@ -29,4 +31,4 @@
   </section>
   {% include "components/pagination.html" %}
 </main>
-{% endblock content %}
+{% endblock %}

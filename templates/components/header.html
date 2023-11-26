@@ -1,5 +1,4 @@
-{% load static %}
-<header class="bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10">
+<header class="bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10 border-b">
   <div class="flex flex-wrap sm:flex-nowrap items-center justify-between py-4">
     <!-- COMPANY AND CATEGORIES -->
     <div class="w-1/2 sm:w-1/4 order-1 flex justify-start">
@@ -10,9 +9,8 @@
           {{ company.name|default:'Company' }}
         </span>
       </a>
-
-      <div class="hidden sm:block relative my-auto">
-        <button id="dropdownCategories" data-dropdown-toggle="dropdown" class="headline-3 order-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded text-center inline-flex items-center" type="button">Categories <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <div class="hidden sm:block relative my-auto" id="dropdownContainer">
+        <button data-dropdown-toggle="dropdown" class="headline-3 order-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded text-center inline-flex items-center" type="button">Categories <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
           </svg>
         </button>
@@ -36,7 +34,6 @@
         </div>
       </div>
     </div>
-
     <!-- SEARCH BAR -->
     <div class="w-full sm:w-1/2 mx-auto sm:mx-0 order-3 sm:order-2">
       <div class="relative">
@@ -54,7 +51,6 @@
         </form>
       </div>
     </div>
-
     <!-- USER AND PROFILE -->
     <div class="w-1/2 sm:w-1/4 order-2 sm:order-3 flex items-center justify-end pb-4 sm:pb-0 md:order-2 relative group">
       {% if user.is_authenticated %}
@@ -90,16 +86,14 @@
         <a href="{% url 'users:registration' %}" class="primary-btn px-6">Sign Up</a>
       </div>
       {% endif %}
-
       <!-- SM MAIN MENU -->
       <div class="relative">
-        <button id="dropdownCategories" data-dropdown-toggle="dropdown" class="hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded" type="button">
+        <button data-dropdown-toggle="dropdown" class="hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
           </svg>        
         </button>
-        <!-- Dropdown menu -->
-        <div id="dropdown" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700">
+        <div id="dropdownMain" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
               <li>
                 <span class="block px-4 py-2">Users</span>

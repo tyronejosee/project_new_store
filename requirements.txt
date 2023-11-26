@@ -12,7 +12,6 @@ dill==0.3.7
 Django==4.2.4
 django-appconf==1.0.6
 django-ckeditor==6.7.0
-django-compressor==4.4
 django-environ==0.10.0
 django-import-export==3.3.1
 django-js-asset==2.1.0

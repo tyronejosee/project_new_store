@@ -1,4 +1,3 @@
-{% load compress %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ company.name|default:'Company' }} | Management</title>
-    {% compress css %}
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
-    {% endcompress %}
     <link rel="icon" type="image/svg+xml" href="{{ company.logo.url }}">
   </head>
   <body class="container">

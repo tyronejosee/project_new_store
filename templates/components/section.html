@@ -8,9 +8,9 @@
     {% for product in products %}
     {% include "components/card.html" %}
     {% empty %}
-    <span>No products available.</span>
+    <article>No products available.</article>
     {% endfor %}
   </section>
   {% include "components/pagination.html" %}
 </main>
-{% endblock content %}
+{% endblock %}

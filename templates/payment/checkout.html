@@ -5,9 +5,9 @@
 <main>
   {% include "fragments/title.html" with title="Checkout" %}
   <section class="checkout-wrapper">
-    <div class="checkout-image">
+    <figure class="checkout-image">
       <img src="{{ product.image.url }}" alt="{{ product.title }}">
-    </div>
+    </figure>
     <article class="checkout-info">
       <h2 class="title-h2">Products list</h2>
       <span>{{product.title}}</span>
@@ -18,4 +18,4 @@
     </article>
   </section>
 </main>
-{% endblock content %}
+{% endblock %}

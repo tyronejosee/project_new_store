@@ -2,19 +2,19 @@
 {% load static %}
 {% block title %}{{ page.key|title }}{% endblock title %}
 {% block content %}
-<section class="py-4">
-  <div class="box">
-    <div class="relative p-4">
+<main class="py-4">
+  <section class="box">
+    <figure class="relative p-4">
       {% if page.image %}
       <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-64 object-cover cs-rounded" />
       {% else %}
       <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-full h-64 object-cover cs-rounded" />
       {% endif %}
       <div class="absolute inset-0 opacity-30 cs-rounded"></div>
-    </div>
+    </figure>
     <article class="px-4 pb-4">
       {{ page.content|safe }}
     </article>
-  </div>
-</section>
-{% endblock content %}
+  </section>
+</main>
+{% endblock %}

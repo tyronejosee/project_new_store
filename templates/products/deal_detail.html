@@ -4,9 +4,9 @@
 {% block content %}
 <main>
   <section class="box pt-4">
-    <div class="mx-4">
+    <figure class="mx-4">
       <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="w-full cs-rounded">
-    </div>
+    </figure>
     <h1 class="headline-1 p-4">{{ deal.name }}</h1>
     <p>{{ deal.description }}</p>
     <section class="card">
@@ -18,4 +18,4 @@
     </section>
   </section>
 </main>
-{% endblock content %}
+{% endblock %}

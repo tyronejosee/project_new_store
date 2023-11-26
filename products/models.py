@@ -153,8 +153,8 @@ class Product(models.Model):
     def is_new(self):
         """Method returns True if the product is new, created, or updated within a week."""
         return (
-            self.created_at >= timezone.now() - timezone.timedelta(weeks=1) or
-            self.updated_at >= timezone.now() - timezone.timedelta(weeks=1)
+            self.created_at >= timezone.now() - timezone.timedelta(days=1) or
+            self.updated_at >= timezone.now() - timezone.timedelta(days=1)
         )
 
 

@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-<section class="box relative mt-4">
+<main class="box relative mt-4">
   {% include "fragments/title.html" with title="Registration" %}
   <form method="POST" class="max-w-screen-sm mx-auto">{% csrf_token %}
     <div class="mb-4 flex justify-between">
@@ -46,5 +46,5 @@
       <a href="#" class="secondary-btn">Cancel</a>
     </div>
   </form>
-</section>
+</main>
 {% endblock content %}

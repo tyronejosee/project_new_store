@@ -56,7 +56,6 @@ CORE_APPS = [
 THIRD_PARTY_APPS = [
     'paypal.standard.ipn',
     'ckeditor',
-    'compressor',
     'import_export',
 ]
 
@@ -70,12 +69,6 @@ SITE_ID = 1
 PAYPAL_RECEIVER_EMAIL = 'sb-bjeh4728354490@business.example.com' # Sandbox email
 PAYPAL_TEST = True
 PAYPAL_BUY_BUTTON_IMAGE = '/static/img/buttom_paypal.svg'
-
-
-# Compressor settings
-COMPRESS_ROOT = BASE_DIR / 'static'
-COMPRESS_ENABLED = True
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 
 # Auth model settings

@@ -781,9 +781,9 @@ video {
 }
 
 .card-image {
+  border-radius: 1.5rem;
   height: auto;
   width: 100%;
-  border-radius: 0.75rem;
 }
 
 .card-content {
@@ -1446,10 +1446,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-48 {
-  height: 12rem;
 }
 
 .w-1 {
