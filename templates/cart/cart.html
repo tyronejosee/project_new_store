@@ -2,8 +2,9 @@
 {% load static %}
 {% block title %}Cart{% endblock title %}
 {% block content %}
-{% include "fragments/title.html" %}
-{% if cart.products.all %}
+<main>
+  {% include "fragments/title.html" %}
+  {% if cart.products.all %}
   <section class="relative overflow-x-auto cs-rounded mt-4">
     <table class="w-full text-left">
       <thead class="table-head">
@@ -39,17 +40,17 @@
     </table>
   </section>
   <span class="p-4">{{ total_price }}</span>
-{% else %}
+  {% else %}
   <section class="box w-full h-96 flex items-center justify-center mt-4">Empty cart.</section>
-{% endif %}
-{% if cart.products.all %}
+  {% endif %}
+  {% if cart.products.all %}
   <nav class="p-4">
     <a href="{% url 'cart:clear_cart' %}" title="Clear cart" class="bg-red-500 text-white px-2 py-1 cs-rounded">Clear Cart</a>
     <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 cs-rounded">Checkout</a>
   </nav >
-{% endif%}
-{% include "fragments/subtitle.html" %}
-{% if wishlist.products.all %}
+  {% endif%}
+  {% include "fragments/subtitle.html" %}
+  {% if wishlist.products.all %}
   <section class="relative overflow-x-auto cs-rounded">
     <table class="w-full text-left">
       <thead class="table-head">
@@ -83,8 +84,9 @@
       {% endfor %}
     </table>
   </section>
-{% else %}
-  <div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
-{% endif %}
-{% include "fragments/image_modal.html" %}
+  {% else %}
+    <div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
+  {% endif %}
+  {% include "fragments/image_modal.html" %}
+</main>
 {% endblock %}

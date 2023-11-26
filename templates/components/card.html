@@ -1,23 +1,23 @@
 {% load static %}
 <article class="card-wrapper">
   {% if product.is_new %}
-    <span class="tag-absolute">New</span>
+  <span class="tag-absolute">New</span>
   {% endif %}
   <a href="{% url 'products:detail' product.pk %}" title="{{ product.title }}">
     {% if product.image %}
-      <img class="card-image" src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
+    <img class="card-image" src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
     {% else %}
-      <img class="card-image" src="{% static 'img/default-image-front.webp' %}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
+    <img class="card-image" src="{% static 'img/default-image-front.webp' %}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
     {% endif %}
   </a>
   <div class="card-content">
     <div>
       {% if product.deal %}
-        <span class="card-price-d">${{ product.price_with_discount|floatformat:2 }}</span>
-        <span class="card-price-nt">${{ product.normal_price }}</span>
+      <span class="card-price-d">${{ product.price_with_discount|floatformat:2 }}</span>
+      <span class="card-price-nt">${{ product.normal_price }}</span>
       {% endif %}
       {% if not product.deal %}
-        <span class="card-price-n">${{ product.normal_price }}</span>
+      <span class="card-price-n">${{ product.normal_price }}</span>
       {% endif %}
     </div>
     <div>

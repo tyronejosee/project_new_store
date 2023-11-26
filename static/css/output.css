@@ -641,7 +641,7 @@ video {
 @media (prefers-color-scheme: dark) {
   .box {
     --tw-bg-opacity: 1;
-    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+    background-color: rgb(41 37 36 / var(--tw-bg-opacity));
   }
 }
 
@@ -760,7 +760,7 @@ video {
 @media (prefers-color-scheme: dark) {
   .card-wrapper {
     --tw-bg-opacity: 1;
-    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+    background-color: rgb(41 37 36 / var(--tw-bg-opacity));
   }
 }
 
@@ -781,9 +781,9 @@ video {
 }
 
 .card-image {
-  border-radius: 1.5rem;
   height: auto;
   width: 100%;
+  border-radius: 1rem;
 }
 
 .card-content {
@@ -993,8 +993,6 @@ video {
   padding-right: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity));
 }
 
 .tertiary-btn:hover {
@@ -1015,11 +1013,6 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
-  .tertiary-btn {
-    --tw-text-opacity: 1;
-    color: rgb(229 229 229 / var(--tw-text-opacity));
-  }
-
   .tertiary-btn:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(64 64 64 / var(--tw-bg-opacity));
@@ -1040,7 +1033,7 @@ video {
 @media (prefers-color-scheme: dark) {
   .table-head {
     --tw-bg-opacity: 1;
-    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+    background-color: rgb(41 37 36 / var(--tw-bg-opacity));
   }
 }
 
@@ -1057,7 +1050,7 @@ video {
 @media (prefers-color-scheme: dark) {
   .table-body {
     --tw-bg-opacity: 1;
-    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+    background-color: rgb(41 37 36 / var(--tw-bg-opacity));
   }
 
   .table-body:hover {
@@ -1106,7 +1099,7 @@ video {
 @media (prefers-color-scheme: dark) {
   .checkout-wrapper {
     --tw-bg-opacity: 1;
-    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+    background-color: rgb(41 37 36 / var(--tw-bg-opacity));
   }
 }
 
@@ -1135,6 +1128,8 @@ video {
   height: 100%;
   flex-direction: column;
 }
+
+/* ANIMATION */
 
 .pointer-events-none {
   pointer-events: none;
@@ -1256,11 +1251,6 @@ video {
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-}
-
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 .my-auto {

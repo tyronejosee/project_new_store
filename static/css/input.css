@@ -6,345 +6,134 @@
 
     /* MAIN COINTAINER */
     .container{
-        @apply
-            body
-            max-w-screen-xl
-            min-h-screen
-            min-w-[320px]
-            flex
-            flex-col
-            px-4
-            lg:mx-auto
-            bg-neutral-100
-            dark:bg-neutral-900
-            ;
+        @apply body max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
     }
+
 
     /* CUSTOM STYLES */
     .cs-rounded{
-        @apply
-            rounded-3xl
-        ;
+        @apply rounded-3xl;
     }
-
     .cs-shadow{
-        @apply
-            shadow-xl
-        ;
+        @apply shadow-xl;
     }
 
 
     /* BOX */
     .box{
-        @apply
-            bg-white
-            dark:bg-neutral-800
-            cs-rounded
-        ;
+        @apply bg-lightTab dark:bg-darkTab cs-rounded;
     }
 
 
     /* TYPOGRAPHY */
     .body{
-        @apply
-            text-sm
-            font-normal
-            lg:text-base
-            text-neutral-800
-            dark:text-neutral-200
-        ;
+        @apply text-sm font-normal lg:text-base text-neutral-800 dark:text-neutral-200;
     }
-
     .headline-1{
-        @apply
-            font-bold
-            text-xl
-            lg:text-3xl
-        ;
+        @apply font-bold text-xl lg:text-3xl;
     }
-
     .headline-2{
-        @apply
-            font-semibold
-            text-xl
-            lg:text-2xl
-        ;
+        @apply font-semibold text-xl lg:text-2xl;
     }
-
     .headline-3{
-        @apply
-            text-base
-            font-medium
-        ;
+        @apply text-base font-medium;
     }
-
     .link{
-        @apply
-            text-base
-            font-medium
-            hover:underline
-            focus:text-primary
-        ;
+        @apply text-base font-medium hover:underline focus:text-primary;
     }
  
 
     /* ICONS */
     .icon{
-        @apply
-            hover:text-primary
-        ;
+        @apply hover:text-primary;
     }
 
 
     /* CARD */
     .card{
-        @apply
-            grid
-            gap-4
-            grid-cols-2
-            sm:grid-cols-3
-            md:grid-cols-4
-            lg:md:grid-cols-6
-        ;
+        @apply grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:md:grid-cols-6;
     }
-
     .card-wrapper{
-        @apply
-            box
-            relative
-            hover:cs-shadow
-            p-2
-            hover-scale
-            transform
-            hover:scale-105
-        ;
+        @apply box relative hover:cs-shadow p-2 hover-scale transform hover:scale-105;
     }
-
     .card-image{
-        @apply
-            w-full
-            h-auto
-            cs-rounded
-        ;
+        @apply w-full h-auto rounded-2xl;
     }
-
     .card-content{
-        @apply
-            flex
-            justify-between
-            items-center
-            mt-2
-        ;
+        @apply flex justify-between items-center mt-2;
     }
-
     .card-title{
-        @apply
-            h-14
-            overflow-hidden
-            mt-2
-        ;
+        @apply h-14 overflow-hidden mt-2;
     }
-
     .card-price-d{
-        @apply
-            font-semibold
-            text-primary
-        ;
+        @apply font-semibold text-primary;
     }
-
     .card-price-n{
-        @apply
-            font-semibold
-        ;
+        @apply font-semibold;
     }
-
     .card-price-nt{
-        @apply
-            text-xs
-            text-neutral-500
-            line-through
-        ;
+        @apply text-xs text-neutral-500 line-through;
     }
-
     .card-btn{
-        @apply
-            primary-btn
-            block
-            w-full
-            text-center
-        ;
+        @apply primary-btn block w-full text-center;
     }
 
 
     /* FOOTER */
     .footer-wrapper{
-        @apply
-            grid
-            gap-4
-            grid-cols-2
-            px-4
-            py-8
-            md:grid-cols-4
-        ;
+        @apply grid gap-4 grid-cols-2 px-4 py-8 md:grid-cols-4;
     }
-
     .footer-title{
-        @apply
-            mb-4
-            headline-3
-            text-primary
-        ;
+        @apply mb-4 headline-3 text-primary;
     }
-
     .footer-copy{
-        @apply
-            pb-4
-            md:flex
-            md:items-center
-            md:justify-between
-        ;
+        @apply pb-4 md:flex md:items-center md:justify-between;
     }
-    
     .footer-copy div{
-        @apply
-            flex
-            mt-4
-            space-x-5
-            justify-center
-            md:mt-0
-        ;
+        @apply flex mt-4 space-x-5 justify-center md:mt-0;
     }
 
 
     /* BUTTOMS */
     .primary-btn{
-        @apply
-            flex
-            items-center
-            justify-center
-            bg-primary
-            hover:bg-primaryHover
-            px-4
-            py-2
-            focus:ring-4
-            focus:outline-none
-            focus:ring-primaryFocus
-            headline-3
-            text-white
-            cs-rounded
-        ;
+        @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-4 py-2 focus:ring-4 focus:outline-none focus:ring-primaryFocus headline-3 text-white cs-rounded;
     }
-
     .secondary-btn{
-        @apply
-            flex
-            items-center
-            justify-center
-            bg-secondary
-            hover:bg-secondaryHover
-            px-4
-            py-2
-            focus:ring-4
-            focus:outline-none
-            focus:ring-secondaryFocus
-            text-neutral-800
-            headline-3
-            cs-rounded
-        ;
+        @apply flex items-center justify-center bg-secondary hover:bg-secondaryHover px-4 py-2 focus:ring-4 focus:outline-none focus:ring-secondaryFocus headline-3 text-neutral-800 cs-rounded;
     }
-
     .tertiary-btn{
-        @apply
-            flex
-            items-center
-            justify-center
-            hover:bg-neutral-200
-            hover:text-primary
-            px-4
-            py-2
-            focus:ring-4
-            focus:outline-none
-            focus:ring-neutral-100
-            headline-3
-            text-neutral-800
-            dark:text-neutral-200
-            dark:hover:bg-neutral-700
-            cs-rounded
-        ;
+        @apply flex items-center justify-center hover:bg-lightHover hover:text-primary px-4 py-2 focus:ring-4 focus:outline-none focus:ring-light headline-3 dark:hover:bg-darkHover cs-rounded;
     }
 
 
     /* TABLES */
     .table-head{
-        @apply
-            bg-white
-            dark:bg-neutral-800
-            headline-3
-            uppercase
-        ;
+        @apply bg-lightTab dark:bg-darkTab headline-3 uppercase;
     }
-
     .table-body{
-        @apply
-            bg-white
-            hover:bg-neutral-200
-            dark:bg-neutral-800
-            dark:hover:bg-neutral-700
-        ;
+        @apply bg-lightTab hover:bg-lightHover dark:bg-darkTab dark:hover:bg-darkHover;
     }
-
     .tag{
-        @apply
-            rounded-lg
-            bg-primary
-            text-white
-            text-xs
-            font-semibold
-            p-1
-        ;
+        @apply rounded-lg bg-primary text-white text-xs font-semibold p-1;
     }
-
     .tag-absolute{
-        @apply
-            tag
-            absolute
-            top-0
-            left-0
-            ml-4
-            mt-4
-        ;
+        @apply tag absolute top-0 left-0 ml-4 mt-4;
     }
 
 
     /* CHECKOUT */
     .checkout-wrapper{
-        @apply
-            box
-            p-4
-            grid
-            gap-4
-            grid-cols-1
-            md:grid-cols-2
-        ;
+        @apply box p-4 grid gap-4 grid-cols-1 md:grid-cols-2;
     }
-
     .checkout-image{
-        @apply
-            mx-auto
-            w-96
-            cs-rounded
-        ;
+        @apply mx-auto w-96 cs-rounded;
     }
-
     .checkout-info{
-        @apply
-            flex
-            flex-col
-            h-full
-        ;
+        @apply flex flex-col h-full;
     }
 
 
+    /* ANIMATION */
     .hover-scale {
         transition: transform 0.3s ease;
     }

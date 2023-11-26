@@ -1,11 +1,10 @@
 <header class="bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10 border-b">
   <div class="flex flex-wrap sm:flex-nowrap items-center justify-between py-4">
     <!-- COMPANY AND CATEGORIES -->
-    <div class="w-1/2 sm:w-1/4 order-1 flex justify-start">
-      <a href="{% url 'home:index' %}" class="flex items-center pb-4 sm:pb-0 mr-4">
-        <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="h-6 w-"/>
-        <span
-          class="headline-1 self-center hidden xl:block">
+    <div class="w-1/2 sm:w-1/4 order-1 flex items-center justify-start">
+      <a href="{% url 'home:index' %}" class="flex items-center pb-4 sm:pb-0">
+        <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="h-6 w-6 mr-4"/>
+        <span class="headline-1 hidden xl:block">
           {{ company.name|default:'Company' }}
         </span>
       </a>
@@ -54,12 +53,12 @@
     <!-- USER AND PROFILE -->
     <div class="w-1/2 sm:w-1/4 order-2 sm:order-3 flex items-center justify-end pb-4 sm:pb-0 md:order-2 relative group">
       {% if user.is_authenticated %}
-      <a href="{% url 'cart:cart' %}" title="Cart" class="hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded">
+      <a href="{% url 'cart:cart' %}" title="Cart" class="secondary-btn">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
         </svg>        
       </a>
-      <button type="button" class="flex hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded"
+      <button type="button" class="secondary-btn flex"
         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
         data-dropdown-placement="bottom-start">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -78,7 +77,6 @@
           </li>
         </ul>
       </div>
-
       <!-- SIGN UP AND LOGIN -->
       {% else %}
       <div class="flex">
@@ -88,7 +86,7 @@
       {% endif %}
       <!-- SM MAIN MENU -->
       <div class="relative">
-        <button data-dropdown-toggle="dropdown" class="hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded" type="button">
+        <button data-dropdown-toggle="dropdown" class="secondary-btn" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
           </svg>        
