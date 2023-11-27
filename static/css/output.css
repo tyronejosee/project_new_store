@@ -618,7 +618,7 @@ video {
   }
 }
 
-/* CUSTOM STYLES */
+/* CUSTOM STYLE */
 
 .cs-rounded {
   border-radius: 1.5rem;
@@ -716,11 +716,11 @@ video {
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 
-/* ICONS */
+/* ICON */
 
-.icon:hover {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
+.icon {
+  height: 1rem;
+  width: 1rem;
 }
 
 /* CARD */
@@ -856,6 +856,74 @@ video {
   text-align: center;
 }
 
+/* PAGINATION */
+
+.pagination-wrapper {
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .pagination-wrapper {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+}
+
+.pagination-item {
+  border-radius: 1.5rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.pagination-item:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .pagination-item:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+  }
+}
+
+.pagination-item-active {
+  border-radius: 1.5rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.pagination-item-active:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .pagination-item-active:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+  }
+}
+
 /* FOOTER */
 
 .footer-wrapper {
@@ -913,7 +981,7 @@ video {
   }
 }
 
-/* BUTTOMS */
+/* BUTTOM */
 
 .primary-btn {
   border-radius: 1.5rem;
@@ -1019,7 +1087,7 @@ video {
   }
 }
 
-/* TABLES */
+/* TABLE */
 
 .table-head {
   font-size: 1rem;
@@ -1228,11 +1296,6 @@ video {
   margin: 1rem;
 }
 
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1296,10 +1359,6 @@ video {
 
 .ml-3 {
   margin-left: 0.75rem;
-}
-
-.mr-0 {
-  margin-right: 0px;
 }
 
 .mr-1 {
@@ -1380,10 +1439,6 @@ video {
 
 .h-1 {
   height: 0.25rem;
-}
-
-.h-10 {
-  height: 2.5rem;
 }
 
 .h-12 {
@@ -1718,11 +1773,6 @@ video {
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
-.bg-neutral-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
-}
-
 .bg-neutral-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(64 64 64 / var(--tw-bg-opacity));
@@ -1883,10 +1933,6 @@ video {
   line-height: 2;
 }
 
-.leading-tight {
-  line-height: 1.25;
-}
-
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -2006,11 +2052,6 @@ video {
 .hover\:bg-neutral-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-neutral-300:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-white:hover {

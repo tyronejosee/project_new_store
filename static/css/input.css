@@ -10,7 +10,7 @@
     }
 
 
-    /* CUSTOM STYLES */
+    /* CUSTOM STYLE */
     .cs-rounded{
         @apply rounded-3xl;
     }
@@ -43,9 +43,9 @@
     }
  
 
-    /* ICONS */
+    /* ICON */
     .icon{
-        @apply hover:text-primary;
+        @apply w-4 h-4;
     }
 
 
@@ -79,6 +79,18 @@
     }
 
 
+    /* PAGINATION */
+    .pagination-wrapper{
+        @apply bg-white dark:bg-neutral-800 cs-rounded flex items-center justify-center;
+    }
+    .pagination-item{
+        @apply flex items-center justify-center px-4 h-10 mx-1 cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700;
+    }
+    .pagination-item-active{
+        @apply flex items-center justify-center px-4 h-10 mx-1 cs-rounded bg-neutral-200 hover:bg-neutral-300 dark:hover:bg-neutral-700;
+    }
+
+
     /* FOOTER */
     .footer-wrapper{
         @apply grid gap-4 grid-cols-2 px-4 py-8 md:grid-cols-4;
@@ -94,7 +106,7 @@
     }
 
 
-    /* BUTTOMS */
+    /* BUTTOM */
     .primary-btn{
         @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-4 py-2 focus:ring-4 focus:outline-none focus:ring-primaryFocus headline-3 text-white cs-rounded;
     }
@@ -106,7 +118,7 @@
     }
 
 
-    /* TABLES */
+    /* TABLE */
     .table-head{
         @apply bg-lightTab dark:bg-darkTab headline-3 uppercase;
     }
