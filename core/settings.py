@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import os
+import sys
 import environ
 
 
@@ -145,10 +146,18 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database settings
-DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///new_store"),
-}
-DATABASES["default"]["ATOMIC_REQUEST"] = True
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+        }
+    }
+else:
+    DATABASES = {
+        "default": env.db("DATABASE_URL", default="postgres:///new_store"),
+    }
+    DATABASES["default"]["ATOMIC_REQUEST"] = True
 
 
 PASSWORD_HASHERS = [
