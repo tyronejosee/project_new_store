@@ -1,0 +1,146 @@
+"""Test URLs for Cart App."""
+
+from django.test import TestCase
+from django.urls import reverse, resolve
+from django.contrib.auth import get_user_model
+from products.models import Product, Brand, Category, Deal
+from cart.views import (
+    cart,
+    add_prod_cart,
+    remove_prod_cart,
+    subtract_prod_cart,
+    clear_cart,
+    add_prod_wishlist,
+    remove_prod_wishlist
+)
+
+
+class BaseTestCase(TestCase):
+    """Base test case for common setup in test classes."""
+
+    def setUp(self):
+        # Create a default user
+        self.user = get_user_model().objects.create_user(
+            username='testuser',
+            email='testuser@example.com',
+            password='testpass',
+            first_name='Test',
+            last_name='User'
+        )
+        # Log in the user created
+        self.client.login(username='testuser', password='testpass')
+
+        # Create a product with its foreign key objects
+        category = Category.objects.create(title='Test Category')
+        brand = Brand.objects.create(name='Test Brand')
+        deal = Deal.objects.create(name='Test Deal')
+
+        self.product = Product.objects.create(
+            title='Test Product',
+            brand=brand,
+            normal_price=10.0,
+            deal=deal,
+            category=category,
+            stock=100,
+            warranty=12,
+            featured=False,
+            show_hide=True,
+            description='Test description',
+            specifications='Test specifications'
+        )
+
+
+class RoutingCartTest(BaseTestCase):
+    """Tests for the proper functioning of cart routes."""
+
+    # Urls
+    def test_url_cart(self):
+        """Verifies resolution for cart view, ex:'/cart/'."""
+        url = reverse('cart:cart')
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, cart)
+
+    def test_url_add_prod_cart(self):
+        """Verifies resolution for add_prod_cart view, ex:'/cart/add/123'."""
+        url = reverse('cart:add_prod_cart', args=[self.product.id])
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, add_prod_cart)
+
+    def test_url_remove_prod_cart(self):
+        """Verifies resolution for remove_prod_cart view, ex:'/cart/remove/123'."""
+        url = reverse('cart:remove_prod_cart', args=[self.product.id])
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, remove_prod_cart)
+
+    def test_url_subtract_prod_cart(self):
+        """Verifies resolution for subtract_prod_cart view, ex:'/cart/subtract/123'."""
+        url = reverse('cart:subtract_prod_cart', args=[self.product.id])
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, subtract_prod_cart)
+
+    def test_url_clear_cart(self):
+        """Verifies resolution for clear_cart view, ex:'/cart/clear/'."""
+        url = reverse('cart:clear_cart')
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, clear_cart)
+
+    # Status code
+    def test_status_code_cart(self):
+        """Verifies status code when adding a product to the cart."""
+        url = reverse('cart:cart')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_status_code_add_prod_cart(self):
+        """Verify status code when adding a product."""
+        url = reverse('cart:add_prod_cart', args=[self.product.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_status_code_remove_prod_cart(self):
+        """Verify status code when remove a product."""
+        url = reverse('cart:remove_prod_cart', args=[self.product.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_status_code_subtract_prod_cart(self):
+        """Verify status code when subtract a product."""
+        url = reverse('cart:subtract_prod_cart', args=[self.product.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_status_code_clear_cart(self):
+        """Verify status code when clear cart."""
+        url = reverse('cart:clear_cart')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+
+class RoutingWishlistTest(BaseTestCase):
+    """Tests for the proper functioning of wishlist routes."""
+
+    # Urls
+    def test_url_add_prod_wishlist(self):
+        """Verifies resolution for add_prod_wishlist view, ex:'/wishlist/add/123'."""
+        url = reverse('cart:add_prod_wishlist', args=[self.product.id])
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, add_prod_wishlist)
+
+    def test_url_remove_prod_wishlist(self):
+        """Verifies resolution for remove_prod_wishlist view, ex:'/wishlist/remove/123'."""
+        url = reverse('cart:remove_prod_wishlist', args=[self.product.id])
+        resolver = resolve(url)
+        self.assertEqual(resolver.func, remove_prod_wishlist)
+
+    # Status code
+    def test_status_code_add_prod_wishlist(self):
+        """Verify status code when adding a product."""
+        url = reverse('cart:add_prod_wishlist', args=[self.product.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_status_code_remove_prod_wishlist(self):
+        """Verify status code when remove a product."""
+        url = reverse('cart:remove_prod_wishlist', args=[self.product.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
