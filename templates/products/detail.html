@@ -6,8 +6,10 @@
   {% include "components/routes.html" %}
   <section class="box p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
     <!-- IMAGE -->
-    <figure class="flex items-center pb-8 mb-2 border-b border-neutral-700 md:pb-0 md:mb-0 md:border-none">
-      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 md:w-full max-w-md mx-auto cs-rounded">
+    <figure class="flex justify-center zoomable-container overflow-hidden cs-rounded">
+      <div class="zoomable-wrapper">
+        <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 cs-rounded zoomable">
+      </div>
     </figure>
     <!-- INFO -->
     <article class="flex flex-col h-full">
@@ -38,7 +40,7 @@
         <span>Available payment methods: PayPal</s>
         <span>Terms and Conditions:</span>
       </div>
-      <div class="mt-auto pb-4">
+      <div class="pb-4">
         <span class="bg-light cs-rounded px-4 py-2">+</span>
         <span class="bg-lightHover cs-rounded px-8 py-2">1</span>
         <span class="bg-light cs-rounded px-4 py-2">+</span>

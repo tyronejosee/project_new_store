@@ -4,9 +4,7 @@ $(document).ready(function() {
     var dropdownTimeout;
 
     $('#dropdownContainer').mouseenter(function() {
-        // Establecer un temporizador para el contenedor (por ejemplo, 500 ms)
         containerTimeout = setTimeout(function() {
-            // La animación del contenedor se activa solo después de que el mouse ha estado en el área durante 500 ms
             $('#dropdown').stop(true, true).slideDown(250);
         }, 250);
     });
@@ -48,6 +46,34 @@ $(document).ready(function() {
         },
         500
       );
+    });
+
+    var zoomFactor = 3;
+    var panSpeed = 20;
+
+    $(".zoomable-container").on('mouseenter', function() {
+      var container = $(this);
+      var wrapper = container.find(".zoomable-wrapper");
+      var image = wrapper.find(".zoomable");
+
+      container.on('mousemove', function(event) {
+        var offsetX = event.pageX - container.offset().left;
+        var offsetY = event.pageY - container.offset().top;
+
+        var newX = (offsetX / container.width()) * 100;
+        var newY = (offsetY / container.height()) * 100;
+
+        wrapper.css({
+          "transform-origin": newX + "% " + newY + "%",
+          "transform": "scale(" + zoomFactor + ")",
+        });
+      });
+    }).on('mouseleave', function() {
+      $(".zoomable-container").off('mousemove');
+      $(".zoomable-wrapper").css({
+        "transform-origin": "center center",
+        "transform": "scale(1)"
+      });
     });
 
     $("#user-menu-button").on("click", function () {
