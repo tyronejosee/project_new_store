@@ -24,9 +24,9 @@
   {% include "fragments/title.html" with title="Categories" %}
   <section class="card mb-12">
     {% for product in products %}
-    {% include "components/card.html" %}
+      {% include "components/card.html" %}
     {% empty %}
-    <span>No products available.</span>
+      {% include "components/empty.html" with arg="product" %}
     {% endfor %}
   </section>
   {% include "components/pagination.html" %}

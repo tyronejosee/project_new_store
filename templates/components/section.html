@@ -6,9 +6,9 @@
   {% include "fragments/title.html" %}
   <section class="card mb-4">
     {% for product in products %}
-    {% include "components/card.html" %}
+      {% include "components/card.html" %}
     {% empty %}
-    <article>No products available.</article>
+      {% include "components/empty.html" with arg="product" %}
     {% endfor %}
   </section>
   {% include "components/pagination.html" %}

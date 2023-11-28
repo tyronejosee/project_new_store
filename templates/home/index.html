@@ -23,9 +23,9 @@
 {% include "fragments/title.html" with title="Recent Products" %}
 <section class="card">
   {% for product in recent_products %}
-  {% include "components/card.html" %}
+    {% include "components/card.html" %}
   {% empty %}
-  <span>No products available.</span>
+    {% include "components/empty.html" with arg="product" %}
   {% endfor %}
 </section>
 
@@ -42,9 +42,9 @@
 {% include "fragments/title.html" with title="All products" %}
 <section class="card">
   {% for product in all_products %}
-  {% include "components/card.html" %}
+    {% include "components/card.html" %}
   {% empty %}
-  <span>No products available.</span>
+    {% include "components/empty.html" with arg="product" %}
   {% endfor %}
 </section>
 
@@ -62,9 +62,9 @@
 {% include "fragments/title.html" with title="Headphones" %}
 <section class="card">
   {% for product in apple %}
-  {% include "components/card.html" %}
+    {% include "components/card.html" %}
   {% empty %}
-  <span>No products available.</span>
+    {% include "components/empty.html" with arg="product" %}
   {% endfor %}
 </section>
 
@@ -78,9 +78,9 @@
 {% include "fragments/title.html" with title="Samsung" %}
 <section class="card">
   {% for product in samsung %}
-  {% include "components/card.html" %}
+    {% include "components/card.html" %}
   {% empty %}
-  <span>No products available.</span>
+    {% include "components/empty.html" with arg="product" %}
   {% endfor %}
 </section>
 
@@ -88,9 +88,9 @@
 {% include "fragments/title.html" with title="Computer Monitors" %}
 <section class="card">
   {% for product in computer_monitors %}
-  {% include "components/card.html" %}
+    {% include "components/card.html" %}
   {% empty %}
-  <span>No products available.</span>
+    {% include "components/empty.html" with arg="product" %}
   {% endfor %}
 </section>
 

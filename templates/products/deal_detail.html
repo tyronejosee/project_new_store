@@ -13,7 +13,7 @@
       {% for product in products %}
       {% include "components/card.html" %}
       {% empty %}
-      <span>No products available.</span>
+      {% include "components/empty.html" %}
       {% endfor %}
     </section>
   </section>

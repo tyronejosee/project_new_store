@@ -49,8 +49,9 @@
     </table>
   </section>
   {% else %}
-  <section class="box w-full h-96 flex items-center justify-center">Empty cart.</section>
+    {% include "components/empty.html" with arg="cart" %}
   {% endif %}
+  <!-- BUTTON CART -->
   {% if cart_items %}
   <nav class="p-4">
     <a href="{% url 'cart:clear_cart' %}" title="Clear" class="bg-red-500 text-white px-2 py-1 cs-rounded">Clear Cart</a>
@@ -58,7 +59,7 @@
   </nav>
   {% endif %}
   <!-- WISHLIST -->
-  <h2 class="headline-2 p-4">Wishlist ({{ wishlist_count }})</h2>
+  <h2 class="headline-1 p-4">Wishlist ({{ wishlist_count }})</h2>
   {% if wishlist.products.all %}
   <section class="relative overflow-x-auto cs-rounded">
     <table class="w-full text-left">
@@ -94,8 +95,9 @@
     </table>
   </section>
   {% else %}
-  <div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
+    {% include "components/empty.html" with arg="wishlist"%}
   {% endif %}
+  <!-- IMAGE MODAL -->
   {% include "fragments/image_modal.html" %}
 </main>
 {% endblock %}

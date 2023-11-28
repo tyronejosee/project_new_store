@@ -14,7 +14,7 @@
       <span>NO IMAGE</span>
       {% endif %}
     {% empty %}
-    <span>No products available.</span>
+      {% include "components/empty.html" with arg="deal" %}
     {% endfor %}
   </section>
 </main>
