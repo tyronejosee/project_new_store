@@ -3,11 +3,13 @@
 {% block title %}Login{% endblock title %}
 {% block content %}
 <main class="box mt-4">
-  <div class="relative max-w-screen-sm mx-auto">
-    {% include "fragments/title.html" with title="Log in to our platform" %}
-    <form class="space-y-6 mb-4" method="POST">{% csrf_token %}
+  <div class="relative max-w-md mx-auto my-4">
+    <div class="flex justify-center">
+      <h1 class="headline-1">Log in to our platform</h1>
+    </div>
+    <form class="space-y-4" method="POST">{% csrf_token %}
       {% if form.error_messages %}
-      <div class="bg-neutral-700 p-4 cs-rounded text-white mx-4" role="alert">
+      <div class="bg-neutral-700 p-4 cs-rounded text-white" role="alert">
         {{ form.get_invalid_login_error }}
       </div>
       {% endif %}
@@ -29,10 +31,10 @@
         <a href="#" title="Lost password?" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost password?</a>
       </div>
       <button type="submit" class="primary-btn w-full">Login</button>
-      <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-        Not registered? <a href="{% url 'users:registration' %}" title="Registration" class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+      <div class="font-medium text-gray-500 dark:text-gray-300 text-center">
+        Not registered? <a href="{% url 'users:registration' %}" title="Registration" class="link">Create account</a>
       </div>
     </form>
   </div>
 </main>
-{% endblock content %}
+{% endblock %}

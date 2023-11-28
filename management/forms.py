@@ -30,11 +30,11 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs=form_text_input('Title product')),
             'brand': forms.Select(attrs=form_select()),
-            'normal_price': forms.NumberInput(attrs=form_number_input('Normal price')),
+            'normal_price': forms.NumberInput(attrs=form_number_input()),
             'deal': forms.Select(attrs=form_select()),
             'category': forms.Select(attrs=form_select()),
             'image': forms.ClearableFileInput(attrs=form_select()),
-            'stock': forms.NumberInput(attrs=form_number_input('Stock')),
+            'stock': forms.NumberInput(attrs=form_number_input()),
             'warranty': forms.Select(attrs=form_select()),
             'featured': forms.CheckboxInput(attrs=form_checkbox_input()),
             'show_hide': forms.CheckboxInput(attrs=form_checkbox_input()),

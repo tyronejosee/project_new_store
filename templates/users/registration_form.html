@@ -3,48 +3,52 @@
 {% block title %}Login{% endblock title %}
 {% block content %}
 <main class="box relative mt-4">
-  {% include "fragments/title.html" with title="Registration" %}
-  <form method="POST" class="max-w-screen-sm mx-auto">{% csrf_token %}
-    <div class="mb-4 flex justify-between">
-      <div class="flex-grow mr-4">
-        <label class="block mb-2">First Name</label>
-        {{ form.first_name }}
+  <div class="my-4">
+    <div class="flex justify-center">
+      <h1 class="headline-1">Registration</h1>
+    </div>
+    <form method="POST" class="max-w-md mx-auto my-4">{% csrf_token %}
+      <div class="mb-4 flex justify-between">
+        <div class="flex-grow mr-4">
+          <label class="block mb-2">First Name</label>
+          {{ form.first_name }}
+        </div>
+        <div class="flex-grow">
+          <label class="block mb-2">Last Name</label>
+          {{ form.last_name }}
+        </div>
       </div>
-      <div class="flex-grow">
-        <label class="block mb-2">Last Name</label>
-        {{ form.last_name }}
+      <div class="mb-2">
+        <label class="block mb-2">Username</label>
+        {{ form.username }}
       </div>
-    </div>
-    <div class="mb-2">
-      <label class="block mb-2">Username</label>
-      {{ form.username }}
-    </div>
-    <div class="mb-4">
-      <label class="block mb-2">Email</label>
-      {{ form.email }}
-    </div>
-    <div class="mb-4 flex justify-between">
-      <div class="flex-grow mr-4">
-        <label class="block mb-2">Password</label>
-        {{ form.password1 }}
+      <div class="mb-4">
+        <label class="block mb-2">Email</label>
+        {{ form.email }}
       </div>
-      <div class="flex-grow">
-        <label class="block mb-2">Password Repeat</label>
-        {{ form.password2 }}
+      <div class="mb-4 flex justify-between">
+        <div class="flex-grow mr-4">
+          <label class="block mb-2">Password</label>
+          {{ form.password1 }}
+        </div>
+        <div class="flex-grow">
+          <label class="block mb-2">Password Repeat</label>
+          {{ form.password2 }}
+        </div>
       </div>
-    </div>
-    <div class="mb-4">
-      <label class="block mb-2">Adress</label>
-      {{ form.address }}
-    </div>
-    <div class="mb-4">
-      <label class="block mb-2">Phone Number</label>
-      {{ form.phone_number }}
-    </div>
-    <div class="flex justify-center mb-4">
-      <button type="submit" class="primary-btn mr-4">Sign Up</button>
-      <a href="#" class="secondary-btn">Cancel</a>
-    </div>
-  </form>
+      <div class="mb-4">
+        <label class="block mb-2">Adress</label>
+        {{ form.address }}
+      </div>
+      <div class="mb-12">
+        <label class="block mb-2">Phone Number</label>
+        {{ form.phone_number }}
+      </div>
+      <div class="space-y-4">
+        <button type="submit" class="primary-btn w-full">Sign Up</button>
+        <a href="{% url 'home:index' %}" class="secondary-btn">Cancel</a>
+      </div>
+    </form>
+  </div>
 </main>
-{% endblock content %}
+{% endblock %}

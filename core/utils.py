@@ -3,15 +3,14 @@
 def form_text_input(placeholder):
     """Utility classes for text input."""
     return {
-        'class': 'bg-neutral-100 p-4 text-neutral-800 cs-rounded block w-full dark:bg-neutral-900 dark:text-neutral-200 dark:focus:ring-sky-500 dark:focus:border-sky-500',
+        'class': 'bg-light cs-rounded block w-full h-12 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-dark dark:placeholder:text-light',
         'placeholder': placeholder,
     }
 
-def form_number_input(placeholder):
+def form_number_input():
     """Utility classes for number input."""
     return {
-        'class': 'bg-neutral-100 p-4 text-neutral-800 cs-rounded block w-full dark:bg-neutral-900 dark:text-neutral-200 dark:focus:ring-sky-500 dark:focus:border-sky-500',
-        'placeholder': placeholder,
+        'class': 'bg-light dark:bg-dark h-12 px-4 cs-rounded block w-full focus:outline-none focus:ring focus:ring-primary placeholder:text-dark dark:placeholder:text-light',
     }
 
 def form_checkbox_input():
@@ -29,7 +28,7 @@ def form_file_input():
 def form_select():
     """Utility classes for select."""
     return {
-        'class': 'bg-neutral-100 dark:bg-neutral-900 w-full p-2 cs-rounded p-4',
+        'class': 'bg-neutral-100 dark:bg-neutral-900 w-full cs-rounded h-12 px-4 focus:outline-none focus:ring focus:ring-primary',
     }
 
 def form_textarea():
