@@ -91,7 +91,7 @@ class RecentProductsListView(ListView):
     model = Product
     template_name = 'components/section.html'
     context_object_name = 'products'
-    paginate_by = 18
+    paginate_by = 12
 
     def get_queryset(self):
         queryset = Product.objects.filter(show_hide=True, stock__gte=1)

@@ -3,9 +3,10 @@
 {% block title %}Cart{% endblock title %}
 {% block content %}
 <main>
-  {% include "fragments/title.html" %}
+  <!-- CART -->
+  <h1 class="headline-1 p-4">Cart ({{ cart_count }})</h1>
   {% if cart.products.all %}
-  <section class="relative overflow-x-auto cs-rounded mt-4">
+  <section class="relative overflow-x-auto cs-rounded">
     <table class="w-full text-left">
       <thead class="table-head">
         <tr>
@@ -41,7 +42,7 @@
   </section>
   <span class="p-4">{{ total_price }}</span>
   {% else %}
-  <section class="box w-full h-96 flex items-center justify-center mt-4">Empty cart.</section>
+  <section class="box w-full h-96 flex items-center justify-center">Empty cart.</section>
   {% endif %}
   {% if cart.products.all %}
   <nav class="p-4">
@@ -49,7 +50,8 @@
     <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 cs-rounded">Checkout</a>
   </nav >
   {% endif%}
-  {% include "fragments/subtitle.html" %}
+  <!-- WISHLIST -->
+  <h2 class="headline-2 p-4">Wishlist ({{ wishlist_count }})</h2>
   {% if wishlist.products.all %}
   <section class="relative overflow-x-auto cs-rounded">
     <table class="w-full text-left">
@@ -85,7 +87,7 @@
     </table>
   </section>
   {% else %}
-    <div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
+  <div class="box w-full h-80 flex items-center justify-center">Empty wishlist.</div>
   {% endif %}
   {% include "fragments/image_modal.html" %}
 </main>

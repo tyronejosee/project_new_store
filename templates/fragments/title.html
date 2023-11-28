@@ -15,12 +15,6 @@
   </div>
   {% endif %}
 
-  {% if cart_count %}
-  <div class="mr-4">
-    <h1 class="headline-1">Cart ({{ cart_count }})</h1>
-  </div>
-  {% endif %}
-
   {% if page_obj.paginator.count > 0 %}
   <span class="body">
     {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
