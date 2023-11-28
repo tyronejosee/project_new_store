@@ -8,7 +8,7 @@
     {% for deal in deals %}
       {% if deal.image %}
       <a href="{% url 'products:deal_detail' slug=deal.slug %}">
-        <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="transition-all duration-300 cs-rounded cursor-pointer filter grayscale hover:grayscale-0">
+        <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="cs-rounded">
       </a>
       {% else %}
       <span>NO IMAGE</span>

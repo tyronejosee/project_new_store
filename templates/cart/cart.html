@@ -5,7 +5,7 @@
 <main>
   <!-- CART -->
   <h1 class="headline-1 p-4">Cart ({{ cart_count }})</h1>
-  {% if cart.products.all %}
+  {% if cart_items %}
   <section class="relative overflow-x-auto cs-rounded">
     <table class="w-full text-left">
       <thead class="table-head">
@@ -14,25 +14,33 @@
           <th scope="col" class="px-6 py-3">Product</th>
           <th scope="col" class="px-6 py-3">Price</th>
           <th scope="col" class="px-6 py-3">Quantity</th>
+          <th scope="col" class="px-6 py-3">Total</th>
           <th scope="col" class="px-6 py-3">Action</th>
         </tr>
       </thead>
-      {% for product in cart.products.all %}
+      {% for cart_item in cart_items %}
       <tbody class="table-body">
         <tr>
           <td class="px-6 py-4">
-            <a href="#" title="{{ product.title }}" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="30" height="30">
+            <a href="#" title="{{ cart_item.product.title }}" class="cursor-pointer show-image-popup" data-src="{{ cart_item.product.image.url }}">
+              <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}" class="cs-rounded" width="30" height="30">
             </a>
           </td>
           <th scope="row" class="px-6 py-4 whitespace-nowrap">
-            {{ product.title|truncatechars:50 }}
+            {{ cart_item.product.title|truncatechars:50 }}
           </th>
-          <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
-          <td class="px-6 py-4">pending</td>
+          <td class="px-6 py-4">${{ cart_item.product.normal_price|floatformat:2 }}</td>
+          <td class="px-6 py-4">{{ cart_item.quantity }}</td>
+          <td class="px-6 py-4">${{ cart_item.total_price|floatformat:2 }}</td>
           <td class="px-6 py-4">
-            <a href="{% url 'cart:remove_prod_cart' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 cs-rounded">
+            <a href="{% url 'cart:remove_prod_cart' cart_item.product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 cs-rounded">
               Remove
+            </a>
+            <a href="{% url 'cart:subtract_prod_cart' cart_item.product.id %}" title="Subtract" class="bg-blue-500 text-white px-2 py-1 cs-rounded">
+              Subtract
+            </a>
+            <a href="{% url 'cart:add_prod_cart' cart_item.product.id %}" title="Add" class="bg-blue-500 text-white px-2 py-1 cs-rounded">
+              Add
             </a>
           </td>
         </tr>
@@ -40,16 +48,15 @@
       {% endfor %}
     </table>
   </section>
-  <span class="p-4">{{ total_price }}</span>
   {% else %}
   <section class="box w-full h-96 flex items-center justify-center">Empty cart.</section>
   {% endif %}
-  {% if cart.products.all %}
+  {% if cart_items %}
   <nav class="p-4">
-    <a href="{% url 'cart:clear_cart' %}" title="Clear cart" class="bg-red-500 text-white px-2 py-1 cs-rounded">Clear Cart</a>
+    <a href="{% url 'cart:clear_cart' %}" title="Clear" class="bg-red-500 text-white px-2 py-1 cs-rounded">Clear Cart</a>
     <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 cs-rounded">Checkout</a>
-  </nav >
-  {% endif%}
+  </nav>
+  {% endif %}
   <!-- WISHLIST -->
   <h2 class="headline-2 p-4">Wishlist ({{ wishlist_count }})</h2>
   {% if wishlist.products.all %}

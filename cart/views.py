@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from products.models import Product
-from cart.models import Cart, Wishlist
+from cart.models import Cart, Wishlist, CartItem
 
 
 # Views for Cart
@@ -14,15 +14,15 @@ def cart(request):
     user = request.user
 
     cart, created = Cart.objects.get_or_create(user=user)
-    cart_products = cart.products.all()
-    cart_count = cart_products.count()
+    cart_items = cart.cart_items.all()
+    cart_count = sum(item.quantity for item in cart_items)
 
     wishlist, created = Wishlist.objects.get_or_create(user=user)
     wishlist_products = wishlist.products.all()
     wishlist_count = wishlist.products.count()
 
     return render(request, "cart/cart.html", {
-        'cart': cart, 'cart_products': cart_products, 'cart_count': cart_count,
+        'cart': cart, 'cart_items': cart_items, 'cart_count': cart_count,
         'wishlist': wishlist, 'wishlist_products': wishlist_products,
         'wishlist_count': wishlist_count,
         }
@@ -35,7 +35,8 @@ def add_prod_cart(request, product_id):
     user = request.user
     product = Product.objects.get(id=product_id)
     cart, created = Cart.objects.get_or_create(user=user)
-    cart.add_product(product)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    cart_item.add_to_cart()
     return redirect("cart:cart")
 
 
@@ -45,7 +46,8 @@ def remove_prod_cart(request, product_id):
     user = request.user
     product = Product.objects.get(id=product_id)
     cart, created = Cart.objects.get_or_create(user=user)
-    cart.remove_product(product)
+    cart_item = CartItem.objects.get(cart=cart, product=product)
+    cart_item.remove_from_cart()
     return redirect("cart:cart")
 
 
@@ -55,7 +57,8 @@ def subtract_prod_cart(request, product_id):
     user = request.user
     product = Product.objects.get(id=product_id)
     cart, created = Cart.objects.get_or_create(user=user)
-    cart.subtract_product(product)
+    cart_item = CartItem.objects.get(cart=cart, product=product)
+    cart_item.subtract_from_cart()
     return redirect("cart:cart")
 
 
