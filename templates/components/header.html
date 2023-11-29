@@ -13,7 +13,7 @@
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
           </svg>
         </button>
-        <div id="dropdown" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700">
+        <div id="dropdown" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700 overflow-hidden">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
               <li>
                 <a href="{% url 'products:categories' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Categories</a>
@@ -34,7 +34,7 @@
       </div>
     </div>
     <!-- SEARCH BAR -->
-    <div class="w-full sm:w-1/2 mx-auto sm:mx-0 order-3 sm:order-2">
+    <div class="w-full max-w-xl sm:w-1/2 mx-auto sm:mx-0 order-3 sm:order-2">
       <div class="relative">
         <form method="get" action="{% url 'products:search' %}">
           <input type="search" id="search-navbar"
@@ -64,10 +64,10 @@
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
           </svg>
         </button>
-        <div id="userList" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700">
+        <div id="userList" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700 overflow-hidden">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
               <li>
-                <span class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ user.first_name }} {{ user.last_name }}</span>
+                <span class="bold block px-4 py-2">{{ user.first_name }} {{ user.last_name }}</span>
               </li>
               <li>
                 <a href="{% url 'users:logout' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log out</a>
@@ -77,33 +77,37 @@
       </div>
       <!-- SIGN UP AND LOGIN -->
       {% else %}
-      <div class="flex">
-        <a href="{% url 'users:login' %}" class="hover:bg-white focus:ring-4 focus:ring-gray-300 font-medium cs-rounded px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-neutral-800 focus:outline-none dark:focus:ring-neutral-700">Login</a>
-        <a href="{% url 'users:registration' %}" class="primary-btn px-6">Sign Up</a>
+      <div class="hidden lg:block">
+        <div class="flex">
+          <a href="{% url 'users:login' %}" class="hover:bg-white focus:ring-4 focus:ring-gray-300 font-medium cs-rounded px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-neutral-800 focus:outline-none dark:focus:ring-neutral-700">Login</a>
+          <a href="{% url 'users:registration' %}" class="primary-btn px-6">Sign Up</a>
+        </div>
+        {% endif %}
       </div>
-      {% endif %}
       <!-- SM MAIN MENU -->
-      <div class="relative">
-        <button data-dropdown-toggle="mainContainer" class="secondary-btn" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-            <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
-          </svg>        
-        </button>
-        <div id="dropdownMain" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700">
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-              <li>
-                <span class="block px-4 py-2">Users</span>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pending</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pending</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pending</a>
-              </li>
-            </ul>
+      <div class="lg:hidden">
+        <div class="relative">
+          <button data-dropdown-toggle="mainContainer" class="secondary-btn" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+            </svg>        
+          </button>
+          <div id="dropdownMain" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <li>
+                  <span class="block px-4 py-2">Users</span>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pending</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pending</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Pending</a>
+                </li>
+              </ul>
+          </div>
         </div>
       </div>
     </div>

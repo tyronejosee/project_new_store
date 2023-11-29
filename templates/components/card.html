@@ -33,7 +33,7 @@
       <span class="hover:underline">{{ product.title|truncatechars:40 }}</span>
     </a>
   </div>
-  <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="card-btn">
+  <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="primary-btn">
     Add to cart
   </a>
 </article>
