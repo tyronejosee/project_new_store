@@ -50,7 +50,7 @@
         </form>
       </div>
     </div>
-    <!-- USER AND PROFILE -->
+    <!-- USER BUTTONS -->
     <div class="w-1/2 sm:w-1/4 order-2 sm:order-3 flex items-center justify-end pb-4 sm:pb-0 md:order-2 relative group">
       {% if user.is_authenticated %}
       <a href="{% url 'cart:cart' %}" title="Cart" class="secondary-btn">
@@ -58,24 +58,22 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
         </svg>        
       </a>
-      <button type="button" class="secondary-btn flex"
-        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-        data-dropdown-placement="bottom-start">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-        </svg>        
-      </button>
-      <div class="hidden bg-white z-50 absolute left-1/2 transform -translate-x-1/2 ml-14 top-full mt-2 list-non cs-rounded cs-shadow dark:bg-neutral-700 p-4" id="user-dropdown">
-        <div class="px-2 py-2">
-          <span class="headline-3">{{ user.first_name }} {{ user.last_name }}</span>
-          <span class="headline-3 truncate">{{ user.email }}</span>
+      <!-- USER DROPDOWN -->
+      <div class="hidden sm:block relative my-auto" id="userWrapper">
+        <button data-dropdown-toggle="userList" class="headline-3 order-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded text-center inline-flex items-center" type="button">User <svg class="icon ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+          </svg>
+        </button>
+        <div id="userList" class="absolute hidden z-10 bg-white divide-y divide-gray-100 cs-rounded cs-shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <span class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ user.first_name }} {{ user.last_name }}</span>
+              </li>
+              <li>
+                <a href="{% url 'users:logout' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log out</a>
+              </li>
+            </ul>
         </div>
-        <ul class="py-2" aria-labelledby="user-menu-button">
-          <li>
-            <a href="{% url 'users:logout' %}"
-              class="block px-2 py-2 cs-rounded hover:bg-gray-100 dark:hover:bg-neutral-600">Logout</a>
-          </li>
-        </ul>
       </div>
       <!-- SIGN UP AND LOGIN -->
       {% else %}
@@ -86,7 +84,7 @@
       {% endif %}
       <!-- SM MAIN MENU -->
       <div class="relative">
-        <button data-dropdown-toggle="dropdown" class="secondary-btn" type="button">
+        <button data-dropdown-toggle="mainContainer" class="secondary-btn" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
           </svg>        
