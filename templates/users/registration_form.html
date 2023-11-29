@@ -2,53 +2,56 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-<main class="box relative mt-4">
-  <div class="my-4">
-    <div class="flex justify-center">
-      <h1 class="headline-1">Registration</h1>
+<main class="form-main">
+  <section class="form-section">
+    <div class="form-header">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-lg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
+      </svg>
+      <h1 class="headline-1">Create your New Store account</h1>
     </div>
-    <form method="POST" class="max-w-md mx-auto my-4">{% csrf_token %}
-      <div class="mb-4 flex justify-between">
-        <div class="flex-grow mr-4">
-          <label class="block mb-2">First Name</label>
-          {{ form.first_name }}
-        </div>
-        <div class="flex-grow">
-          <label class="block mb-2">Last Name</label>
-          {{ form.last_name }}
-        </div>
+    <form method="POST" class="space-y-4">{% csrf_token %}
+      <div>
+        <label for="text" class="bold">First Name</label>
+        {{ form.first_name }}
       </div>
-      <div class="mb-2">
-        <label class="block mb-2">Username</label>
+      <div>
+        <label for="text" class="bold">Last Name</label>
+        {{ form.last_name }}
+      </div>
+      <div>
+        <label for="text" for="text" class="bold">Username</label>
         {{ form.username }}
       </div>
-      <div class="mb-4">
-        <label class="block mb-2">Email</label>
+      <div>
+        <label for="email" class="bold">Email</label>
         {{ form.email }}
       </div>
-      <div class="mb-4 flex justify-between">
-        <div class="flex-grow mr-4">
-          <label class="block mb-2">Password</label>
-          {{ form.password1 }}
+      <div>
+        <label for="password" class="bold">Password</label>
+        {{ form.password1 }}
+      </div>
+      <div>
+        <label for="password" class="bold">Password Repeat</label>
+        {{ form.password2 }}
+      </div>
+      <div class="flex justify-between">
+        <div class="flex items-start">
+          <div class="flex items-center h-5">
+            <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 cs-rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
+          </div>
+          <label for="remember" class="ml-2">Keep me signed in</label>
         </div>
-        <div class="flex-grow">
-          <label class="block mb-2">Password Repeat</label>
-          {{ form.password2 }}
-        </div>
       </div>
-      <div class="mb-4">
-        <label class="block mb-2">Adress</label>
-        {{ form.address }}
-      </div>
-      <div class="mb-12">
-        <label class="block mb-2">Phone Number</label>
-        {{ form.phone_number }}
-      </div>
-      <div class="space-y-4">
-        <button type="submit" class="primary-btn w-full">Sign Up</button>
+      <div class="space-y-4 my-4">
+        <button type="submit" class="primary-btn w-full">Create account</button>
         <a href="{% url 'home:index' %}" class="secondary-btn">Cancel</a>
       </div>
+      <div class="strong text-center">
+        <a href="" class="link-bold">Terms and conditions</a>
+        <a href="" class="link">Policy privacy</a>
+      </div>
     </form>
-  </div>
+  </section>
 </main>
 {% endblock %}

@@ -2,23 +2,26 @@
 {% load static %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-<main class="box mt-4">
-  <div class="relative max-w-md mx-auto my-4">
-    <div class="flex justify-center">
-      <h1 class="headline-1">Log in to our platform</h1>
+<main class="form-main">
+  <section class="form-section">
+    <div class="form-header">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-lg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <h1 class="headline-1">Sign in to your account</h1>
     </div>
-    <form class="space-y-4" method="POST">{% csrf_token %}
+    <form method="POST" class="space-y-4">{% csrf_token %}
       {% if form.error_messages %}
-      <div class="bg-neutral-700 p-4 cs-rounded text-white" role="alert">
+      <div class="bg-neutral-700 p-4 cs-rounded text-white hidden" role="alert">
         {{ form.get_invalid_login_error }}
       </div>
       {% endif %}
       <div>
-        <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
+        <label for="text" class="bold">Your username</label>
         {{ form.username }}
       </div>
       <div>
-        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+        <label for="password" class="bold">Your password</label>
         {{ form.password }}
       </div>
       <div class="flex justify-between">
@@ -26,15 +29,15 @@
           <div class="flex items-center h-5">
             <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 cs-rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
           </div>
-          <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+          <label for="remember" class="ml-2">Remember me</label>
         </div>
-        <a href="#" title="Lost password?" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost password?</a>
+        <a href="#" title="Lost password?" class="link-bold">Lost password?</a>
       </div>
       <button type="submit" class="primary-btn w-full">Login</button>
-      <div class="font-medium text-gray-500 dark:text-gray-300 text-center">
-        Not registered? <a href="{% url 'users:registration' %}" title="Registration" class="link">Create account</a>
+      <div class="strong text-center">
+        Not registered? <a href="{% url 'users:registration' %}" title="Registration" class="link-bold">Create account</a>
       </div>
     </form>
-  </div>
+  </section>
 </main>
 {% endblock %}
