@@ -22,7 +22,7 @@ class ProductListView(ListView):
 class ProductDetailView(DetailView):
     """Display the details of a specific product."""
     model = Product
-    template_name = 'products/detail.html'
+    template_name = 'products/product_detail.html'
     context_object_name = 'product'
     pk_url_kwarg = 'pk'
 
@@ -30,7 +30,7 @@ class ProductDetailView(DetailView):
 class CategoriesListView(ListView):
     """Display a list of products filtered by categories."""
     model = Product
-    template_name = 'products/categories.html'
+    template_name = 'products/product_list.html'
     context_object_name = 'products'
     paginate_by = 18
 
@@ -61,6 +61,7 @@ class CategoriesListView(ListView):
         context = super().get_context_data(**kwargs)
         context['form'] = CategoriesForm()
         context['deals'] = Deal.objects.all()
+        context['title'] = 'Categories'
         return context
 
 
@@ -89,7 +90,7 @@ class DealDetailView(DetailView):
 class RecentProductsListView(ListView):
     """Display a list of recent products."""
     model = Product
-    template_name = 'components/section.html'
+    template_name = 'products/product_list.html'
     context_object_name = 'products'
     paginate_by = 12
 
@@ -107,7 +108,7 @@ class RecentProductsListView(ListView):
 class CategoryFilterListView(ListView):
     """Display a list of all products from a category."""
     model = Product
-    template_name = 'components/section.html'
+    template_name = 'products/product_list.html'
     context_object_name = 'products'
     paginate_by = 18
     ordering = ['title']
@@ -127,7 +128,7 @@ class CategoryFilterListView(ListView):
 class BrandFilterListView(ListView):
     """Display a list of all products from a brand."""
     model = Product
-    template_name = 'components/section.html'
+    template_name = 'products/product_list.html'
     context_object_name = 'products'
     paginate_by = 18
     ordering = ['title']
@@ -157,7 +158,7 @@ def product_search(request):
 
     results = products.count()
 
-    return render(request, 'components/section.html', {
+    return render(request, 'products/product_list.html', {
         'products':products,
         'title':queryset,
         'results':results

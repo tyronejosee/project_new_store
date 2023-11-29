@@ -1,23 +1,6 @@
 <div class="mt-12 mb-4">
-  {% if title and "search=" not in request.get_full_path %}
   <div class="flex justify-between items-center">
     <h1 class="headline-1">{{ title }}</h1>
-    <a href="#" class="secondary-btn">
-      View all
-    </a>
+    <a href="#" class="secondary-btn">View all</a>
   </div>
-  {% endif %}
-
-  {% if results %}
-  <div class="flex items-center">
-    <h1 class="headline-1 mr-4">{{ results }} results </h1>
-    <span>for "{{ title }}"</span>
-  </div>
-  {% endif %}
-
-  {% if page_obj.paginator.count > 0 %}
-  <span class="body">
-    {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
-  </span>
-  {% endif %}
 </div>

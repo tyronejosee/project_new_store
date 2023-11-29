@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Categories{% endblock title %}
+{% block title %}{{ title|title }}{% endblock title %}
 {% block content %}
 <main>
   <!-- CATEGORIES -->
+  {% if form %}
   <nav class="box p-4 mb-4">
     <form method="get">
       <div class="flex space-x-4">
@@ -20,15 +21,36 @@
       </div> -->
     </form>
   </nav>
-  <!-- SECTION MAIN -->
-  {% include "fragments/title.html" with title="Categories" %}
-  <section class="card mb-12">
+  {% endif %}
+  <div class="mt-12 mb-4">
+    {% if title and "search=" not in request.get_full_path %}
+    <div class="flex justify-between items-center">
+      <h1 class="headline-1">{{ title }}</h1>
+      <a href="#" class="secondary-btn">
+        View all
+      </a>
+    </div>
+    {% endif %}
+    {% if results %}
+    <div class="flex items-center">
+      <h1 class="headline-1 mr-4">{{ results }} results </h1>
+      <span>for "{{ title }}"</span>
+    </div>
+    {% endif %}
+    {% if page_obj.paginator.count > 0 %}
+    <span class="body">
+      {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
+    </span>
+    {% endif %}
+  </div>
+  <section class="card mb-4">
     {% for product in products %}
       {% include "components/card.html" %}
-    {% empty %}
-      {% include "components/empty.html" with arg="product" %}
     {% endfor %}
   </section>
+  {% if products|length == 0 %}
+    {% include "components/empty.html" with arg="product" %}
+  {% endif %}
   {% include "components/pagination.html" %}
 </main>
 {% endblock %}
