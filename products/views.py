@@ -2,6 +2,7 @@
 
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from django.db.models import Q
 from products.models import Product, Brand, Deal, Category
 from products.forms import CategoriesForm
@@ -10,9 +11,9 @@ from products.forms import CategoriesForm
 class ProductListView(ListView):
     """Display the complete list of all products, active and in stock."""
     model = Product
-    template_name = 'components/section.html'
+    template_name = 'products/product_list.html'
     context_object_name = 'products'
-    paginate_by = 18
+    paginate_by = 12
 
     def get_queryset(self):
         queryset = Product.objects.filter(show_hide=True, stock__gte=1)
@@ -32,7 +33,7 @@ class CategoriesListView(ListView):
     model = Product
     template_name = 'products/product_list.html'
     context_object_name = 'products'
-    paginate_by = 18
+    paginate_by = 12
 
     def get_queryset(self):
         queryset = Product.objects.filter(show_hide=True, stock__gte=1)
@@ -110,7 +111,7 @@ class CategoryFilterListView(ListView):
     model = Product
     template_name = 'products/product_list.html'
     context_object_name = 'products'
-    paginate_by = 18
+    paginate_by = 12
     ordering = ['title']
 
     def get_queryset(self):
@@ -130,7 +131,7 @@ class BrandFilterListView(ListView):
     model = Product
     template_name = 'products/product_list.html'
     context_object_name = 'products'
-    paginate_by = 18
+    paginate_by = 12
     ordering = ['title']
 
     def get_queryset(self):
@@ -156,10 +157,17 @@ def product_search(request):
             Q(brand__name__icontains=queryset)
         ).distinct()
 
+    # Product count
     results = products.count()
+
+    # Pagination
+    paginator = Paginator(products, 12)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     return render(request, 'products/product_list.html', {
         'products':products,
         'title':queryset,
-        'results':results
+        'results':results,
+        'page_obj': page_obj
     })
