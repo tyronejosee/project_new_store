@@ -8,33 +8,33 @@
     <h1 class="headline-1">Cart ({{ cart_count }})</h1>
   </header>
   {% if cart_items %}
-  <section class="relative overflow-x-auto cs-rounded">
-    <table class="w-full text-left">
+  <section class="table-wrapper">
+    <table class="table">
       <thead class="table-head">
         <tr>
-          <th scope="col" class="px-6 py-3">Image</th>
-          <th scope="col" class="px-6 py-3">Product</th>
-          <th scope="col" class="px-6 py-3">Price</th>
-          <th scope="col" class="px-6 py-3">Quantity</th>
-          <th scope="col" class="px-6 py-3">Total</th>
-          <th scope="col" class="px-6 py-3">Action</th>
+          <th scope="col" class="cell">Image</th>
+          <th scope="col" class="cell">Product</th>
+          <th scope="col" class="cell">Price</th>
+          <th scope="col" class="cell">Quantity</th>
+          <th scope="col" class="cell">Total</th>
+          <th scope="col" class="cell">Action</th>
         </tr>
       </thead>
       {% for cart_item in cart_items %}
       <tbody class="table-body">
         <tr>
-          <td class="px-6 py-4">
+          <td class="cell">
             <a href="#" title="{{ cart_item.product.title }}" class="cursor-pointer show-image-popup" data-src="{{ cart_item.product.image.url }}">
               <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}" class="cs-rounded" width="30" height="30">
             </a>
           </td>
-          <th scope="row" class="px-6 py-4 whitespace-nowrap">
+          <th scope="row" class="cell whitespace-nowrap">
             {{ cart_item.product.title|truncatechars:50 }}
           </th>
-          <td class="px-6 py-4">${{ cart_item.product.normal_price|floatformat:2 }}</td>
-          <td class="px-6 py-4">{{ cart_item.quantity }}</td>
-          <td class="px-6 py-4">${{ cart_item.total_price|floatformat:2 }}</td>
-          <td class="px-6 py-4">
+          <td class="cell">${{ cart_item.product.normal_price|floatformat:2 }}</td>
+          <td class="cell">{{ cart_item.quantity }}</td>
+          <td class="cell">${{ cart_item.total_price|floatformat:2 }}</td>
+          <td class="cell">
             <a href="{% url 'cart:remove_prod_cart' cart_item.product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 cs-rounded">
               Remove
             </a>
@@ -65,31 +65,31 @@
     <h2 class="headline-1">Wishlist ({{ wishlist_count }})</h2>
   </header>
   {% if wishlist.products.all %}
-  <section class="relative overflow-x-auto cs-rounded">
-    <table class="w-full text-left">
+  <section class="table-wrapper">
+    <table class="table">
       <thead class="table-head">
         <tr>
-          <th scope="col" class="px-6 py-3">Image</th>
-          <th scope="col" class="px-6 py-3">Product</th>
-          <th scope="col" class="px-6 py-3">Price</th>
-          <th scope="col" class="px-6 py-3">Quantity</th>
-          <th scope="col" class="px-6 py-3">Action</th>
+          <th scope="col" class="cell">Image</th>
+          <th scope="col" class="cell">Product</th>
+          <th scope="col" class="cell">Price</th>
+          <th scope="col" class="cell">Quantity</th>
+          <th scope="col" class="cell">Action</th>
         </tr>
       </thead>
       {% for product in wishlist.products.all %}
       <tbody class="table-body">
         <tr>
-          <td class="px-6 py-4">
+          <td class="cell">
             <a href="#" title="{{ product.title }}" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
               <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="30" height="30">
             </a>
           </td>
-          <td class="px-6 py-4">
+          <td class="cell">
             {{ product.title|truncatechars:50 }}
           </td>
-          <td class="px-6 py-4">${{ product.normal_price|floatformat:2 }}</td>
-          <td class="px-6 py-4">pending</td>
-          <td class="px-6 py-4">
+          <td class="cell">${{ product.normal_price|floatformat:2 }}</td>
+          <td class="cell">pending</td>
+          <td class="cell">
             <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="bg-blue-600 text-white px-2 py-1 cs-rounded">Add to cart</a>
             <a href="{% url 'cart:remove_prod_wishlist' product.id %}" title="Remove" class="bg-red-500 text-white px-2 py-1 cs-rounded">Remove</a>
           </td>

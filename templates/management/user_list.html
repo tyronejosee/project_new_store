@@ -6,25 +6,25 @@
     {% include "components/pagination.html" %}
   </div>
 </div>
-<section class="relative overflow-x-auto cs-rounded mt-4">
-  <table class="w-full text-left">
+<section class="table-wrapper">
+  <table class="table">
     <thead class="table-head">
       <tr>
-        <th scope="col" class="px-6 py-4">ID</th>
-        <th scope="col" class="px-6 py-4">USERNAME</th>
-        <th scope="col" class="px-6 py-4">EMAIL</th>
-        <th scope="col" class="px-6 py-4">IS ACTIVE</th>
-        <th scope="col" class="px-6 py-4">DATE JOINED</th>
+        <th scope="col" class="cell">ID</th>
+        <th scope="col" class="cell">USERNAME</th>
+        <th scope="col" class="cell">EMAIL</th>
+        <th scope="col" class="cell">IS ACTIVE</th>
+        <th scope="col" class="cell">DATE JOINED</th>
       </tr>
     </thead>
     {% for user in users %}
     <tbody class="table-body">
       <tr>
-        <td class="px-6 py-4">{{ user.id }}</td>
-        <td class="px-6 py-4">{{ user.username }}</td>
-        <td class="px-6 py-4">{{ user.email }}</td>
-        <td class="px-6 py-4">{{ user.is_active }}</td>
-        <td class="px-6 py-4">{{ user.date_joined }}</td>
+        <td class="cell">{{ user.id }}</td>
+        <td class="cell">{{ user.username }}</td>
+        <td class="cell">{{ user.email }}</td>
+        <td class="cell">{{ user.is_active }}</td>
+        <td class="cell">{{ user.date_joined }}</td>
       </tr>
     </tbody>
     {% endfor %}

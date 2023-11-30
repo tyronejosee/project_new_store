@@ -1165,6 +1165,17 @@ video {
 
 /* TABLES */
 
+.table-wrapper {
+  border-radius: 1.5rem;
+  position: relative;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+}
+
 .table-head {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1211,6 +1222,13 @@ video {
     --tw-bg-opacity: 1;
     background-color: rgb(64 64 64 / var(--tw-bg-opacity));
   }
+}
+
+.cell {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /* TAGS */
@@ -1482,10 +1500,6 @@ video {
   margin-top: 1rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .mt-auto {
   margin-top: auto;
 }
@@ -1606,24 +1620,8 @@ video {
   width: 100%;
 }
 
-.w-8 {
-  width: 2rem;
-}
-
 .max-w-screen-sm {
   max-width: 640px;
-}
-
-.max-w-xl {
-  max-width: 36rem;
-}
-
-.max-w-lg {
-  max-width: 32rem;
-}
-
-.max-w-sm {
-  max-width: 24rem;
 }
 
 .flex-initial {
@@ -1935,11 +1933,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -2066,11 +2059,6 @@ video {
 
 .opacity-90 {
   opacity: 0.9;
-}
-
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
 }
 
 .placeholder\:text-dark::-moz-placeholder {
@@ -2395,16 +2383,6 @@ video {
     --tw-space-x-reverse: 0;
     margin-right: calc(0.75rem * var(--tw-space-x-reverse));
     margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
-  .md\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-
-  .md\:bg-red-700 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(185 28 28 / var(--tw-bg-opacity));
   }
 
   .md\:px-5 {

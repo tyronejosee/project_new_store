@@ -134,11 +134,20 @@
 
 
     /* TABLES */
+    .table-wrapper{
+        @apply relative overflow-x-auto cs-rounded;
+    }
+    .table{
+        @apply w-full text-left;
+    }
     .table-head{
         @apply bg-lightTab dark:bg-darkTab bold uppercase;
     }
     .table-body{
         @apply bg-lightTab hover:bg-lightHover dark:bg-darkTab dark:hover:bg-darkHover;
+    }
+    .cell{
+        @apply px-6 py-4;
     }
 
 
