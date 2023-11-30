@@ -173,7 +173,7 @@ class Product(models.Model):
 
 @receiver(post_save, sender=Deal)
 @receiver(post_delete, sender=Deal)
-def product_update_sale_prices(_sender, instance, **kwargs):
+def product_update_sale_prices(sender, instance, **kwargs):
     """Signal handler to update sale_prices when a Deal is saved or deleted."""
     # Get the products associated with the deal
     products = Product.objects.filter(deal=instance)
@@ -185,7 +185,7 @@ def product_update_sale_prices(_sender, instance, **kwargs):
 
 
 @receiver(post_delete, sender=Product)
-def product_remove_image(_sender, instance, **kwargs):
+def product_remove_image(sender, instance, **kwargs):
     """Signal to remove the related image when deleting a product."""
     if instance.image:
         if os.path.isfile(instance.image.path):
@@ -193,7 +193,7 @@ def product_remove_image(_sender, instance, **kwargs):
 
 
 @receiver(post_delete, sender=Deal)
-def deal_remove_image(_sender, instance, **kwargs):
+def deal_remove_image(sender, instance, **kwargs):
     """Signal to remove the related image when deleting a deal."""
     if instance.image:
         if os.path.isfile(instance.image.path):
