@@ -3,6 +3,7 @@
 import os
 from django.db import models
 from django.dispatch import receiver
+from django.db.models.signals import post_save, post_delete
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
@@ -11,7 +12,6 @@ from ckeditor.fields import RichTextField
 
 class Category(models.Model):
     """Catalog type model for Category."""
-
     title = models.CharField(max_length=50, unique=True, verbose_name='Category')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
@@ -25,7 +25,7 @@ class Category(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        """Override method to save a slug if not existing or different from the title."""
+        # Create a slug based on the title
         if not self.slug or self.slug != slugify(self.title):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
@@ -33,7 +33,6 @@ class Category(models.Model):
 
 class Brand(models.Model):
     """Catalog type model for Brand."""
-
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
@@ -47,7 +46,7 @@ class Brand(models.Model):
         return str(self.name)
 
     def save(self, *args, **kwargs):
-        """Override method to save a slug if not existing or different from the name."""
+        # Create a slug based on the name
         if not self.slug or self.slug != slugify(self.name):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
@@ -55,7 +54,6 @@ class Brand(models.Model):
 
 class Deal(models.Model):
     """Entity type model for Deals."""
-
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
     image = models.ImageField(upload_to='deals/', blank=True, null=True, verbose_name='Image')
@@ -69,10 +67,11 @@ class Deal(models.Model):
         return str(self.name)
 
     def save(self, *args, **kwargs):
-        """Override the method to rename the image and save a slug."""
+        # Create a slug based on the name
         if not self.slug or self.slug != slugify(self.name):
             self.slug = slugify(self.name)
 
+        # Rename the image associated with the deal
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
                 # Gets the original file name
@@ -82,7 +81,6 @@ class Deal(models.Model):
                 file_name = f'{title}{file_extension}'
                 # Changes the file name
                 self.image.name = file_name
-
         super(Deal, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -92,7 +90,6 @@ class Deal(models.Model):
 
 class Product(models.Model):
     """Entity type model for Products."""
-
     WARRANTY_CHOICES = [
         (1, '1 month'),
         (3, '3 months'),
@@ -101,11 +98,11 @@ class Product(models.Model):
         (24, '2 years'),
         (36, '3 years'),
     ]
-
     title = models.CharField(max_length=255, verbose_name='Title')
     slug = models.SlugField(max_length=100, unique=True, null=True, blank=True, verbose_name='Slug')
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Brand')
     normal_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
+    sale_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, verbose_name='Sale Price')
     deal = models.ForeignKey(Deal, on_delete=models.SET_NULL, null=True, blank=True, related_name='products', verbose_name='Deal')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Category')
     image = models.ImageField(upload_to='products/', blank=True, null=True, verbose_name='Image')
@@ -127,10 +124,14 @@ class Product(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        """Override the method to rename the image and save a slug."""
+        # Apply method on the price when saving a product
+        self.update_sale_price()
+
+        # Create a slug based on the title
         if not self.slug or self.slug != slugify(self.title):
             self.slug = slugify(self.title)
 
+        # Rename the image associated with the product
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
                 # Gets the original file name
@@ -143,32 +144,57 @@ class Product(models.Model):
 
         super(Product, self).save(*args, **kwargs)
 
-    def price_with_discount(self):
-        """Method applies a discount with a percentage to the normal_price of a product."""
-        if self.deal.discount is not None:
-            return self.normal_price - (self.normal_price * (self.deal.discount / 100))
+    def update_sale_price(self):
+        """Method update sale_price based on deal and deal dates."""
+        # Check if there is a deal on the product and if it has a discount
+        if self.deal and self.deal.discount is not None:
+            if self.deal.start_date and self.deal.end_date:
+                current_date = timezone.now().date() # Today
+                # Apply the discount and save the 'sale_price'
+                if self.deal.start_date <= current_date <= self.deal.end_date:
+                    self.sale_price = self.normal_price - (self.normal_price * (self.deal.discount / 100))
+                else:
+                    self.sale_price = None
+            else:
+                self.sale_price = None
         else:
-            return self.normal_price
+            self.sale_price = None
+        # If no conditions are met, set 'None' for the 'sale_price'
 
     def is_new(self):
-        """Method returns True if the product is new, created, or updated within a week."""
+        """Method returns True if the product is new, created, or updated within a day."""
         return (
             self.created_at >= timezone.now() - timezone.timedelta(days=1) or
             self.updated_at >= timezone.now() - timezone.timedelta(days=1)
         )
 
 
-@receiver(models.signals.post_delete, sender=Deal)
-def deal_auto_remove_image(sender, instance, **kwargs):
-    """Signal to remove the related image when deleting a deal."""
+# Signals
+
+@receiver(post_save, sender=Deal)
+@receiver(post_delete, sender=Deal)
+def product_update_sale_prices(_sender, instance, **kwargs):
+    """Signal handler to update sale_prices when a Deal is saved or deleted."""
+    # Get the products associated with the deal
+    products = Product.objects.filter(deal=instance)
+
+    # Iterate through the products and update the 'sale_price'
+    for product in products:
+        product.update_sale_price()
+        product.save()
+
+
+@receiver(post_delete, sender=Product)
+def product_remove_image(_sender, instance, **kwargs):
+    """Signal to remove the related image when deleting a product."""
     if instance.image:
         if os.path.isfile(instance.image.path):
             os.remove(instance.image.path)
 
 
-@receiver(models.signals.post_delete, sender=Product)
-def product_auto_remove_image(sender, instance, **kwargs):
-    """Signal to remove the related image when deleting a product."""
+@receiver(post_delete, sender=Deal)
+def deal_remove_image(_sender, instance, **kwargs):
+    """Signal to remove the related image when deleting a deal."""
     if instance.image:
         if os.path.isfile(instance.image.path):
             os.remove(instance.image.path)

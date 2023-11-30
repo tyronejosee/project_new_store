@@ -12,11 +12,10 @@
   </a>
   <div class="card-content">
     <div>
-      {% if product.deal %}
-      <span class="card-price-d">${{ product.price_with_discount|floatformat:2 }}</span>
+      {% if product.sale_price %}
+      <span class="card-price-d">${{ product.sale_price }}</span>
       <span class="card-price-nt">${{ product.normal_price }}</span>
-      {% endif %}
-      {% if not product.deal %}
+      {% else %}
       <span class="card-price-n">${{ product.normal_price }}</span>
       {% endif %}
     </div>

@@ -4,7 +4,9 @@
 {% block content %}
 <main>
   <!-- CART -->
-  <h1 class="headline-1 p-4">Cart ({{ cart_count }})</h1>
+  <header>
+    <h1 class="headline-1 p-4">Cart ({{ cart_count }})</h1>
+  </header>
   {% if cart_items %}
   <section class="relative overflow-x-auto cs-rounded">
     <table class="w-full text-left">
@@ -59,7 +61,9 @@
   </nav>
   {% endif %}
   <!-- WISHLIST -->
-  <h2 class="headline-1 p-4">Wishlist ({{ wishlist_count }})</h2>
+  <header>
+    <h2 class="headline-1 p-4">Wishlist ({{ wishlist_count }})</h2>
+  </header>
   {% if wishlist.products.all %}
   <section class="relative overflow-x-auto cs-rounded">
     <table class="w-full text-left">

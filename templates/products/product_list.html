@@ -22,7 +22,7 @@
     </form>
   </nav>
   {% endif %}
-  <div class="mt-12 mb-4">
+  <header class="mt-12 mb-4">
     {% if title and "search=" not in request.get_full_path %}
     <div class="flex justify-between items-center">
       <h1 class="headline-1">{{ title }}</h1>
@@ -42,7 +42,7 @@
       {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
     </span>
     {% endif %}
-  </div>
+  </header>
   <section class="card mb-4">
     {% for product in products %}
       {% include "components/card.html" %}

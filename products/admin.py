@@ -71,11 +71,12 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     list_display = ('title', 'updated_at', 'slug', 'normal_price',
                     'brand', 'stock', 'show_hide')
     readonly_fields = ('created_at', 'updated_at')
+    search_fields = ('title',)
     ordering = ('updated_at', 'pk',)
     resource_class = ProductResource
 
     class Media:
-        """Additional configuration for CKEditor."""
+        """Additional config for CKEditor."""
         css = {
             'all': ('css/ckeditor.css',)
         }

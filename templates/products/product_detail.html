@@ -26,12 +26,11 @@
         <h1 class="headline-1 lg:text-2xl">{{ product.title }}{% if product.is_new %}<span class="absolute tag ml-3 my-1">New</span>{% endif %}</h1>
       </div>
       <div class="mb-4">
-        {% if product.deal %}
-          <span class="text-3xl block font-medium text-red-600">${{ product.price_with_discount|floatformat:2 }}</span>
+        {% if product.sale_price %}
+          <span class="text-3xl block font-medium text-red-600">${{ product.sale_price }}</span>
           <span class="text-xl text-neutral-500 line-through">${{ product.normal_price }}</span>
           <span class="text-xl">-{{ product.deal.discount|floatformat:0 }}%</span>
-        {% endif %}
-        {% if not product.deal %}
+        {% else %}
           <span class="text-3xl font-semibold">${{ product.normal_price }}</span>
         {% endif %}
       </div>
