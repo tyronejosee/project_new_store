@@ -3,17 +3,31 @@
 {% block title %}Checkout{% endblock title %}
 {% block content %}
 <main>
-  {% include "fragments/title.html" with title="Checkout" %}
+  <header class="my-4">
+    <h1 class="headline-1">Review your order (0 items)</h1>
+  </header>
   <section class="checkout-wrapper">
     <figure class="checkout-image">
       <img src="{{ product.image.url }}" alt="{{ product.title }}">
     </figure>
     <article class="checkout-info">
-      <h2 class="title-h2">Products list</h2>
-      <span>{{product.title}}</span>
-      <span>${{product.normal_price}}</span>
+      <h2 class="headline-2">{{ product.title }}</h2>
+      <div class="mb-4">
+        {% if product.sale_price %}
+          <span class="text-3xl block font-medium text-red-600">${{ product.sale_price }}</span>
+          <span class="text-xl text-neutral-500 line-through">${{ product.normal_price }}</span>
+          <span class="text-xl">-{{ product.deal.discount|floatformat:0 }}%</span>
+        {% else %}
+          <span class="text-3xl font-semibold">${{ product.normal_price }}</span>
+        {% endif %}
+      </div>
+      <div>
+        <a href="">adress</a>
+        <a href="">phone</a>
+      </div>
       <div class="mt-auto">
         {{paypal.render}}
+        <a href="" class="secondary-btn">Cancel</a>
       </div>
     </article>
   </section>

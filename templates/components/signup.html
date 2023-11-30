@@ -1,5 +1,5 @@
 {% if not user.is_authenticated %}
-<div class="box flex justify-center items-center py-8 mt-4">
+<section class="box flex justify-center items-center py-8 mt-4">
   <h3 class="font-medium mx-4">Get top deals, latest trends, and more.</h3>
   <form action="POST" class="mx-4">
     {% csrf_token %}
@@ -7,5 +7,5 @@
   </form>
   <a href="" class="primary-btn mx-4">Sign Up</a>
   <a href="" class="mx-4">Policy privacy</a>
-</div>
+</section>
 {% endif %}

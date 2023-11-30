@@ -3,11 +3,13 @@
 {% block title %}Payment Failed{% endblock title %}
 {% block content %}
 <main>
+  <header class="my-4">
+    <h1 class="headline-1">Payment failed</h1>
+  </header>
   <section>
-    <h1>Payment failed</h1>
     <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded mx-auto w-full">
     <p>{{product.title}}</p>
     <p>Price: $ {{product.normal_price}}</p>
   </section>
 </main>
-{% endblock content %}
+{% endblock %}

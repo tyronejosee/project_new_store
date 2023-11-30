@@ -5,13 +5,13 @@
 <main>
   {% include "components/routes.html" %}
   <section class="box p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
-    <!-- IMAGE -->
+    <!-- PRODUCT IMAGE -->
     <figure class="flex justify-center zoomable-container overflow-hidden cs-rounded">
       <div class="zoomable-wrapper">
         <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 cs-rounded zoomable">
       </div>
     </figure>
-    <!-- INFO -->
+    <!-- PRODUCT INFO -->
     <article class="flex flex-col h-full">
       <div class="flex justify-between items-center mb-4">
         <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="flex items-center focus:text-primary">
@@ -66,28 +66,28 @@
       </div>
     </article>
   </section>
-  <!-- Descriptions and Specifications -->
+  <!-- DESCRIPTION AND SPECIFICATIONS -->
   <aside class="mt-4">
     <nav class="flex" id="product-tabs">
-      <a href="#description-tab" class="tertiary-btn box w-full -mb-px mr-4">
+      <a href="#description-tab" class="link p-2 box w-full text-center -mb-px mr-4">
         Description
       </a>
-      <a href="#specifications-tab" class="tertiary-btn box w-full -mb-px">
+      <a href="#specifications-tab" class="link p-2 box w-full text-center -mb-px">
         Specifications
       </a>
     </nav>
     <div class="box p-4 mt-4">
       <article id="description-tab" class="tab-content">
-        {% include "fragments/subtitle.html" with subtitle="Description" %}
+        <h2 class="headline-2">Description</h2>
         <p>{{ product.description|safe }}</p>
       </article>
       <article id="specifications-tab" class="tab-content hidden">
-        {% include "fragments/subtitle.html" with subtitle="Specifications" %}
+        <h2 class="headline-2">Specifications</h2>
         <p class="leading-loose">{{ product.specifications|safe }}</p>
       </article>
     </div>
   </aside>
-  <!-- Featured products -->
+  <!-- FEATURED PRODUCTS -->
   <section>
     <h2 class="headline-1">Featured products</h2>
     <div class="card mt-4">

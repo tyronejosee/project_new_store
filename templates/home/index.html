@@ -20,7 +20,10 @@
 </section>
 
 <!-- RECENT PRODUCTS -->
-{% include "fragments/title.html" with title="Recent Products" %}
+<header class="flex justify-between items-center my-4">
+  <h2 class="headline-1">Recent Products</h2>
+  <a href="#" class="secondary-btn">View all</a>
+</header>
 <section class="card">
   {% for product in recent_products %}
     {% include "components/card.html" %}
@@ -39,7 +42,10 @@
 </section>
 
 <!-- ALL PRODUCTS -->
-{% include "fragments/title.html" with title="All products" %}
+<header class="flex justify-between items-center my-4">
+  <h2 class="headline-1">All Products</h2>
+  <a href="#" class="secondary-btn">View all</a>
+</header>
 <section class="card">
   {% for product in all_products %}
     {% include "components/card.html" %}
@@ -59,7 +65,10 @@
 </section>
 
 <!-- HEADPHONES -->
-{% include "fragments/title.html" with title="Headphones" %}
+<header class="flex justify-between items-center my-4">
+  <h2 class="headline-1">Headphones</h2>
+  <a href="#" class="secondary-btn">View all</a>
+</header>
 <section class="card">
   {% for product in apple %}
     {% include "components/card.html" %}
@@ -75,7 +84,10 @@
 </section>
 
 <!-- SAMSUNG -->
-{% include "fragments/title.html" with title="Samsung" %}
+<header class="flex justify-between items-center my-4">
+  <h2 class="headline-1">Samsung</h2>
+  <a href="#" class="secondary-btn">View all</a>
+</header>
 <section class="card">
   {% for product in samsung %}
     {% include "components/card.html" %}
@@ -85,7 +97,10 @@
 </section>
 
 <!-- COMPUTERS MONITORS -->
-{% include "fragments/title.html" with title="Computer Monitors" %}
+<header class="flex justify-between items-center my-4">
+  <h2 class="headline-1">Computer Monitors</h2>
+  <a href="#" class="secondary-btn">View all</a>
+</header>
 <section class="card">
   {% for product in computer_monitors %}
     {% include "components/card.html" %}

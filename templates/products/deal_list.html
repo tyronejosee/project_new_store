@@ -3,7 +3,9 @@
 {% block title %}Deals{% endblock title %}
 {% block content %}
 <main>
-  {% include "fragments/title.html" with title="Deals" %}
+  <header class="my-4">
+    <h1 class="headline-1">Deals</h1>
+  </header>
   <section class="grid gap-4 grid-cols-1 md:grid-cols-2">
     {% for deal in deals %}
       {% if deal.image %}

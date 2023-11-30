@@ -3,11 +3,13 @@
 {% block title %}{{ deal.name }}{% endblock title %}
 {% block content %}
 <main>
+  <header class="my-4">
+    <h1 class="headline-1">{{ deal.name }}</h1>
+  </header>
   <section class="box pt-4">
     <figure class="mx-4">
       <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="w-full cs-rounded">
     </figure>
-    <h1 class="headline-1 p-4">{{ deal.name }}</h1>
     <p>{{ deal.description }}</p>
     <section class="card">
       {% for product in products %}

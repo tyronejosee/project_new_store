@@ -3,7 +3,9 @@
 {% block title %}Confirm{% endblock title %}
 {% block content %}
 <main>
-  {% include "fragments/title.html" with title="Confirm Delete" %}
+  <header class="my-4">
+    <h1 class="headline-1">Confirm delete</h1>
+  </header>
   <form method="post">{% csrf_token %}
     <p>Are you sure you want to delete "{{ object }}"?</p>
       {{ form }}

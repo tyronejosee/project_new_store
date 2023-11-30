@@ -2,8 +2,10 @@
 {% load static %}
 {% block title %}Product Form{% endblock title %}
 {% block content %}
+<header class="my-4">
+  <h2 class="headline-1">Create and update product</h2>
+</header>
 <section class="box relative mt-4">
-  {% include "fragments/title.html" with title="Create and update product" %}
   <form method="post" enctype="multipart/form-data" class="max-w-screen-sm mx-auto">{% csrf_token %}
     {{ form.non_field_errors }}
     <div class="form-group">

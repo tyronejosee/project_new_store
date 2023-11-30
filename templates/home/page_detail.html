@@ -4,6 +4,7 @@
 {% block content %}
 <main class="py-4">
   <section class="box">
+    <!-- PAGE IMAGE -->
     <figure class="relative p-4">
       {% if page.image %}
       <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-64 object-cover cs-rounded" />
@@ -12,6 +13,7 @@
       {% endif %}
       <div class="absolute inset-0 opacity-30 cs-rounded"></div>
     </figure>
+    <!-- PAGE CONTENT -->
     <article class="px-4 pb-4">
       {{ page.content|safe }}
     </article>

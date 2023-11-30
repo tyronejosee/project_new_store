@@ -2,10 +2,14 @@
 {% load static %}
 {% block title %}Payment Success{% endblock title %}
 {% block content %}
-<section>
-  <h1>Payment successful</h1>
-  <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded mx-auto w-full">
-  <p>{{product.title}}</p>
-  <p>Price: $ {{product.normal_price}}</p>
-</section>
-{% endblock content %}
+<main>
+  <header class="my-4">
+    <h1 class="headline-1">Payment successful</h1>
+  </header>
+  <section>
+    <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded mx-auto w-full">
+    <p>{{product.title}}</p>
+    <p>Price: $ {{product.normal_price}}</p>
+  </section>
+</main>
+{% endblock %}

@@ -3,13 +3,13 @@
     <!-- COMPANY AND CATEGORIES -->
     <div class="w-1/2 sm:w-1/4 order-1 flex items-center justify-start">
       <a href="{% url 'home:index' %}" class="flex items-center pb-4 sm:pb-0">
-        <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="h-6 w-6 mr-4"/>
+        <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="h-6 w-6"/>
         <span class="headline-1 hidden xl:block">
           {{ company.name|default:'Company' }}
         </span>
       </a>
-      <div class="hidden sm:block relative my-auto" id="dropdownContainer">
-        <button data-dropdown-toggle="dropdown" class="headline-3 order-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 cs-rounded text-center inline-flex items-center" type="button">Categories <svg class="icon ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <div class="hidden md:block space-x-4 relative my-auto" id="dropdownContainer">
+        <button data-dropdown-toggle="dropdown" class="secondary-btn order-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 cs-rounded text-center inline-flex items-center" type="button">Categories <svg class="icon ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
           </svg>
         </button>
@@ -34,11 +34,11 @@
       </div>
     </div>
     <!-- SEARCH BAR -->
-    <div class="w-full max-w-xl sm:w-1/2 mx-auto sm:mx-0 order-3 sm:order-2">
+    <div class="w-full lg:max-w-lg sm:w-1/2 mx-auto sm:mx-0 order-3 sm:order-2">
       <div class="relative">
         <form method="get" action="{% url 'products:search' %}">
           <input type="search" id="search-navbar"
-            class="w-full p-2 pl-10 placeholder:text-neutral-800 cs-rounded bg-white dark:bg-neutral-800 dark:placeholder-neutral-200 border-hidden outline-none focus:outline-none"
+            class="w-full p-2 pl-10 text-center placeholder:text-neutral-800 cs-rounded bg-white dark:bg-neutral-800 dark:placeholder-neutral-200 border-hidden focus:outline-none focus:ring focus:ring-primary"
             placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
