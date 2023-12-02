@@ -6,11 +6,11 @@
 
     /* COINTAINERS */
     .container{
-        @apply body max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
+        @apply text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
     }
 
 
-    /* CUSTOM */
+    /* STYLES */
     .cs-rounded{
         @apply rounded-3xl;
     }
@@ -26,14 +26,14 @@
 
 
     /* TEXTS */
-    .body{
-        @apply font-normal text-sm lg:text-base text-neutral-800 dark:text-neutral-200;
-    }
     .headline-1{
         @apply font-bold text-xl lg:text-3xl;
     }
     .headline-2{
         @apply font-semibold text-xl lg:text-2xl;
+    }
+    .text{
+        @apply font-normal text-sm lg:text-base text-neutral-800 dark:text-neutral-200;
     }
     .bold{
         @apply font-medium text-sm lg:text-base;
@@ -44,11 +44,29 @@
     .link-bold{
         @apply font-medium text-sm lg:text-base text-primary hover:underline focus:text-primaryFocus;
     }
+
+    
+    /* PRICES */
+    .price-sp{
+        @apply text-3xl block font-medium text-red-600;
+    }
+    .price-sp-2{
+        @apply text-xl text-neutral-500 line-through;
+    }
+    .price-np{
+        @apply text-3xl font-semibold;
+    }
+    .price-d{
+        @apply text-xl;
+    }
  
 
     /* ICONS */
-    .icon{
+    .icon-sm{
         @apply w-4 h-4;
+    }
+    .icon-md{
+        @apply w-6 h-6;
     }
     .icon-lg{
         @apply w-20 h-20;
@@ -56,16 +74,16 @@
 
 
     /* CARD */
-    .card{
+    .card-grid{
         @apply grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:md:grid-cols-6;
     }
-    .card-wrapper{
+    .card-wrap{
         @apply box relative hover:cs-shadow p-2 hover-scale transform hover:scale-105;
     }
-    .card-image{
+    .card-img{
         @apply w-full h-auto rounded-2xl;
     }
-    .card-content{
+    .card-cont{
         @apply flex justify-between items-center mt-2;
     }
     .card-title{
@@ -82,42 +100,54 @@
     }
 
 
+    /* DETAILS */
+    .detail-wrapper{
+        @apply box p-4 grid gap-4 grid-cols-1 md:grid-cols-2;
+    }
+    .detail-header{
+        @apply relative flex items-center mb-4 overflow-hidden;
+    }
+
+
     /* PAGINATION */
-    .pagination-wrapper{
+    .pag-wrap{
         @apply bg-white dark:bg-neutral-800 cs-rounded flex items-center justify-center;
     }
-    .pagination-item{
+    .pag-itm{
         @apply flex items-center justify-center px-4 h-10 mx-1 cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700;
     }
-    .pagination-item-active{
+    .pag-itm-active{
         @apply flex items-center justify-center px-4 h-10 mx-1 cs-rounded bg-neutral-200 hover:bg-neutral-300 dark:hover:bg-neutral-700;
     }
 
 
     /* FOOTER */
-    .footer-wrapper{
+    .foot-wrap{
         @apply grid gap-4 grid-cols-2 px-4 py-8 md:grid-cols-4;
     }
-    .footer-title{
+    .foot-title{
         @apply mb-4 headline-2 text-primary;
     }
-    .footer-copy{
+    .foot-copy{
         @apply pb-4 md:flex md:items-center md:justify-between;
     }
-    .footer-copy div{
+    .foot-copy div{
         @apply flex mt-4 space-x-5 justify-center md:mt-0;
     }
 
 
     /* BUTTONS */
-    .primary-btn{
+    .btn-primary{
         @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-primaryFocus bold text-white cs-rounded;
     }
-    .secondary-btn{
+    .btn-secondary{
         @apply flex items-center justify-center bg-secondary hover:bg-secondaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus bold text-neutral-800 cs-rounded;
     }
-    .tertiary-btn{
+    .btn-tertiary{
         @apply flex items-center justify-center hover:bg-lightHover hover:text-primary px-4 h-12 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;
+    }
+    .btn-scroll{
+        @apply btn-primary cs-shadow fixed z-20 bottom-4 right-4 p-4;
     }
 
 
@@ -125,23 +155,23 @@
     .form-main{
         @apply box flex justify-center items-center mt-4;
     }
-    .form-section{
+    .form-wrap{
         @apply max-w-xl w-full m-4;
     }
-    .form-header{
+    .form-head{
         @apply flex flex-col items-center p-4;
     }
 
 
     /* TABLES */
-    .table-wrapper{
+    .table-wrap{
         @apply relative overflow-x-auto cs-rounded;
     }
-    .table{
+    .table-wrap table{
         @apply w-full text-left;
     }
     .table-head{
-        @apply bg-lightTab dark:bg-darkTab bold uppercase;
+        @apply bg-lightTab dark:bg-darkTab bold;
     }
     .table-body{
         @apply bg-lightTab hover:bg-lightHover dark:bg-darkTab dark:hover:bg-darkHover;
@@ -158,16 +188,19 @@
     .tag-absolute{
         @apply tag absolute top-0 left-0 ml-4 mt-4;
     }
+    .tag-detail{
+        @apply absolute tag ml-3 my-1;
+    }
 
 
     /* CHECKOUT */
-    .checkout-wrapper{
+    .check-wrap{
         @apply box p-4 grid gap-4 grid-cols-1 md:grid-cols-2;
     }
-    .checkout-image{
+    .check-img{
         @apply mx-auto w-96 cs-rounded;
     }
-    .checkout-info{
+    .check-info{
         @apply flex flex-col h-full;
     }
 

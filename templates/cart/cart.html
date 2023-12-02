@@ -8,8 +8,8 @@
     <h1 class="headline-1">Cart ({{ cart_count }})</h1>
   </header>
   {% if cart_items %}
-  <section class="table-wrapper">
-    <table class="table">
+  <section class="table-wrap">
+    <table>
       <thead class="table-head">
         <tr>
           <th scope="col" class="cell">Image</th>
@@ -24,12 +24,12 @@
       <tbody class="table-body">
         <tr>
           <td class="cell">
-            <a href="#" title="{{ cart_item.product.title }}" class="cursor-pointer show-image-popup" data-src="{{ cart_item.product.image.url }}">
+            <a href="#" title="{{ cart_item.product.title }}" class="show-image-popup" data-src="{{ cart_item.product.image.url }}">
               <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}" class="cs-rounded" width="30" height="30">
             </a>
           </td>
           <th scope="row" class="cell whitespace-nowrap">
-            {{ cart_item.product.title|truncatechars:50 }}
+            {{ cart_item.product.title }}
           </th>
           <td class="cell">${{ cart_item.product.normal_price|floatformat:2 }}</td>
           <td class="cell">{{ cart_item.quantity }}</td>
@@ -65,8 +65,8 @@
     <h2 class="headline-1">Wishlist ({{ wishlist_count }})</h2>
   </header>
   {% if wishlist.products.all %}
-  <section class="table-wrapper">
-    <table class="table">
+  <section class="table-wrap">
+    <table>
       <thead class="table-head">
         <tr>
           <th scope="col" class="cell">Image</th>
@@ -80,7 +80,7 @@
       <tbody class="table-body">
         <tr>
           <td class="cell">
-            <a href="#" title="{{ product.title }}" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
+            <a href="#" title="{{ product.title }}" class="show-image-popup" data-src="{{ product.image.url }}">
               <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="30" height="30">
             </a>
           </td>

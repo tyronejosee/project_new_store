@@ -6,19 +6,19 @@
   <header class="my-4">
     <h1 class="headline-1">Review your order (0 items)</h1>
   </header>
-  <section class="checkout-wrapper">
-    <figure class="checkout-image">
+  <section class="check-wrap">
+    <figure class="check-img">
       <img src="{{ product.image.url }}" alt="{{ product.title }}">
     </figure>
-    <article class="checkout-info">
+    <article class="check-info">
       <h2 class="headline-2">{{ product.title }}</h2>
       <div class="mb-4">
         {% if product.sale_price %}
-          <span class="text-3xl block font-medium text-red-600">${{ product.sale_price }}</span>
-          <span class="text-xl text-neutral-500 line-through">${{ product.normal_price }}</span>
-          <span class="text-xl">-{{ product.deal.discount|floatformat:0 }}%</span>
+          <span class="price-sp">${{ product.sale_price }}</span>
+          <span class="price-sp-2">${{ product.normal_price }}</span>
+          <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
         {% else %}
-          <span class="text-3xl font-semibold">${{ product.normal_price }}</span>
+          <span class="price-np">${{ product.normal_price }}</span>
         {% endif %}
       </div>
       <div>
@@ -27,7 +27,7 @@
       </div>
       <div class="mt-auto">
         {{paypal.render}}
-        <a href="" class="secondary-btn">Cancel</a>
+        <a href="" class="btn-secondary">Cancel</a>
       </div>
     </article>
   </section>

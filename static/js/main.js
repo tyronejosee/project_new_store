@@ -51,8 +51,6 @@ $(document).ready(function() {
       clearTimeout(dropdownTimeoutUser);
   });
 
-
-
   $('.show-image-popup').on('click', function(e) {
       e.preventDefault();
       var imageUrl = $(this).data('src');
@@ -65,7 +63,7 @@ $(document).ready(function() {
       $('#imagePopup').addClass('hidden');
   });
 
-  $("#scrollToTop").click(function() {
+  $("#btnScroll").click(function() {
       $("html, body").animate({
           scrollTop: 0
       }, 500);

@@ -2,121 +2,121 @@
 {% load static %}
 {% block title %}Home{% endblock title %}
 {% block content %}
+<main>
+  <!-- CATEGORIES -->
+  <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+  </section>
 
-<!-- CATEGORIES -->
-<section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-</section>
+  <!-- RECENT PRODUCTS -->
+  <header class="flex justify-between items-center my-4">
+    <h2 class="headline-1">Recent Products</h2>
+    <a href="#" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in recent_products %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
+  </section>
 
-<!-- RECENT PRODUCTS -->
-<header class="flex justify-between items-center my-4">
-  <h2 class="headline-1">Recent Products</h2>
-  <a href="#" class="secondary-btn">View all</a>
-</header>
-<section class="card">
-  {% for product in recent_products %}
-    {% include "components/card.html" %}
-  {% empty %}
-    {% include "components/empty.html" with arg="product" %}
-  {% endfor %}
-</section>
+  <!-- MAX DEALS -->
+  <section class="mt-12 grid gap-4 grid-cols-4 grid-rows-2">
+    <div class="col-span-2 row-span-2 bg-primary cs-rounded h-full"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+  </section>
 
-<!-- MAX DEALS -->
-<section class="mt-12 grid gap-4 grid-cols-4 grid-rows-2">
-  <div class="col-span-2 row-span-2 bg-primary cs-rounded h-full"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-</section>
+  <!-- ALL PRODUCTS -->
+  <header class="flex justify-between items-center my-4">
+    <h2 class="headline-1">All Products</h2>
+    <a href="#" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in all_products %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
+  </section>
 
-<!-- ALL PRODUCTS -->
-<header class="flex justify-between items-center my-4">
-  <h2 class="headline-1">All Products</h2>
-  <a href="#" class="secondary-btn">View all</a>
-</header>
-<section class="card">
-  {% for product in all_products %}
-    {% include "components/card.html" %}
-  {% empty %}
-    {% include "components/empty.html" with arg="product" %}
-  {% endfor %}
-</section>
+  <!-- DEFAULT DEALS -->
+  <section class="mt-12 grid gap-4 grid-cols-2 grid-rows-2 md:grid-cols-4 ">
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="col-span-2 bg-primary cs-rounded h-40"></div>
+    <div class="col-span-2 bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+  </section>
 
-<!-- DEFAULT DEALS -->
-<section class="mt-12 grid gap-4 grid-cols-2 grid-rows-2 md:grid-cols-4 ">
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="col-span-2 bg-primary cs-rounded h-40"></div>
-  <div class="col-span-2 bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-</section>
+  <!-- HEADPHONES -->
+  <header class="flex justify-between items-center my-4">
+    <h2 class="headline-1">Headphones</h2>
+    <a href="#" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in apple %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
+  </section>
 
-<!-- HEADPHONES -->
-<header class="flex justify-between items-center my-4">
-  <h2 class="headline-1">Headphones</h2>
-  <a href="#" class="secondary-btn">View all</a>
-</header>
-<section class="card">
-  {% for product in apple %}
-    {% include "components/card.html" %}
-  {% empty %}
-    {% include "components/empty.html" with arg="product" %}
-  {% endfor %}
-</section>
+  <!-- MIN DEALS -->
+  <section class="mt-12 grid gap-4 grid-cols-1 md:grid-cols-2">
+    <div class="bg-primary cs-rounded h-40"></div>
+    <div class="bg-primary cs-rounded h-40"></div>
+  </section>
 
-<!-- MIN DEALS -->
-<section class="mt-12 grid gap-4 grid-cols-1 md:grid-cols-2">
-  <div class="bg-primary cs-rounded h-40"></div>
-  <div class="bg-primary cs-rounded h-40"></div>
-</section>
+  <!-- SAMSUNG -->
+  <header class="flex justify-between items-center my-4">
+    <h2 class="headline-1">Samsung</h2>
+    <a href="#" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in samsung %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
+  </section>
 
-<!-- SAMSUNG -->
-<header class="flex justify-between items-center my-4">
-  <h2 class="headline-1">Samsung</h2>
-  <a href="#" class="secondary-btn">View all</a>
-</header>
-<section class="card">
-  {% for product in samsung %}
-    {% include "components/card.html" %}
-  {% empty %}
-    {% include "components/empty.html" with arg="product" %}
-  {% endfor %}
-</section>
+  <!-- COMPUTERS MONITORS -->
+  <header class="flex justify-between items-center my-4">
+    <h2 class="headline-1">Computer Monitors</h2>
+    <a href="#" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in computer_monitors %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
+  </section>
 
-<!-- COMPUTERS MONITORS -->
-<header class="flex justify-between items-center my-4">
-  <h2 class="headline-1">Computer Monitors</h2>
-  <a href="#" class="secondary-btn">View all</a>
-</header>
-<section class="card">
-  {% for product in computer_monitors %}
-    {% include "components/card.html" %}
-  {% empty %}
-    {% include "components/empty.html" with arg="product" %}
-  {% endfor %}
-</section>
-
-<!-- SERVICES LINKS -->
-<nav class="mt-12">
-  <ul class="grid gap-4 grid-cols-2 md:grid-cols-4">
-    <li class="bg-primary cs-rounded h-20"></li>
-    <li class="bg-primary cs-rounded h-20"></li>
-    <li class="bg-primary cs-rounded h-20"></li>
-    <li class="bg-primary cs-rounded h-20"></li>
-  </ul>
-</nav>
-
-{% endblock content %}
+  <!-- SERVICES LINKS -->
+  <nav class="mt-12">
+    <ul class="grid gap-4 grid-cols-2 md:grid-cols-4">
+      <li class="bg-primary cs-rounded h-20"></li>
+      <li class="bg-primary cs-rounded h-20"></li>
+      <li class="bg-primary cs-rounded h-20"></li>
+      <li class="bg-primary cs-rounded h-20"></li>
+    </ul>
+  </nav>
+</main>
+{% endblock %}

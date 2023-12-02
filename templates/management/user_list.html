@@ -6,15 +6,15 @@
     {% include "components/pagination.html" %}
   </div>
 </div>
-<section class="table-wrapper">
-  <table class="table">
+<section class="table-wrap">
+  <table>
     <thead class="table-head">
       <tr>
-        <th scope="col" class="cell">ID</th>
-        <th scope="col" class="cell">USERNAME</th>
-        <th scope="col" class="cell">EMAIL</th>
-        <th scope="col" class="cell">IS ACTIVE</th>
-        <th scope="col" class="cell">DATE JOINED</th>
+        <th scope="col" class="cell">Id</th>
+        <th scope="col" class="cell">Username</th>
+        <th scope="col" class="cell">Email</th>
+        <th scope="col" class="cell">Is Active</th>
+        <th scope="col" class="cell">Date Joined</th>
       </tr>
     </thead>
     {% for user in users %}

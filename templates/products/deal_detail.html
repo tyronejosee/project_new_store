@@ -9,13 +9,13 @@
   <section class="box pt-4">
     <figure class="mx-4">
       <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="w-full cs-rounded">
+      <p>{{ deal.description }}</p>
     </figure>
-    <p>{{ deal.description }}</p>
-    <section class="card">
+    <section class="card-grid">
       {% for product in products %}
-      {% include "components/card.html" %}
+        {% include "components/card.html" %}
       {% empty %}
-      {% include "components/empty.html" %}
+        {% include "components/empty.html" %}
       {% endfor %}
     </section>
   </section>
