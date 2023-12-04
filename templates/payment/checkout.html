@@ -3,31 +3,31 @@
 {% block title %}Checkout{% endblock title %}
 {% block content %}
 <main>
-  <header class="my-4">
-    <h1 class="headline-1">Review your order (0 items)</h1>
-  </header>
-  <section class="check-wrap">
-    <figure class="check-img">
-      <img src="{{ product.image.url }}" alt="{{ product.title }}">
-    </figure>
-    <article class="check-info">
-      <h2 class="headline-2">{{ product.title }}</h2>
-      <div class="mb-4">
-        {% if product.sale_price %}
-          <span class="price-sp">${{ product.sale_price }}</span>
-          <span class="price-sp-2">${{ product.normal_price }}</span>
-          <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
-        {% else %}
-          <span class="price-np">${{ product.normal_price }}</span>
-        {% endif %}
+  <section class="pay-wrap">
+    <figure class="zoomable-container overflow-hidden cs-rounded cursor-copy">
+      <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
+        <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
       </div>
-      <div>
-        <a href="">adress</a>
-        <a href="">phone</a>
+    </figure>
+    <article class="pay-info">
+      <h1 class="headline-1">Review your order (0 items)</h1>
+      <div class="mb-4">
+        <h2 class="headline-2">Description</h2>
+        <p><span class="bold">Product:</span> {{ product.title }}</p>
+        {% if product.sale_price %}
+        <p><span class="bold">Price:</span> ${{ product.sale_price }}</p>
+        {% else %}
+        <p><span class="bold">Price:</span> ${{ product.normal_price }}</p>
+        {% endif %}
+        <h2 class="headline-2">Shipment dispatch</h2>
+        <p><span class="bold">Address:</span> {{ user.address }}</p>
+        <p><span class="bold">Phone:</span> {{ user.phone }} </p>
       </div>
       <div class="mt-auto">
-        {{paypal.render}}
-        <a href="" class="btn-secondary">Cancel</a>
+        <div class="flex justify-center bg-yellow-400 w-full rounded-3xl mb-2">
+          {{paypal.render}}
+        </div>
+        <a href="{% url 'cart:cart' %}" class="btn-secondary">Cancel</a>
       </div>
     </article>
   </section>

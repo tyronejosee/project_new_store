@@ -2,12 +2,14 @@
 
 import uuid
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import render
 from paypal.standard.forms import PayPalPaymentsForm
 from products.models import Product
 
 
+@login_required
 def check_out(request, product_id):
     """View for the integration with PayPal."""
     product = Product.objects.get(id=product_id)
@@ -36,12 +38,14 @@ def check_out(request, product_id):
     return render(request, 'payment/checkout.html', context)
 
 
+@login_required
 def payment_success(request, product_id):
     """View sends the product as context if the payment was successful."""
     product = Product.objects.get(id=product_id)
     return render(request, 'payment/payment_success.html', {'product': product})
 
 
+@login_required
 def payment_failed(request, product_id):
     """View sends the product as context if the payment failed."""
     product = Product.objects.get(id=product_id)

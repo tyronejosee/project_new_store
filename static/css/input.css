@@ -27,16 +27,16 @@
 
     /* TEXTS */
     .headline-1{
-        @apply font-bold text-xl lg:text-3xl;
+        @apply font-bold text-2xl lg:text-3xl text-neutral-700 dark:text-neutral-200;
     }
     .headline-2{
-        @apply font-semibold text-xl lg:text-2xl;
+        @apply font-bold text-xl lg:text-2xl text-neutral-700 dark:text-neutral-200;
     }
     .text{
-        @apply font-normal text-sm lg:text-base text-neutral-800 dark:text-neutral-200;
+        @apply font-normal text-sm lg:text-base text-neutral-600 dark:text-neutral-300;
     }
     .bold{
-        @apply font-medium text-sm lg:text-base;
+        @apply font-medium text-sm lg:text-base text-neutral-700 dark:text-neutral-200;
     }
     .link{
         @apply font-medium text-sm lg:text-base hover:underline focus:text-primary;
@@ -44,8 +44,14 @@
     .link-bold{
         @apply font-medium text-sm lg:text-base text-primary hover:underline focus:text-primaryFocus;
     }
-
+    .small{
+        @apply font-normal text-xs text-neutral-500 dark:text-neutral-400 text-center;
+    }
+    .small-link{
+        @apply font-normal text-xs text-primary text-center hover:underline;
+    }
     
+
     /* PRICES */
     .price-sp{
         @apply text-3xl block font-medium text-red-600;
@@ -193,14 +199,14 @@
     }
 
 
-    /* CHECKOUT */
-    .check-wrap{
-        @apply box p-4 grid gap-4 grid-cols-1 md:grid-cols-2;
+    /* PAYMENT */
+    .pay-wrap{
+        @apply box p-4 mt-4 grid gap-4 grid-cols-1 md:grid-cols-2;
     }
-    .check-img{
+    .pay-img{
         @apply mx-auto w-96 cs-rounded;
     }
-    .check-info{
+    .pay-info{
         @apply flex flex-col h-full;
     }
 
