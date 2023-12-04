@@ -6,6 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login, logout
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
@@ -33,13 +34,6 @@ class UserLoginView(FormView):
         return super(UserLoginView, self).form_valid(form)
 
 
-@login_required
-def user_logout(request):
-    """Closes the current user's session and redirects them to the site's homepage."""
-    logout(request)
-    return HttpResponseRedirect('/')
-
-
 class UserRegistrationView(CreateView):
     """View for user registration."""
     model = CustomUser
@@ -51,3 +45,17 @@ class UserRegistrationView(CreateView):
         response = super().form_valid(form)
         login(self.request, self.object)
         return response
+
+
+@login_required
+class UserPasswordChangeView(PasswordChangeView):
+    """View for password change."""
+    template_name = 'users/password_change_form.html'
+    success_url = reverse_lazy('users:password_change-done')
+
+
+@login_required
+def user_logout(request):
+    """Closes the current user's session and redirects them to the site's homepage."""
+    logout(request)
+    return HttpResponseRedirect('/')

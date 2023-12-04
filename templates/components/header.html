@@ -68,6 +68,9 @@
                 <span class="bold block px-4 py-2">{{ user.first_name }} {{ user.last_name }}</span>
               </li>
               <li>
+                <a href="{% url 'users:password_change' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Change password</a>
+              </li>
+              <li>
                 <a href="{% url 'users:logout' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log out</a>
               </li>
             </ul>
