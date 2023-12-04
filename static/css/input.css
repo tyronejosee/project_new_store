@@ -144,7 +144,7 @@
         @apply flex items-center justify-center bg-secondary hover:bg-secondaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus bold text-neutral-800 cs-rounded;
     }
     .btn-tertiary{
-        @apply flex items-center justify-center hover:bg-lightHover hover:text-primary px-4 h-12 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;
+        @apply flex items-center justify-center border-2 border-light px-4 h-12 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;
     }
     .btn-scroll{
         @apply btn-primary cs-shadow fixed z-20 bottom-4 right-4 p-4;

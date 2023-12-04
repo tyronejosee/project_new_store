@@ -6,8 +6,8 @@
   {% include "components/routes.html" %}
   <section class="detail-wrapper">
     <!-- PRODUCT IMAGE -->
-    <figure class="zoomable-container overflow-hidden cs-rounded">
-      <div class="zoomable-wrapper bg-white w-full flex justify-center">
+    <figure class="zoomable-container overflow-hidden cs-rounded cursor-copy">
+      <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
         <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
       </div>
     </figure>
@@ -17,29 +17,35 @@
         <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="link">
           Shop all {{ product.brand.name }}
         </a>
-        <div class="flex items-center">
-          <span class="mr-4">ID: {{ product.id }}</span>
-          <span>Stock: {{ product.stock }}</span>
-        </div>
       </div>
       <header class="detail-header">
         <h1 class="headline-1">{{ product.title }}{% if product.is_new %}<span class="tag-detail">New</span>{% endif %}</h1>
       </header>
+      <div>
+        <span class="mr-4">ID: {{ product.id }}</span>
+        <span>Stock: {{ product.stock }}</span>
+      </div>
       <div class="mb-4">
         {% if product.sale_price %}
           <span class="price-sp">${{ product.sale_price }}</span>
-          <span class="price-sp-2">${{ product.normal_price }}</span>
           <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
+          <span class="price-sp-2">${{ product.normal_price }}</span>
+          <span class="price-d">Savings $500</span>
         {% else %}
           <span class="price-np">${{ product.normal_price }}</span>
         {% endif %}
       </div>
       <div class="mb-4">
-        <span>Warranty: {{ product.get_warranty_display }}</span>     
+        <h3 class="headline-2">Details</h3>
+        <span>Warranty: {{ product.get_warranty_display }}</span>
         <span>Available payment methods: PayPal</s>
         <span>Terms and Conditions:</span>
+        <span>Vendido por: </span>
+        <span>Despacho a domicilio gratis </span>
+        <span>Retiro en local  </span>
       </div>
       <div class="pb-4">
+        <h3 class="headline-2">Quantity</h3>
         <span class="box px-4 py-2">+</span>
         <span class="box px-8 py-2">1</span>
         <span class="box px-4 py-2">+</span>
@@ -95,7 +101,7 @@
     {% for product in featured_products %}
       {% include "components/card.html" %}
     {% empty %}
-      <h3>No products available.</h3>
+      {% include "components/empty.html" with arg="product" %}
     {% endfor %}
   </section>
 </main>
