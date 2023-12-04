@@ -3,13 +3,18 @@
 {% block title %}Payment Failed{% endblock title %}
 {% block content %}
 <main>
-  <header class="my-4">
-    <h1 class="headline-1">Payment failed</h1>
-  </header>
-  <section>
-    <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded mx-auto w-full">
-    <p>{{product.title}}</p>
-    <p>Price: $ {{product.normal_price}}</p>
+  <section class="box mt-4 w-full py-8 flex items-center justify-center">
+    <article class="max-w-xl space-y-4">
+      <header class="flex items-center justify-center space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-md">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        </svg>
+        <h1 class="headline-1">Your payment has been rejected, or an error has occurred</h1>
+      </header>
+      <p>Please review the provided information and ensure that all details are correct.</p>
+      <a href="{% url 'cart:cart' %}" class="btn-primary">Go to Homepage</a>
+      <p class="small">If you have any questions or need assistance, feel free to contact our <span class="small-link">customer service.</span></p>
+    </article>
   </section>
 </main>
 {% endblock %}
