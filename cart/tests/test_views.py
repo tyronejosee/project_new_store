@@ -1,6 +1,6 @@
 """Tests for Cart App."""
 
-from tests.cart.test_base import BaseTestCase
+from cart.tests.test_base import BaseTestCase
 
 
 class TestCartView(BaseTestCase):

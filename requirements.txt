@@ -6,6 +6,7 @@ certifi==2023.11.17
 cffi==1.16.0
 charset-normalizer==3.3.2
 colorama==0.4.6
+coverage==7.3.2
 defusedxml==0.7.1
 diff-match-patch==20230430
 dill==0.3.7

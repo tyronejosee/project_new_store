@@ -1,4 +1,4 @@
-"""Tests for Cart App."""
+"""Test Base for Cart App."""
 
 from django.test import TestCase
 from django.contrib.auth import get_user_model
