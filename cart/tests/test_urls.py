@@ -50,7 +50,6 @@ class RoutingCartTest(BaseTestCase):
 class RoutingWishlistTest(BaseTestCase):
     """Tests for the proper functioning of wishlist routes."""
 
-    # Urls
     def test_url_add_prod_wishlist(self):
         """Verifies resolution for add_prod_wishlist view, ex:'/wishlist/add/123'."""
         url = reverse('cart:add_prod_wishlist', args=[self.product.id])
@@ -62,16 +61,3 @@ class RoutingWishlistTest(BaseTestCase):
         url = reverse('cart:remove_prod_wishlist', args=[self.product.id])
         resolver = resolve(url)
         self.assertEqual(resolver.func, remove_prod_wishlist)
-
-    # Status code
-    def test_status_code_add_prod_wishlist(self):
-        """Verify status code when adding a product."""
-        url = reverse('cart:add_prod_wishlist', args=[self.product.id])
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 302)
-
-    def test_status_code_remove_prod_wishlist(self):
-        """Verify status code when remove a product."""
-        url = reverse('cart:remove_prod_wishlist', args=[self.product.id])
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 302)

@@ -1,6 +1,6 @@
 """Test Base for Cart App."""
 
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.contrib.auth import get_user_model
 from products.models import Product, Brand, Category, Deal
 
@@ -9,6 +9,8 @@ class BaseTestCase(TestCase):
     """Base test case for common setup in test classes."""
 
     def setUp(self):
+        super().setUp()
+        self.client = Client()
         # Create a default user
         self.user = get_user_model().objects.create_user(
             username='testuser',
