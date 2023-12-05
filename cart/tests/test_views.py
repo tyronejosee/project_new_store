@@ -1,4 +1,4 @@
-"""Tests for Cart App."""
+"""Views Tests for the Cart App."""
 
 from cart.tests.test_base import BaseTestCase
 

@@ -1,4 +1,4 @@
-"""Tests for Cart App."""
+"""URLs Tests for the Cart App."""
 
 from django.urls import reverse, resolve
 from cart.tests.test_base import BaseTestCase

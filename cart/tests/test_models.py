@@ -1,4 +1,4 @@
-"""Model tests for the Cart app."""
+"""Models Tests for the Cart App."""
 
 from django.test import TestCase
 from users.models import CustomUser
