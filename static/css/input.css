@@ -48,22 +48,22 @@
         @apply font-normal text-xs text-neutral-500 dark:text-neutral-400 text-center;
     }
     .small-link{
-        @apply font-normal text-xs text-primary text-center hover:underline;
+        @apply font-normal text-xs text-neutral-500 text-center hover:underline;
     }
     
 
     /* PRICES */
     .price-sp{
-        @apply text-3xl block font-medium text-red-600;
+        @apply text-3xl font-bold text-red-600;
     }
     .price-sp-2{
-        @apply text-xl text-neutral-500 line-through;
+        @apply text-xl text-neutral-500 line-through block;
     }
     .price-np{
-        @apply text-3xl font-semibold;
+        @apply text-3xl font-bold;
     }
     .price-d{
-        @apply text-xl;
+        @apply bold;
     }
  
 
@@ -147,7 +147,7 @@
         @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-primaryFocus bold text-white cs-rounded;
     }
     .btn-secondary{
-        @apply flex items-center justify-center bg-secondary hover:bg-secondaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus bold text-neutral-800 cs-rounded;
+        @apply flex items-center justify-center dark:bg-secondary hover:bg-secondaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus text-dark bold cs-rounded;
     }
     .btn-tertiary{
         @apply flex items-center justify-center border-2 border-light px-4 h-12 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;

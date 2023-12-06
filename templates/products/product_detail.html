@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %}{% load static %}
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
 <main>
+  <!-- ROUTES -->
   {% include "components/routes.html" %}
   <section class="detail-wrapper">
     <!-- PRODUCT IMAGE -->
@@ -12,43 +12,28 @@
       </div>
     </figure>
     <!-- PRODUCT INFO -->
-    <article class="flex flex-col h-full">
-      <div class="flex justify-between items-center mb-4">
-        <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="link">
-          Shop all {{ product.brand.name }}
-        </a>
-      </div>
+    <article class="flex flex-col h-full space-y-4">
+      <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="link">
+        Shop all {{ product.brand.name }}
+      </a>
       <header class="detail-header">
         <h1 class="headline-1">{{ product.title }}{% if product.is_new %}<span class="tag-detail">New</span>{% endif %}</h1>
       </header>
       <div>
-        <span class="mr-4">ID: {{ product.id }}</span>
-        <span>Stock: {{ product.stock }}</span>
-      </div>
-      <div class="mb-4">
         {% if product.sale_price %}
-          <span class="price-sp">${{ product.sale_price }}</span>
-          <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
-          <span class="price-sp-2">${{ product.normal_price }}</span>
-          <span class="price-d">Savings $500</span>
+        <span class="price-sp">${{ product.sale_price }}</span>
+        <span class="price-sp-2">${{ product.normal_price }}</span>
+        <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
+        <span class="price-d">Savings $500</span>
         {% else %}
-          <span class="price-np">${{ product.normal_price }}</span>
+        <span class="price-np">${{ product.normal_price }}</span>
         {% endif %}
       </div>
-      <div class="mb-4">
+      <div>
         <h3 class="headline-2">Details</h3>
-        <span>Warranty: {{ product.get_warranty_display }}</span>
-        <span>Available payment methods: PayPal</s>
-        <span>Terms and Conditions:</span>
-        <span>Vendido por: </span>
-        <span>Despacho a domicilio gratis </span>
-        <span>Retiro en local  </span>
-      </div>
-      <div class="pb-4">
-        <h3 class="headline-2">Quantity</h3>
-        <span class="box px-4 py-2">+</span>
-        <span class="box px-8 py-2">1</span>
-        <span class="box px-4 py-2">+</span>
+        <p><span class="bold">ID:</span> {{ product.id }}</p>
+        <p><span class="bold">Stock:</span> {{ product.stock }}</p>
+        <p><span class="bold">Warranty:</span> {{ product.get_warranty_display }}</p>
       </div>
       <div class="mt-auto grid gap-2 grid-cols-4">
         <a href="{% url 'payment:checkout' product.id %}" class="btn-primary col-span-4 flex items-center px-auto">
@@ -70,25 +55,30 @@
           <span class="flex-item hidden">Add to wishlist</span>
         </a>
       </div>
+      <div class="text-center space-x-2">
+        <span class="small-link">Terms and Conditions</span>
+        <span class="small-link">Policy Privacy</span>
+        <span class="small-link">Available payment methods</span>
+      </div>
     </article>
   </section>
   <!-- DESCRIPTION AND SPECIFICATIONS -->
   <aside class="mt-4">
-    <nav class="flex" id="product-tabs">
-      <a href="#description-tab" class="link p-2 box w-full text-center -mb-px mr-4">
+    <nav class="flex space-x-4" id="product-tabs">
+      <a href="#description-tab" class="flex items-center justify-center link h-12 box w-full">
         Description
       </a>
-      <a href="#specifications-tab" class="link p-2 box w-full text-center -mb-px">
+      <a href="#specifications-tab" class="flex items-center justify-center link h-12 box w-full">
         Specifications
       </a>
     </nav>
     <section class="box p-4 mt-4">
       <article id="description-tab" class="tab-content">
-        <h3 class="headline-2">Description</h3>
+        <h3 class="headline-2 mb-4">Description</h3>
         <p>{{ product.description|safe }}</p>
       </article>
       <article id="specifications-tab" class="tab-content hidden">
-        <h3 class="headline-2">Specifications</h3>
+        <h3 class="headline-2 mb-4">Specifications</h3>
         <p class="leading-loose">{{ product.specifications|safe }}</p>
       </article>
     </section>

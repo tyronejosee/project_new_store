@@ -25,10 +25,10 @@
         <tr>
           <td class="cell">
             <a href="#" title="{{ cart_item.product.title }}" class="show-image-popup" data-src="{{ cart_item.product.image.url }}">
-              <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}" class="cs-rounded" width="30" height="30">
+              <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}" class="rounded-lg" width="30" height="30">
             </a>
           </td>
-          <th scope="row" class="cell whitespace-nowrap">
+          <th scope="row" class="cell">
             {{ cart_item.product.title }}
           </th>
           <td class="cell">${{ cart_item.product.normal_price|floatformat:2 }}</td>
@@ -81,7 +81,7 @@
         <tr>
           <td class="cell">
             <a href="#" title="{{ product.title }}" class="show-image-popup" data-src="{{ product.image.url }}">
-              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="30" height="30">
+              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-lg" width="30" height="30">
             </a>
           </td>
           <td class="cell">
