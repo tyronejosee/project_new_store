@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ page.key|title }}{% endblock title %}
 {% block content %}
-<main class="py-4">
+<main class="mt-4">
   <section class="box">
     <!-- PAGE IMAGE -->
     <figure class="relative p-4">
@@ -14,7 +14,7 @@
       <div class="absolute inset-0 opacity-30 cs-rounded"></div>
     </figure>
     <!-- PAGE CONTENT -->
-    <article class="px-4 pb-4">
+    <article class="p-8">
       {{ page.content|safe }}
     </article>
   </section>

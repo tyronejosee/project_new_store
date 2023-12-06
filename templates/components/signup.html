@@ -1,11 +1,10 @@
 {% if not user.is_authenticated %}
-<section class="box flex justify-center items-center py-8 mt-4">
-  <h3 class="font-medium mx-4">Get top deals, latest trends, and more.</h3>
-  <form action="POST" class="mx-4">
-    {% csrf_token %}
-    <input type="email" id="email" class="bg-light cs-rounded block w-full h-12 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-dark dark:placeholder:text-light" placeholder="Email address">
+<section class="sign-wrap">
+  <span class="bold block text-center">Get top deals, latest trends, and more.</span>
+  <form action="POST">{% csrf_token %}
+    <input type="email" id="email" class="form-input" placeholder="Email address">
   </form>
-  <a href="" class="btn-primary mx-4">Sign Up</a>
-  <a href="" class="mx-4">Policy privacy</a>
+  <a href="{% url 'users:registration' %}" class="btn-primary">Sign Up</a>
+  <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link block">Policy privacy</a>
 </section>
 {% endif %}

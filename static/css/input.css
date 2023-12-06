@@ -127,6 +127,12 @@
     }
 
 
+    /* SIGN UP */
+    .sign-wrap{
+        @apply box px-4 space-y-4 justify-center py-8 mt-4 md:flex md:items-center md:space-x-4;
+    }
+
+
     /* FOOTER */
     .foot-wrap{
         @apply grid gap-4 grid-cols-2 px-4 py-8 md:grid-cols-4;
@@ -144,13 +150,13 @@
 
     /* BUTTONS */
     .btn-primary{
-        @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-primaryFocus bold text-white cs-rounded;
+        @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-8 h-12 focus:ring-4 focus:outline-none focus:ring-primaryFocus bold text-white cs-rounded;
     }
     .btn-secondary{
-        @apply flex items-center justify-center dark:bg-secondary hover:bg-secondaryHover px-4 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus text-dark bold cs-rounded;
+        @apply flex items-center justify-center dark:bg-secondary hover:bg-secondaryHover px-8 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus text-dark bold cs-rounded;
     }
     .btn-tertiary{
-        @apply flex items-center justify-center px-4 h-12 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;
+        @apply flex items-center justify-center px-8 h-12 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;
     }
     .btn-scroll{
         @apply btn-primary cs-shadow fixed z-20 bottom-4 right-4 p-4;
@@ -166,6 +172,9 @@
     }
     .form-head{
         @apply flex flex-col items-center p-4;
+    }
+    .form-input{
+        @apply bg-light cs-rounded block w-full h-12 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-dark dark:placeholder:text-light;
     }
 
 
