@@ -1,7 +1,7 @@
 """URLs Tests for the Cart App."""
 
 from django.urls import reverse, resolve
-from cart.tests.test_base import BaseTestCase
+from core.tests.test_base import BaseTestCase
 from cart.views import (
     cart,
     add_prod_cart,
