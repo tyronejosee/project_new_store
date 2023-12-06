@@ -37,7 +37,7 @@
     }
     .bold{
         @apply font-medium text-sm lg:text-base text-neutral-700 dark:text-neutral-200;
-    }
+    }  
     .link{
         @apply font-medium text-sm lg:text-base hover:underline focus:text-primary;
     }
@@ -107,11 +107,26 @@
 
 
     /* DETAILS */
-    .detail-wrapper{
+    .detail-wrap{
         @apply box p-4 grid gap-4 grid-cols-1 md:grid-cols-2;
     }
     .detail-header{
         @apply relative flex items-center mb-4 overflow-hidden;
+    }
+    .detail-nav{
+        @apply flex items-center justify-center link h-12 box w-full;
+    }
+
+
+    /* DEALS */
+    .deal-wrap{
+        @apply grid gap-4 grid-cols-1 md:grid-cols-2;
+    }
+    .deal-header{
+        @apply md:flex md:items-center md:space-x-4 my-4;
+    }
+    .deal-img{
+        @apply w-full h-64 object-cover cs-rounded;
     }
 
 

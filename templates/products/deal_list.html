@@ -1,23 +1,23 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %}{% load static %}
 {% block title %}Deals{% endblock title %}
 {% block content %}
 <main>
   <header class="my-4">
     <h1 class="headline-1">Deals</h1>
   </header>
-  <section class="grid gap-4 grid-cols-1 md:grid-cols-2">
+  {% if deals %}
+  <section class="deal-wrap">
     {% for deal in deals %}
       {% if deal.image %}
       <a href="{% url 'products:deal_detail' slug=deal.slug %}">
         <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="cs-rounded">
       </a>
-      {% else %}
-      <span>NO IMAGE</span>
-      {% endif %}
-    {% empty %}
-      {% include "components/empty.html" with arg="deal" %}
+      {% endif %}  
     {% endfor %}
   </section>
+  {% endif %}
+  {% if deals|length == 0 %}
+    {% include "components/empty.html" with arg="deal" %}
+  {% endif %}
 </main>
 {% endblock %}

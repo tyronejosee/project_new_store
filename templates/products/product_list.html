@@ -1,5 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %}{% load static %}
 {% block title %}{{ title|title }}{% endblock title %}
 {% block content %}
 <main class="space-y-4">
@@ -10,7 +9,7 @@
         {% if title and "search=" not in request.get_full_path %}
         <h1 class="headline-1">{{ title }}</h1>
         {% endif %}
-        {% if results %}
+        {% if "search=" in request.get_full_path %}
         <h1 class="headline-1">{{ results }} results</h1>
         <span class="bold text-primary">for "{{ title }}"</span>
         {% endif %}
@@ -19,14 +18,10 @@
           {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
         </span>
         {% endif %}
-      </div>
-      <div class="hidden">
-        <a href="#" class="btn-secondary">
-          View all
-        </a>
-      </div>
+        <a href="#" class="btn-secondary">View all</a>
     </div>
   </header>
+
   <!-- CATEGORIES -->
   {% if form %}
   <nav class="box p-2">
@@ -40,16 +35,19 @@
     </form>
   </nav>
   {% endif %}
+
   <!-- PRODUCT LIST -->
+  {% if products %}
   <section class="card-grid">
     {% for product in products %}
       {% include "components/card.html" %}
     {% endfor %}
   </section>
-  <!-- EMPTY LIST -->
+  {% endif %}
   {% if products|length == 0 %}
     {% include "components/empty.html" with arg="product" %}
   {% endif %}
+
   <!-- PAGINATION -->
   {% include "components/pagination.html" %}
 </main>

@@ -4,14 +4,14 @@
 <main>
   <!-- ROUTES -->
   {% include "components/routes.html" %}
-  <section class="detail-wrapper">
-    <!-- PRODUCT IMAGE -->
+
+  <!-- PRODUCT DETAIL -->
+  <section class="detail-wrap">
     <figure class="zoomable-container overflow-hidden cs-rounded cursor-copy">
       <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
         <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
       </div>
     </figure>
-    <!-- PRODUCT INFO -->
     <article class="flex flex-col h-full space-y-4">
       <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="link">
         Shop all {{ product.brand.name }}
@@ -62,37 +62,38 @@
       </div>
     </article>
   </section>
+
   <!-- DESCRIPTION AND SPECIFICATIONS -->
   <aside class="mt-4">
     <nav class="flex space-x-4" id="product-tabs">
-      <a href="#description-tab" class="flex items-center justify-center link h-12 box w-full">
-        Description
-      </a>
-      <a href="#specifications-tab" class="flex items-center justify-center link h-12 box w-full">
-        Specifications
-      </a>
+      <a href="#description-tab" class="detail-nav">Description</a>
+      <a href="#specifications-tab" class="detail-nav">Specifications</a>
     </nav>
-    <section class="box p-4 mt-4">
+    <section class="box p-8 mt-4">
       <article id="description-tab" class="tab-content">
-        <h3 class="headline-2 mb-4">Description</h3>
+        <h3 class="headline-2">Description</h3>
         <p>{{ product.description|safe }}</p>
       </article>
       <article id="specifications-tab" class="tab-content hidden">
-        <h3 class="headline-2 mb-4">Specifications</h3>
+        <h3 class="headline-2">Specifications</h3>
         <p class="leading-loose">{{ product.specifications|safe }}</p>
       </article>
     </section>
   </aside>
+
   <!-- FEATURED PRODUCTS -->
   <header class="my-4">
     <h2 class="headline-1">Featured products</h2>
   </header>
+  {% if featured_products %}
   <section class="card-grid">
     {% for product in featured_products %}
       {% include "components/card.html" %}
-    {% empty %}
-      {% include "components/empty.html" with arg="product" %}
     {% endfor %}
   </section>
+  {% endif %}
+  {% if featured_products|length == 0 %}
+    {% include "components/empty.html" with arg="product" %}
+  {% endif %}
 </main>
 {% endblock %}

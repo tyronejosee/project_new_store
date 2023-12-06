@@ -73,6 +73,7 @@ def clear_cart(request):
 
 # Views for Wishlist
 
+@login_required
 def add_prod_wishlist(request, product_id):
     """Add a product to the wishlist."""
     user = request.user
@@ -82,6 +83,7 @@ def add_prod_wishlist(request, product_id):
     return redirect("cart:cart")
 
 
+@login_required
 def remove_prod_wishlist(request, product_id):
     """Remove a product from the wishlist."""
     user = request.user

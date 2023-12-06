@@ -1,23 +1,33 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %}{% load static %}
 {% block title %}{{ deal.name }}{% endblock title %}
 {% block content %}
 <main>
-  <header class="my-4">
-    <h1 class="headline-1">{{ deal.name }}</h1>
-  </header>
-  <section class="box pt-4">
-    <figure class="mx-4">
-      <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="w-full cs-rounded">
-      <p>{{ deal.description }}</p>
+  <section class="box p-4 mt-4">
+    <!-- IMAGE -->
+    <figure>
+      <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="deal-img">
     </figure>
+
+    <!-- HEADER -->
+    <header class="deal-header">
+      <h1 class="headline-1">{{ deal.name }}</h1>
+      <span class="bold text-neutral-500">{{ deal.description }}</span>
+    </header>
+
+    <!-- PRODUCT LIST -->
+    {% if products %}
     <section class="card-grid">
       {% for product in products %}
         {% include "components/card.html" %}
-      {% empty %}
-        {% include "components/empty.html" %}
       {% endfor %}
     </section>
+    {% endif %}
+    {% if products|length == 0 %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endif %}
+
+    <!-- PAGINATION -->
+    {% include "components/pagination.html" %}
   </section>
 </main>
 {% endblock %}
