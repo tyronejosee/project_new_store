@@ -18,7 +18,7 @@ class ManagementView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         # TODO: Add logic here
 
         # Sends context with the total number of products

@@ -3,14 +3,14 @@
 def form_text_input(placeholder):
     """Utility classes for text input."""
     return {
-        'class': 'bg-light cs-rounded block w-full h-12 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-dark dark:placeholder:text-light',
+        'class': 'form-input',
         'placeholder': placeholder,
     }
 
 def form_number_input():
     """Utility classes for number input."""
     return {
-        'class': 'bg-light dark:bg-dark h-12 px-4 cs-rounded block w-full focus:outline-none focus:ring focus:ring-primary placeholder:text-dark dark:placeholder:text-light',
+        'class': 'form-input',
     }
 
 def form_checkbox_input():

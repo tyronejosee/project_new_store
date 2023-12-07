@@ -1,85 +1,84 @@
-{% extends 'management/management.html' %}
-{% load static %}
+{% extends 'management/management.html' %}{% load static %}
 {% block title %}Product Form{% endblock title %}
 {% block content %}
-<header class="my-4">
-  <h2 class="headline-1">Create and update product</h2>
-</header>
-<section class="box relative mt-4">
-  <form method="post" enctype="multipart/form-data" class="max-w-screen-sm mx-auto">{% csrf_token %}
-    {{ form.non_field_errors }}
-    <div class="form-group">
-      <label for="{{ form.title.id_for_label }}"
-      class="block mb-2">Title</label>
-      {{ form.title }}
-    </div>
-    <div class="form-group flex justify-beetween">
-      <div class="flex-grow mr-4">
-        <label for="{{ form.normal_price.id_for_label }}" class="block mb-2">Price</label>
-        {{ form.normal_price }}
+<main>
+  <section class="box mt-4">
+    <header class="py-8 text-center">
+      <h2 class="headline-1">Create or update product</h2>
+    </header>
+    <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto">{% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="form-group">
+        <label for="{{ form.title.id_for_label }}" class="bold">Title</label>
+        {{ form.title }}
       </div>
-      <div class="flex-grow">
-        <label for="{{ form.stock.id_for_label }}" class="block mb-2">Stock</label>
-        {{ form.stock }}
-      </div>
-    </div>
-    <div class="form-group flex justify-beetween">
-      <div class="flex-grow mr-4">
-        <label for="{{ form.category.id_for_label }}" class="block mb-2">Category</label>
-        {{ form.category }}
-      </div>
-      <div class="flex-grow">
-        <label for="{{ form.brand.id_for_label }}" class="block mb-2">Brand</label>
-        {{ form.brand }}
-      </div>
-    </div>
-    <div class="form-group flex justify-beetween">
-      <div class="flex-grow mr-4">
-        <label for="{{ form.deal.id_for_label }}" class="block mb-2">Deal</label>
-        {{ form.deal }}
-      </div>
-      <div class="flex-grow">
-        <label for="{{ form.warranty.id_for_label }}"
-        class="block mb-2">Warranty</label>
-        {{ form.warranty }}
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="{{ form.image.id_for_label }}" class="block mb-2">Image</label>
-      {{ form.image }}
-    </div>
-    <div class="py-4">
-      <div class="flex gap-4 items-center">
-        <div class="flex h-5">
-          {{ form.show_hide }}
+      <div class="form-group flex justify-beetween">
+        <div class="flex-grow mr-4">
+          <label for="{{ form.normal_price.id_for_label }}" class="bold">Price</label>
+          {{ form.normal_price }}
         </div>
-        <label for="{{ form.show_hide.id_for_label }}" class="block mb-2">Show/Hide</label>
-      </div>
-      <div class="flex gap-4 items-center">
-        <div class="flex h-5">
-          {{ form.featured }}
+        <div class="flex-grow">
+          <label for="{{ form.stock.id_for_label }}" class="bold">Stock</label>
+          {{ form.stock }}
         </div>
-        <label for="{{ form.featured.id_for_label }}" class="block mb-2">Featured</label>
       </div>
-    </div>
-    <div class="form-group flex justify-beetween">
-      <div class="flex-grow">
-        <label for="{{ form.description.id_for_label }}" class="block mb-2">Description</label>
-        {{ form.description }}
+      <div class="form-group flex justify-beetween">
+        <div class="flex-grow mr-4">
+          <label for="{{ form.category.id_for_label }}" class="bold">Category</label>
+          {{ form.category }}
+        </div>
+        <div class="flex-grow">
+          <label for="{{ form.brand.id_for_label }}" class="bold">Brand</label>
+          {{ form.brand }}
+        </div>
       </div>
-      <div class="flex-grow">
-        <label for="{{ form.specifications.id_for_label }}" class="block mb-2">Specifications</label>
-        {{ form.specifications }}
+      <div class="form-group flex justify-beetween">
+        <div class="flex-grow mr-4">
+          <label for="{{ form.deal.id_for_label }}" class="bold">Deal</label>
+          {{ form.deal }}
+        </div>
+        <div class="flex-grow">
+          <label for="{{ form.warranty.id_for_label }}" class="bold">Warranty</label>
+          {{ form.warranty }}
+        </div>
       </div>
-    </div>
-    <div class="m-4 flex justify-center">
-      <button type="submit" class="btn-primary mr-4">
-        Save product
-      </button>
-      <a href="{% url 'management:product_list' %}" title="Cancel" class="btn-secondary">
-        Cancel
-      </a>
-    </div>
-  </form>
-</section>
+      <div class="form-group">
+        <label for="{{ form.image.id_for_label }}" class="bold">Image</label>
+        {{ form.image }}
+      </div>
+      <div class="py-4">
+        <div class="flex gap-4 items-center">
+          <div class="flex h-5">
+            {{ form.show_hide }}
+          </div>
+          <label for="{{ form.show_hide.id_for_label }}" class="block mb-2">Show/Hide</label>
+        </div>
+        <div class="flex gap-4 items-center">
+          <div class="flex h-5">
+            {{ form.featured }}
+          </div>
+          <label for="{{ form.featured.id_for_label }}" class="block mb-2">Featured</label>
+        </div>
+      </div>
+      <div class="form-group flex justify-beetween">
+        <div class="flex-grow">
+          <label for="{{ form.description.id_for_label }}" class="block mb-2">Description</label>
+          {{ form.description }}
+        </div>
+        <div class="flex-grow">
+          <label for="{{ form.specifications.id_for_label }}" class="block mb-2">Specifications</label>
+          {{ form.specifications }}
+        </div>
+      </div>
+      <div class="m-4 flex justify-center">
+        <button type="submit" class="btn-primary mr-4">
+          Save product
+        </button>
+        <a href="{% url 'management:product_list' %}" title="Cancel" class="btn-secondary">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </section>
+</main>
 {% endblock %}
