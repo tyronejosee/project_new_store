@@ -4,42 +4,46 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ company.name|default:'Company' }} | Management</title>
+    <title>{{ company.name|default:'Company' }} | {% block title %}Management{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
     <link rel="icon" type="image/svg+xml" href="{{ company.logo.url }}">
   </head>
   <body class="container">
-    <nav class="flex items-center justify-between sticky top-0 z-10 py-4">
-      <div class="flex-initial">
-        <a href="{% url 'home:index' %}" title="Home" class="flex items-center">
-          <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="h-8 mr-3" />
-          <span
-            class="self-center text-2xl font-semibold whitespace-nowrap text-sky-500 hidden md:block">
-            {{ company.name|default:'Company' }}
-          </span>
-        </a>
-      </div>
-      <div class="flex-initial">
-        <ul class="flex">
-          <li class="mr-4">
-            <a href="{% url 'management:management' %}" class="block px-12 p-2 bg-white hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-sky-500 rounded-lg" aria-current="page">Board</a>
-          </li>
-          <li class="mr-4">
-            <a href="{% url 'management:page_list' %}" class="block px-12 p-2 bg-white hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-sky-500 rounded-lg" aria-current="page">Pages</a>
-          </li>
-          <li class="mr-4">
-            <a href="{% url 'management:product_list' %}" class="block px-12 p-2 bg-white hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-sky-500 rounded-lg">Products</a>
-          </li>
-          <li class="mr-4">
-            <a href="{% url 'management:user_list' %}" class="block px-12 p-2 bg-white hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-sky-500 rounded-lg">Users</a>
-          </li>
-        </ul>
-      </div>
-      <div class="flex-initial">
-        None
-      </div>
-    </nav>
+    <!-- NAVBAR -->
+    <header class="navbar-wrap">
+      <nav>
+        <div class="flex items-center space-x-4">
+          <h1>
+            <a href="{% url 'management:management' %}" class="flex items-center space-x-4 sm:pb-0">
+              <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="icon-md"/>
+              <span class="headline-2 hidden xl:block">
+                {{ company.name|default:'Company' }}
+              </span>
+            </a>
+          </h1>
+        </div>
+        <div>
+          <ul class="flex">
+            <li>
+              <a href="{% url 'management:management' %}">Board</a>
+            </li>
+            <li>
+              <a href="{% url 'management:page_list' %}">Pages</a>
+            </li>
+            <li>
+              <a href="{% url 'management:product_list' %}">Products</a>
+            </li>
+            <li >
+              <a href="{% url 'management:user_list' %}">Users</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    
+    <!-- CONTENT -->
     {% block content %}{% endblock content %}
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/main.js' %}"></script>
   </body>
