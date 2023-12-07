@@ -3,6 +3,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from home.models import Page
@@ -11,7 +12,7 @@ from products.models import Product
 from management.forms import PageForm, ProductForm
 
 
-class ManagementView(TemplateView):
+class ManagementView(LoginRequiredMixin, TemplateView):
     """View for the management dashboard."""
     template_name = 'management/dashboard.html'
 
@@ -26,7 +27,7 @@ class ManagementView(TemplateView):
         return context
 
 
-class PageListView(ListView):
+class PageListView(LoginRequiredMixin, ListView):
     """View for displaying a list of pages."""
     model = Page
     template_name = 'management/page_list.html'
@@ -34,7 +35,7 @@ class PageListView(ListView):
     paginate_by = 8
 
 
-class PageUpdateView(UpdateView):
+class PageUpdateView(LoginRequiredMixin, UpdateView):
     """View for updating a Page."""
     model = Page
     form_class = PageForm
@@ -42,14 +43,14 @@ class PageUpdateView(UpdateView):
     success_url = reverse_lazy('management:page_list')
 
 
-class UserListView(ListView):
+class UserListView(LoginRequiredMixin, ListView):
     """View to display a list of users."""
     model = CustomUser
     template_name = 'management/user_list.html'
     context_object_name = 'users'
 
 
-class ProductListView(ListView):
+class ProductListView(LoginRequiredMixin, ListView):
     """View to display a list of available products."""
     model = Product
     template_name = 'management/product_list.html'
@@ -64,7 +65,7 @@ class ProductListView(ListView):
         )
 
 
-class DeactivatedProductListView(ListView):
+class DeactivatedProductListView(LoginRequiredMixin, ListView):
     """View to display a list of deactivated products."""
     model = Product
     template_name = 'management/product_list.html'
@@ -79,7 +80,7 @@ class DeactivatedProductListView(ListView):
         )
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     """View to create a new product."""
     model = Product
     form_class = ProductForm
@@ -87,7 +88,7 @@ class ProductCreateView(CreateView):
     success_url = reverse_lazy('management:product_list')
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     """"View to update a product's information."""
     model = Product
     form_class = ProductForm
@@ -95,7 +96,7 @@ class ProductUpdateView(UpdateView):
     success_url = reverse_lazy('management:product_list')
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     """View to update a product's information."""
     model = Product
     success_url = None
@@ -108,7 +109,7 @@ class ProductDeleteView(DeleteView):
         return redirect('management:product_list')
 
 
-class ProductStatusToggleView(DeleteView):
+class ProductStatusToggleView(LoginRequiredMixin, DeleteView):
     """View to change a product's status (activate/deactivate)."""
     model = Product
     success_url = None

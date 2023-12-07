@@ -47,7 +47,6 @@ class UserRegistrationView(CreateView):
         return response
 
 
-@login_required
 class UserPasswordChangeView(PasswordChangeView):
     """View for password change."""
     template_name = 'users/password_change_form.html'
