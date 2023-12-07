@@ -27,19 +27,19 @@
 
     /* TEXTS */
     .headline-1{
-        @apply font-bold text-2xl lg:text-3xl text-neutral-700 dark:text-neutral-200;
+        @apply font-bold text-2xl lg:text-3xl text-neutral-800 dark:text-neutral-200;
     }
     .headline-2{
-        @apply font-bold text-xl lg:text-2xl text-neutral-700 dark:text-neutral-200;
+        @apply font-bold text-xl lg:text-2xl text-neutral-800 dark:text-neutral-200;
     }
     .text{
         @apply font-normal text-sm lg:text-base text-neutral-600 dark:text-neutral-300;
     }
     .bold{
-        @apply font-medium text-sm lg:text-base text-neutral-700 dark:text-neutral-200;
+        @apply font-medium text-sm lg:text-base text-neutral-800 dark:text-neutral-200;
     }  
     .link{
-        @apply font-medium text-sm lg:text-base hover:underline focus:text-primary;
+        @apply font-medium text-sm lg:text-base hover:underline text-neutral-800 dark:text-neutral-200 focus:text-primary;
     }
     .link-bold{
         @apply font-medium text-sm lg:text-base text-primary hover:underline focus:text-primaryFocus;
@@ -60,7 +60,7 @@
         @apply text-xl text-neutral-500 line-through block;
     }
     .price-np{
-        @apply text-3xl font-bold;
+        @apply text-3xl font-bold text-neutral-800 dark:text-neutral-200;
     }
     .price-d{
         @apply bold;
@@ -78,6 +78,14 @@
         @apply w-20 h-20;
     }
 
+
+    /* NAVBAR */
+    .navbar-wrap{
+        @apply bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10 border-b border-lightHover dark:border-darkHover;
+    }
+    .navbar-wrap nav{
+        @apply flex flex-wrap sm:flex-nowrap items-center justify-between py-4;
+    }
 
     /* CARD */
     .card-grid{
@@ -168,13 +176,13 @@
         @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-8 h-12 focus:ring-4 focus:outline-none focus:ring-primaryFocus bold text-white cs-rounded;
     }
     .btn-secondary{
-        @apply flex items-center justify-center dark:bg-secondary hover:bg-secondaryHover px-8 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus text-dark bold cs-rounded;
+        @apply flex items-center justify-center dark:bg-secondary hover:bg-secondaryHover px-8 h-12 focus:ring-4 focus:outline-none focus:ring-secondaryFocus text-neutral-800 dark:text-neutral-200 bold cs-rounded;
     }
     .btn-tertiary{
-        @apply flex items-center justify-center px-8 h-12 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;
+        @apply flex items-center justify-center px-8 h-12 text-neutral-800 dark:text-neutral-200 focus:ring-4 focus:outline-none focus:ring-light bold dark:hover:bg-darkHover cs-rounded;
     }
     .btn-scroll{
-        @apply btn-primary cs-shadow fixed z-20 bottom-4 right-4 p-4;
+        @apply btn-primary cs-shadow fixed z-20 bottom-4 right-4 p-4 h-16 w-16;
     }
 
 

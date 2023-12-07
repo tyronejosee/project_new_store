@@ -1,0 +1,11 @@
+<nav class="flex items-center justify-between bg-white dark:bg-neutral-800 cs-rounded mt-4 space-x-4 p-2">
+  <ul class="flex space-x-4">
+    <li>
+      <a href="{% url 'management:product_create' %}" class="btn-primary">Create new</a>
+    </li>
+    <li>
+      <a href="{% url 'management:product_deactivated_list' %}" class="btn-secondary">Deactivated</a>
+    </li>
+  </ul>
+  {% include "components/pagination.html" %}
+</nav>

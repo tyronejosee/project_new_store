@@ -1,33 +1,37 @@
 {% extends 'management/management.html' %}
 {% block title %}Users{% endblock title %}
 {% block content %}
-<div class="bg-neutral-800 cs-rounded flex items-center justify-between h-12">
-  <div class="flex-none">
-    {% include "components/pagination.html" %}
-  </div>
-</div>
-<section class="table-wrap">
-  <table>
-    <thead class="table-head">
-      <tr>
-        <th scope="col" class="cell">Id</th>
-        <th scope="col" class="cell">Username</th>
-        <th scope="col" class="cell">Email</th>
-        <th scope="col" class="cell">Is Active</th>
-        <th scope="col" class="cell">Date Joined</th>
-      </tr>
-    </thead>
-    {% for user in users %}
-    <tbody class="table-body">
-      <tr>
-        <td class="cell">{{ user.id }}</td>
-        <td class="cell">{{ user.username }}</td>
-        <td class="cell">{{ user.email }}</td>
-        <td class="cell">{{ user.is_active }}</td>
-        <td class="cell">{{ user.date_joined }}</td>
-      </tr>
-    </tbody>
-    {% endfor %}
-  </table>
-</section>
+<main class="space-y-4">
+  <!-- TOOLBAR -->
+  {% include 'components/toolbar.html' %}
+
+  <!-- USERS LIST -->
+  <section class="table-wrap">
+    <table>
+      <thead class="table-head">
+        <tr>
+          <th scope="col" class="cell">Id</th>
+          <th scope="col" class="cell">Username</th>
+          <th scope="col" class="cell">Email</th>
+          <th scope="col" class="cell">Is Active</th>
+          <th scope="col" class="cell">Date Joined</th>
+        </tr>
+      </thead>
+      {% for user in users %}
+      <tbody class="table-body">
+        <tr>
+          <td class="cell">{{ user.id }}</td>
+          <td class="cell">{{ user.username }}</td>
+          <td class="cell">{{ user.email }}</td>
+          <td class="cell">{{ user.is_active }}</td>
+          <td class="cell">{{ user.date_joined }}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </section>
+
+  <!-- STATUSBAR -->
+  {% include 'components/statusbar.html' %}
+</main>
 {% endblock %}
