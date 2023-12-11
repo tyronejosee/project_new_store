@@ -9,6 +9,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ company.logo.url }}">
   </head>
   <body class="container">
+
     <!-- NAVBAR -->
     <header class="navbar-wrap">
       <nav>
@@ -22,29 +23,39 @@
             </a>
           </h1>
         </div>
-        <div>
-          <ul class="flex">
-            <li>
-              <a href="{% url 'management:management' %}">Board</a>
-            </li>
-            <li>
-              <a href="{% url 'management:page_list' %}">Pages</a>
-            </li>
-            <li>
-              <a href="{% url 'management:product_list' %}">Products</a>
-            </li>
-            <li >
-              <a href="{% url 'management:user_list' %}">Users</a>
-            </li>
-          </ul>
+        <div class="flex space-x-2">
+          <a href="{% url 'home:index' %}" class="btn-secondary">Home</a>
+          <div class="relative" id="userWrapper">
+            <button data-dropdown-toggle="userList" class="btn-primary" type="button">Options</button>
+            <div id="userList" class="list-wrap">
+                <ul aria-labelledby="dropdownDefaultButton">
+                  <li>
+                    <a href="{% url 'management:management' %}" class="list-itm">Board</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'management:page_list' %}" class="list-itm">Pages</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'management:product_list' %}" class="list-itm">Products</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'management:user_list' %}" class="list-itm">Users</a>
+                  </li>
+                </ul>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
     
-    <!-- CONTENT -->
+    <!-- MAIN CONTENT -->
     {% block content %}{% endblock content %}
 
+    <!-- JQUERY CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JS FILE -->
     <script src="{% static 'js/main.js' %}"></script>
+
   </body>
 </html>

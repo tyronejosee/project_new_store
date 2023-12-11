@@ -1,7 +1,13 @@
 {% extends 'management/management.html' %}{% load static %}
-{% block title %}Page List{% endblock title %}
+{% block title %}Pages{% endblock title %}
 {% block content %}
 <main class="space-y-4">
+
+  <!-- HEADLINE -->
+  <header class="flex items-center my-4">
+    <h2 class="headline-1">Pages</h2>
+  </header>
+
   <!-- TOOLBAR -->
   {% include 'components/toolbar.html' %}
 
@@ -12,7 +18,7 @@
         <tr>
           <th scope="col" class="cell">Id</th>
           <th scope="col" class="cell">Image</th>
-          <th scope="col" class="cell">Uinque Key</th>
+          <th scope="col" class="cell">Unique Key</th>
           <th scope="col" class="cell">Created at</th>
           <th scope="col" class="cell">Updated at</th>
           <th scope="col" class="cell">Options</th>
@@ -48,7 +54,11 @@
     </table>
   </section>
 
+  <!-- PAGINATION -->
+  {% include "components/pagination.html" %}
+
   <!-- STATUSBAR -->
   {% include 'components/statusbar.html' %}
+
 </main>
 {% endblock %}

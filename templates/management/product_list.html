@@ -1,7 +1,13 @@
 {% extends 'management/management.html' %}{% load static %}
-{% block title %}Product list{% endblock title %}
+{% block title %}Products{% endblock title %}
 {% block content %}
 <main class="space-y-4">
+
+  <!-- HEADLINE -->
+  <header class="flex items-center my-4">
+    <h2 class="headline-1">Products</h2>
+  </header>
+
   <!-- TOOLBAR -->
   {% include 'components/toolbar.html' %}
 
@@ -26,7 +32,7 @@
           <td class="cell">{{ product.id }}</td>
           <td class="cell">
             <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
-              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="cs-rounded" width="25" height="25">
+              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="icon-sm rounded">
             </a>
           </td>
           <td class="cell">{{ product.stock }}</td>
@@ -71,7 +77,11 @@
   <!-- IMAGE MODAL -->
   {% include "fragments/image_modal.html" %}
 
+  <!-- PAGINATION -->
+  {% include "components/pagination.html" %}
+
   <!-- STATUSBAR -->
   {% include 'components/statusbar.html' %}
+
 </main>
 {% endblock %}

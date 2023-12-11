@@ -138,6 +138,15 @@
     }
 
 
+    /* LISTS */
+    .list-wrap{
+        @apply box cs-shadow absolute hidden right-0 z-10 w-44 overflow-hidden py-2 text-sm;
+    }
+    .list-itm{
+        @apply block px-4 py-2 hover:bg-lightHover dark:hover:bg-darkHover;
+    }
+
+
     /* PAGINATION */
     .pag-wrap{
         @apply box flex items-center justify-center space-x-2 py-2;
@@ -230,7 +239,7 @@
         @apply bg-lightTab hover:bg-lightHover dark:bg-darkTab dark:hover:bg-darkHover;
     }
     .cell{
-        @apply px-6 py-4;
+        @apply px-4 h-8;
     }
 
 

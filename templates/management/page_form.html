@@ -3,9 +3,13 @@
 {% block content %}
 <main>
   <section class="box mt-4">
+
+    <!-- HEADLINE -->
     <header class="py-8 text-center">
       <h2 class="headline-1">Update page</h2>
     </header>
+
+    <!-- PAGE FORM -->
     <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto space-y-4">{% csrf_token %}
       <label for="{{ form.key.id_for_label }}" class="block">
         <span class="bold">Key</span>
@@ -28,6 +32,7 @@
         </a>
       </div>
     </form>
+
   </section>
 </main>
 {% endblock %}

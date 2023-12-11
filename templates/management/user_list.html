@@ -2,6 +2,12 @@
 {% block title %}Users{% endblock title %}
 {% block content %}
 <main class="space-y-4">
+
+  <!-- HEADLINE -->
+  <header class="flex items-center my-4">
+    <h2 class="headline-1">Users</h2>
+  </header>
+
   <!-- TOOLBAR -->
   {% include 'components/toolbar.html' %}
 
@@ -19,7 +25,7 @@
       </thead>
       {% for user in users %}
       <tbody class="table-body">
-        <tr class="odd:bg-gray-300 even:bg-gray-600">
+        <tr>
           <td class="cell">{{ user.id }}</td>
           <td class="cell">{{ user.username }}</td>
           <td class="cell">{{ user.email }}</td>
@@ -31,7 +37,11 @@
     </table>
   </section>
 
+  <!-- PAGINATION -->
+  {% include "components/pagination.html" %}
+
   <!-- STATUSBAR -->
   {% include 'components/statusbar.html' %}
+
 </main>
 {% endblock %}

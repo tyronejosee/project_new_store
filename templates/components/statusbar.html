@@ -1,9 +1,14 @@
-<nav class="box p-4">
-  <a href="" class="bg-red-300">tests</a>
-  <a href="" class="bg-red-300">tests</a>
-  <a href="" class="bg-red-300">tests</a>
-  <a href="" class="bg-red-300">tests</a>
-  <a href="" class="bg-red-300">tests</a>
-  <a href="" class="bg-red-300">tests</a>
-  <a href="" class="bg-red-300">tests</a>
+<nav class="box p-4 flex justify-between items-center">
+  {% if request.path == '/management/products/' %}
+  <span>{{ products|length }} products</span>
+  {% endif %}
+  {% if request.path == '/management/pages/' %}
+  <span>{{ pages|length }} pages</span>
+  {% endif %}
+  {% if request.path == '/management/users/' %}
+  <span>{{ users|length }} users</span>
+  {% endif %}
+  <button class="btn-secondary">
+    {{ user.first_name }} {{ user.last_name }}
+  </button>
 </nav>

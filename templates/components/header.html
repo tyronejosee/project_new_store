@@ -14,23 +14,23 @@
         <button data-dropdown-toggle="dropdown" class="btn-tertiary w-32" type="button">
           Categories
         </button>
-        <div id="dropdown" class="absolute justify-center hidden z-10 box cs-shadow w-44 overflow-hidden">
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+        <div id="dropdown" class="list-wrap">
+            <ul aria-labelledby="dropdownDefaultButton">
               <li>
-                <a href="{% url 'products:categories' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Categories</a>
+                <a href="{% url 'products:categories' %}" class="list-itm">Categories</a>
               </li>
               <li>
-                <a href="{% url 'products:deal_list' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Deals</a>
+                <a href="{% url 'products:deal_list' %}" class="list-itm">Deals</a>
               </li>
               <li>
-                <a href="{% url 'products:recent' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Recent prods</a>
+                <a href="{% url 'products:recent' %}" class="list-itm">Recent prods</a>
               </li>
               {% if user.is_superuser %}
               <li>
-                <a href="{% url 'admin:index' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Admin</a>
+                <a href="{% url 'admin:index' %}" class="list-itm">Admin</a>
               </li>
               <li>
-                <a href="{% url 'management:management' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Management</a>
+                <a href="{% url 'management:management' %}" class="list-itm">Management</a>
               </li>
               {% endif %}
             </ul>
@@ -72,16 +72,16 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
           </svg>
         </button>
-        <div id="userList" class="absolute hidden right-0 z-10 box cs-shadow w-44 overflow-hidden">
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+        <div id="userList" class="list-wrap">
+            <ul aria-labelledby="dropdownDefaultButton">
               <li>
-                <span class="bold block px-4 py-2">{{ user.first_name }} {{ user.last_name }}</span>
+                <span class="list-itm">{{ user.first_name }} {{ user.last_name }}</span>
               </li>
               <li>
-                <a href="{% url 'users:password_change' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Change password</a>
+                <a href="{% url 'users:password_change' %}" class="list-itm">Change password</a>
               </li>
               <li>
-                <a href="{% url 'users:logout' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log out</a>
+                <a href="{% url 'users:logout' %}" class="list-itm">Log out</a>
               </li>
             </ul>
         </div>
@@ -105,10 +105,10 @@
         <div class="absolute right-0 w-1/2 top-0 hidden" id="navbar-search">
           <ul class="p-4 mt-4 h-screen box">
             <li>
-              <a href="#" class="block py-2 px-3" aria-current="page">Home</a>
+              <a href="#" class="list-itm" aria-current="page">Home</a>
             </li>
             <li>
-              <a href="#" class="block py-2 px-3" aria-current="page">Home</a>
+              <a href="#" class="list-itm" aria-current="page">Home</a>
             </li>
           </ul>
         </div>
