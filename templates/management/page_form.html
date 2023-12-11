@@ -2,30 +2,32 @@
 {% block title %}Page Form{% endblock title %}
 {% block content %}
 <main>
-  <form method="POST" enctype="multipart/form-data">{% csrf_token %}
-    <div class="form-group">
-      <label for="{{ form.key.id_for_label }}"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Key</label>
-      {{ form.key }}
-    </div>
-    <div class="form-group">
-      <label for="{{ form.content.id_for_label }}"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Content</label>
-      {{ form.content }}
-    </div>
-    <div class="form-group">
-      <label for="{{ form.image.id_for_label }}"
-      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
-      {{ form.image }}
-    </div>
-    <div class="m-4 flex justify-center">
-      <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium cs-rounded text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-sky-500 dark:hover:bg-sky-600 focus:outline-none dark:focus:ring-neutral-700">
-        Save page
-      </button>
-      <a href="{% url 'management:product_list' %}" title="Cancel" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium cs-rounded text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-sky-500 dark:hover:bg-sky-600 focus:outline-none dark:focus:ring-neutral-700">
-        Cancel
-      </a>
-    </div>
-  </form>
+  <section class="box mt-4">
+    <header class="py-8 text-center">
+      <h2 class="headline-1">Update page</h2>
+    </header>
+    <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto space-y-4">{% csrf_token %}
+      <label for="{{ form.key.id_for_label }}" class="block">
+        <span class="bold">Key</span>
+        {{ form.key }}
+      </label>
+      <label for="{{ form.content.id_for_label }}" class="block">
+        <span class="bold">Content</span>
+        {{ form.content }}
+      </label>
+      <label for="{{ form.image.id_for_label }}" class="block">
+        <span class="bold">Image</span>
+        {{ form.image }}
+      </label>
+      <div class="py-8 space-y-4">
+        <button type="submit" class="btn-primary w-full">
+          Save page
+        </button>
+        <a href="{% url 'management:product_list' %}" title="Cancel" class="btn-secondary w-full">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </section>
 </main>
 {% endblock %}

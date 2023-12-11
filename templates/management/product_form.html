@@ -6,75 +6,71 @@
     <header class="py-8 text-center">
       <h2 class="headline-1">Create or update product</h2>
     </header>
-    <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto">{% csrf_token %}
+    <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto space-y-4">{% csrf_token %}
       {{ form.non_field_errors }}
-      <div class="form-group">
-        <label for="{{ form.title.id_for_label }}" class="bold">Title</label>
+      <label for="{{ form.title.id_for_label }}" class="block">
+        <span class="bold">Title</span>
         {{ form.title }}
-      </div>
-      <div class="form-group flex justify-beetween">
-        <div class="flex-grow mr-4">
-          <label for="{{ form.normal_price.id_for_label }}" class="bold">Price</label>
+      </label>
+      <div class="flex justify-beetween space-x-4">
+        <label for="{{ form.normal_price.id_for_label }}" class="flex-grow block">
+          <span class="bold">Price</span>
           {{ form.normal_price }}
-        </div>
-        <div class="flex-grow">
-          <label for="{{ form.stock.id_for_label }}" class="bold">Stock</label>
+        </label>
+        <label for="{{ form.stock.id_for_label }}" class="flex-grow block">
+          <span class="bold">Stock</span>
           {{ form.stock }}
-        </div>
+        </label>
       </div>
-      <div class="form-group flex justify-beetween">
-        <div class="flex-grow mr-4">
-          <label for="{{ form.category.id_for_label }}" class="bold">Category</label>
+      <div class="flex justify-beetween space-x-4">
+        <label for="{{ form.category.id_for_label }}" class="flex-grow">
+          <span class="bold">Category</span>
           {{ form.category }}
-        </div>
-        <div class="flex-grow">
-          <label for="{{ form.brand.id_for_label }}" class="bold">Brand</label>
+        </label>
+        <label for="{{ form.brand.id_for_label }}" class="flex-grow">
+          <span class="bold">Brand</span>
           {{ form.brand }}
-        </div>
+        </label>
       </div>
-      <div class="form-group flex justify-beetween">
-        <div class="flex-grow mr-4">
-          <label for="{{ form.deal.id_for_label }}" class="bold">Deal</label>
+      <div class="flex justify-beetween space-x-4">
+        <label for="{{ form.deal.id_for_label }}" class="flex-grow">
+          <span class="bold">Deal</span>
           {{ form.deal }}
-        </div>
-        <div class="flex-grow">
-          <label for="{{ form.warranty.id_for_label }}" class="bold">Warranty</label>
+        </label>
+        <label for="{{ form.warranty.id_for_label }}" class="flex-grow">
+          <span class="bold">Warranty</span>
           {{ form.warranty }}
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="{{ form.image.id_for_label }}" class="bold">Image</label>
+        </label>
+      </div>      
+      <label for="{{ form.image.id_for_label }}" class="block">
+        <span class="bold">Image</span>
         {{ form.image }}
+      </label>
+      <div class="flex gap-4 items-center">
+        <div class="flex h-5">
+          {{ form.show_hide }}
+        </div>
+        <label for="{{ form.show_hide.id_for_label }}" class="block">Show/Hide</label>
       </div>
-      <div class="py-4">
-        <div class="flex gap-4 items-center">
-          <div class="flex h-5">
-            {{ form.show_hide }}
-          </div>
-          <label for="{{ form.show_hide.id_for_label }}" class="block mb-2">Show/Hide</label>
+      <div class="flex gap-4 items-center">
+        <div class="flex h-5">
+          {{ form.featured }}
         </div>
-        <div class="flex gap-4 items-center">
-          <div class="flex h-5">
-            {{ form.featured }}
-          </div>
-          <label for="{{ form.featured.id_for_label }}" class="block mb-2">Featured</label>
-        </div>
+        <label for="{{ form.featured.id_for_label }}" class="block">Featured</label>
       </div>
-      <div class="form-group flex justify-beetween">
-        <div class="flex-grow">
-          <label for="{{ form.description.id_for_label }}" class="block mb-2">Description</label>
-          {{ form.description }}
-        </div>
-        <div class="flex-grow">
-          <label for="{{ form.specifications.id_for_label }}" class="block mb-2">Specifications</label>
-          {{ form.specifications }}
-        </div>
-      </div>
-      <div class="m-4 flex justify-center">
-        <button type="submit" class="btn-primary mr-4">
+      <label for="{{ form.description.id_for_label }}" class="block">
+        <span class="bold">Description</span>
+        {{ form.description }}
+      </label>
+      <label for="{{ form.specifications.id_for_label }}" class="block">
+        <span class="bold">Specifications</span>
+        {{ form.specifications }}
+      </label>
+      <div class="py-8 space-y-4">
+        <button type="submit" class="btn-primary w-full">
           Save product
         </button>
-        <a href="{% url 'management:product_list' %}" title="Cancel" class="btn-secondary">
+        <a href="{% url 'management:product_list' %}" title="Cancel" class="btn-secondary w-full">
           Cancel
         </a>
       </div>
