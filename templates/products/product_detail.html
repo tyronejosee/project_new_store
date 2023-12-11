@@ -35,32 +35,23 @@
         <p><span class="bold">Stock:</span> {{ product.stock }}</p>
         <p><span class="bold">Warranty:</span> {{ product.get_warranty_display }}</p>
       </div>
-      <div class="bg-green-100 flex items-center space-x-4 rounded-3xl p-4">
+      <div class="bg-light flex items-center space-x-4 cs-rounded py-2 px-4">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-md">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
         </svg>
-        <span class="line-clamp-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, modi natus ipsa accusantium minima illo esse eligendi. Neque a iure animi porro reprehenderit nam similique repellat, assumenda voluptatum repudiandae nihil?Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, alias? Accusantium commodi ullam voluptas molestiae cupiditate excepturi provident dolor ex blanditiis maxime magni, reprehenderit, incidunt qui numquam praesentium, mollitia recusandae?
+        <span class="small">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, modi natus ipsa accusantium minima illo esse eligendi. Neque a
         </span>
       </div>
-      <div class="mt-auto grid gap-2 grid-cols-4">
+      <div class="mt-auto flex flex-col space-y-2">
         <a href="{% url 'payment:checkout' product.id %}" class="btn-primary col-span-4 flex items-center px-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm mr-2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
           <span class="flex-item">Buy Now</span>
         </a>
-        <a href="{% url 'cart:add_prod_cart' product.id %}" class="btn-secondary col-span-3">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm mr-2">
-            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-          </svg>
-          <span class="flex-item">Add to Cart</span>
+        <a href="{% url 'cart:add_prod_cart' product.id %}" class="btn-secondary">
+          Add to Cart
         </a>
         <a href="{% url 'cart:add_prod_wishlist' product.id %}" class="btn-tertiary">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm mr-2">
-            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
-          </svg>
-          <span class="flex-item hidden">Add to wishlist</span>
+          Add to wishlist
         </a>
       </div>
       <div class="text-center space-x-2">
