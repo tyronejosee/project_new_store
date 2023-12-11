@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://github.com/tyronejosee/project_new_store#gh-light-mode-only" target="_blank">
-    <img src="./static/icon/logo_light.svg" alt="logo-light" width="80">
+    <img src="./static/img/logo_light.svg" alt="logo-light" width="80">
   </a>
   <a href="https://github.com/tyronejosee/project_new_store#gh-dark-mode-only" target="_blank">
-    <img src="./static/icon/logo_dark.svg" alt="logo-dark" width="80">
+    <img src="./static/img/logo_dark.svg" alt="logo-dark" width="80">
   </a>
 </p>
 <p align="center">
@@ -140,6 +140,20 @@ Start the development server and log in to `admin`.
 ```bash
 python manage.py runserver
 http://localhost:8000/admin/
+```
+
+## Tests
+
+Run tests globally.
+
+```bash
+python manage.py test
+```
+
+Or run individual tests per app.
+
+```bash
+python manage.py test users
 ```
 
 ## License
