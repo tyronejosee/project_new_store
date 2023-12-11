@@ -29,7 +29,7 @@
   </div>
   <div class="card-title">
     <a href="{% url 'products:detail' product.pk %}" title="{{ product.title }}">
-      <span class="hover:underline">{{ product.title|truncatechars:40 }}</span>
+      <span class="hover:underline line-clamp-2">{{ product.title|truncatechars:50 }}</span>
     </a>
   </div>
   <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="btn-primary">
