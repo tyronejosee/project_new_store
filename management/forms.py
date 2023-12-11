@@ -3,7 +3,7 @@
 from django import forms
 from home.models import Page
 from products.models import Product
-from core.utils import form_select, form_text_input, form_number_input, form_checkbox_input
+from core.utils import form_select, form_text, form_number, form_checkbox, form_file
 
 
 class PageForm(forms.ModelForm):
@@ -14,9 +14,9 @@ class PageForm(forms.ModelForm):
         model = Page
         fields = ['key', 'content', 'image']
         widgets = {
-            'key': forms.TextInput(attrs=form_text_input('Key')),
+            'key': forms.TextInput(attrs=form_text('Key')),
             'content': forms.Textarea(attrs={}),
-            'image': forms.ClearableFileInput(attrs=form_select()),
+            'image': forms.ClearableFileInput(attrs=form_file()),
         }
 
 
@@ -28,16 +28,16 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
         widgets = {
-            'title': forms.TextInput(attrs=form_text_input('Title product')),
+            'title': forms.TextInput(attrs=form_text('Title product')),
             'brand': forms.Select(attrs=form_select()),
-            'normal_price': forms.NumberInput(attrs=form_number_input()),
+            'normal_price': forms.NumberInput(attrs=form_number('Normal price')),
             'deal': forms.Select(attrs=form_select()),
             'category': forms.Select(attrs=form_select()),
-            'image': forms.ClearableFileInput(attrs=form_select()),
-            'stock': forms.NumberInput(attrs=form_number_input()),
+            'image': forms.ClearableFileInput(attrs=form_file()),
+            'stock': forms.NumberInput(attrs=form_number('Stock')),
             'warranty': forms.Select(attrs=form_select()),
-            'featured': forms.CheckboxInput(attrs=form_checkbox_input()),
-            'show_hide': forms.CheckboxInput(attrs=form_checkbox_input()),
+            'featured': forms.CheckboxInput(attrs=form_checkbox()),
+            'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
             'description': forms.Textarea(attrs={}),
             'specifications': forms.Textarea(attrs={}),
         }

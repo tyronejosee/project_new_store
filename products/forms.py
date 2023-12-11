@@ -2,7 +2,7 @@
 
 from django import forms
 from products.models import Category, Brand, Deal
-from core.utils import form_select
+from core.utils import form_select, form_number
 
 
 class CategoriesForm(forms.Form):
@@ -28,15 +28,13 @@ class CategoriesForm(forms.Form):
     )
     min_price = forms.DecimalField(
         required=False,
-        min_value=0,
+        min_value=1,
         max_value=10000,
-        widget=forms.NumberInput(attrs={
-            'class': 'border p-2 text-gray-700 rounded-lg focus:ring focus:ring-blue-300 focus:outline-none w-full'})
+        widget=forms.NumberInput(attrs=form_number('Min Price'))
     )
     max_price = forms.DecimalField(
         required=False,
-        min_value=0,
+        min_value=1,
         max_value=10000,
-        widget=forms.NumberInput(attrs={
-            'class': 'border p-2 text-gray-700 rounded-lg focus:ring focus:ring-blue-300 focus:outline-none w-full'})
+        widget=forms.NumberInput(attrs=form_number('Max Price'))
     )

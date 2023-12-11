@@ -26,9 +26,7 @@ class TestCartView(BaseTestCase):
 
     def test_cart_view_unauth_user(self):
         """Tests for the cart when the user is not authenticated."""
-        # Log out the user
         self.client.logout()
-        # Make a request to cart
         response = self.client.get('/cart/')
         # Redirects to login
         self.assertRedirects(response, '/users/login/?next=/cart/')

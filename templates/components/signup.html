@@ -2,7 +2,7 @@
 <section class="sign-wrap">
   <span class="bold block text-center">Get top deals, latest trends, and more.</span>
   <form action="POST">{% csrf_token %}
-    <input type="email" id="email" class="form-input" placeholder="Email address">
+    <input type="email" id="email" class="form-text" placeholder="Email address">
   </form>
   <a href="{% url 'users:registration' %}" class="btn-primary">Sign Up</a>
   <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link block">Policy privacy</a>

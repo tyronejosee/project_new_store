@@ -2,7 +2,7 @@
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from core.utils import form_text_input
+from core.utils import form_text, form_number
 from users.models import CustomUser
 
 
@@ -11,9 +11,9 @@ class UserLoginForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs = form_text_input('Username')
+        self.fields['username'].widget.attrs = form_text('Username')
         self.fields['username'].widget.attrs['placeholder'] = 'Username'
-        self.fields['password'].widget.attrs = form_text_input('Password')
+        self.fields['password'].widget.attrs = form_text('Password')
         self.fields['password'].widget.attrs['placeholder'] = 'Password'
 
 
@@ -21,11 +21,11 @@ class UserRegistrationForm(forms.ModelForm):
     """Base form for user registration."""
 
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput(
-        attrs=form_text_input('Password')
+        attrs=form_text('Password')
     ))
 
     password2 = forms.CharField(label='Repeat your password', widget=forms.PasswordInput(
-        attrs=form_text_input('Repeat your password')
+        attrs=form_text('Repeat your password')
     ))
 
     class Meta:
@@ -34,12 +34,12 @@ class UserRegistrationForm(forms.ModelForm):
         fields = ('username', 'email', 'first_name',
                   'last_name', 'address', 'phone_number')
         widgets = {
-            'username': forms.TextInput(attrs=form_text_input('Username')),
-            'email': forms.EmailInput(attrs=form_text_input('Email')),
-            'first_name': forms.TextInput(attrs=form_text_input('First Name')),
-            'last_name': forms.TextInput(attrs=form_text_input('Last Name')),
-            'address': forms.TextInput(attrs=form_text_input('Address')),
-            'phone_number': forms.TextInput(attrs=form_text_input('Phone Number')),
+            'username': forms.TextInput(attrs=form_text('Username')),
+            'email': forms.EmailInput(attrs=form_text('Email')),
+            'first_name': forms.TextInput(attrs=form_text('First Name')),
+            'last_name': forms.TextInput(attrs=form_text('Last Name')),
+            'address': forms.TextInput(attrs=form_text('Address')),
+            'phone_number': forms.NumberInput(attrs=form_number('Phone Number')),
         }
 
     def clean_password2(self):
