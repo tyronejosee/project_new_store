@@ -1,28 +1,28 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %}{% load static %}
 {% block title %}Home{% endblock title %}
 {% block content %}
 <main>
   <!-- CATEGORIES -->
+  <header class="flex justify-between items-center my-8">
+    <h2 class="headline-1">Featured Categories</h2>
+  </header>
   <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
+    {% for category in categories_list|slice:":12" %}
+    <a href="{% url 'products:category_filter' category.slug %}" class="box flex flex-col items-center justify-center space-y-4 h-40">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-md">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+      </svg>
+      <span class="link">
+        {{ category.title }}
+      </span>
+    </a>
+    {% endfor %}
   </section>
 
   <!-- RECENT PRODUCTS -->
   <header class="flex justify-between items-center my-4">
     <h2 class="headline-1">Recent Products</h2>
-    <a href="#" class="btn-secondary">View all</a>
+    <a href="#" class="btn-secondary">List</a>
   </header>
   <section class="card-grid">
     {% for product in recent_products %}
@@ -44,7 +44,7 @@
   <!-- ALL PRODUCTS -->
   <header class="flex justify-between items-center my-4">
     <h2 class="headline-1">All Products</h2>
-    <a href="#" class="btn-secondary">View all</a>
+    <a href="#" class="btn-secondary">List</a>
   </header>
   <section class="card-grid">
     {% for product in all_products %}
@@ -67,7 +67,7 @@
   <!-- HEADPHONES -->
   <header class="flex justify-between items-center my-4">
     <h2 class="headline-1">Headphones</h2>
-    <a href="#" class="btn-secondary">View all</a>
+    <a href="#" class="btn-secondary">Category</a>
   </header>
   <section class="card-grid">
     {% for product in apple %}
@@ -86,7 +86,7 @@
   <!-- SAMSUNG -->
   <header class="flex justify-between items-center my-4">
     <h2 class="headline-1">Samsung</h2>
-    <a href="#" class="btn-secondary">View all</a>
+    <a href="#" class="btn-secondary">Brand</a>
   </header>
   <section class="card-grid">
     {% for product in samsung %}
@@ -99,7 +99,7 @@
   <!-- COMPUTERS MONITORS -->
   <header class="flex justify-between items-center my-4">
     <h2 class="headline-1">Computer Monitors</h2>
-    <a href="#" class="btn-secondary">View all</a>
+    <a href="#" class="btn-secondary">Category</a>
   </header>
   <section class="card-grid">
     {% for product in computer_monitors %}

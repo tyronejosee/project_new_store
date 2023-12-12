@@ -116,7 +116,7 @@ class CategoryFilterListView(ListView):
 
     def get_queryset(self):
         category_slug = self.kwargs['category_slug']
-        return Product.objects.filter(category__slug=category_slug)
+        return Product.objects.filter(category__slug=category_slug, show_hide=True, stock__gte=1)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -136,7 +136,7 @@ class BrandFilterListView(ListView):
 
     def get_queryset(self):
         brand_slug = self.kwargs['brand_slug']
-        return Product.objects.filter(brand__slug=brand_slug)
+        return Product.objects.filter(brand__slug=brand_slug, show_hide=True, stock__gte=1)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -149,8 +149,9 @@ class BrandFilterListView(ListView):
 def product_search(request):
     """Search bar, filtering by product title and brand."""
     queryset = request.GET.get("search")
-    products = Product.objects.filter(show_hide=True)
+    products = Product.objects.filter(show_hide=True, stock__gte=1)
 
+    # Search filter
     if queryset:
         products = Product.objects.filter(
             Q(title__icontains=queryset) |

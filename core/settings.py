@@ -135,6 +135,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'home.context_processors.company_context',
                 'products.context_processors.featured_products',
+                'products.context_processors.categories',
             ],
         },
     },

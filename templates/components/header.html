@@ -33,6 +33,11 @@
                 <a href="{% url 'management:management' %}" class="list-itm">Management</a>
               </li>
               {% endif %}
+              {% for category in categories_list %}
+              <li>
+                <a href="{% url 'products:category_filter' category.slug %}" class="list-itm">{{ category.title }}</a>
+              </li>
+              {% endfor %}
             </ul>
         </div>
       </div>
