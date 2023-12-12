@@ -13,6 +13,7 @@
 
   <!-- PRODUCT LIST -->
   <section class="table-wrap">
+    {% if products %}
     <table>
       <thead class="table-head">
         <tr>
@@ -72,6 +73,9 @@
       </tbody>
       {% endfor %}
     </table>
+    {% else %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endif %}
   </section>
 
   <!-- IMAGE MODAL -->
