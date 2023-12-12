@@ -22,6 +22,9 @@ module.exports = {
         darkTab: '#292524',
         darkHover: '#404040',
       },
+      fontFamily: {
+        body: ['Poppins']
+      },
     },
   },
   plugins: [],

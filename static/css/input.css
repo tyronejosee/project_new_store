@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +8,7 @@
 
     /* COINTAINERS */
     .container{
-        @apply text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
+        @apply font-body text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
     }
     .container-lg{
         @apply text max-w-screen-2xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
