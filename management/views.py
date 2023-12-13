@@ -55,7 +55,7 @@ class ProductListView(LoginRequiredMixin, ListView):
     model = Product
     template_name = 'management/product_list.html'
     context_object_name = 'products'
-    paginate_by = 50
+    paginate_by = 12
 
     def get_queryset(self):
         # Select specific fields from the 'Product' model using the 'only' method

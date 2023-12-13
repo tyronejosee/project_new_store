@@ -1,50 +1,54 @@
 <header class="navbar-wrap">
   <nav>
     <!-- LOGO AND CATEGORIES -->
-    <div class="w-1/2 sm:w-1/4 order-1 flex items-center space-x-4 mb-4 md:mb-0">
-      <h1>
-        <a href="{% url 'home:index' %}" class="flex items-center space-x-4 sm:pb-0">
-          <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="icon-md"/>
-          <span class="headline-2 hidden xl:block">
-            {{ company.name|default:'Company' }}
-          </span>
-        </a>
-      </h1>
-      <div class="hidden md:block relative" id="dropdownContainer">
-        <button data-dropdown-toggle="dropdown" class="btn-tertiary w-32" type="button">
-          Categories
-        </button>
-        <div id="dropdown" class="list-wrap">
-            <ul aria-labelledby="dropdownDefaultButton">
-              <li>
-                <a href="{% url 'products:categories' %}" class="list-itm">Categories</a>
-              </li>
-              <li>
-                <a href="{% url 'products:deal_list' %}" class="list-itm">Deals</a>
-              </li>
-              <li>
-                <a href="{% url 'products:recent' %}" class="list-itm">Recent prods</a>
-              </li>
-              {% if user.is_superuser %}
-              <li>
-                <a href="{% url 'admin:index' %}" class="list-itm">Admin</a>
-              </li>
-              <li>
-                <a href="{% url 'management:management' %}" class="list-itm">Management</a>
-              </li>
-              {% endif %}
-              {% for category in categories_list %}
-              <li>
-                <a href="{% url 'products:category_filter' category.slug %}" class="list-itm">{{ category.title }}</a>
-              </li>
-              {% endfor %}
-            </ul>
+    <div class="w-1/2 sm:w-1/3 order-1 flex items-center justify-between space-x-4 mb-4 md:mb-0">
+      <div class="w-1/2">
+        <h1>
+          <a href="{% url 'home:index' %}" class="flex items-center space-x-4 sm:pb-0">
+            <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="icon-md"/>
+            <span class="headline-2 hidden lg:block">
+              {{ company.name|default:'Company' }}
+            </span>
+          </a>
+        </h1>
+      </div>
+      <div class="w-1/2 justify-center">
+        <div class="hidden md:block relative" id="dropdownContainer">
+          <button data-dropdown-toggle="dropdown" class="btn-tertiary w-32" type="button">
+            Categories
+          </button>
+          <div id="dropdown" class="list-wrap">
+              <ul aria-labelledby="dropdownDefaultButton">
+                <li>
+                  <a href="{% url 'products:categories' %}" class="list-itm">Categories</a>
+                </li>
+                <li>
+                  <a href="{% url 'products:deal_list' %}" class="list-itm">Deals</a>
+                </li>
+                <li>
+                  <a href="{% url 'products:recent' %}" class="list-itm">Recent prods</a>
+                </li>
+                {% if user.is_superuser %}
+                <li>
+                  <a href="{% url 'admin:index' %}" class="list-itm">Admin</a>
+                </li>
+                <li>
+                  <a href="{% url 'management:management' %}" class="list-itm">Management</a>
+                </li>
+                {% endif %}
+                {% for category in categories_list %}
+                <li>
+                  <a href="{% url 'products:category_filter' category.slug %}" class="list-itm">{{ category.title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- SEARCH BAR -->
-    <div class="order-3 sm:order-2 w-full lg:max-w-lg sm:w-1/2 mx-auto sm:mx-0">
+    <div class="order-3 sm:order-2 w-full px-4 lg:max-w-lg sm:w-full sm:mx-0">
       <div class="relative">
         <form method="GET" action="{% url 'products:search' %}">
           <input type="search" id="search-navbar"
@@ -60,21 +64,21 @@
     </div>
 
     <!-- BUTTONS (CART, USER, SIGN UP SIGN IN) -->
-    <div class="w-1/2 sm:w-1/4 order-2 sm:order-3 flex items-center justify-end space-x-4 relative group">
+    <div class="w-1/2 sm:w-1/3 order-2 sm:order-3 flex items-center justify-end space-x-4">
       {% if user.is_authenticated %}
       <!-- CART -->
       <div class="hidden lg:block">
-        <a href="{% url 'cart:cart' %}" title="Cart" class="btn-tertiary">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-md">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+        <a href="{% url 'cart:cart' %}" title="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
           </svg>
         </a>
       </div>
       <!-- USER -->
-      <div class="hidden lg:block relative" id="userWrapper">
-        <button data-dropdown-toggle="userList" class="btn-tertiary" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-md">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+      <div class="hidden lg:block" id="userWrapper">
+        <button data-dropdown-toggle="userList" type="button" class="relative" title="User">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+            <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
           </svg>
         </button>
         <div id="userList" class="list-wrap">

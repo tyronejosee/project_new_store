@@ -145,10 +145,10 @@
 
     /* LISTS */
     .list-wrap{
-        @apply box cs-shadow absolute hidden right-0 z-10 w-44 overflow-hidden py-2 text-sm;
+        @apply box cs-shadow absolute hidden right-0 z-10 overflow-hidden p-2 text-sm;
     }
     .list-itm{
-        @apply block px-4 py-2 hover:bg-lightHover dark:hover:bg-darkHover;
+        @apply block p-2 cs-rounded hover:bg-lightHover dark:hover:bg-darkHover;
     }
 
 
