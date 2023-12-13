@@ -21,7 +21,7 @@ urlpatterns = [
 
     # Products URLs
     path('', product_search, name='search'),
-    path('', ProductListView.as_view(), name='prod_list'),
+    path('all/', ProductListView.as_view(), name='prod_list'),
     path('<int:pk>/', ProductDetailView.as_view(), name='detail'),
     path('categories/', CategoriesListView.as_view(), name='categories'),
     path('categories/<str:category_slug>/', CategoryFilterListView.as_view(), name='category_filter'),

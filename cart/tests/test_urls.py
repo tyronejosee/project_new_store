@@ -14,7 +14,7 @@ from cart.views import (
 
 
 class RoutingCartTest(BaseTestCase):
-    """Tests for the proper functioning of cart routes."""
+    """Tests for the proper functioning of cart urls."""
 
     def test_url_cart(self):
         """Verifies resolution for cart view, ex:'/cart/'."""
