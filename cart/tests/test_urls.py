@@ -13,51 +13,51 @@ from cart.views import (
 )
 
 
-class RoutingCartTest(BaseTestCase):
-    """Tests for the proper functioning of cart urls."""
+class CartUrlsTest(BaseTestCase):
+    """Tests for Cart URLs."""
 
-    def test_url_cart(self):
-        """Verifies resolution for cart view, ex:'/cart/'."""
+    def test_cart_url(self):
+        """Resolves 'cart' URL and view."""
         url = reverse('cart:cart')
         resolver = resolve(url)
         self.assertEqual(resolver.func, cart)
 
-    def test_url_add_prod_cart(self):
-        """Verifies resolution for add_prod_cart view, ex:'/cart/add/123'."""
+    def test_add_prod_cart_url(self):
+        """Resolves 'add_prod_cart' URL and view."""
         url = reverse('cart:add_prod_cart', args=[self.product.id])
         resolver = resolve(url)
         self.assertEqual(resolver.func, add_prod_cart)
 
-    def test_url_remove_prod_cart(self):
-        """Verifies resolution for remove_prod_cart view, ex:'/cart/remove/123'."""
+    def test_remove_prod_cart_url(self):
+        """Resolves 'remove_prod_cart' URL and view."""
         url = reverse('cart:remove_prod_cart', args=[self.product.id])
         resolver = resolve(url)
         self.assertEqual(resolver.func, remove_prod_cart)
 
-    def test_url_subtract_prod_cart(self):
-        """Verifies resolution for subtract_prod_cart view, ex:'/cart/subtract/123'."""
+    def test_subtract_prod_cart_url(self):
+        """Resolves 'subtract_prod_cart' URL and view."""
         url = reverse('cart:subtract_prod_cart', args=[self.product.id])
         resolver = resolve(url)
         self.assertEqual(resolver.func, subtract_prod_cart)
 
-    def test_url_clear_cart(self):
-        """Verifies resolution for clear_cart view, ex:'/cart/clear/'."""
+    def test_clear_cart_url(self):
+        """Resolves 'clear_cart' URL and view."""
         url = reverse('cart:clear_cart')
         resolver = resolve(url)
         self.assertEqual(resolver.func, clear_cart)
 
 
-class RoutingWishlistTest(BaseTestCase):
-    """Tests for the proper functioning of wishlist routes."""
+class WishlistUrlsTest(BaseTestCase):
+    """Tests for Wishlist URLs."""
 
-    def test_url_add_prod_wishlist(self):
-        """Verifies resolution for add_prod_wishlist view, ex:'/wishlist/add/123'."""
+    def test_add_prod_wishlist_url(self):
+        """Resolves 'add_prod_wishlist' URL and view."""
         url = reverse('cart:add_prod_wishlist', args=[self.product.id])
         resolver = resolve(url)
         self.assertEqual(resolver.func, add_prod_wishlist)
 
-    def test_url_remove_prod_wishlist(self):
-        """Verifies resolution for remove_prod_wishlist view, ex:'/wishlist/remove/123'."""
+    def test_remove_prod_wishlist_url(self):
+        """Resolves 'remove_prod_wishlist' URL and view."""
         url = reverse('cart:remove_prod_wishlist', args=[self.product.id])
         resolver = resolve(url)
         self.assertEqual(resolver.func, remove_prod_wishlist)
