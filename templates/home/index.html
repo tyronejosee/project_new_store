@@ -1,9 +1,9 @@
 {% extends 'base.html' %}{% load static %}
 {% block title %}Home{% endblock title %}
 {% block content %}
-<main>
+<main class="space-y-4">
   <!-- CATEGORIES -->
-  <header class="flex justify-between items-center my-8">
+  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
     <h2 class="headline-1">Featured Categories</h2>
   </header>
   <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
@@ -20,9 +20,9 @@
   </section>
 
   <!-- RECENT PRODUCTS -->
-  <header class="flex justify-between items-center my-4">
-    <h2 class="headline-1">Recent Products</h2>
-    <a href="#" class="btn-secondary">List</a>
+  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
+    <h2 class="headline-1 text-white">Recent Products</h2>
+    <a href="{% url 'products:recent' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in recent_products %}
@@ -33,18 +33,18 @@
   </section>
 
   <!-- MAX DEALS -->
-  <section class="mt-12 grid gap-4 grid-cols-4 grid-rows-2">
-    <div class="col-span-2 row-span-2 bg-primary cs-rounded h-full"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
+  <section class="mt-12 grid gap-4 grid-cols-2 md:grid-cols-4 md:grid-rows-2">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full h-full cs-rounded col-span-2 row-span-2">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
   </section>
 
   <!-- ALL PRODUCTS -->
-  <header class="flex justify-between items-center my-4">
+  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
     <h2 class="headline-1">All Products</h2>
-    <a href="#" class="btn-secondary">List</a>
+    <a href="{% url 'products:prod_list' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in all_products %}
@@ -56,18 +56,18 @@
 
   <!-- DEFAULT DEALS -->
   <section class="mt-12 grid gap-4 grid-cols-2 grid-rows-2 md:grid-cols-4 ">
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="col-span-2 bg-primary cs-rounded h-40"></div>
-    <div class="col-span-2 bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
+    <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+    <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="col-span-2 w-full cs-rounded">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="col-span-2 w-full cs-rounded">
+    <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+    <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
   </section>
 
-  <!-- HEADPHONES -->
-  <header class="flex justify-between items-center my-4">
-    <h2 class="headline-1">Headphones</h2>
-    <a href="#" class="btn-secondary">Category</a>
+  <!-- APPLE -->
+  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
+    <h2 class="headline-1">Apple</h2>
+    <a href="{% url 'products:brand_filter' brand_slug='apple' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in apple %}
@@ -77,16 +77,10 @@
     {% endfor %}
   </section>
 
-  <!-- MIN DEALS -->
-  <section class="mt-12 grid gap-4 grid-cols-1 md:grid-cols-2">
-    <div class="bg-primary cs-rounded h-40"></div>
-    <div class="bg-primary cs-rounded h-40"></div>
-  </section>
-
   <!-- SAMSUNG -->
-  <header class="flex justify-between items-center my-4">
+  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
     <h2 class="headline-1">Samsung</h2>
-    <a href="#" class="btn-secondary">Brand</a>
+    <a href="{% url 'products:brand_filter' brand_slug='samsung' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in samsung %}
@@ -97,9 +91,9 @@
   </section>
 
   <!-- COMPUTERS MONITORS -->
-  <header class="flex justify-between items-center my-4">
+  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
     <h2 class="headline-1">Computer Monitors</h2>
-    <a href="#" class="btn-secondary">Category</a>
+    <a href="{% url 'products:category_filter' category_slug='computer-monitors' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in computer_monitors %}
@@ -109,13 +103,19 @@
     {% endfor %}
   </section>
 
+  <!-- MIN DEALS -->
+  <section class="grid gap-4 grid-cols-1 md:grid-cols-2">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+  </section>
+
   <!-- SERVICES LINKS -->
   <nav class="mt-12">
     <ul class="grid gap-4 grid-cols-2 md:grid-cols-4">
-      <li class="bg-primary cs-rounded h-20"></li>
-      <li class="bg-primary cs-rounded h-20"></li>
-      <li class="bg-primary cs-rounded h-20"></li>
-      <li class="bg-primary cs-rounded h-20"></li>
+      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
     </ul>
   </nav>
 </main>
