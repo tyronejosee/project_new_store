@@ -15,7 +15,7 @@ from products.views import (
 )
 
 
-class ProductUrlsTest(TestCase):
+class ProductsUrlsTest(TestCase):
     """Tests for Products URLs."""
 
     def test_search_url(self):
