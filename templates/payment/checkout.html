@@ -10,16 +10,16 @@
       </div>
     </figure>
     <article class="pay-info">
-      <h1 class="headline-1">Review your order (0 items)</h1>
+      <h2 class="headline">Review your order (0 items)</h2>
       <div class="mb-4">
-        <h2 class="headline-2">Description</h2>
+        <span class="subheadline">Description</span>
         <p><span class="bold">Product:</span> {{ product.title }}</p>
         {% if product.sale_price %}
         <p><span class="bold">Price:</span> ${{ product.sale_price }}</p>
         {% else %}
         <p><span class="bold">Price:</span> ${{ product.normal_price }}</p>
         {% endif %}
-        <h2 class="headline-2">Shipment dispatch</h2>
+        <h2 class="subheadline">Shipment dispatch</h2>
         <p><span class="bold">Address:</span> {{ user.address }}</p>
         <p><span class="bold">Phone:</span> {{ user.phone }} </p>
       </div>

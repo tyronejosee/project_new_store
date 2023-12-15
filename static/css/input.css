@@ -8,7 +8,7 @@
 
     /* COINTAINERS */
     .container{
-        @apply font-body text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
+        @apply text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
     }
     .container-lg{
         @apply text max-w-screen-2xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
@@ -31,14 +31,14 @@
 
 
     /* TEXTS */
-    .headline-1{
+    .headline{
         @apply font-bold text-2xl lg:text-3xl text-neutral-800 dark:text-neutral-200;
     }
-    .headline-2{
+    .subheadline{
         @apply font-bold text-xl lg:text-2xl text-neutral-800 dark:text-neutral-200;
     }
     .text{
-        @apply font-normal text-sm lg:text-base text-neutral-600 dark:text-neutral-300 selection:bg-primary selection:text-white;
+        @apply font-body font-normal text-sm lg:text-base text-neutral-600 dark:text-neutral-300 selection:bg-primary selection:text-white;
     }
     .bold{
         @apply font-medium text-sm lg:text-base text-neutral-800 dark:text-neutral-200;
@@ -175,7 +175,7 @@
         @apply grid gap-4 grid-cols-2 px-4 py-8 md:grid-cols-4;
     }
     .foot-title{
-        @apply mb-4 headline-2 text-primary;
+        @apply mb-4 text-primary;
     }
     .foot-copy{
         @apply pb-4 md:flex md:items-center md:justify-between;

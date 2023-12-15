@@ -3,8 +3,8 @@
 {% block content %}
 <main class="space-y-4">
   <!-- CATEGORIES -->
-  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
-    <h2 class="headline-1">Featured Categories</h2>
+  <header class="flex justify-between items-center p-4">
+    <h2 class="headline">Featured Categories</h2>
   </header>
   <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
     {% for category in categories_list|slice:":12" %}
@@ -20,8 +20,8 @@
   </section>
 
   <!-- RECENT PRODUCTS -->
-  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
-    <h2 class="headline-1 text-white">Recent Products</h2>
+  <header class="flex justify-between items-center p-4">
+    <h2 class="headline">Recent Products</h2>
     <a href="{% url 'products:recent' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
@@ -42,8 +42,8 @@
   </section>
 
   <!-- ALL PRODUCTS -->
-  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
-    <h2 class="headline-1">All Products</h2>
+  <header class="flex justify-between items-center p-4">
+    <h2 class="headline">All Products</h2>
     <a href="{% url 'products:prod_list' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
@@ -65,8 +65,8 @@
   </section>
 
   <!-- APPLE -->
-  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
-    <h2 class="headline-1">Apple</h2>
+  <header class="flex justify-between items-center p-4">
+    <h2 class="headline">Apple</h2>
     <a href="{% url 'products:brand_filter' brand_slug='apple' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
@@ -78,8 +78,8 @@
   </section>
 
   <!-- SAMSUNG -->
-  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
-    <h2 class="headline-1">Samsung</h2>
+  <header class="flex justify-between items-center p-4">
+    <h2 class="headline">Samsung</h2>
     <a href="{% url 'products:brand_filter' brand_slug='samsung' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">
@@ -91,8 +91,8 @@
   </section>
 
   <!-- COMPUTERS MONITORS -->
-  <header class="bg-primary cs-rounded flex justify-between items-center p-4">
-    <h2 class="headline-1">Computer Monitors</h2>
+  <header class="flex justify-between items-center p-4">
+    <h2 class="headline">Computer Monitors</h2>
     <a href="{% url 'products:category_filter' category_slug='computer-monitors' %}" class="btn-secondary">View all</a>
   </header>
   <section class="card-grid">

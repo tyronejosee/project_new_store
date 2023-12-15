@@ -2,15 +2,16 @@
 {% block title %}{{ title|title }}{% endblock title %}
 {% block content %}
 <main class="space-y-4">
+
   <!-- HEADLINE -->
   <header class="my-4">
     <div class="flex items-center justify-between">
       <div class="flex space-x-4 items-center">
         {% if title and "search=" not in request.get_full_path %}
-        <h1 class="headline-1">{{ title }}</h1>
+        <h2 class="headline">{{ title }}</h2>
         {% endif %}
         {% if "search=" in request.get_full_path %}
-        <h1 class="headline-1">{{ results }} results</h1>
+        <h2 class="headline">{{ results }} results</h2>
         <span class="bold text-primary">for "{{ title }}"</span>
         {% endif %}
         {% if page_obj.paginator.count > 0 %}
@@ -49,5 +50,6 @@
 
   <!-- PAGINATION -->
   {% include "components/pagination.html" %}
+
 </main>
 {% endblock %}

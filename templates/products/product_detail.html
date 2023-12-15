@@ -17,7 +17,7 @@
         Shop all {{ product.brand.name }}
       </a>
       <header class="detail-header">
-        <h1 class="headline-1">{{ product.title }}{% if product.is_new %}<span class="tag-detail">New</span>{% endif %}</h1>
+        <h2 class="headline">{{ product.title }}{% if product.is_new %}<span class="tag-detail">New</span>{% endif %}</h2>
       </header>
       <div>
         {% if product.sale_price %}
@@ -30,7 +30,7 @@
         {% endif %}
       </div>
       <div>
-        <h3 class="headline-2">Details</h3>
+        <h3 class="subheadline">Details</h3>
         <p><span class="bold">ID:</span> {{ product.id }}</p>
         <p><span class="bold">Stock:</span> {{ product.stock }}</p>
         <p><span class="bold">Warranty:</span> {{ product.get_warranty_display }}</p>
@@ -71,11 +71,11 @@
     </nav>
     <section class="box p-8 mt-4">
       <article id="description-tab" class="tab-content">
-        <h3 class="headline-2">Description</h3>
+        <h3 class="subheadline">Description</h3>
         <p>{{ product.description|safe }}</p>
       </article>
       <article id="specifications-tab" class="tab-content hidden">
-        <h3 class="headline-2">Specifications</h3>
+        <h3 class="subheadline">Specifications</h3>
         <p class="leading-loose">{{ product.specifications|safe }}</p>
       </article>
     </section>
@@ -83,7 +83,7 @@
 
   <!-- FEATURED PRODUCTS -->
   <header class="my-4">
-    <h2 class="headline-1">Featured products</h2>
+    <h2 class="headline">Featured products</h2>
   </header>
   {% if featured_products %}
   <section class="card-grid">

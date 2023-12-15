@@ -5,7 +5,7 @@
 <main>
   <!-- CART -->
   <header class="my-4">
-    <h1 class="headline-1">Cart ({{ cart_count }})</h1>
+    <h2 class="headline">Cart ({{ cart_count }})</h2>
   </header>
   {% if cart_items %}
   <section class="table-wrap">
@@ -62,7 +62,7 @@
   {% endif %}
   <!-- WISHLIST -->
   <header class="my-4">
-    <h2 class="headline-1">Wishlist ({{ wishlist_count }})</h2>
+    <h2 class="headline">Wishlist ({{ wishlist_count }})</h2>
   </header>
   {% if wishlist.products.all %}
   <section class="table-wrap">

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}{% load static %}
+{% extends 'base.html' %}
 {% block title %}{{ deal.name }}{% endblock title %}
 {% block content %}
 <main>
@@ -10,7 +10,7 @@
 
     <!-- HEADER -->
     <header class="deal-header">
-      <h1 class="headline-1">{{ deal.name }}</h1>
+      <h2 class="headline">{{ deal.name }}</h2>
       <span class="bold text-neutral-500">{{ deal.description }}</span>
     </header>
 
