@@ -1,8 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/poppins-regular.woff2') format('woff2'),
+         url('../fonts/poppins-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/poppins-medium.woff2') format('woff2'),
+         url('../fonts/poppins-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/poppins-semibold.woff2') format('woff2'),
+         url('../fonts/poppins-semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/poppins-bold.woff2') format('woff2'),
+         url('../fonts/poppins-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
 
 @layer components{
 
@@ -38,7 +68,7 @@
         @apply font-bold text-xl lg:text-2xl text-neutral-800 dark:text-neutral-200;
     }
     .text{
-        @apply font-body font-normal text-sm lg:text-base text-neutral-600 dark:text-neutral-300 selection:bg-primary selection:text-white;
+        @apply font-normal text-sm lg:text-base text-neutral-600 dark:text-neutral-300 selection:bg-primary selection:text-white;
     }
     .bold{
         @apply font-medium text-sm lg:text-base text-neutral-800 dark:text-neutral-200;
