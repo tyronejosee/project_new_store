@@ -75,12 +75,6 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     ordering = ('updated_at', 'pk',)
     resource_class = ProductResource
 
-    class Media:
-        """Additional config for CKEditor."""
-        css = {
-            'all': ('css/ckeditor.css',)
-        }
-
     def save_model(self, request, obj, form, change):
         # Remove the image when clearing the path in the prod.
         if change and 'image' in form.changed_data:

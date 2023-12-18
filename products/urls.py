@@ -1,6 +1,6 @@
 """URLs for Products App."""
 
-from django.urls import path, include
+from django.urls import path
 from products.views import (
     ProductListView,
     ProductDetailView,
@@ -16,10 +16,6 @@ from products.views import (
 app_name = 'products'
 
 urlpatterns = [
-    # Third-party URLs
-    path('ckeditor/', include('ckeditor_uploader.urls')),
-
-    # Products URLs
     path('', product_search, name='search'),
     path('all/', ProductListView.as_view(), name='prod_list'),
     path('<int:pk>/', ProductDetailView.as_view(), name='detail'),

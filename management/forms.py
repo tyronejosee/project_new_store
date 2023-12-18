@@ -38,6 +38,6 @@ class ProductForm(forms.ModelForm):
             'warranty': forms.Select(attrs=form_select()),
             'featured': forms.CheckboxInput(attrs=form_checkbox()),
             'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
-            'description': forms.Textarea(attrs={}),
-            'specifications': forms.Textarea(attrs={}),
+            'description': forms.Textarea(attrs=form_textarea()),
+            'specifications': forms.Textarea(attrs=form_textarea()),
         }

@@ -7,7 +7,6 @@ from django.db.models.signals import post_save, post_delete
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
-from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -110,8 +109,8 @@ class Product(models.Model):
     warranty = models.IntegerField(choices=WARRANTY_CHOICES, default='12', blank=True, null=True)
     featured = models.BooleanField(default=False, verbose_name='Featured')
     show_hide = models.BooleanField(default=True, verbose_name='Show/Hide')
-    description = RichTextField(blank=True, null=True, verbose_name='Description')
-    specifications = RichTextField(blank=True, null=True, verbose_name='Specifications')
+    description = models.TextField(blank=True, null=True, verbose_name='Description')
+    specifications = models.TextField(blank=True, null=True, verbose_name='Specifications')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
