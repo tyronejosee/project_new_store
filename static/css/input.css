@@ -249,14 +249,14 @@
     .form-number{
         @apply bg-light cs-rounded block w-full h-10 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-dark dark:placeholder:text-light;
     }
-    .form_select{
+    .form-select{
         @apply bg-light dark:bg-dark w-full cs-rounded h-10 px-4 focus:outline-none focus:ring focus:ring-primary;
     }
-    .form_checkbox{
+    .form-checkbox{
         @apply appearance-none w-6 h-6 border border-gray-300 rounded-md checked:bg-primary checked:border-transparent focus:outline-none focus:ring focus:ring-white;
     }
-    .form_textarea{
-        @apply bg-neutral-100 dark:bg-neutral-900 w-full p-2 cs-rounded;
+    .form-textarea{
+        @apply bg-light cs-rounded block w-full h-64 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-neutral-500 text-sm dark:placeholder:text-light;
     }
 
 

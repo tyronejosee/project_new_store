@@ -18,7 +18,7 @@ def form_number(placeholder):
 def form_checkbox():
     """Utility classes for checkbox input."""
     return {
-        'class': 'form_checkbox'
+        'class': 'form-checkbox'
     }
 
 def form_file():
@@ -30,11 +30,11 @@ def form_file():
 def form_select():
     """Utility classes for select."""
     return {
-        'class': 'form_select',
+        'class': 'form-select',
     }
 
 def form_textarea():
     """Utility classes for text area."""
     return {
-        'class': 'form_textarea',
+        'class': 'form-textarea',
     }

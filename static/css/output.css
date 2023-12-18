@@ -1898,7 +1898,7 @@ video {
   }
 }
 
-.form_select {
+.form-select {
   border-radius: 0.75rem;
   height: 2.5rem;
   width: 100%;
@@ -1908,7 +1908,7 @@ video {
   padding-right: 1rem;
 }
 
-.form_select:focus {
+.form-select:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -1919,13 +1919,13 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
-  .form_select {
+  .form-select {
     --tw-bg-opacity: 1;
     background-color: rgb(23 23 23 / var(--tw-bg-opacity));
   }
 }
 
-.form_checkbox {
+.form-checkbox {
   height: 1.5rem;
   width: 1.5rem;
   -webkit-appearance: none;
@@ -1937,13 +1937,13 @@ video {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.form_checkbox:checked {
+.form-checkbox:checked {
   border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
-.form_checkbox:focus {
+.form-checkbox:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -1951,6 +1951,56 @@ video {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity));
+}
+
+.form-textarea {
+  border-radius: 0.75rem;
+  display: block;
+  height: 16rem;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.form-textarea::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(115 115 115 / var(--tw-text-opacity));
+}
+
+.form-textarea::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(115 115 115 / var(--tw-text-opacity));
+}
+
+.form-textarea:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(220 38 38 / var(--tw-ring-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-textarea {
+    --tw-bg-opacity: 1;
+    background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+  }
+
+  .form-textarea::-moz-placeholder {
+    --tw-text-opacity: 1;
+    color: rgb(245 245 245 / var(--tw-text-opacity));
+  }
+
+  .form-textarea::placeholder {
+    --tw-text-opacity: 1;
+    color: rgb(245 245 245 / var(--tw-text-opacity));
+  }
 }
 
 /* TABLES */

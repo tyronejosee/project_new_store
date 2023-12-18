@@ -3,7 +3,7 @@
 from django import forms
 from home.models import Page
 from products.models import Product
-from core.utils import form_select, form_text, form_number, form_checkbox, form_file
+from core.utils import form_select, form_text, form_number, form_checkbox, form_file, form_textarea
 
 
 class PageForm(forms.ModelForm):
@@ -15,7 +15,7 @@ class PageForm(forms.ModelForm):
         fields = ['key', 'content', 'image']
         widgets = {
             'key': forms.TextInput(attrs=form_text('Key')),
-            'content': forms.Textarea(attrs={}),
+            'content': forms.Textarea(attrs=form_textarea()),
             'image': forms.ClearableFileInput(attrs=form_file()),
         }
 

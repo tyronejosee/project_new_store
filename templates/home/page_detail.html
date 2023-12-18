@@ -1,9 +1,10 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %}{% load static %}
+
 {% block title %}{{ page.key|title }}{% endblock title %}
+
 {% block content %}
-<main>
-  <section class="box mt-4">
+<main class="box mt-4">
+
     <!-- PAGE IMAGE -->
     <figure class="relative p-4">
       {% if page.image %}
@@ -13,10 +14,11 @@
       {% endif %}
       <div class="absolute inset-0 opacity-30 cs-rounded"></div>
     </figure>
+
     <!-- PAGE CONTENT -->
-    <article class="p-8">
+    <article class="p-8 space-y-4">
       {{ page.content|safe }}
     </article>
-  </section>
+
 </main>
 {% endblock %}
