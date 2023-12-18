@@ -184,7 +184,7 @@
 
     /* PAGINATION */
     .pag-wrap{
-        @apply box flex items-center justify-center space-x-2 py-2;
+        @apply flex items-center justify-center space-x-2;
     }
     .pag-itm{
         @apply flex items-center justify-center px-4 h-10 rounded-xl bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-700;
@@ -257,7 +257,7 @@
     }
     .form-textarea{
         @apply bg-light cs-rounded block w-full h-64 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-neutral-500 text-sm dark:placeholder:text-light;
-    }
+    } 
 
 
     /* TABLES */

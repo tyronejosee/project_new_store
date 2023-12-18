@@ -1334,19 +1334,6 @@ video {
 /* PAGINATION */
 
 .pag-wrap {
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-@media (prefers-color-scheme: dark) {
-  .pag-wrap {
-    --tw-bg-opacity: 1;
-    background-color: rgb(41 37 36 / var(--tw-bg-opacity));
-  }
-}
-
-.pag-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1356,11 +1343,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.pag-wrap {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .pag-itm {

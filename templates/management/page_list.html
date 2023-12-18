@@ -1,80 +1,83 @@
-{% extends 'management/management.html' %}{% load static %}
+{% extends 'management/management.html' %}
+
 {% block title %}Pages{% endblock title %}
+
 {% block content %}
-<main class="sm:ml-64 space-y-4">
+<main class="sm:ml-64 flex flex-col h-screen">
 
-  <!-- SEARCH BAR -->
-  <div class="w-full mt-4">
-    <div class="relative">
-      <form method="GET" action="{#% url 'products:search' %#}">
-        <input type="search" id="search-navbar"
-          class="form-text bg-white pl-12"
-          placeholder="Search pages..." name="search" value="{# { request.GET.search } #}">
-        <div class="absolute rounded-full inset-y-0 left-0 p-4 flex items-center pointer-events-none">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-        </div>
-      </form>
+  <section class="space-y-4">
+    <!-- SEARCH BAR -->
+    <div class="w-full mt-4">
+      <div class="relative">
+        <form method="GET" action="{#% url 'products:search' %#}">
+          <input type="search" id="search-navbar"
+            class="form-text bg-white pl-12"
+            placeholder="Search pages..." name="search" value="{# { request.GET.search } #}">
+          <div class="absolute rounded-full inset-y-0 left-0 p-4 flex items-center pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-
-  <!-- HEADLINE -->
-  <header class="flex items-center my-4">
-    <h2 class="headline">Pages</h2>
-  </header>
-
-  <!-- TOOLBAR -->
-  {% include 'components/toolbar.html' %}
-
-  <!-- PAGES LIST -->
-  <section class="table-wrap">
-    <table>
-      <thead class="table-head">
-        <tr>
-          <th scope="col" class="cell">Id</th>
-          <th scope="col" class="cell">Image</th>
-          <th scope="col" class="cell">Unique Key</th>
-          <th scope="col" class="cell">Created at</th>
-          <th scope="col" class="cell">Updated at</th>
-          <th scope="col" class="cell">Options</th>
-        </tr>
-      </thead>
-      {% for page in pages %}
-      <tbody class="table-body">
-        <tr>
-          <td class="cell">{{ page.id }}</td>
-          <td class="cell">
-            {% if page.image %}
-            <a href="#" title="{{ page.key }}" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">
-              <img src="{{ page.image.url }}" alt="{{ page.key }}" class="cs-rounded" width="25" height="25">
-            </a>
-            {% else %}
-            <span>False</span>
-            {% endif %}
-          </td>
-          <td class="cell">{{ page.key }}</td>
-          <td class="cell">{{ page.created_at|date:"d/m/Y - g:i a" }}</td>
-          <td class="cell">{{ page.updated_at|date:"d/m/Y - g:i a" }}</td>
-          <td class="cell flex items-center space-x-4">
-            <a href="{% url 'management:page_update' pk=page.pk %}" title="Update" class="hover:text-sky-500">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
-                <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-              </svg>                        
-            </a>
-          </td>
-        </tr>
-      </tbody>
-      {% endfor %}
-    </table>
+  
+    <!-- HEADLINE -->
+    <header class="flex items-center my-4">
+      <h2 class="headline">Pages</h2>
+    </header>
+  
+    <!-- TOOLBAR -->
+    {% include 'components/toolbar.html' %}
+  
+    <!-- PAGES LIST -->
+    <section class="table-wrap">
+      <table>
+        <thead class="table-head">
+          <tr>
+            <th scope="col" class="cell">Id</th>
+            <th scope="col" class="cell">Image</th>
+            <th scope="col" class="cell">Unique Key</th>
+            <th scope="col" class="cell">Created at</th>
+            <th scope="col" class="cell">Updated at</th>
+            <th scope="col" class="cell">Options</th>
+          </tr>
+        </thead>
+        {% for page in pages %}
+        <tbody class="table-body">
+          <tr>
+            <td class="cell">{{ page.id }}</td>
+            <td class="cell">
+              {% if page.image %}
+              <a href="#" title="{{ page.key }}" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">
+                <img src="{{ page.image.url }}" alt="{{ page.key }}" class="cs-rounded" width="25" height="25">
+              </a>
+              {% else %}
+              <span>False</span>
+              {% endif %}
+            </td>
+            <td class="cell">{{ page.key }}</td>
+            <td class="cell">{{ page.created_at|date:"d/m/Y - g:i a" }}</td>
+            <td class="cell">{{ page.updated_at|date:"d/m/Y - g:i a" }}</td>
+            <td class="cell flex items-center space-x-4">
+              <a href="{% url 'management:page_update' pk=page.pk %}" title="Update" class="hover:text-sky-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
+                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                  <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                </svg>                        
+              </a>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </section>
   </section>
-
+  
   <!-- PAGINATION -->
-  {% include "components/pagination.html" %}
-
-  <!-- STATUSBAR -->
-  {% include 'components/statusbar.html' %}
+  <section class="mt-auto my-4">
+    {% include "components/pagination.html" %}
+  </section>
 
 </main>
 {% endblock %}

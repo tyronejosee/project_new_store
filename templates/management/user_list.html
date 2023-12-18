@@ -1,63 +1,66 @@
 {% extends 'management/management.html' %}
+
 {% block title %}Users{% endblock title %}
+
 {% block content %}
-<main class="sm:ml-64 space-y-4">
-
-  <!-- SEARCH BAR -->
-  <div class="w-full mt-4">
-    <div class="relative">
-      <form method="GET" action="{#% url 'products:search' %#}">
-        <input type="search" id="search-navbar"
-          class="form-text bg-white pl-12"
-          placeholder="Search users..." name="search" value="{# { request.GET.search } #}">
-        <div class="absolute rounded-full inset-y-0 left-0 p-4 flex items-center pointer-events-none">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
-        </div>
-      </form>
+<main class="sm:ml-64 flex flex-col h-screen">
+  
+  <section class="space-y-4">
+    <!-- SEARCH BAR -->
+    <div class="w-full mt-4">
+      <div class="relative">
+        <form method="GET" action="{#% url 'products:search' %#}">
+          <input type="search" id="search-navbar"
+            class="form-text bg-white pl-12"
+            placeholder="Search users..." name="search" value="{# { request.GET.search } #}">
+          <div class="absolute rounded-full inset-y-0 left-0 p-4 flex items-center pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-
-  <!-- HEADLINE -->
-  <header class="flex items-center my-4">
-    <h2 class="headline">Users</h2>
-  </header>
-
-  <!-- TOOLBAR -->
-  {% include 'components/toolbar.html' %}
-
-  <!-- USERS LIST -->
-  <section class="table-wrap">
-    <table>
-      <thead class="table-head">
-        <tr>
-          <th scope="col" class="cell">Id</th>
-          <th scope="col" class="cell">Username</th>
-          <th scope="col" class="cell">Email</th>
-          <th scope="col" class="cell">Is Active</th>
-          <th scope="col" class="cell">Date Joined</th>
-        </tr>
-      </thead>
-      {% for user in users %}
-      <tbody class="table-body">
-        <tr>
-          <td class="cell">{{ user.id }}</td>
-          <td class="cell">{{ user.username }}</td>
-          <td class="cell">{{ user.email }}</td>
-          <td class="cell">{{ user.is_active }}</td>
-          <td class="cell">{{ user.date_joined }}</td>
-        </tr>
-      </tbody>
-      {% endfor %}
-    </table>
+  
+    <!-- HEADLINE -->
+    <header class="flex items-center my-4">
+      <h2 class="headline">Users</h2>
+    </header>
+  
+    <!-- TOOLBAR -->
+    {% include 'components/toolbar.html' %}
+  
+    <!-- USERS LIST -->
+    <section class="table-wrap">
+      <table>
+        <thead class="table-head">
+          <tr>
+            <th scope="col" class="cell">Id</th>
+            <th scope="col" class="cell">Username</th>
+            <th scope="col" class="cell">Email</th>
+            <th scope="col" class="cell">Is Active</th>
+            <th scope="col" class="cell">Date Joined</th>
+          </tr>
+        </thead>
+        {% for user in users %}
+        <tbody class="table-body">
+          <tr>
+            <td class="cell">{{ user.id }}</td>
+            <td class="cell">{{ user.username }}</td>
+            <td class="cell">{{ user.email }}</td>
+            <td class="cell">{{ user.is_active }}</td>
+            <td class="cell">{{ user.date_joined }}</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </section>
   </section>
 
   <!-- PAGINATION -->
-  {% include "components/pagination.html" %}
-
-  <!-- STATUSBAR -->
-  {% include 'components/statusbar.html' %}
+  <section class="mt-auto my-4">
+    {% include "components/pagination.html" %}
+  </section>
 
 </main>
 {% endblock %}
