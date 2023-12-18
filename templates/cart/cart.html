@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block title %}Cart{% endblock title %}
 {% block content %}
 <main>
+
   <!-- CART -->
   <header class="my-4">
     <h2 class="headline">Cart ({{ cart_count }})</h2>
@@ -53,6 +53,7 @@
   {% else %}
     {% include "components/empty.html" with arg="cart" %}
   {% endif %}
+
   <!-- BUTTON CART -->
   {% if cart_items %}
   <nav class="p-4">
@@ -60,6 +61,7 @@
     <a href="#" title="Checkout" class="bg-green-500 text-white px-2 py-1 cs-rounded">Checkout</a>
   </nav>
   {% endif %}
+
   <!-- WISHLIST -->
   <header class="my-4">
     <h2 class="headline">Wishlist ({{ wishlist_count }})</h2>
@@ -101,7 +103,9 @@
   {% else %}
     {% include "components/empty.html" with arg="wishlist"%}
   {% endif %}
+
   <!-- IMAGE MODAL -->
   {% include "fragments/image_modal.html" %}
+
 </main>
 {% endblock %}

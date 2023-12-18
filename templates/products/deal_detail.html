@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
+
 {% block title %}{{ deal.name }}{% endblock title %}
+
 {% block content %}
-<main>
-  <section class="box p-4 mt-4">
+<main class="box p-4 mt-4">
+
     <!-- IMAGE -->
     <figure>
       <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="deal-img">
     </figure>
 
-    <!-- HEADER -->
+    <!-- HEADLINE -->
     <header class="deal-header">
       <h2 class="headline">{{ deal.name }}</h2>
       <span class="bold text-neutral-500">{{ deal.description }}</span>
@@ -28,6 +30,6 @@
 
     <!-- PAGINATION -->
     {% include "components/pagination.html" %}
-  </section>
+
 </main>
 {% endblock %}

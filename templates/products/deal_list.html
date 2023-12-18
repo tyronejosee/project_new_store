@@ -1,10 +1,16 @@
-{% extends 'base.html' %}{% load static %}
+{% extends 'base.html' %}
+
 {% block title %}Deals{% endblock title %}
+
 {% block content %}
 <main>
+
+  <!-- HEADLINE -->
   <header class="my-4">
     <h2 class="headline">Deals</h2>
   </header>
+
+  <!-- DEAL LIST -->
   {% if deals %}
   <section class="deal-wrap">
     {% for deal in deals %}
@@ -19,5 +25,6 @@
   {% if deals|length == 0 %}
     {% include "components/empty.html" with arg="deal" %}
   {% endif %}
+
 </main>
 {% endblock %}

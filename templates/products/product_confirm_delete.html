@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
+
 {% block title %}Confirm{% endblock title %}
+
 {% block content %}
 <main>
+
+  <!-- HEADLINE -->
   <header class="my-4">
     <h2 class="headline">Confirm delete</h2>
   </header>
+
+  <!-- FORM -->
   <form method="POST">{% csrf_token %}
     <p>Are you sure you want to delete "{{ object }}"?</p>
       {{ form }}
     <input type="submit" value="Confirm">
   </form>
+
 </main>
 {% endblock %}

@@ -12,12 +12,27 @@
     <meta name="robots" content="index, follow" />    
   </head>
   <body class="container">
+
+    <!-- NAVBAR -->
     {% include "components/header.html" %}
+
+    <!-- MAIN CONTENT -->
     {% block content %}{% endblock content %}
+
+    <!-- SIGN UP -->
     {% include "components/signup.html" %}
+
+    <!-- BTN SCROLL -->
     {% include "components/btn_scroll.html" %}
+
+    <!-- FOOTER -->
     {% include "components/footer.html" %}
+
+    <!-- JQUERY FILES -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JS FILES -->
     <script src="{% static 'js/main.js' %}"></script>
+
   </body>
 </html>

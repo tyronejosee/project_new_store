@@ -1,7 +1,10 @@
-{% extends 'base.html' %}{% load static %}
+{% extends 'base.html' %}
+
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
+
 {% block content %}
 <main>
+
   <!-- ROUTES -->
   {% include "components/routes.html" %}
 
@@ -82,18 +85,21 @@
   </aside>
 
   <!-- FEATURED PRODUCTS -->
-  <header class="my-4">
-    <h2 class="headline">Featured products</h2>
-  </header>
-  {% if featured_products %}
-  <section class="card-grid">
-    {% for product in featured_products %}
-      {% include "components/card.html" %}
-    {% endfor %}
+  <section>
+    <header class="my-4">
+      <h2 class="headline">Featured products</h2>
+    </header>
+    {% if featured_products %}
+    <section class="card-grid">
+      {% for product in featured_products %}
+        {% include "components/card.html" %}
+      {% endfor %}
+    </section>
+    {% endif %}
+    {% if featured_products|length == 0 %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endif %}
   </section>
-  {% endif %}
-  {% if featured_products|length == 0 %}
-    {% include "components/empty.html" with arg="product" %}
-  {% endif %}
+
 </main>
 {% endblock %}
