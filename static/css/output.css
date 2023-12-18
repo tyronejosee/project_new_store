@@ -1238,7 +1238,7 @@ video {
 
 .detail-nav {
   display: flex;
-  height: 3rem;
+  height: 2.5rem;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -1365,7 +1365,7 @@ video {
 
 .pag-itm {
   display: flex;
-  height: 2rem;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
@@ -1389,7 +1389,7 @@ video {
 
 .pag-itm-active {
   display: flex;
-  height: 2rem;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
@@ -1533,7 +1533,7 @@ video {
 
 .btn-primary {
   display: flex;
-  height: 2rem;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
   --tw-bg-opacity: 1;
@@ -1584,7 +1584,7 @@ video {
 
 .btn-secondary {
   display: flex;
-  height: 2rem;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
   --tw-bg-opacity: 1;
@@ -1642,7 +1642,7 @@ video {
 
 .btn-tertiary {
   display: flex;
-  height: 2rem;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
   --tw-bg-opacity: 1;
@@ -1703,7 +1703,7 @@ video {
 
 .btn-scroll {
   display: flex;
-  height: 2rem;
+  height: 2.5rem;
   align-items: center;
   justify-content: center;
   --tw-bg-opacity: 1;
@@ -1777,7 +1777,7 @@ video {
 .form-text {
   border-radius: 0.75rem;
   display: block;
-  height: 2rem;
+  height: 2.5rem;
   width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1831,7 +1831,7 @@ video {
 
 .form-file::file-selector-button {
   margin-right: 1rem;
-  height: 2rem;
+  height: 2.5rem;
   border-radius: 9999px;
   border-width: 0px;
   --tw-bg-opacity: 1;
@@ -1853,7 +1853,7 @@ video {
 .form-number {
   border-radius: 0.75rem;
   display: block;
-  height: 2rem;
+  height: 2.5rem;
   width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1900,7 +1900,7 @@ video {
 
 .form_select {
   border-radius: 0.75rem;
-  height: 2rem;
+  height: 2.5rem;
   width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -2023,7 +2023,7 @@ video {
 }
 
 .cell {
-  height: 2rem;
+  height: 2.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
