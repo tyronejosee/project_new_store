@@ -282,6 +282,9 @@
     .tag{
         @apply rounded-lg bg-primary text-white text-xs font-semibold p-1;
     }
+    .tag-cart{
+        @apply w-4 h-4 absolute top-0 right-0 bg-red-600 text-white text-xs font-medium tracking-tighter rounded-full flex items-center justify-center transform translate-x-1/2 -translate-y-1/2;
+    }
     .tag-absolute{
         @apply tag absolute top-0 left-0 ml-4 mt-4;
     }

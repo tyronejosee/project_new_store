@@ -118,6 +118,7 @@ TEMPLATES = [
                 'home.context_processors.company_context',
                 'products.context_processors.featured_products',
                 'products.context_processors.categories',
+                'utils.context_processors.cart_items_context',
             ],
         },
     },
