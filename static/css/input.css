@@ -276,6 +276,9 @@
     .cell{
         @apply px-4 h-10;
     }
+    .cell-lg{
+        @apply px-4 h-20;
+    }
 
 
     /* TAGS */
