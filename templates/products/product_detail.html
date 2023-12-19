@@ -89,14 +89,14 @@
     <header class="my-4">
       <h2 class="headline">Featured products</h2>
     </header>
-    {% if featured_products %}
+    {% if products_featured %}
     <section class="card-grid">
-      {% for product in featured_products %}
+      {% for product in products_featured %}
         {% include "components/card.html" %}
       {% endfor %}
     </section>
     {% endif %}
-    {% if featured_products|length == 0 %}
+    {% if products_featured|length == 0 %}
       {% include "components/empty.html" with arg="product" %}
     {% endif %}
   </section>
