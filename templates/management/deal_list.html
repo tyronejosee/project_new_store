@@ -1,0 +1,70 @@
+{% extends 'management/management.html' %}
+
+{% block title %}Deals{% endblock title %}
+
+{% block content %}
+<main class="sm:ml-64 flex flex-col h-screen">
+
+  <section class="space-y-4">
+  
+    <!-- HEADLINE -->
+    <header class="flex items-center my-4">
+      <h2 class="headline">Deals</h2>
+    </header>
+  
+    <!-- PAGES LIST -->
+    <section class="table-wrap">
+      <table>
+        <thead class="table-head">
+          <tr>
+            <th scope="col" class="cell">Id</th>
+            <th scope="col" class="cell">Name</th>
+            <th scope="col" class="cell">Slug</th>
+            <th scope="col" class="cell">Image</th>
+            <th scope="col" class="cell">Description</th>
+            <th scope="col" class="cell">Discount</th>
+            <th scope="col" class="cell">Start Date</th>
+            <th scope="col" class="cell">End Date</th>
+            <th scope="col" class="cell">Status</th>
+            <th scope="col" class="cell">Options</th>
+          </tr>
+        </thead>
+        {% for deal in deals %}
+        <tbody class="table-body">
+          <tr>
+            <td class="cell">{{ deal.id }}</td>
+            <td class="cell">{{ deal.name }}</td>
+            <td class="cell">{{ deal.slug }}</td>
+            <td class="cell">
+              {% if deal.image %}
+              <a href="#" title="{{ deal.image }}" class="cursor-pointer show-image-popup" data-src="{{ deal.image.url }}">
+                <img src="{{ deal.image.url }}" alt="{{ deal.slug }}" class="rounded border" width="25" height="25">
+              </a>
+              {% else %}
+              <span>none</span>
+              {% endif %}
+            </td>
+            <td class="cell">{{ deal.description|truncatechars:10 }}</td>
+            <td class="cell">{{ deal.discount }}</td>
+            <td class="cell">{{ deal.start_date }}</td>
+            <td class="cell">{{ deal.end_date }}</td>
+            <td class="cell">{{ deal.status }}</td>
+            <td class="cell"></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </section>
+  </section>
+  
+  <!-- PAGINATION -->
+  <section class="mt-auto my-4">
+    {% include "components/pagination.html" %}
+  </section>
+
+</main>
+
+<!-- IMAGE MODAL -->
+{% include "fragments/image_modal.html" %}
+
+{% endblock %}

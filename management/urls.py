@@ -11,7 +11,11 @@ from management.views import (
     ProductCreateView,
     ProductUpdateView,
     ProductDeleteView,
-    ProductStatusToggleView
+    ProductStatusToggleView,
+    DealCreateView,
+    DealListView,
+    DealUpdateView,
+    DealDeleteView
 )
 
 app_name = 'management'
@@ -21,6 +25,14 @@ urlpatterns = [
     path('pages/', PageListView.as_view(), name='page_list'),
     path('pages/update/<int:pk>', PageUpdateView.as_view(), name='page_update'),
     path('users/', UserListView.as_view(), name='user_list'),
+
+    # Deals
+    path('deals/create/', DealCreateView.as_view(), name='deal_create'),
+    path('deals/read/', DealListView.as_view(), name='deal_list'),
+    path('deals/update/<int:pk>', DealUpdateView.as_view(), name='deal_update'),
+    path('deals/delete/<int:pk>', DealDeleteView.as_view(), name='deal_delete'),
+
+    # Products
     path('products/', ProductListView.as_view(), name='product_list'),
     path('products/deactivated/', DeactivatedProductListView.as_view(), name='product_deactivated_list'),
     path('products/create/', ProductCreateView.as_view(), name='product_create'),

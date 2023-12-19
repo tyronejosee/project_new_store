@@ -8,8 +8,8 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from home.models import Page
 from users.models import CustomUser
-from products.models import Product
-from management.forms import PageForm, ProductForm
+from products.models import Product, Deal
+from management.forms import PageForm, ProductForm, DealForm
 
 
 class ManagementView(LoginRequiredMixin, TemplateView):
@@ -126,3 +126,34 @@ class ProductStatusToggleView(LoginRequiredMixin, DeleteView):
             product.show_hide = True
             product.save()
             return redirect('management:product_deactivated_list')
+
+
+class DealCreateView(LoginRequiredMixin, CreateView):
+    """View to create a new deal."""
+    model = Deal
+    form_class = DealForm
+    template_name = 'management/deal_form.html'
+    success_url = reverse_lazy('management:deal_list')
+
+
+class DealListView(LoginRequiredMixin, ListView):
+    """View to display a list of deals."""
+    model = Deal
+    template_name = 'management/deal_list.html'
+    context_object_name = 'deals'
+    paginate_by = 12
+
+
+class DealUpdateView(LoginRequiredMixin, UpdateView):
+    """View for updating a deal."""
+    model = Deal
+    form_class = DealForm
+    template_name = 'management/deal_form.html'
+    success_url = reverse_lazy('management:deal_list')
+
+
+class DealDeleteView(LoginRequiredMixin, DeleteView):
+    """View to delete a deal."""
+    model = Deal
+    template_name = 'management/deal_confirm_delete.html'
+    success_url = reverse_lazy('management:deal_list')

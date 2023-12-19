@@ -2,7 +2,7 @@
 
 from django import forms
 from home.models import Page
-from products.models import Product
+from products.models import Product, Deal
 from core.utils import form_select, form_text, form_number, form_checkbox, form_file, form_textarea
 
 
@@ -40,4 +40,23 @@ class ProductForm(forms.ModelForm):
             'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
             'description': forms.Textarea(attrs=form_textarea()),
             'specifications': forms.Textarea(attrs=form_textarea()),
+        }
+
+
+class DealForm(forms.ModelForm):
+    """Base form for deal creation and update."""
+
+    class Meta:
+        """Meta definition for Deal form."""
+        model = Deal
+        fields = '__all__'
+        widgets = {
+            'name': forms.TextInput(attrs=form_text('Name')),
+            'slug': forms.TextInput(attrs=form_text('Slug')),
+            'image': forms.ClearableFileInput(attrs=form_file()),
+            'description': forms.Textarea(attrs=form_textarea()),
+            'discount': forms.TextInput(attrs=form_text('Key')),
+            'start_date': forms.TextInput(attrs=form_text('Key')),
+            'end_date': forms.TextInput(attrs=form_text('Key')),
+            'status': forms.CheckboxInput(attrs=form_checkbox()),
         }
