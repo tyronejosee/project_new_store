@@ -66,7 +66,7 @@ class BrandForm(forms.ModelForm):
         model = Brand
         fields = '__all__'
         widgets = {
-            'title': forms.TextInput(attrs=form_text('Title')),
+            'name': forms.TextInput(attrs=form_text('Name')),
             'slug': forms.TextInput(attrs=form_text('Slug')),
             'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
         }

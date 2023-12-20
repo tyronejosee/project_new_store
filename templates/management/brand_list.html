@@ -1,0 +1,52 @@
+{% extends 'management/management.html' %}
+
+{% block title %}Brands{% endblock title %}
+
+{% block content %}
+<main class="sm:ml-64 flex flex-col h-screen">
+
+  <section class="space-y-4">
+  
+    <!-- HEADLINE -->
+    <header class="flex items-center my-4">
+      <h2 class="headline">Brands</h2>
+    </header>
+  
+    <!-- PAGES LIST -->
+    <section class="table-wrap">
+      <table>
+        <thead class="table-head">
+          <tr>
+            <th scope="col" class="cell">Id</th>
+            <th scope="col" class="cell">Name</th>
+            <th scope="col" class="cell">Slug</th>
+            <th scope="col" class="cell">Show-Hide</th>
+            <th scope="col" class="cell">Options</th>
+          </tr>
+        </thead>
+        {% for brand in brands %}
+        <tbody class="table-body">
+          <tr>
+            <td class="cell">{{ brand.id }}</td>
+            <td class="cell">{{ brand.name }}</td>
+            <td class="cell">{{ brand.slug }}</td>
+            <td class="cell">{{ brand.show_hide }}</td>
+            <td class="cell"></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </section>
+  </section>
+  
+  <!-- PAGINATION -->
+  <section class="mt-auto my-4">
+    {% include "components/pagination.html" %}
+  </section>
+
+</main>
+
+<!-- IMAGE MODAL -->
+{% include "fragments/image_modal.html" %}
+
+{% endblock %}

@@ -166,6 +166,7 @@ class BrandListView(LoginRequiredMixin, ListView):
     model = Brand
     template_name = 'management/brand_list.html'
     context_object_name = 'brands'
+    ordering = ['id']
     paginate_by = 12
 
 
