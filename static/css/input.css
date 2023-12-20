@@ -228,7 +228,9 @@
     .btn-scroll{
         @apply btn-primary cs-shadow fixed z-20 bottom-4 right-4 p-4 h-12 w-12;
     }
-
+    .btn-icon{
+        @apply p-2 rounded-full hover:bg-lightHover;
+    }
 
     /* FORMS */
     .form-main{
@@ -271,7 +273,7 @@
         @apply bg-lightTab dark:bg-darkTab bold;
     }
     .table-body{
-        @apply bg-lightTab hover:bg-lightHover dark:bg-darkTab dark:hover:bg-darkHover;
+        @apply bg-lightTab hover:bg-neutral-50 dark:bg-darkTab dark:hover:bg-darkHover;
     }
     .cell{
         @apply px-4 h-10;
