@@ -6,11 +6,14 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
+
 from home.models import Page
 from users.models import CustomUser
-from products.models import Product, Deal
-from management.forms import PageForm, ProductForm, DealForm
+from products.models import Product, Category, Deal
+from management.forms import PageForm, ProductForm, CategoryForm, DealForm
 
+
+# Main Views
 
 class ManagementView(LoginRequiredMixin, TemplateView):
     """View for the management dashboard."""
@@ -19,13 +22,13 @@ class ManagementView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # TODO: Add logic here
-
         # Sends context with the total number of products
         total_products = Product.objects.count()
         context['total_products'] = total_products
         return context
 
+
+# Page CRUD
 
 class PageListView(LoginRequiredMixin, ListView):
     """View for displaying a list of pages."""
@@ -43,12 +46,7 @@ class PageUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('management:page_list')
 
 
-class UserListView(LoginRequiredMixin, ListView):
-    """View to display a list of users."""
-    model = CustomUser
-    template_name = 'management/user_list.html'
-    context_object_name = 'users'
-
+# Product CRUD
 
 class ProductListView(LoginRequiredMixin, ListView):
     """View to display a list of available products."""
@@ -60,21 +58,6 @@ class ProductListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         # Select specific fields from the 'Product' model using the 'only' method
         return Product.objects.filter(show_hide=True).only(
-            'title', 'normal_price', 'image', 'stock',
-            'featured', 'show_hide'
-        )
-
-
-class DeactivatedProductListView(LoginRequiredMixin, ListView):
-    """View to display a list of deactivated products."""
-    model = Product
-    template_name = 'management/product_list.html'
-    context_object_name = 'products'
-    paginate_by = 8
-
-    def get_queryset(self):
-        # Select specific fields from the 'Product' model using the 'only' method
-        return Product.objects.filter(show_hide=False).only(
             'title', 'normal_price', 'image', 'stock',
             'featured', 'show_hide'
         )
@@ -109,6 +92,21 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
         return redirect('management:product_list')
 
 
+class DeactivatedProductListView(LoginRequiredMixin, ListView):
+    """View to display a list of deactivated products."""
+    model = Product
+    template_name = 'management/product_list.html'
+    context_object_name = 'products'
+    paginate_by = 8
+
+    def get_queryset(self):
+        # Select specific fields from the 'Product' model using the 'only' method
+        return Product.objects.filter(show_hide=False).only(
+            'title', 'normal_price', 'image', 'stock',
+            'featured', 'show_hide'
+        )
+
+
 class ProductStatusToggleView(LoginRequiredMixin, DeleteView):
     """View to change a product's status (activate/deactivate)."""
     model = Product
@@ -128,6 +126,41 @@ class ProductStatusToggleView(LoginRequiredMixin, DeleteView):
             return redirect('management:product_deactivated_list')
 
 
+# Category CRUD
+
+class CategoryListView(LoginRequiredMixin, ListView):
+    """View to display a list of categories."""
+    model = Category
+    template_name = 'management/category_list.html'
+    context_object_name = 'categories'
+    paginate_by = 12
+
+
+class CategoryCreateView(LoginRequiredMixin, CreateView):
+    """View to create a new deal."""
+    model = Category
+    form_class = CategoryForm
+    template_name = 'management/category_form.html'
+    success_url = reverse_lazy('management:category_list')
+
+
+class CategoryUpdateView(LoginRequiredMixin, UpdateView):
+    """View for update a category."""
+    model = Category
+    form_class = CategoryForm
+    template_name = 'management/category_form.html'
+    success_url = reverse_lazy('management:category_list')
+
+
+class CategoryDeleteView(LoginRequiredMixin, DeleteView):
+    """View to delete a category."""
+    model = Category
+    template_name = 'management/category_confirm_delete.html'
+    success_url = reverse_lazy('management:category_list')
+
+
+# Deal CRUD
+
 class DealCreateView(LoginRequiredMixin, CreateView):
     """View to create a new deal."""
     model = Deal
@@ -145,7 +178,7 @@ class DealListView(LoginRequiredMixin, ListView):
 
 
 class DealUpdateView(LoginRequiredMixin, UpdateView):
-    """View for updating a deal."""
+    """View for update a deal."""
     model = Deal
     form_class = DealForm
     template_name = 'management/deal_form.html'
@@ -157,3 +190,12 @@ class DealDeleteView(LoginRequiredMixin, DeleteView):
     model = Deal
     template_name = 'management/deal_confirm_delete.html'
     success_url = reverse_lazy('management:deal_list')
+
+
+# User CRUD
+
+class UserListView(LoginRequiredMixin, ListView):
+    """View to display a list of users."""
+    model = CustomUser
+    template_name = 'management/user_list.html'
+    context_object_name = 'users'

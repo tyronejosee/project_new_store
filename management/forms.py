@@ -2,7 +2,7 @@
 
 from django import forms
 from home.models import Page
-from products.models import Product, Deal
+from products.models import Product, Category, Deal
 from core.utils import form_select, form_text, form_number, form_checkbox, form_file, form_textarea
 
 
@@ -40,6 +40,20 @@ class ProductForm(forms.ModelForm):
             'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
             'description': forms.Textarea(attrs=form_textarea()),
             'specifications': forms.Textarea(attrs=form_textarea()),
+        }
+
+
+class CategoryForm(forms.ModelForm):
+    """Base form for category creation and update."""
+
+    class Meta:
+        """Meta definition for Category form."""
+        model = Category
+        fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs=form_text('Title')),
+            'slug': forms.TextInput(attrs=form_text('Slug')),
+            'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
         }
 
 
