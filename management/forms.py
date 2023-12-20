@@ -1,8 +1,9 @@
 """Forms for Management App."""
 
 from django import forms
+
 from home.models import Page
-from products.models import Product, Category, Deal
+from products.models import Product, Category, Brand, Deal
 from core.utils import form_select, form_text, form_number, form_checkbox, form_file, form_textarea
 
 
@@ -49,6 +50,20 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         """Meta definition for Category form."""
         model = Category
+        fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs=form_text('Title')),
+            'slug': forms.TextInput(attrs=form_text('Slug')),
+            'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
+        }
+
+
+class BrandForm(forms.ModelForm):
+    """Base form for brand creation and update."""
+
+    class Meta:
+        """Meta definition for Brand form."""
+        model = Brand
         fields = '__all__'
         widgets = {
             'title': forms.TextInput(attrs=form_text('Title')),

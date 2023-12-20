@@ -1,16 +1,16 @@
 """Views for Management App."""
 
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 
 from home.models import Page
 from users.models import CustomUser
-from products.models import Product, Category, Deal
-from management.forms import PageForm, ProductForm, CategoryForm, DealForm
+from products.models import Product, Category, Brand, Deal
+from management.forms import PageForm, ProductForm, CategoryForm, BrandForm, DealForm
 
 
 # Main Views
@@ -157,6 +157,39 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     model = Category
     template_name = 'management/category_confirm_delete.html'
     success_url = reverse_lazy('management:category_list')
+
+
+# Brand CRUD
+
+class BrandListView(LoginRequiredMixin, ListView):
+    """View to display a list of brands."""
+    model = Brand
+    template_name = 'management/brand_list.html'
+    context_object_name = 'brands'
+    paginate_by = 12
+
+
+class BrandCreateView(LoginRequiredMixin, CreateView):
+    """View to create a new brand."""
+    model = Brand
+    form_class = BrandForm
+    template_name = 'management/brand_form.html'
+    success_url = reverse_lazy('management:brand_list')
+
+
+class BrandUpdateView(LoginRequiredMixin, UpdateView):
+    """View for update a brand."""
+    model = Brand
+    form_class = BrandForm
+    template_name = 'management/brand_form.html'
+    success_url = reverse_lazy('management:brand_list')
+
+
+class BrandDeleteView(LoginRequiredMixin, DeleteView):
+    """View to delete a brand."""
+    model = Brand
+    template_name = 'management/brand_confirm_delete.html'
+    success_url = reverse_lazy('management:brand_list')
 
 
 # Deal CRUD
