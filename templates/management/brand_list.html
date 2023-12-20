@@ -11,6 +11,8 @@
     <header class="flex items-center my-4">
       <h2 class="headline">Brands</h2>
     </header>
+
+    <a href="{% url 'management:brand_create' %}">Create</a>
   
     <!-- PAGES LIST -->
     <section class="table-wrap">
@@ -31,7 +33,10 @@
             <td class="cell">{{ brand.name }}</td>
             <td class="cell">{{ brand.slug }}</td>
             <td class="cell">{{ brand.show_hide }}</td>
-            <td class="cell"></td>
+            <td class="cell">
+              <a href="{% url 'management:brand_update' pk=brand.pk %}">Update</a>
+              <a href="{% url 'management:brand_delete' pk=brand.pk %}">Delete</a>
+            </td>
           </tr>
         </tbody>
         {% endfor %}

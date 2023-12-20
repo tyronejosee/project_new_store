@@ -11,6 +11,8 @@
     <header class="flex items-center my-4">
       <h2 class="headline">Deals</h2>
     </header>
+
+    <a href="{% url 'management:deal_create' %}">Create</a>
   
     <!-- PAGES LIST -->
     <section class="table-wrap">
@@ -49,7 +51,10 @@
             <td class="cell">{{ deal.start_date }}</td>
             <td class="cell">{{ deal.end_date }}</td>
             <td class="cell">{{ deal.status }}</td>
-            <td class="cell"></td>
+            <td class="cell">
+              <a href="{% url 'management:deal_update' pk=deal.pk %}">Update</a>
+              <a href="{% url 'management:deal_delete' pk=deal.pk %}">Delete</a>
+            </td>
           </tr>
         </tbody>
         {% endfor %}

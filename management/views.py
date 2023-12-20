@@ -35,6 +35,7 @@ class PageListView(LoginRequiredMixin, ListView):
     model = Page
     template_name = 'management/page_list.html'
     context_object_name = 'pages'
+    ordering = ['id']
     paginate_by = 8
 
 
@@ -53,6 +54,7 @@ class ProductListView(LoginRequiredMixin, ListView):
     model = Product
     template_name = 'management/product_list.html'
     context_object_name = 'products'
+    ordering = ['id']
     paginate_by = 12
 
     def get_queryset(self):
@@ -133,6 +135,7 @@ class CategoryListView(LoginRequiredMixin, ListView):
     model = Category
     template_name = 'management/category_list.html'
     context_object_name = 'categories'
+    ordering = ['id']
     paginate_by = 12
 
 
@@ -208,7 +211,8 @@ class DealListView(LoginRequiredMixin, ListView):
     model = Deal
     template_name = 'management/deal_list.html'
     context_object_name = 'deals'
-    paginate_by = 12
+    ordering = ['id']
+    paginate_by = 24
 
 
 class DealUpdateView(LoginRequiredMixin, UpdateView):
@@ -233,3 +237,4 @@ class UserListView(LoginRequiredMixin, ListView):
     model = CustomUser
     template_name = 'management/user_list.html'
     context_object_name = 'users'
+    ordering = ['id']
