@@ -12,6 +12,14 @@ from management.views import (
     ProductUpdateView,
     ProductDeleteView,
     ProductStatusToggleView,
+    CategoryListView,
+    CategoryCreateView,
+    CategoryUpdateView,
+    CategoryDeleteView,
+    BrandListView,
+    BrandCreateView,
+    BrandUpdateView,
+    BrandDeleteView,
     DealCreateView,
     DealListView,
     DealUpdateView,
@@ -38,10 +46,16 @@ urlpatterns = [
     path('products/<int:pk>/activate/', ProductStatusToggleView.as_view(), {'action': 'activate'}, name='product_activate'),
 
     # Category URLs
-    path('categories/', DealListView.as_view(), name='category_list'),
-    path('categories/create/', DealCreateView.as_view(), name='category_create'),
-    path('categories/update/<int:pk>', DealUpdateView.as_view(), name='category_update'),
-    path('categories/delete/<int:pk>', DealDeleteView.as_view(), name='category_delete'),
+    path('categories/', CategoryListView.as_view(), name='category_list'),
+    path('categories/create/', CategoryCreateView.as_view(), name='category_create'),
+    path('categories/update/<int:pk>', CategoryUpdateView.as_view(), name='category_update'),
+    path('categories/delete/<int:pk>', CategoryDeleteView.as_view(), name='category_delete'),
+
+    # Brand URLs
+    path('brands/', BrandListView.as_view(), name='brand_list'),
+    path('brands/create/', BrandCreateView.as_view(), name='brand_create'),
+    path('brands/update/<int:pk>', BrandUpdateView.as_view(), name='brand_update'),
+    path('brands/delete/<int:pk>', BrandDeleteView.as_view(), name='brand_delete'),
 
     # Deals URLs
     path('deals/', DealListView.as_view(), name='deal_list'),

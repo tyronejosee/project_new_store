@@ -6,16 +6,24 @@ from management.views import (
     ManagementView,
     PageListView,
     PageUpdateView,
-    DealListView,
-    DealCreateView,
-    DealUpdateView,
-    DealDeleteView,
     ProductListView,
     DeactivatedProductListView,
     ProductCreateView,
     ProductUpdateView,
     ProductDeleteView,
     ProductStatusToggleView,
+    CategoryListView,
+    CategoryCreateView,
+    CategoryUpdateView,
+    CategoryDeleteView,
+    BrandListView,
+    BrandCreateView,
+    BrandUpdateView,
+    BrandDeleteView,
+    DealListView,
+    DealCreateView,
+    DealUpdateView,
+    DealDeleteView,
     UserListView
 )
 
@@ -43,34 +51,6 @@ class ManagementUrlsTest(TestCase):
         resolver = resolve(url)
         # Expected responses
         self.assertEqual(resolver.func.view_class, PageUpdateView)
-
-    def test_deal_list_url(self):
-        """"Resolves 'deal_list' URL and view."""
-        url = reverse('management:deal_list')
-        resolver = resolve(url)
-        # Expected responses
-        self.assertEqual(resolver.func.view_class, DealListView)
-
-    def test_deal_create_url(self):
-        """"Resolves 'deal_create' URL and view."""
-        url = reverse('management:deal_create')
-        resolver = resolve(url)
-        # Expected responses
-        self.assertEqual(resolver.func.view_class, DealCreateView)
-
-    def test_deal_update_url(self):
-        """"Resolves 'deal_update' URL and view."""
-        url = reverse('management:deal_update', args=[1])
-        resolver = resolve(url)
-        # Expected responses
-        self.assertEqual(resolver.func.view_class, DealUpdateView)
-
-    def test_deal_delete_url(self):
-        """"Resolves 'deal_delete' URL and view."""
-        url = reverse('management:deal_delete', args=[1])
-        resolver = resolve(url)
-        # Expected responses
-        self.assertEqual(resolver.func.view_class, DealDeleteView)
 
     def test_product_list_url(self):
         """"Resolves 'product_list' URL and view."""
@@ -120,6 +100,90 @@ class ManagementUrlsTest(TestCase):
         resolver = resolve(url)
         # Expected responses
         self.assertEqual(resolver.func.view_class, ProductStatusToggleView)
+
+    def test_category_list_url(self):
+        """"Resolves 'category_list' URL and view."""
+        url = reverse('management:category_list')
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, CategoryListView)
+
+    def test_category_create_url(self):
+        """"Resolves 'category_create' URL and view."""
+        url = reverse('management:category_create')
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, CategoryCreateView)
+
+    def test_category_update_url(self):
+        """"Resolves 'category_update' URL and view."""
+        url = reverse('management:category_update', args=[1])
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, CategoryUpdateView)
+
+    def test_category_delete_url(self):
+        """"Resolves 'category_delete' URL and view."""
+        url = reverse('management:category_delete', args=[1])
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, CategoryDeleteView)
+
+    def test_brand_list_url(self):
+        """"Resolves 'brand_list' URL and view."""
+        url = reverse('management:brand_list')
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, BrandListView)
+
+    def test_brand_create_url(self):
+        """"Resolves 'brand_create' URL and view."""
+        url = reverse('management:brand_create')
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, BrandCreateView)
+
+    def test_brand_update_url(self):
+        """"Resolves 'brand_update' URL and view."""
+        url = reverse('management:brand_update', args=[1])
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, BrandUpdateView)
+
+    def test_brand_delete_url(self):
+        """"Resolves 'brand_delete' URL and view."""
+        url = reverse('management:brand_delete', args=[1])
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, BrandDeleteView)
+
+    def test_deal_list_url(self):
+        """"Resolves 'deal_list' URL and view."""
+        url = reverse('management:deal_list')
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, DealListView)
+
+    def test_deal_create_url(self):
+        """"Resolves 'deal_create' URL and view."""
+        url = reverse('management:deal_create')
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, DealCreateView)
+
+    def test_deal_update_url(self):
+        """"Resolves 'deal_update' URL and view."""
+        url = reverse('management:deal_update', args=[1])
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, DealUpdateView)
+
+    def test_deal_delete_url(self):
+        """"Resolves 'deal_delete' URL and view."""
+        url = reverse('management:deal_delete', args=[1])
+        resolver = resolve(url)
+        # Expected responses
+        self.assertEqual(resolver.func.view_class, DealDeleteView)
 
     def test_user_list_url(self):
         """"Resolves 'user_list' URL and view."""
