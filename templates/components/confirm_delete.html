@@ -1,0 +1,25 @@
+{% extends 'management/management.html' %}
+
+{% block title %}Delete {{ object }}{% endblock title %}
+
+{% block content %}
+<main class="sm:ml-64 flex flex-col h-screen">
+  <section class="box">
+    <!-- HEADLINE -->
+    <header class="my-4">
+      <h2 class="headline">Confirm delete</h2>
+    </header>
+  
+    <!-- FORM -->
+    <form method="POST" class="box">{% csrf_token %}
+      <img src="{{ object.image.url }}" class="rounded border" width="50" height="50">
+      <p>Are you sure you want to delete "{{ object }}"?</p>
+        {{ form }}
+      <div class="space-y-2">
+        <input type="submit" value="Confirm" class="btn-primary w-full">
+        <a href="" class="btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </section>
+</main>
+{% endblock %}

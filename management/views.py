@@ -158,7 +158,7 @@ class CategoryUpdateView(LoginRequiredMixin, UpdateView):
 class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     """View to delete a category."""
     model = Category
-    template_name = 'management/category_confirm_delete.html'
+    template_name = 'components/confirm_delete.html'
     success_url = reverse_lazy('management:category_list')
 
 
@@ -192,7 +192,7 @@ class BrandUpdateView(LoginRequiredMixin, UpdateView):
 class BrandDeleteView(LoginRequiredMixin, DeleteView):
     """View to delete a brand."""
     model = Brand
-    template_name = 'management/brand_confirm_delete.html'
+    template_name = 'components/confirm_delete.html'
     success_url = reverse_lazy('management:brand_list')
 
 
@@ -226,7 +226,7 @@ class DealUpdateView(LoginRequiredMixin, UpdateView):
 class DealDeleteView(LoginRequiredMixin, DeleteView):
     """View to delete a deal."""
     model = Deal
-    template_name = 'management/deal_confirm_delete.html'
+    template_name = 'components/confirm_delete.html'
     success_url = reverse_lazy('management:deal_list')
 
 
