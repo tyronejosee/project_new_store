@@ -4,7 +4,14 @@ from django import forms
 
 from home.models import Page
 from products.models import Product, Category, Brand, Deal
-from core.utils import form_select, form_text, form_number, form_checkbox, form_file, form_textarea
+from utils.tailwind_classes import (
+    form_select,
+    form_text,
+    form_number,
+    form_checkbox,
+    form_file,
+    form_textarea
+)
 
 
 class PageForm(forms.ModelForm):
@@ -13,7 +20,7 @@ class PageForm(forms.ModelForm):
     class Meta:
         """Meta definition for Page form."""
         model = Page
-        fields = ['key', 'content', 'image']
+        fields = '__all__'
         widgets = {
             'key': forms.TextInput(attrs=form_text('Key')),
             'content': forms.Textarea(attrs=form_textarea()),
@@ -84,8 +91,8 @@ class DealForm(forms.ModelForm):
             'slug': forms.TextInput(attrs=form_text('Slug')),
             'image': forms.ClearableFileInput(attrs=form_file()),
             'description': forms.Textarea(attrs=form_textarea()),
-            'discount': forms.TextInput(attrs=form_text('Key')),
-            'start_date': forms.TextInput(attrs=form_text('Key')),
-            'end_date': forms.TextInput(attrs=form_text('Key')),
+            'discount': forms.NumberInput(attrs=form_number('Discount')),
+            'start_date': forms.TextInput(attrs=form_text('Start Date')),
+            'end_date': forms.TextInput(attrs=form_text('End Date')),
             'status': forms.CheckboxInput(attrs=form_checkbox()),
         }

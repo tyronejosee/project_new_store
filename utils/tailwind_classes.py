@@ -1,4 +1,4 @@
-"""Global Utils."""
+"""Utils: Tailwind CSS Classes."""
 
 
 def form_text(placeholder):

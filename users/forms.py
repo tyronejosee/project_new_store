@@ -2,7 +2,7 @@
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from core.utils import form_text, form_number
+from utils.tailwind_classes import form_text, form_number
 from users.models import CustomUser
 
 

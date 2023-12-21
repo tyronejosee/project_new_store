@@ -2,7 +2,7 @@
 
 from django import forms
 from products.models import Category, Brand, Deal
-from core.utils import form_select, form_number
+from utils.tailwind_classes import form_select, form_number
 
 
 class CategoriesForm(forms.Form):
