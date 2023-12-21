@@ -1,17 +1,10 @@
-
-<nav class="box flex justify-between p-2">
-  <div class="flex items-center">
-    {% if request.path == '/management/products/' %}
-    <span>{{ products|length }} products</span>
-    {% endif %}
-    {% if request.path == '/management/pages/' %}
-    <span>{{ pages|length }} pages</span>
-    {% endif %}
-    {% if request.path == '/management/users/' %}
-    <span>{{ users|length }} users</span>
-    {% endif %}
+{% if page_obj and page_obj.paginator.num_pages >= 1 %}
+<nav class="box p-2 flex justify-between items-center">
+  <div>
+    <span class="bold">
+      Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} of {{ page_obj.paginator.count }} entries
+    </span>
   </div>
-  {% if page_obj.paginator.num_pages > 2 %}
   <div class="pag-wrap">
     <!-- FIRST PAGE -->
     {% if page_obj.paginator.num_pages > 5 and page_obj.has_previous %}
@@ -53,5 +46,5 @@
     </a>
     {% endif %}
   </div>
-  {% endif %}
 </nav>
+{% endif %}

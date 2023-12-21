@@ -28,7 +28,16 @@
           <span class="ms-3">Dashboard</span>
         </a>
       </li>
-      <hr class="w-48 h-1 mx-auto my-4 bg-neutral-50 border-0 rounded md:my-10 dark:bg-neutral-950">
+      <hr class="hr">
+      <li>
+        <a href="{% url 'management:page_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
+            <path d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0016.5 9h-1.875a1.875 1.875 0 01-1.875-1.875V5.25A3.75 3.75 0 009 1.5H5.625z" />
+            <path d="M12.971 1.816A5.23 5.23 0 0114.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 013.434 1.279 9.768 9.768 0 00-6.963-6.963z" />
+          </svg>
+          <span class="flex-1 ms-3 whitespace-nowrap">Company</span>
+        </a>
+      </li>
       <li>
         <a href="{% url 'management:page_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
@@ -38,7 +47,7 @@
           <span class="flex-1 ms-3 whitespace-nowrap">Pages</span>
         </a>
       </li>
-      <hr class="w-48 h-1 mx-auto my-4 bg-neutral-50 border-0 rounded md:my-10 dark:bg-neutral-950">
+      <hr class="hr">
       <li>
         <a href="{% url 'management:product_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
@@ -71,7 +80,7 @@
           <span class="flex-1 ms-3 whitespace-nowrap">Deals</span>
         </a>
       </li>
-      <hr class="w-48 h-1 mx-auto my-4 bg-neutral-50 border-0 rounded md:my-10 dark:bg-neutral-950">
+      <hr class="hr">
       <li>
         <a href="{% url 'management:user_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">

@@ -36,7 +36,7 @@ class PageListView(LoginRequiredMixin, ListView):
     template_name = 'management/page_list.html'
     context_object_name = 'pages'
     ordering = ['id']
-    paginate_by = 8
+    paginate_by = 6
 
 
 class PageUpdateView(LoginRequiredMixin, UpdateView):
@@ -55,7 +55,7 @@ class ProductListView(LoginRequiredMixin, ListView):
     template_name = 'management/product_list.html'
     context_object_name = 'products'
     ordering = ['id']
-    paginate_by = 12
+    paginate_by = 6
 
     def get_queryset(self):
         # Select specific fields from the 'Product' model using the 'only' method
@@ -99,7 +99,7 @@ class DeactivatedProductListView(LoginRequiredMixin, ListView):
     model = Product
     template_name = 'management/product_list.html'
     context_object_name = 'products'
-    paginate_by = 8
+    paginate_by = 6
 
     def get_queryset(self):
         # Select specific fields from the 'Product' model using the 'only' method
@@ -136,7 +136,7 @@ class CategoryListView(LoginRequiredMixin, ListView):
     template_name = 'management/category_list.html'
     context_object_name = 'categories'
     ordering = ['id']
-    paginate_by = 12
+    paginate_by = 6
 
 
 class CategoryCreateView(LoginRequiredMixin, CreateView):
@@ -170,7 +170,7 @@ class BrandListView(LoginRequiredMixin, ListView):
     template_name = 'management/brand_list.html'
     context_object_name = 'brands'
     ordering = ['id']
-    paginate_by = 12
+    paginate_by = 6
 
 
 class BrandCreateView(LoginRequiredMixin, CreateView):
@@ -212,7 +212,7 @@ class DealListView(LoginRequiredMixin, ListView):
     template_name = 'management/deal_list.html'
     context_object_name = 'deals'
     ordering = ['id']
-    paginate_by = 24
+    paginate_by = 6
 
 
 class DealUpdateView(LoginRequiredMixin, UpdateView):
