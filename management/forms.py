@@ -37,8 +37,10 @@ class ProductForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'title': forms.TextInput(attrs=form_text('Title product')),
+            'slug': forms.TextInput(attrs=form_text('Slug')),
             'brand': forms.Select(attrs=form_select()),
             'normal_price': forms.NumberInput(attrs=form_number('Normal price')),
+            'sale_price': forms.NumberInput(attrs=form_number('Sale price')),
             'deal': forms.Select(attrs=form_select()),
             'category': forms.Select(attrs=form_select()),
             'image': forms.ClearableFileInput(attrs=form_file()),

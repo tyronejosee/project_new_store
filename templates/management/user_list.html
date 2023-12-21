@@ -4,14 +4,12 @@
 
 {% block content %}
 <main class="sm:ml-64 flex flex-col h-screen">
-  
+
     <!-- HEADLINE -->
-    <header class="flex items-center my-4">
+    <header class="flex items-center justify-between my-4">
       <h2 class="headline">Users</h2>
+      <a href="" class="btn-primary">Create</a>
     </header>
-  
-    <!-- TOOLBAR -->
-    {% include 'components/toolbar.html' %}
   
     <!-- USERS LIST -->
     <section class="table-wrap">
@@ -21,7 +19,12 @@
             <th scope="col" class="cell">Id</th>
             <th scope="col" class="cell">Username</th>
             <th scope="col" class="cell">Email</th>
+            <th scope="col" class="cell">First Name</th>
+            <th scope="col" class="cell">Last Name</th>
+            <th scope="col" class="cell">Address</th>
+            <th scope="col" class="cell">Phone Number</th>
             <th scope="col" class="cell">Is Active</th>
+            <th scope="col" class="cell">Is Staff</th>
             <th scope="col" class="cell">Date Joined</th>
             <th scope="col" class="cell">Options</th>
           </tr>
@@ -32,7 +35,12 @@
             <td class="cell">{{ user.id }}</td>
             <td class="cell">{{ user.username }}</td>
             <td class="cell">{{ user.email }}</td>
+            <td class="cell">{{ user.first_name }}</td>
+            <td class="cell">{{ user.last_name }}</td>
+            <td class="cell">{{ user.address }}</td>
+            <td class="cell">{{ user.phone_number }}</td>
             <td class="cell">{{ user.is_active }}</td>
+            <td class="cell">{{ user.is_staff }}</td>
             <td class="cell">{{ user.date_joined }}</td>
             <td class="cell"></td>
           </tr>

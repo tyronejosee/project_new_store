@@ -8,11 +8,10 @@
   <section class="space-y-4">
   
     <!-- HEADLINE -->
-    <header class="flex items-center my-4">
+    <header class="flex items-center justify-between my-4">
       <h2 class="headline">Categories</h2>
+      <a href="{% url 'management:category_create' %}" class="btn-primary">Create</a>
     </header>
-
-    <a href="{% url 'management:category_create' %}">Create</a>
   
     <!-- PAGES LIST -->
     <section class="table-wrap">

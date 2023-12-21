@@ -5,14 +5,12 @@
 {% block content %}
 <main class="sm:ml-64">
   <section class="box mt-4">
-
     <!-- HEADLINE -->
     <header class="py-8 text-center">
       <h2 class="headline">Update brand</h2>
     </header>
-
     <!-- PAGE FORM -->
-    <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto space-y-4">{% csrf_token %}
+    <form method="POST" class="max-w-screen-sm mx-auto space-y-4">{% csrf_token %}
       <label class="block">
         <span class="bold">Name</span>
         {{ form.name }}
@@ -26,15 +24,12 @@
         {{ form.show_hide }}
       </label>
       <div class="py-8 space-y-2">
-        <button type="submit" class="btn-primary w-full">
-          Save brand
-        </button>
+        <button type="submit" class="btn-primary w-full">Save</button>
         <a href="{% url 'management:brand_list' %}" title="Cancel" class="btn-secondary w-full">
           Cancel
         </a>
       </div>
     </form>
-
   </section>
 </main>
 {% endblock %}

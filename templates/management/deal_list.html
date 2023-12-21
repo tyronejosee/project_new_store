@@ -8,11 +8,10 @@
   <section class="space-y-4">
   
     <!-- HEADLINE -->
-    <header class="flex items-center my-4">
+    <header class="flex items-center justify-between my-4">
       <h2 class="headline">Deals</h2>
+      <a href="{% url 'management:deal_create' %}" class="btn-primary">Create</a>
     </header>
-
-    <a href="{% url 'management:deal_create' %}">Create</a>
   
     <!-- PAGES LIST -->
     <section class="table-wrap">
@@ -42,9 +41,7 @@
               <a href="#" title="{{ deal.image }}" class="cursor-pointer show-image-popup" data-src="{{ deal.image.url }}">
                 <img src="{{ deal.image.url }}" alt="{{ deal.slug }}" class="rounded border" width="25" height="25">
               </a>
-              {% else %}
-              <span>none</span>
-              {% endif %}
+              {% else %}None{% endif %}
             </td>
             <td class="cell">{{ deal.description|truncatechars:10 }}</td>
             <td class="cell">{{ deal.discount }}</td>

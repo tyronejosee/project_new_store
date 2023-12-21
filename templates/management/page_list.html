@@ -8,12 +8,11 @@
   <section class="space-y-4">
   
     <!-- HEADLINE -->
-    <header class="flex items-center my-4">
+    <header class="flex items-center justify-between my-4">
       <h2 class="headline">Pages</h2>
+      <a href="" class="btn-primary">Create</a>
     </header>
   
-    <!-- TOOLBAR -->
-    {% include 'components/toolbar.html' %}
   
     <!-- PAGES LIST -->
     <section class="table-wrap">
@@ -23,6 +22,7 @@
             <th scope="col" class="cell">Id</th>
             <th scope="col" class="cell">Image</th>
             <th scope="col" class="cell">Unique Key</th>
+            <th scope="col" class="cell">Content</th>
             <th scope="col" class="cell">Created at</th>
             <th scope="col" class="cell">Updated at</th>
             <th scope="col" class="cell">Options</th>
@@ -35,15 +35,14 @@
             <td class="cell">
               {% if page.image %}
               <a href="#" title="{{ page.key }}" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">
-                <img src="{{ page.image.url }}" alt="{{ page.key }}" class="cs-rounded" width="25" height="25">
+                <img src="{{ page.image.url }}" class="cs-rounded" width="25" height="25">
               </a>
-              {% else %}
-              <span>False</span>
-              {% endif %}
+              {% else %}None{% endif %}
             </td>
             <td class="cell">{{ page.key }}</td>
-            <td class="cell">{{ page.created_at|date:"d/m/Y - g:i a" }}</td>
-            <td class="cell">{{ page.updated_at|date:"d/m/Y - g:i a" }}</td>
+            <td class="cell">{{ page.content|truncatechars:10 }}</td>
+            <td class="cell">{{ page.created_at }}</td>
+            <td class="cell">{{ page.updated_at }}</td>
             <td class="cell flex items-center space-x-4">
               <a href="{% url 'management:page_update' pk=page.pk %}" title="Update page" class="btn-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" data-slot="icon" class="icon-sm">
@@ -64,4 +63,8 @@
   </section>
 
 </main>
+
+<!-- IMAGE MODAL -->
+{% include "fragments/image_modal.html" %}
+
 {% endblock %}

@@ -6,29 +6,12 @@
 <main class="sm:ml-64 flex flex-col h-screen">
 
   <section class="space-y-4">
-    <!-- SEARCH BAR -->
-    <div class="w-full mt-4">
-      <div class="relative">
-        <form method="GET" action="{#% url 'products:search' %#}">
-          <input type="search" id="search-navbar"
-            class="form-text bg-white pl-12"
-            placeholder="Search products..." name="search" value="{# { request.GET.search } #}">
-          <div class="absolute rounded-full inset-y-0 left-0 p-4 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-          </div>
-        </form>
-      </div>
-    </div>
   
     <!-- HEADLINE -->
-    <header class="flex items-center my-4">
-      <h2 class="headline">Products <span>{{ products|length }} products</span></h2>
+    <header class="flex items-center justify-between my-4">
+      <h2 class="headline">Products</h2>
+      <a href="" class="btn-primary">Create</a>
     </header>
-  
-    <!-- TOOLBAR -->
-    {% include 'components/toolbar.html' %}
   
     <!-- PRODUCT LIST -->
     <section class="table-wrap">
@@ -37,12 +20,22 @@
         <thead class="table-head">
           <tr>
             <th scope="col" class="cell">Id</th>
+            <th scope="col" class="cell">Title</th>
+            <th scope="col" class="cell">Slug</th>
+            <th scope="col" class="cell">Brand</th>
+            <th scope="col" class="cell">Normal Price</th>
+            <th scope="col" class="cell">Sale Price</th>
+            <th scope="col" class="cell">Deal</th>
+            <th scope="col" class="cell">Category</th>
             <th scope="col" class="cell">Image</th>
             <th scope="col" class="cell">Stock</th>
-            <th scope="col" class="cell">Title</th>
-            <th scope="col" class="cell">Price</th>
+            <th scope="col" class="cell">Warranty</th>
             <th scope="col" class="cell">Featured</th>
             <th scope="col" class="cell">Show/Hide</th>
+            <th scope="col" class="cell">Description</th>
+            <th scope="col" class="cell">Specifications</th>
+            <th scope="col" class="cell">Created at</th>
+            <th scope="col" class="cell">Updated at</th>
             <th scope="col" class="cell">Options</th>
           </tr>
         </thead>
@@ -50,16 +43,26 @@
         <tbody class="table-body">
           <tr>
             <td class="cell">{{ product.id }}</td>
+            <td class="cell">{{ product.title|truncatechars:15 }}</td>
+            <td class="cell">{{ product.slug|truncatechars:15 }}</td>
+            <td class="cell">{{ product.brand }}</td>
+            <td class="cell">{{ product.normal_price }}</td>
+            <td class="cell">{{ product.sale_price }}</td>
+            <td class="cell">{{ product.deal }}</td>
+            <td class="cell">{{ product.category }}</td>
             <td class="cell">
               <a href="#" class="cursor-pointer show-image-popup" data-src="{{ product.image.url }}">
                 <img src="{{ product.image.url }}" alt="{{ product.title }}" class="icon-sm rounded">
               </a>
             </td>
             <td class="cell">{{ product.stock }}</td>
-            <td class="cell">{{ product.title|truncatechars:50 }}</td>
-            <td class="cell">${{ product.normal_price }}</td>
+            <td class="cell">{{ product.warranty }}</td>
             <td class="cell">{{ product.featured }}</td>
             <td class="cell">{{ product.show_hide }}</td>
+            <td class="cell">{{ product.description|truncatechars:10 }}</td>
+            <td class="cell">{{ product.specifications|truncatechars:10 }}</td>
+            <td class="cell">{{ product.created_at }}</td>
+            <td class="cell">{{ product.updated_at }}</td>
             <td class="cell flex items-center space-x-4">
               <a href="{% url 'management:product_update' pk=product.pk %}" title="Update product" class="btn-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
