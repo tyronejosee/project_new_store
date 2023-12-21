@@ -3,15 +3,15 @@
 {% block title %}Dashboard{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 space-y-4">
+<main class="sm:ml-64 space-y-4 px-4">
+  
+  <!-- FINDER -->
+  {% include 'components/finder.html' %}
 
   <!-- HEADLINE -->
   <header class="flex items-center my-4">
     <h2 class="headline">Dashboard</h2>
   </header>
-
-  <!-- TOOLBAR -->
-  {% include 'components/toolbar.html' %}
 
   <!-- DASHBOARD -->
   <section class="box p-4">

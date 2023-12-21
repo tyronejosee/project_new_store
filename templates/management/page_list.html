@@ -3,16 +3,18 @@
 {% block title %}Pages{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 flex flex-col h-screen">
+<main class="sm:ml-64 flex flex-col h-screen px-4">
 
   <section class="space-y-4">
+
+    <!-- FINDER -->
+    {% include 'components/finder.html' %}
   
     <!-- HEADLINE -->
     <header class="flex items-center justify-between my-4">
       <h2 class="headline">Pages</h2>
       <a href="" class="btn-primary">Create</a>
     </header>
-  
   
     <!-- PAGES LIST -->
     <section class="table-wrap">

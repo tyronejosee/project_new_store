@@ -41,7 +41,7 @@
         @apply text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
     }
     .container-lg{
-        @apply text max-w-screen-2xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
+        @apply text max-w-screen-2xl min-h-screen min-w-[320px] flex flex-col lg:mx-auto bg-light dark:bg-dark;
     }
 
 

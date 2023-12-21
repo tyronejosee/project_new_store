@@ -7,7 +7,7 @@
 </button>
 
 <!-- SIDEBAR -->
-<aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 transition-transform -translate-x-full sm:translate-x-0 bg-white dark:bg-dark flex flex-col h-full" aria-label="Sidebar">
+<aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-64 transition-transform -translate-x-full sm:translate-x-0 bg-white dark:bg-dark flex flex-col h-full rounded-br-2xl" aria-label="Sidebar">
   <div class="flex items-center space-x-4 p-4 justify-center">
     <h1>
       <a href="{% url 'management:management' %}" class="flex items-center space-x-4 sm:pb-0">
@@ -28,6 +28,7 @@
           <span class="ms-3">Dashboard</span>
         </a>
       </li>
+      <hr class="w-48 h-1 mx-auto my-4 bg-neutral-50 border-0 rounded md:my-10 dark:bg-neutral-950">
       <li>
         <a href="{% url 'management:page_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
@@ -37,6 +38,7 @@
           <span class="flex-1 ms-3 whitespace-nowrap">Pages</span>
         </a>
       </li>
+      <hr class="w-48 h-1 mx-auto my-4 bg-neutral-50 border-0 rounded md:my-10 dark:bg-neutral-950">
       <li>
         <a href="{% url 'management:product_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
@@ -48,7 +50,7 @@
       <li>
         <a href="{% url 'management:category_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
-            <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z" clip-rule="evenodd" />
           </svg>
           <span class="flex-1 ms-3 whitespace-nowrap">Categories</span>
         </a>
@@ -64,11 +66,12 @@
       <li>
         <a href="{% url 'management:deal_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
-            <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z" clip-rule="evenodd" />
+            <path d="M9.375 3a1.875 1.875 0 0 0 0 3.75h1.875v4.5H3.375A1.875 1.875 0 0 1 1.5 9.375v-.75c0-1.036.84-1.875 1.875-1.875h3.193A3.375 3.375 0 0 1 12 2.753a3.375 3.375 0 0 1 5.432 3.997h3.943c1.035 0 1.875.84 1.875 1.875v.75c0 1.036-.84 1.875-1.875 1.875H12.75v-4.5h1.875a1.875 1.875 0 1 0-1.875-1.875V6.75h-1.5V4.875C11.25 3.839 10.41 3 9.375 3ZM11.25 12.75H3v6.75a2.25 2.25 0 0 0 2.25 2.25h6v-9ZM12.75 12.75v9h6.75a2.25 2.25 0 0 0 2.25-2.25v-6.75h-9Z" />
           </svg>
           <span class="flex-1 ms-3 whitespace-nowrap">Deals</span>
         </a>
       </li>
+      <hr class="w-48 h-1 mx-auto my-4 bg-neutral-50 border-0 rounded md:my-10 dark:bg-neutral-950">
       <li>
         <a href="{% url 'management:user_list' %}" class="flex items-center p-2 text-gray-900 cs-rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
@@ -79,10 +82,8 @@
       </li>
     </ul>
   </nav>
-  <div class="mt-auto p-4">
-    <a href="{% url 'home:index' %}" class="btn-secondary">Home</a>
-    <button class="btn-secondary w-full">
-      {{ user.first_name }} {{ user.last_name }}
-    </button>
+  <div class="mt-auto p-4 space-y-2">
+    <a href="{% url 'home:index' %}" class="btn-secondary">Homepage</a>
+    <span class="small flex justify-center">Made with ❤️ by Tyrone José</span>
   </div>
 </aside>
