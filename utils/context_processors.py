@@ -27,10 +27,13 @@ def cart_items_count(request):
     """Context processor to add the cart items count to the context."""
     user = request.user
 
-    # Get the current user's cart
-    cart, created = Cart.objects.get_or_create(user=user)
+    if user.is_authenticated:
+        # Get the current user's cart
+        cart, created = Cart.objects.get_or_create(user=user)
 
-    # Calculate the total quantity of items in the cart
-    cart_items_count_list = sum(item.quantity for item in cart.cart_items.all())
+        # Calculate the total quantity of items in the cart
+        cart_items_count_list = sum(item.quantity for item in cart.cart_items.all())
+    else:
+        cart_items_count_list = 0
 
     return {'cart_items_count': cart_items_count_list}
