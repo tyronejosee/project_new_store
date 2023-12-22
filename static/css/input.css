@@ -38,7 +38,7 @@
 
     /* COINTAINERS */
     .container{
-        @apply text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
+        @apply text space-y-4 max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
     }
     .container-lg{
         @apply text max-w-screen-2xl min-h-screen min-w-[320px] flex flex-col lg:mx-auto bg-light dark:bg-dark;
@@ -200,16 +200,16 @@
 
     /* SIGN UP */
     .sign-wrap{
-        @apply box px-4 space-y-4 justify-center py-8 mt-4 md:flex md:items-center md:space-x-4;
+        @apply box flex flex-col justify-center space-y-2 p-4 md:flex md:flex-row md:items-center md:space-x-4 md:space-y-0;
     }
 
 
     /* FOOTER */
     .foot-wrap{
-        @apply grid gap-4 grid-cols-2 px-4 py-8 md:grid-cols-4;
+        @apply grid gap-4 grid-cols-2 p-4 md:grid-cols-4;
     }
     .foot-title{
-        @apply mb-4 text-primary;
+        @apply bold mb-4 text-primary;
     }
     .foot-copy{
         @apply pb-4 md:flex md:items-center md:justify-between;

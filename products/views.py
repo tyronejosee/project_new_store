@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.db.models import Q
+
 from products.models import Product, Brand, Deal, Category
 from products.forms import CategoriesForm
 
@@ -18,6 +19,11 @@ class ProductListView(ListView):
     def get_queryset(self):
         queryset = Product.objects.filter(show_hide=True, stock__gte=1)
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'All Products'
+        return context
 
 
 class ProductDetailView(DetailView):

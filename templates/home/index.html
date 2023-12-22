@@ -3,34 +3,38 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<main class="space-y-4">
+<main class="space-y-12">
 
   <!-- CATEGORIES -->
-  <header class="flex justify-between items-center p-4">
-    <h2 class="headline">Featured Categories</h2>
-  </header>
-  <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
-    {% for category in products_categories|slice:":12" %}
-    <a href="{% url 'products:category_filter' category.slug %}" class="box flex flex-col items-center justify-center space-y-4 h-40">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
-        <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z" clip-rule="evenodd" />
-      </svg>
-      <span class="link">{{ category.title }}</span>
-    </a>
-    {% endfor %}
+  <section>
+    <header class="flex justify-between items-center pt-4">
+      <h2 class="headline">Featured Categories</h2>
+    </header>
+    <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
+      {% for category in products_categories|slice:":12" %}
+      <a href="{% url 'products:category_filter' category.slug %}" class="box flex flex-col items-center justify-center space-y-4 h-40">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+          <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z" clip-rule="evenodd" />
+        </svg>
+        <span class="link">{{ category.title }}</span>
+      </a>
+      {% endfor %}
+    </section>
   </section>
 
   <!-- RECENT PRODUCTS -->
-  <header class="flex justify-between items-center p-4">
-    <h2 class="headline">Recent Products</h2>
-    <a href="{% url 'products:recent' %}" class="btn-secondary">View all</a>
-  </header>
-  <section class="card-grid">
-    {% for product in recent_products %}
-      {% include "components/card.html" %}
-    {% empty %}
-      {% include "components/empty.html" with arg="product" %}
-    {% endfor %}
+  <section>
+    <header class="flex justify-between items-center py-4">
+      <h2 class="headline">Recent Products</h2>
+      <a href="{% url 'products:recent' %}" class="btn-secondary">View all</a>
+    </header>
+    <section class="card-grid">
+      {% for product in recent_products %}
+        {% include "components/card.html" %}
+      {% empty %}
+        {% include "components/empty.html" with arg="product" %}
+      {% endfor %}
+    </section>
   </section>
 
   <!-- MAX DEALS -->
@@ -44,7 +48,7 @@
 
   <!-- ALL PRODUCTS -->
   <section>
-    <header class="flex justify-between items-center p-4">
+    <header class="flex justify-between items-center py-4">
       <h2 class="headline">All Products</h2>
       <a href="{% url 'products:prod_list' %}" class="btn-secondary">View all</a>
     </header>
@@ -69,7 +73,7 @@
 
   <!-- APPLE -->
   <section>
-    <header class="flex justify-between items-center p-4">
+    <header class="flex justify-between items-center py-4">
       <h2 class="headline">Apple</h2>
       <a href="{% url 'products:brand_filter' brand_slug='apple' %}" class="btn-secondary">View all</a>
     </header>
@@ -84,7 +88,7 @@
 
   <!-- SAMSUNG -->
   <section>
-    <header class="flex justify-between items-center p-4">
+    <header class="flex justify-between items-center py-4">
       <h2 class="headline">Samsung</h2>
       <a href="{% url 'products:brand_filter' brand_slug='samsung' %}" class="btn-secondary">View all</a>
     </header>
@@ -99,7 +103,7 @@
 
   <!-- COMPUTERS MONITORS -->
   <section>
-    <header class="flex justify-between items-center p-4">
+    <header class="flex justify-between items-center py-4">
       <h2 class="headline">Computer Monitors</h2>
       <a href="{% url 'products:category_filter' category_slug='computer-monitors' %}" class="btn-secondary">View all</a>
     </header>

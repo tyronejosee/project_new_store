@@ -3,7 +3,7 @@
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 
 {% block content %}
-<main>
+<main class="space-y-4">
 
   <!-- ROUTES -->
   {% include "components/routes.html" %}
@@ -69,7 +69,7 @@
   </section>
 
   <!-- DESCRIPTION AND SPECIFICATIONS -->
-  <aside class="mt-4">
+  <aside>
     <nav class="flex space-x-4" id="product-tabs">
       <a href="#description-tab" class="detail-nav">Description</a>
       <a href="#specifications-tab" class="detail-nav">Specifications</a>
