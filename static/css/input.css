@@ -38,59 +38,51 @@
 
     /* COINTAINERS */
     .container{
-        @apply text space-y-4 max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-light dark:bg-dark;
+        @apply text max-w-screen-xl min-h-screen min-w-[320px] flex flex-col px-4 lg:mx-auto bg-neutral-100 dark:bg-neutral-900;
     }
     .container-lg{
-        @apply text max-w-screen-2xl min-h-screen min-w-[320px] flex flex-col lg:mx-auto bg-light dark:bg-dark;
+        @apply text max-w-screen-2xl min-h-screen min-w-[320px] flex flex-col lg:mx-auto bg-neutral-100 dark:bg-neutral-900;
     }
-
 
     /* INTERFACE */
     .cs-rounded{
         @apply rounded-xl;
     }
-    .cs-shadow{
-        @apply shadow-xl;
-    }
     .hr{
         @apply w-48 h-1 mx-auto my-4 bg-neutral-100 border-0 rounded md:my-10 dark:bg-neutral-800;
     }
 
-
-
     /* BOXS */
     .box{
-        @apply bg-lightTab dark:bg-darkTab cs-rounded;
+        @apply bg-white dark:bg-neutral-800 cs-rounded;
     }
-
 
     /* TEXTS */
     .headline{
-        @apply font-bold text-2xl lg:text-3xl text-neutral-800 dark:text-neutral-200;
+        @apply font-bold text-2xl lg:text-3xl text-neutral-900 dark:text-neutral-100;
     }
     .subheadline{
-        @apply font-bold text-xl lg:text-2xl text-neutral-800 dark:text-neutral-200;
+        @apply font-bold text-xl lg:text-2xl text-neutral-900 dark:text-neutral-100;
     }
     .text{
-        @apply font-normal text-sm lg:text-base text-neutral-600 dark:text-neutral-300 selection:bg-primary selection:text-white;
+        @apply font-normal text-sm lg:text-base text-neutral-800 dark:text-neutral-200 selection:bg-primary selection:text-white;
     }
     .bold{
-        @apply font-medium text-sm lg:text-base text-neutral-800 dark:text-neutral-200;
+        @apply font-medium text-sm lg:text-base text-neutral-900 dark:text-neutral-100;
     }  
     .link{
-        @apply font-medium text-sm lg:text-base hover:underline text-neutral-800 dark:text-neutral-200 focus:text-primary;
+        @apply font-medium text-sm lg:text-base hover:underline text-neutral-900 dark:text-neutral-100 focus:text-primary;
     }
     .link-bold{
         @apply font-medium text-sm lg:text-base text-primary hover:underline focus:text-primaryFocus;
     }
     .small{
-        @apply font-normal text-xs text-neutral-500 dark:text-neutral-400 text-center;
+        @apply font-normal text-xs text-neutral-600 dark:text-neutral-400;
     }
     .small-link{
-        @apply font-normal text-xs text-neutral-500 text-center hover:underline;
+        @apply font-normal text-xs text-neutral-600 dark:text-neutral-400 hover:underline;
     }
     
-
     /* PRICES */
     .price-sp{
         @apply text-3xl font-bold text-red-600;
@@ -104,7 +96,6 @@
     .price-d{
         @apply bold;
     }
- 
 
     /* ICONS */
     .icon-sm{
@@ -117,10 +108,9 @@
         @apply w-12 h-12 text-primary;
     }
 
-
     /* NAVBAR */
     .navbar-wrap{
-        @apply bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10 border-b border-lightHover dark:border-darkHover;
+        @apply bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10 border-b border-neutral-200 dark:border-neutral-700;
     }
     .navbar-wrap nav{
         @apply flex flex-wrap sm:flex-nowrap items-center justify-between py-4;
@@ -131,7 +121,7 @@
         @apply grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:md:grid-cols-6;
     }
     .card-wrap{
-        @apply box relative hover:cs-shadow p-2 hover-scale transform hover:scale-105;
+        @apply box relative p-2 hover-scale transform hover:scale-105;
     }
     .card-img{
         @apply w-full h-auto rounded-2xl;
@@ -152,7 +142,6 @@
         @apply text-xs text-neutral-500 line-through;
     }
 
-
     /* DETAILS */
     .detail-wrap{
         @apply box p-4 grid gap-4 grid-cols-1 md:grid-cols-2;
@@ -163,7 +152,6 @@
     .detail-nav{
         @apply flex items-center justify-center link h-10 box w-full;
     }
-
 
     /* DEALS */
     .deal-wrap{
@@ -176,33 +164,29 @@
         @apply w-full h-64 object-cover cs-rounded;
     }
 
-
     /* LISTS */
     .list-wrap{
-        @apply box cs-shadow absolute hidden right-0 z-10 overflow-hidden p-2 text-sm w-96;
+        @apply box shadow absolute hidden right-0 z-10 overflow-hidden p-2 text-sm w-96;
     }
     .list-itm{
-        @apply block p-2 cs-rounded hover:bg-lightHover dark:hover:bg-darkHover;
+        @apply block p-2 cs-rounded hover:bg-neutral-200 dark:hover:bg-neutral-700;
     }
-
 
     /* PAGINATION */
     .pag-wrap{
         @apply flex items-center justify-center space-x-2;
     }
     .pag-itm{
-        @apply flex items-center justify-center px-4 h-10 rounded-xl bg-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-700;
+        @apply flex items-center justify-center px-4 h-10 rounded-xl bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600;
     }
     .pag-itm-active{
         @apply flex items-center justify-center px-4 h-10 rounded-xl text-white bg-primary hover:bg-primaryHover;
     }
 
-
     /* SIGN UP */
     .sign-wrap{
         @apply box flex flex-col justify-center space-y-2 p-4 md:flex md:flex-row md:items-center md:space-x-4 md:space-y-0;
     }
-
 
     /* FOOTER */
     .foot-wrap{
@@ -218,22 +202,18 @@
         @apply flex mt-4 space-x-5 justify-center md:mt-0;
     }
 
-
     /* BUTTONS */
     .btn-primary{
         @apply flex items-center justify-center bg-primary hover:bg-primaryHover px-4 h-10 focus:ring-4 focus:outline-none focus:ring-primaryFocus bold text-white cs-rounded;
     }
     .btn-secondary{
-        @apply flex items-center justify-center bg-secondary hover:bg-secondaryHover px-4 h-10 focus:ring-4 focus:outline-none focus:ring-secondaryFocus text-neutral-800 dark:text-neutral-200 bold cs-rounded;
-    }
-    .btn-tertiary{
-        @apply flex items-center justify-center bg-secondary hover:bg-secondaryHover px-4 h-10 focus:ring-4 focus:outline-none focus:ring-secondaryFocus text-neutral-800 dark:text-neutral-200 bold cs-rounded;
+        @apply flex items-center justify-center bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 px-4 h-10 focus:ring-2 focus:outline-none focus:ring-secondaryFocus text-neutral-800 dark:text-neutral-200 bold cs-rounded;
     }
     .btn-scroll{
-        @apply btn-primary cs-shadow fixed z-20 bottom-4 right-4 p-4 h-12 w-12;
+        @apply btn-primary shadow fixed z-20 bottom-4 right-4 p-4 h-12 w-12;
     }
     .btn-icon{
-        @apply p-2 rounded-full hover:bg-lightHover;
+        @apply p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700;
     }
 
     /* FORMS */
@@ -265,7 +245,6 @@
         @apply bg-light cs-rounded block w-full h-64 px-4 dark:bg-dark focus:outline-none focus:ring focus:ring-primary placeholder:text-neutral-500 text-sm dark:placeholder:text-light;
     } 
 
-
     /* TABLES */
     .table-wrap{
         @apply relative overflow-x-auto cs-rounded;
@@ -274,10 +253,10 @@
         @apply w-full text-left;
     }
     .table-head{
-        @apply bg-lightTab dark:bg-darkTab bold;
+        @apply bg-white dark:bg-neutral-800 bold;
     }
     .table-body{
-        @apply bg-lightTab hover:bg-neutral-50 dark:bg-darkTab dark:hover:bg-darkHover;
+        @apply bg-white hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-700;
     }
     .cell{
         @apply px-4 h-10;
@@ -285,7 +264,6 @@
     .cell-lg{
         @apply px-4 h-20;
     }
-
 
     /* TAGS */
     .tag{
@@ -301,7 +279,6 @@
         @apply absolute tag ml-3 my-1;
     }
 
-
     /* PAYMENT */
     .pay-wrap{
         @apply box p-4 mt-4 grid gap-4 grid-cols-1 md:grid-cols-2;
@@ -312,7 +289,6 @@
     .pay-info{
         @apply flex flex-col h-full;
     }
-
 
     /* ANIMATIONS */
     .hover-scale {
