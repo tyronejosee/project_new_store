@@ -1,59 +1,40 @@
-{% extends 'management/management.html' %}
+{% extends 'layouts/base_management.html' %}
 
-{% block title %}Categories{% endblock title %}
+{% block title %}Category List{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 flex flex-col h-screen px-4">
+<!-- HEADLINE -->
+<header class="flex justify-between">
+  <h2 class="headline">Categories</h2>
+  <a href="{% url 'management:category_create' %}" class="btn-primary">Create</a>
+</header>
 
-  <section class="space-y-4">
-
-    <!-- FINDER -->
-    {% include 'components/finder.html' %}
-  
-    <!-- HEADLINE -->
-    <header class="flex items-center justify-between my-4">
-      <h2 class="headline">Categories</h2>
-      <a href="{% url 'management:category_create' %}" class="btn-primary">Create</a>
-    </header>
-  
-    <!-- PAGES LIST -->
-    <section class="table-wrap">
-      <table>
-        <thead class="table-head">
-          <tr>
-            <th scope="col" class="cell">Id</th>
-            <th scope="col" class="cell">Title</th>
-            <th scope="col" class="cell">Slug</th>
-            <th scope="col" class="cell">Show-Hide</th>
-            <th scope="col" class="cell">Options</th>
-          </tr>
-        </thead>
-        {% for category in categories %}
-        <tbody class="table-body">
-          <tr>
-            <td class="cell">{{ category.id }}</td>
-            <td class="cell">{{ category.title }}</td>
-            <td class="cell">{{ category.slug }}</td>
-            <td class="cell">{{ category.show_hide }}</td>
-            <td class="cell">
-              <a href="{% url 'management:category_update' pk=category.pk %}">Update</a>
-              <a href="{% url 'management:category_delete' pk=category.pk %}">Delete</a>
-            </td>
-          </tr>
-        </tbody>
-        {% endfor %}
-      </table>
-    </section>
-  </section>
-  
-  <!-- PAGINATION -->
-  <section class="mt-auto my-4">
-    {% include "components/pagination.html" %}
-  </section>
-
-</main>
-
-<!-- IMAGE MODAL -->
-{% include "fragments/image_modal.html" %}
-
+<!-- TABLE CONTENT -->
+<section class="table-wrap">
+  <table>
+    <thead class="table-head">
+      <tr>
+        <th scope="col" class="cell">Id</th>
+        <th scope="col" class="cell">Title</th>
+        <th scope="col" class="cell">Slug</th>
+        <th scope="col" class="cell">Show-Hide</th>
+        <th scope="col" class="cell">Options</th>
+      </tr>
+    </thead>
+    {% for category in categories %}
+    <tbody class="table-body">
+      <tr>
+        <td class="cell">{{ category.id }}</td>
+        <td class="cell">{{ category.title }}</td>
+        <td class="cell">{{ category.slug }}</td>
+        <td class="cell">{{ category.show_hide }}</td>
+        <td class="cell">
+          <a href="{% url 'management:category_update' pk=category.pk %}">Update</a>
+          <a href="{% url 'management:category_delete' pk=category.pk %}">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</section>
 {% endblock %}

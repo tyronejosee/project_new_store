@@ -1,59 +1,40 @@
-{% extends 'management/management.html' %}
+{% extends 'layouts/base_management.html' %}
 
-{% block title %}Brands{% endblock title %}
+{% block title %}Brand List{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 flex flex-col h-screen px-4">
+<!-- HEADLINE -->
+<header class="flex items-center justify-between my-4">
+  <h2 class="headline">Brands</h2>
+  <a href="{% url 'management:brand_create' %}" class="btn-primary">Create</a>
+</header>
 
-  <section class="space-y-4">
-
-    <!-- FINDER -->
-    {% include 'components/finder.html' %}
-
-    <!-- HEADLINE -->
-    <header class="flex items-center justify-between my-4">
-      <h2 class="headline">Brands</h2>
-      <a href="{% url 'management:brand_create' %}" class="btn-primary">Create</a>
-    </header>
-  
-    <!-- PAGES LIST -->
-    <section class="table-wrap">
-      <table>
-        <thead class="table-head">
-          <tr>
-            <th scope="col" class="cell">Id</th>
-            <th scope="col" class="cell">Name</th>
-            <th scope="col" class="cell">Slug</th>
-            <th scope="col" class="cell">Show-Hide</th>
-            <th scope="col" class="cell">Options</th>
-          </tr>
-        </thead>
-        {% for brand in brands %}
-        <tbody class="table-body">
-          <tr>
-            <td class="cell">{{ brand.id }}</td>
-            <td class="cell">{{ brand.name }}</td>
-            <td class="cell">{{ brand.slug }}</td>
-            <td class="cell">{{ brand.show_hide }}</td>
-            <td class="cell">
-              <a href="{% url 'management:brand_update' pk=brand.pk %}">Update</a>
-              <a href="{% url 'management:brand_delete' pk=brand.pk %}">Delete</a>
-            </td>
-          </tr>
-        </tbody>
-        {% endfor %}
-      </table>
-    </section>
-  </section>
-  
-  <!-- PAGINATION -->
-  <section class="mt-auto my-4">
-    {% include "components/pagination.html" %}
-  </section>
-
-</main>
-
-<!-- IMAGE MODAL -->
-{% include "fragments/image_modal.html" %}
-
+<!-- TABLE CONTENT -->
+<section class="table-wrap">
+  <table>
+    <thead class="table-head">
+      <tr>
+        <th scope="col" class="cell">Id</th>
+        <th scope="col" class="cell">Name</th>
+        <th scope="col" class="cell">Slug</th>
+        <th scope="col" class="cell">Show-Hide</th>
+        <th scope="col" class="cell">Options</th>
+      </tr>
+    </thead>
+    {% for brand in brands %}
+    <tbody class="table-body">
+      <tr>
+        <td class="cell">{{ brand.id }}</td>
+        <td class="cell">{{ brand.name }}</td>
+        <td class="cell">{{ brand.slug }}</td>
+        <td class="cell">{{ brand.show_hide }}</td>
+        <td class="cell">
+          <a href="{% url 'management:brand_update' pk=brand.pk %}">Update</a>
+          <a href="{% url 'management:brand_delete' pk=brand.pk %}">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</section>
 {% endblock %}

@@ -1,37 +1,30 @@
-{% extends 'management/management.html' %}
+{% extends 'layouts/base_management.html' %}
 
 {% block title %}Dashboard{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 space-y-4 px-4">
-  
-  <!-- FINDER -->
-  {% include 'components/finder.html' %}
+<!-- HEADLINE -->
+<header class="flex justify-between">
+  <h2 class="headline">Dashboard</h2>
+  <span>{{ total_products }}</span>
+</header>
 
-  <!-- HEADLINE -->
-  <header class="flex items-center">
-    <h2 class="headline">Dashboard</h2>
-    <span>{{ total_products }}</span>
-  </header>
-
-  <!-- DASHBOARD -->
-  <section class="grid grid-cols-4 grid-rows-2 gap-4">
-    <div class="box w-full h-64 p-4">
-      <div class="bg-neutral-100 cs-rounded h-full"></div>
-    </div>
-    <div class="box w-full h-64 p-4">
-      <div class="bg-neutral-100 cs-rounded h-full"></div>
-    </div>
-    <div class="box w-full h-64 p-4">
-      <div class="bg-neutral-100 cs-rounded h-full"></div>
-    </div>
-    <div class="box w-full h-64 p-4">
-      <div class="bg-neutral-100 cs-rounded h-full"></div>
-    </div>
-    <div class="box col-span-4 w-full h-64 p-4">
-      <div class="bg-neutral-100 cs-rounded h-full"></div>
-    </div>
-  </section>
-
-</main>
+<!-- DASHBOARD -->
+<section class="grid grid-cols-4 grid-rows-2 gap-4">
+  <div class="box w-full h-64 p-4">
+    <div class="bg-neutral-100 cs-rounded h-full"></div>
+  </div>
+  <div class="box w-full h-64 p-4">
+    <div class="bg-neutral-100 cs-rounded h-full"></div>
+  </div>
+  <div class="box w-full h-64 p-4">
+    <div class="bg-neutral-100 cs-rounded h-full"></div>
+  </div>
+  <div class="box w-full h-64 p-4">
+    <div class="bg-neutral-100 cs-rounded h-full"></div>
+  </div>
+  <div class="box col-span-4 w-full h-64 p-4">
+    <div class="bg-neutral-100 cs-rounded h-full"></div>
+  </div>
+</section>
 {% endblock %}

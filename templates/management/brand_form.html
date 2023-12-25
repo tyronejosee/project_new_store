@@ -1,35 +1,32 @@
-{% extends 'management/management.html' %}
+{% extends 'layouts/base_management.html' %}
 
 {% block title %}Brand Form{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 px-4">
-  <section class="box mt-4">
-    <!-- HEADLINE -->
-    <header class="py-8 text-center">
-      <h2 class="headline">Update brand</h2>
-    </header>
-    <!-- PAGE FORM -->
-    <form method="POST" class="max-w-screen-sm mx-auto space-y-4">{% csrf_token %}
-      <label class="block">
-        <span class="bold">Name</span>
-        {{ form.name }}
-      </label>
-      <label class="block">
-        <span class="bold">Slug</span>
-        {{ form.slug }}
-      </label>
-      <label class="block">
-        <span class="bold">Show/Hide</span>
-        {{ form.show_hide }}
-      </label>
-      <div class="py-8 space-y-2">
-        <button type="submit" class="btn-primary w-full">Save</button>
-        <a href="{% url 'management:brand_list' %}" title="Cancel" class="btn-secondary w-full">
-          Cancel
-        </a>
-      </div>
-    </form>
-  </section>
-</main>
+<!-- HEADLINE -->
+<header>
+  <h2 class="headline">Update brand</h2>
+</header>
+
+<!-- PAGE FORM -->
+<form method="POST" class="space-y-4 pb-4">{% csrf_token %}
+  <label class="block">
+    <span class="bold">Name</span>
+    {{ form.name }}
+  </label>
+  <label class="block">
+    <span class="bold">Slug</span>
+    {{ form.slug }}
+  </label>
+  <label class="block">
+    <span class="bold">Show/Hide</span>
+    {{ form.show_hide }}
+  </label>
+  <div class="space-y-2">
+    <button type="submit" class="btn-primary w-full">Save</button>
+    <a href="{% url 'management:brand_list' %}" title="Cancel" class="btn-secondary w-full">
+      Cancel
+    </a>
+  </div>
+</form>
 {% endblock %}

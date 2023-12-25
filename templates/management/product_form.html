@@ -1,83 +1,79 @@
-{% extends 'management/management.html' %}
+{% extends 'layouts/base_management.html' %}
 
 {% block title %}Product Form{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 box my-4 px-4">
+<!-- HEADLINE -->
+<header>
+  <h2 class="headline">Create or update product</h2>
+</header>
 
-  <!-- HEADLINE -->
-  <header class="flex justify-center pt-8">
-    <h2 class="headline">Create or update product</h2>
-  </header>
-
-  <!-- PRODUCT FORM -->
-  <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto space-y-2 p-4">{% csrf_token %}
-    {{ form.non_field_errors }}
-    <label for="{{ form.title.id_for_label }}" class="block">
-      <span class="bold">Title</span>
-      {{ form.title }}
+<!-- PRODUCT FORM -->
+<form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
+  {{ form.non_field_errors }}
+  <label for="{{ form.title.id_for_label }}" class="block">
+    <span class="bold">Title</span>
+    {{ form.title }}
+  </label>
+  <div class="flex justify-beetween space-x-4">
+    <label for="{{ form.normal_price.id_for_label }}" class="flex-grow block">
+      <span class="bold">Price</span>
+      {{ form.normal_price }}
     </label>
-    <div class="flex justify-beetween space-x-4">
-      <label for="{{ form.normal_price.id_for_label }}" class="flex-grow block">
-        <span class="bold">Price</span>
-        {{ form.normal_price }}
-      </label>
-      <label for="{{ form.stock.id_for_label }}" class="flex-grow block">
-        <span class="bold">Stock</span>
-        {{ form.stock }}
-      </label>
-    </div>
-    <div class="flex justify-beetween space-x-4">
-      <label for="{{ form.category.id_for_label }}" class="flex-grow">
-        <span class="bold">Category</span>
-        {{ form.category }}
-      </label>
-      <label for="{{ form.brand.id_for_label }}" class="flex-grow">
-        <span class="bold">Brand</span>
-        {{ form.brand }}
-      </label>
-    </div>
-    <div class="flex justify-beetween space-x-4">
-      <label for="{{ form.deal.id_for_label }}" class="flex-grow">
-        <span class="bold">Deal</span>
-        {{ form.deal }}
-      </label>
-      <label for="{{ form.warranty.id_for_label }}" class="flex-grow">
-        <span class="bold">Warranty</span>
-        {{ form.warranty }}
-      </label>
-    </div>      
-    <label for="{{ form.image.id_for_label }}" class="block">
-      <span class="bold">Image</span>
-      {{ form.image }}
+    <label for="{{ form.stock.id_for_label }}" class="flex-grow block">
+      <span class="bold">Stock</span>
+      {{ form.stock }}
     </label>
-    <div class="flex gap-4 items-center">
-      <div class="flex h-5">
-        {{ form.show_hide }}
-      </div>
-      <label for="{{ form.show_hide.id_for_label }}" class="block">Show/Hide</label>
-    </div>
-    <div class="flex gap-4 items-center">
-      <div class="flex h-5">
-        {{ form.featured }}
-      </div>
-      <label for="{{ form.featured.id_for_label }}" class="block">Featured</label>
-    </div>
-    <label for="{{ form.description.id_for_label }}" class="block">
-      <span class="bold">Description</span>
-      {{ form.description }}
+  </div>
+  <div class="flex justify-beetween space-x-4">
+    <label for="{{ form.category.id_for_label }}" class="flex-grow">
+      <span class="bold">Category</span>
+      {{ form.category }}
     </label>
-    <label for="{{ form.specifications.id_for_label }}" class="block">
-      <span class="bold">Specifications</span>
-      {{ form.specifications }}
+    <label for="{{ form.brand.id_for_label }}" class="flex-grow">
+      <span class="bold">Brand</span>
+      {{ form.brand }}
     </label>
-    <div class="space-y-2">
-      <button type="submit" class="btn-primary w-full">Save product</button>
-      <a href="{% url 'management:product_list' %}" title="Cancel" class="btn-secondary w-full">
-        Cancel
-      </a>
+  </div>
+  <div class="flex justify-beetween space-x-4">
+    <label for="{{ form.deal.id_for_label }}" class="flex-grow">
+      <span class="bold">Deal</span>
+      {{ form.deal }}
+    </label>
+    <label for="{{ form.warranty.id_for_label }}" class="flex-grow">
+      <span class="bold">Warranty</span>
+      {{ form.warranty }}
+    </label>
+  </div>      
+  <label for="{{ form.image.id_for_label }}" class="block">
+    <span class="bold">Image</span>
+    {{ form.image }}
+  </label>
+  <div class="flex gap-4 items-center">
+    <div class="flex h-5">
+      {{ form.show_hide }}
     </div>
-  </form>
-
-</main>
+    <label for="{{ form.show_hide.id_for_label }}" class="block">Show/Hide</label>
+  </div>
+  <div class="flex gap-4 items-center">
+    <div class="flex h-5">
+      {{ form.featured }}
+    </div>
+    <label for="{{ form.featured.id_for_label }}" class="block">Featured</label>
+  </div>
+  <label for="{{ form.description.id_for_label }}" class="block">
+    <span class="bold">Description</span>
+    {{ form.description }}
+  </label>
+  <label for="{{ form.specifications.id_for_label }}" class="block">
+    <span class="bold">Specifications</span>
+    {{ form.specifications }}
+  </label>
+  <div class="space-y-2">
+    <button type="submit" class="btn-primary w-full">Save product</button>
+    <a href="{% url 'management:product_list' %}" title="Cancel" class="btn-secondary w-full">
+      Cancel
+    </a>
+  </div>
+</form>
 {% endblock %}

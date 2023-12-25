@@ -1,60 +1,54 @@
-{% extends 'management/management.html' %}
+{% extends 'layouts/base_management.html' %}
 
 {% block title %}Deal Form{% endblock title %}
 
 {% block content %}
-<main class="sm:ml-64 px-4">
-  <section class="box mt-4">
+<!-- HEADLINE -->
+<header>
+  <h2 class="headline">Update deal</h2>
+</header>
 
-    <!-- HEADLINE -->
-    <header class="py-8 text-center">
-      <h2 class="headline">Update deal</h2>
-    </header>
-
-    <!-- PAGE FORM -->
-    <form method="POST" enctype="multipart/form-data" class="max-w-screen-sm mx-auto space-y-4">{% csrf_token %}
-      <label class="block">
-        <span class="bold">Name</span>
-        {{ form.name }}
-      </label>
-      <label class="block">
-        <span class="bold">Slug</span>
-        {{ form.slug }}
-      </label>
-      <label class="block">
-        <span class="bold">Image</span>
-        {{ form.image }}
-      </label>
-      <label class="block">
-        <span class="bold">Description</span>
-        {{ form.description }}
-      </label>
-      <label class="block">
-        <span class="bold">Discount</span>
-        {{ form.discount }}
-      </label>
-      <label class="block">
-        <span class="bold">Start Date</span>
-        {{ form.start_date }}
-      </label>
-      <label class="block">
-        <span class="bold">End Date</span>
-        {{ form.end_date }}
-      </label>
-      <label class="block">
-        <span class="bold">Status</span>
-        {{ form.status }}
-      </label>
-      <div class="py-8 space-y-2">
-        <button type="submit" class="btn-primary w-full">
-          Save page
-        </button>
-        <a href="{% url 'management:deal_list' %}" title="Cancel" class="btn-secondary w-full">
-          Cancel
-        </a>
-      </div>
-    </form>
-
-  </section>
-</main>
+<!-- PAGE FORM -->
+<form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
+  <label class="block">
+    <span class="bold">Name</span>
+    {{ form.name }}
+  </label>
+  <label class="block">
+    <span class="bold">Slug</span>
+    {{ form.slug }}
+  </label>
+  <label class="block">
+    <span class="bold">Image</span>
+    {{ form.image }}
+  </label>
+  <label class="block">
+    <span class="bold">Description</span>
+    {{ form.description }}
+  </label>
+  <label class="block">
+    <span class="bold">Discount</span>
+    {{ form.discount }}
+  </label>
+  <label class="block">
+    <span class="bold">Start Date</span>
+    {{ form.start_date }}
+  </label>
+  <label class="block">
+    <span class="bold">End Date</span>
+    {{ form.end_date }}
+  </label>
+  <label class="block">
+    <span class="bold">Status</span>
+    {{ form.status }}
+  </label>
+  <div class="space-y-2">
+    <button type="submit" class="btn-primary w-full">
+      Save page
+    </button>
+    <a href="{% url 'management:deal_list' %}" title="Cancel" class="btn-secondary w-full">
+      Cancel
+    </a>
+  </div>
+</form>
 {% endblock %}
