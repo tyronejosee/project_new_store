@@ -1,57 +1,53 @@
-{% extends 'base.html' %}
+{% extends 'layouts/base_main.html' %}
 
 {% block title %}{{ title|title }}{% endblock title %}
 
 {% block content %}
-<main class="space-y-4">
+<!-- HEADLINE -->
+<header>
+  <div class="flex items-center justify-between">
+    <div class="flex space-x-4 items-center">
+      {% if title and "search=" not in request.get_full_path %}
+      <h2 class="headline">{{ title }}</h2>
+      {% endif %}
+      {% if "search=" in request.get_full_path %}
+      <h2 class="headline">{{ results }} results</h2>
+      <span class="bold text-primary">for "{{ title }}"</span>
+      {% endif %}
+      {% if page_obj.paginator.count > 0 %}
+      <span class="bold">
+        {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
+      </span>
+      {% endif %}
+  </div>
+</header>
 
-  <!-- HEADLINE -->
-  <header>
-    <div class="flex items-center justify-between">
-      <div class="flex space-x-4 items-center">
-        {% if title and "search=" not in request.get_full_path %}
-        <h2 class="headline">{{ title }}</h2>
-        {% endif %}
-        {% if "search=" in request.get_full_path %}
-        <h2 class="headline">{{ results }} results</h2>
-        <span class="bold text-primary">for "{{ title }}"</span>
-        {% endif %}
-        {% if page_obj.paginator.count > 0 %}
-        <span class="bold">
-          {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
-        </span>
-        {% endif %}
-    </div>
-  </header>
+<!-- CATEGORIES -->
+{% if form %}
+<nav class="box p-2">
+  <form method="GET" class="space-y-2 md:space-y-0 md:flex md:items-center md:space-x-4">
+    <div class="w-full lg:w-1/4">{{ form.category }}</div>
+    <div class="w-full lg:w-1/4">{{ form.brand }}</div>
+    <div class="w-full lg:w-1/4">{{ form.deal }}</div>
+    <!--<div class="w-1/3">{{ form.min_price }}</div>
+    <div class="w-1/3">{{ form.max_price }}</div>-->
+    <button type="submit" class="btn-primary w-full lg:w-1/4">Apply</button>
+  </form>
+</nav>
+{% endif %}
 
-  <!-- CATEGORIES -->
-  {% if form %}
-  <nav class="box p-2">
-    <form method="GET" class="space-y-2 md:space-y-0 md:flex md:items-center md:space-x-4">
-      <div class="w-full lg:w-1/4">{{ form.category }}</div>
-      <div class="w-full lg:w-1/4">{{ form.brand }}</div>
-      <div class="w-full lg:w-1/4">{{ form.deal }}</div>
-      <!--<div class="w-1/3">{{ form.min_price }}</div>
-      <div class="w-1/3">{{ form.max_price }}</div>-->
-      <button type="submit" class="btn-primary w-full lg:w-1/4">Apply</button>
-    </form>
-  </nav>
-  {% endif %}
+<!-- PRODUCT LIST -->
+{% if products %}
+<section class="card-grid">
+  {% for product in products %}
+    {% include "components/card.html" %}
+  {% endfor %}
+</section>
+{% endif %}
+{% if products|length == 0 %}
+  {% include "components/empty.html" with arg="product" %}
+{% endif %}
 
-  <!-- PRODUCT LIST -->
-  {% if products %}
-  <section class="card-grid">
-    {% for product in products %}
-      {% include "components/card.html" %}
-    {% endfor %}
-  </section>
-  {% endif %}
-  {% if products|length == 0 %}
-    {% include "components/empty.html" with arg="product" %}
-  {% endif %}
-
-  <!-- PAGINATION -->
-  {% include "components/pagination.html" %}
-
-</main>
+<!-- PAGINATION -->
+{% include "components/pagination.html" %}
 {% endblock %}

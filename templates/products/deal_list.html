@@ -1,30 +1,26 @@
-{% extends 'base.html' %}
+{% extends 'layouts/base_main.html' %}
 
 {% block title %}Deals{% endblock title %}
 
 {% block content %}
-<main class="space-y-4">
+<!-- HEADLINE -->
+<header>
+  <h2 class="headline">Deals</h2>
+</header>
 
-  <!-- HEADLINE -->
-  <header>
-    <h2 class="headline">Deals</h2>
-  </header>
-
-  <!-- DEAL LIST -->
-  {% if deals %}
-  <section class="deal-wrap">
-    {% for deal in deals %}
-      {% if deal.image %}
-      <a href="{% url 'products:deal_detail' slug=deal.slug %}">
-        <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="cs-rounded">
-      </a>
-      {% endif %}  
-    {% endfor %}
-  </section>
-  {% endif %}
-  {% if deals|length == 0 %}
-    {% include "components/empty.html" with arg="deal" %}
-  {% endif %}
-
-</main>
+<!-- DEAL LIST -->
+{% if deals %}
+<section class="deal-wrap">
+  {% for deal in deals %}
+    {% if deal.image %}
+    <a href="{% url 'products:deal_detail' slug=deal.slug %}">
+      <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="cs-rounded">
+    </a>
+    {% endif %}  
+  {% endfor %}
+</section>
+{% endif %}
+{% if deals|length == 0 %}
+  {% include "components/empty.html" with arg="deal" %}
+{% endif %}
 {% endblock %}

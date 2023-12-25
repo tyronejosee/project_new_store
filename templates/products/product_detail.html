@@ -1,107 +1,103 @@
-{% extends 'base.html' %}
+{% extends 'layouts/base_main.html' %}
 
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 
 {% block content %}
-<main class="space-y-4">
+<!-- ROUTES -->
+{% include "components/routes.html" %}
 
-  <!-- ROUTES -->
-  {% include "components/routes.html" %}
-
-  <!-- PRODUCT DETAIL -->
-  <section class="detail-wrap">
-    <figure class="zoomable-container overflow-hidden cs-rounded cursor-copy">
-      <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
-        <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
-      </div>
-    </figure>
-    <article class="flex flex-col h-full space-y-4">
-      <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="link">
-        Shop all {{ product.brand.name }}
+<!-- PRODUCT DETAIL -->
+<section class="detail-wrap">
+  <figure class="zoomable-container overflow-hidden cs-rounded border-2">
+    <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
+      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
+    </div>
+  </figure>
+  <article class="flex flex-col h-full space-y-4">
+    <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="link">
+      Shop all {{ product.brand.name }}
+    </a>
+    <header class="detail-header">
+      <h2 class="headline">{{ product.title }}{% if product.is_new %}<span class="tag-detail">New</span>{% endif %}</h2>
+    </header>
+    <div>
+      {% if product.sale_price %}
+      <span class="price-sp">${{ product.sale_price }}</span>
+      <span class="price-sp-2">${{ product.normal_price }}</span>
+      <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
+      <span class="price-d">Savings $500</span>
+      {% else %}
+      <span class="price-np">${{ product.normal_price }}</span>
+      {% endif %}
+    </div>
+    <div>
+      <h3 class="subheadline">Details</h3>
+      <p><span class="bold">ID:</span> {{ product.id }}</p>
+      <p><span class="bold">Stock:</span> {{ product.stock }}</p>
+      <p><span class="bold">Warranty:</span> {{ product.get_warranty_display }}</p>
+    </div>
+    <div class="bg-light flex items-center space-x-4 cs-rounded py-2 px-4">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+        <path d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 1 1 6 0h3a.75.75 0 0 0 .75-.75V15Z" />
+        <path d="M8.25 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM15.75 6.75a.75.75 0 0 0-.75.75v11.25c0 .087.015.17.042.248a3 3 0 0 1 5.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 0 0-3.732-10.104 1.837 1.837 0 0 0-1.47-.725H15.75Z" />
+        <path d="M19.5 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
+      </svg>
+      <span class="small">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, modi natus ipsa accusantium minima illo esse eligendi. Neque a
+      </span>
+    </div>
+    <div class="mt-auto flex flex-col space-y-2">
+      <a href="{% url 'payment:checkout' product.id %}" class="btn-primary col-span-4 flex items-center px-auto">
+        <span class="flex-item">Buy Now</span>
       </a>
-      <header class="detail-header">
-        <h2 class="headline">{{ product.title }}{% if product.is_new %}<span class="tag-detail">New</span>{% endif %}</h2>
-      </header>
-      <div>
-        {% if product.sale_price %}
-        <span class="price-sp">${{ product.sale_price }}</span>
-        <span class="price-sp-2">${{ product.normal_price }}</span>
-        <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
-        <span class="price-d">Savings $500</span>
-        {% else %}
-        <span class="price-np">${{ product.normal_price }}</span>
-        {% endif %}
-      </div>
-      <div>
-        <h3 class="subheadline">Details</h3>
-        <p><span class="bold">ID:</span> {{ product.id }}</p>
-        <p><span class="bold">Stock:</span> {{ product.stock }}</p>
-        <p><span class="bold">Warranty:</span> {{ product.get_warranty_display }}</p>
-      </div>
-      <div class="bg-light flex items-center space-x-4 cs-rounded py-2 px-4">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
-          <path d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 1 1 6 0h3a.75.75 0 0 0 .75-.75V15Z" />
-          <path d="M8.25 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM15.75 6.75a.75.75 0 0 0-.75.75v11.25c0 .087.015.17.042.248a3 3 0 0 1 5.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 0 0-3.732-10.104 1.837 1.837 0 0 0-1.47-.725H15.75Z" />
-          <path d="M19.5 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
-        </svg>
-        <span class="small">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, modi natus ipsa accusantium minima illo esse eligendi. Neque a
-        </span>
-      </div>
-      <div class="mt-auto flex flex-col space-y-2">
-        <a href="{% url 'payment:checkout' product.id %}" class="btn-primary col-span-4 flex items-center px-auto">
-          <span class="flex-item">Buy Now</span>
-        </a>
-        <a href="{% url 'cart:add_prod_cart' product.id %}" class="btn-secondary">
-          Add to Cart
-        </a>
-        <a href="{% url 'cart:add_prod_wishlist' product.id %}" class="btn-secondary">
-          Add to wishlist
-        </a>
-      </div>
-      <div class="text-center space-x-2">
-        <span ></span>
-        <a href="{% url 'home:page_detail' key='terms' %}" class="small-link">Terms and Conditions</a>
-        <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link">Policy Privacy</a>
-        <a href="#" class="small-link">Available payment methods</a>
-      </div>
+      <a href="{% url 'cart:add_prod_cart' product.id %}" class="btn-secondary">
+        Add to Cart
+      </a>
+      <a href="{% url 'cart:add_prod_wishlist' product.id %}" class="btn-secondary">
+        Add to wishlist
+      </a>
+    </div>
+    <div class="text-center space-x-2">
+      <span ></span>
+      <a href="{% url 'home:page_detail' key='terms' %}" class="small-link">Terms and Conditions</a>
+      <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link">Policy Privacy</a>
+      <a href="#" class="small-link">Available payment methods</a>
+    </div>
+  </article>
+</section>
+
+<!-- DESCRIPTION AND SPECIFICATIONS -->
+<aside>
+  <nav class="flex space-x-4" id="product-tabs">
+    <a href="#description-tab" class="detail-nav">Description</a>
+    <a href="#specifications-tab" class="detail-nav">Specifications</a>
+  </nav>
+  <section class="box p-8 mt-4">
+    <article id="description-tab" class="tab-content">
+      <h3 class="subheadline">Description</h3>
+      <p>{{ product.description|safe }}</p>
+    </article>
+    <article id="specifications-tab" class="tab-content hidden">
+      <h3 class="subheadline">Specifications</h3>
+      <p class="leading-loose">{{ product.specifications|safe }}</p>
     </article>
   </section>
+</aside>
 
-  <!-- DESCRIPTION AND SPECIFICATIONS -->
-  <aside>
-    <nav class="flex space-x-4" id="product-tabs">
-      <a href="#description-tab" class="detail-nav">Description</a>
-      <a href="#specifications-tab" class="detail-nav">Specifications</a>
-    </nav>
-    <section class="box p-8 mt-4">
-      <article id="description-tab" class="tab-content">
-        <h3 class="subheadline">Description</h3>
-        <p>{{ product.description|safe }}</p>
-      </article>
-      <article id="specifications-tab" class="tab-content hidden">
-        <h3 class="subheadline">Specifications</h3>
-        <p class="leading-loose">{{ product.specifications|safe }}</p>
-      </article>
-    </section>
-  </aside>
-
-  <!-- FEATURED PRODUCTS -->
-  <section>
-    <header class="my-4">
-      <h2 class="headline">Featured products</h2>
-    </header>
-    {% if products_featured %}
-    <section class="card-grid">
-      {% for product in products_featured %}
-        {% include "components/card.html" %}
-      {% endfor %}
-    </section>
-    {% endif %}
-    {% if products_featured|length == 0 %}
-      {% include "components/empty.html" with arg="product" %}
-    {% endif %}
+<!-- FEATURED PRODUCTS -->
+<section>
+  <header class="my-4">
+    <h2 class="headline">Featured products</h2>
+  </header>
+  {% if products_featured %}
+  <section class="card-grid">
+    {% for product in products_featured %}
+      {% include "components/card.html" %}
+    {% endfor %}
   </section>
-
-</main>
+  {% endif %}
+  {% if products_featured|length == 0 %}
+    {% include "components/empty.html" with arg="product" %}
+  {% endif %}
+</section>
 {% endblock %}

@@ -1,35 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'layouts/base_main.html' %}
 
 {% block title %}{{ deal.name }}{% endblock title %}
 
 {% block content %}
-<main class="box p-4 mt-4">
+<!-- IMAGE -->
+<figure>
+  <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="deal-img">
+</figure>
 
-    <!-- IMAGE -->
-    <figure>
-      <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="deal-img">
-    </figure>
+<!-- HEADLINE -->
+<header class="deal-header">
+  <h2 class="headline">{{ deal.name }}</h2>
+  <span class="bold text-neutral-500">{{ deal.description }}</span>
+</header>
 
-    <!-- HEADLINE -->
-    <header class="deal-header">
-      <h2 class="headline">{{ deal.name }}</h2>
-      <span class="bold text-neutral-500">{{ deal.description }}</span>
-    </header>
+<!-- PRODUCT LIST -->
+{% if products %}
+<section class="card-grid">
+  {% for product in products %}
+    {% include "components/card.html" %}
+  {% endfor %}
+</section>
+{% endif %}
+{% if products|length == 0 %}
+  {% include "components/empty.html" with arg="product" %}
+{% endif %}
 
-    <!-- PRODUCT LIST -->
-    {% if products %}
-    <section class="card-grid">
-      {% for product in products %}
-        {% include "components/card.html" %}
-      {% endfor %}
-    </section>
-    {% endif %}
-    {% if products|length == 0 %}
-      {% include "components/empty.html" with arg="product" %}
-    {% endif %}
-
-    <!-- PAGINATION -->
-    {% include "components/pagination.html" %}
-
-</main>
+<!-- PAGINATION -->
+{% include "components/pagination.html" %}
 {% endblock %}
