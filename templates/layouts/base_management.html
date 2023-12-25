@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ company.name|default:'Company' }} | {% block title %}Management{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{{ company.logo.url }}">
+  </head>
+  <body class="container-main styles">
+
+    <!-- SIDEBAR -->
+    {% include 'components/sidebar.html' %}
+
+    <!-- MAIN CONTENT -->
+    <main class="container-sidebar">
+      <section class="sm:ml-64 space-y-4">
+        <!-- FINDER -->
+        {% include 'components/finder.html' %}
+        <!-- CONTENT -->
+        {% block content %}{% endblock content %}
+        <!-- IMAGE MODAL -->
+        {% include "components/image_modal.html" %}
+      </section>
+      <!-- PAGINATION -->
+      <section class="sm:ml-64 mt-auto">
+        {% include "components/pagination.html" %}
+      </section>
+    </main>
+
+    <!-- JQUERY FILES -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <!-- JS FILES -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>
