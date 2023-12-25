@@ -1,35 +1,34 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'layouts/base_main.html' %}
+
 {% block title %}Checkout{% endblock title %}
+
 {% block content %}
-<main>
-  <section class="pay-wrap">
-    <figure class="zoomable-container overflow-hidden cs-rounded cursor-copy">
-      <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
-        <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
+<section class="pay-wrap">
+  <figure class="zoomable-container overflow-hidden cs-rounded cursor-copy">
+    <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
+      <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
+    </div>
+  </figure>
+  <article class="pay-info">
+    <h2 class="headline">Review your order (0 items)</h2>
+    <div class="mb-4">
+      <span class="subheadline">Description</span>
+      <p><span class="bold">Product:</span> {{ product.title }}</p>
+      {% if product.sale_price %}
+      <p><span class="bold">Price:</span> ${{ product.sale_price }}</p>
+      {% else %}
+      <p><span class="bold">Price:</span> ${{ product.normal_price }}</p>
+      {% endif %}
+      <h2 class="subheadline">Shipment dispatch</h2>
+      <p><span class="bold">Address:</span> {{ user.address }}</p>
+      <p><span class="bold">Phone:</span> {{ user.phone }} </p>
+    </div>
+    <div class="mt-auto">
+      <div class="flex justify-center bg-yellow-400 w-full rounded-3xl mb-2">
+        {{paypal.render}}
       </div>
-    </figure>
-    <article class="pay-info">
-      <h2 class="headline">Review your order (0 items)</h2>
-      <div class="mb-4">
-        <span class="subheadline">Description</span>
-        <p><span class="bold">Product:</span> {{ product.title }}</p>
-        {% if product.sale_price %}
-        <p><span class="bold">Price:</span> ${{ product.sale_price }}</p>
-        {% else %}
-        <p><span class="bold">Price:</span> ${{ product.normal_price }}</p>
-        {% endif %}
-        <h2 class="subheadline">Shipment dispatch</h2>
-        <p><span class="bold">Address:</span> {{ user.address }}</p>
-        <p><span class="bold">Phone:</span> {{ user.phone }} </p>
-      </div>
-      <div class="mt-auto">
-        <div class="flex justify-center bg-yellow-400 w-full rounded-3xl mb-2">
-          {{paypal.render}}
-        </div>
-        <a href="{% url 'cart:cart' %}" class="btn-secondary">Cancel</a>
-      </div>
-    </article>
-  </section>
-</main>
+      <a href="{% url 'cart:cart' %}" class="btn-secondary">Cancel</a>
+    </div>
+  </article>
+</section>
 {% endblock %}

@@ -1,56 +1,56 @@
-{% extends 'base.html' %}
+{% extends 'layouts/base_main.html' %}
+
 {% block title %}Login{% endblock title %}
+
 {% block content %}
-<main class="form-main">
-  <section class="form-wrap">
-    <header class="form-head">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-lg">
-        <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-        <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
-      </svg>
-      <h2 class="headline">Create your New Store account</h2>
-    </header>
-    <form method="POST" class="space-y-4">{% csrf_token %}
-      <label for="first-name" class="block">
-        <span class="bold">First Name</span>
-        {{ form.first_name }}
-      </label>
-      <label for="last-name" class="block">
-        <span class="bold">Last Name</span>
-        {{ form.last_name }}
-      </label>
-      <label for="username" class="block">
-        <span class="bold">Username</span>
-        {{ form.username }}
-      </label>
-      <label for="email" class="block">
-        <span class="bold">Email</span>
-        {{ form.email }}
-      </label>
-      <label for="password1" class="block">
-        <span class="bold">Password</span>
-        {{ form.password1 }}
-      </label>
-      <label for="password2" class="block">
-        <span class="bold">Password Repeat</span>
-        {{ form.password2 }}
-      </label>
-      <div class="flex items-start">
-        <div class="flex items-center">
-          <input id="remember" type="checkbox" class="form_checkbox">
-        </div>
-        <label for="remember" class="ml-2">Keep me signed in</label>
+<section class="form-wrap">
+  <header class="form-head">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-lg">
+      <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+      <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
+    </svg>
+    <h2 class="headline">Create your New Store account</h2>
+  </header>
+  <form method="POST" class="space-y-4">{% csrf_token %}
+    <label for="first-name" class="block">
+      <span class="bold">First Name</span>
+      {{ form.first_name }}
+    </label>
+    <label for="last-name" class="block">
+      <span class="bold">Last Name</span>
+      {{ form.last_name }}
+    </label>
+    <label for="username" class="block">
+      <span class="bold">Username</span>
+      {{ form.username }}
+    </label>
+    <label for="email" class="block">
+      <span class="bold">Email</span>
+      {{ form.email }}
+    </label>
+    <label for="password1" class="block">
+      <span class="bold">Password</span>
+      {{ form.password1 }}
+    </label>
+    <label for="password2" class="block">
+      <span class="bold">Password Repeat</span>
+      {{ form.password2 }}
+    </label>
+    <div class="flex items-start">
+      <div class="flex items-center">
+        <input id="remember" type="checkbox" class="form_checkbox">
       </div>
-      <p class="small">
-        By creating an account, you are accepting the terms and conditions of New Store, as well as the privacy policy, which includes receiving exclusive email offers and promotions. To manage your marketing preferences, please access the Choices section in the Privacy Policy or call Customer Service.
-      </p>
-      <a href="{% url 'home:page_detail' key='terms' %}" class="small-link">Terms and conditions</a>
-      <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link">Policy privacy</a>
-      <div class="space-y-4">
-        <button type="submit" class="btn-primary w-full">Create account</button>
-        <a href="{% url 'home:index' %}" class="btn-secondary">Cancel</a>
-      </div>
-    </form>
-  </section>
-</main>
+      <label for="remember" class="ml-2">Keep me signed in</label>
+    </div>
+    <p class="small">
+      By creating an account, you are accepting the terms and conditions of New Store, as well as the privacy policy, which includes receiving exclusive email offers and promotions. To manage your marketing preferences, please access the Choices section in the Privacy Policy or call Customer Service.
+    </p>
+    <a href="{% url 'home:page_detail' key='terms' %}" class="small-link">Terms and conditions</a>
+    <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link">Policy privacy</a>
+    <div class="space-y-2">
+      <button type="submit" class="btn-primary w-full">Create account</button>
+      <a href="{% url 'home:index' %}" class="btn-secondary">Cancel</a>
+    </div>
+  </form>
+</section>
 {% endblock %}
