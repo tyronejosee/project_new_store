@@ -50,11 +50,11 @@
     </div>
 
     <!-- SEARCH BAR -->
-    <div class="order-3 sm:order-2 w-full px-4 lg:max-w-lg sm:w-full sm:mx-0">
+    <div class="order-3 sm:order-2 w-full lg:max-w-lg sm:w-full sm:mx-0">
       <div class="relative">
         <form method="GET" action="{% url 'products:search' %}">
           <input type="search" id="search-navbar"
-            class="form-text text-center bg-white"
+            class="form-text text-center focus:text-left focus:pl-12 bg-neutral-100 dark:bg-neutral-800"
             placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
           <div class="absolute rounded-full inset-y-0 left-0 p-4 flex items-center pointer-events-none">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">

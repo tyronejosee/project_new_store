@@ -1,136 +1,132 @@
-{% extends 'base.html' %}{% load static %}
+{% extends 'layouts/base_main.html' %}{% load static %}
 
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<main class="space-y-12">
-
-  <!-- CATEGORIES -->
-  <section>
-    <header class="flex justify-between items-center pt-4">
-      <h2 class="headline">Featured Categories</h2>
-    </header>
-    <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
-      {% for category in products_categories|slice:":12" %}
-      <a href="{% url 'products:category_filter' category.slug %}" class="box flex flex-col items-center justify-center space-y-4 h-40">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
-          <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z" clip-rule="evenodd" />
-        </svg>
-        <span class="link">{{ category.title }}</span>
-      </a>
-      {% endfor %}
-    </section>
+<!-- CATEGORIES -->
+<section>
+  <header class="flex justify-between items-center pt-4">
+    <h2 class="headline">Featured Categories</h2>
+  </header>
+  <section class="mt-4 grid gap-4 grid-cols-3 lg:grid-cols-6">
+    {% for category in products_categories|slice:":12" %}
+    <a href="{% url 'products:category_filter' category.slug %}" class="box flex flex-col items-center justify-center space-y-4 h-40">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+        <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3v2.25a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3V6ZM3 15.75a3 3 0 0 1 3-3h2.25a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-2.25Zm9.75 0a3 3 0 0 1 3-3H18a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-2.25a3 3 0 0 1-3-3v-2.25Z" clip-rule="evenodd" />
+      </svg>
+      <span class="link">{{ category.title }}</span>
+    </a>
+    {% endfor %}
   </section>
+</section>
 
-  <!-- RECENT PRODUCTS -->
-  <section>
-    <header class="flex justify-between items-center py-4">
-      <h2 class="headline">Recent Products</h2>
-      <a href="{% url 'products:recent' %}" class="btn-secondary">View all</a>
-    </header>
-    <section class="card-grid">
-      {% for product in recent_products %}
-        {% include "components/card.html" %}
-      {% empty %}
-        {% include "components/empty.html" with arg="product" %}
-      {% endfor %}
-    </section>
+<!-- RECENT PRODUCTS -->
+<section>
+  <header class="flex justify-between items-center py-4">
+    <h2 class="headline">Recent Products</h2>
+    <a href="{% url 'products:recent' %}" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in recent_products %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
   </section>
+</section>
 
-  <!-- MAX DEALS -->
-  <section class="mt-12 grid gap-4 grid-cols-2 md:grid-cols-4 md:grid-rows-2">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="hover-scale transform hover:scale-105 w-full h-full cs-rounded col-span-2 row-span-2">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="hover-scale transform hover:scale-105 w-full cs-rounded">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="hover-scale transform hover:scale-105 w-full cs-rounded">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="hover-scale transform hover:scale-105 w-full cs-rounded">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="hover-scale transform hover:scale-105 w-full cs-rounded">
+<!-- MAX DEALS -->
+<section class="mt-12 grid gap-4 grid-cols-2 md:grid-cols-4 md:grid-rows-2">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full h-full cs-rounded col-span-2 row-span-2">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+</section>
+
+<!-- ALL PRODUCTS -->
+<section>
+  <header class="flex justify-between items-center py-4">
+    <h2 class="headline">All Products</h2>
+    <a href="{% url 'products:prod_list' %}" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in all_products %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
   </section>
+</section>
 
-  <!-- ALL PRODUCTS -->
-  <section>
-    <header class="flex justify-between items-center py-4">
-      <h2 class="headline">All Products</h2>
-      <a href="{% url 'products:prod_list' %}" class="btn-secondary">View all</a>
-    </header>
-    <section class="card-grid">
-      {% for product in all_products %}
-        {% include "components/card.html" %}
-      {% empty %}
-        {% include "components/empty.html" with arg="product" %}
-      {% endfor %}
-    </section>
+<!-- DEFAULT DEALS -->
+<section class="mt-12 grid gap-4 grid-cols-2 grid-rows-2 md:grid-cols-4 ">
+  <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+  <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="col-span-2 w-full cs-rounded">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="col-span-2 w-full cs-rounded">
+  <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+  <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
+</section>
+
+<!-- APPLE -->
+<section>
+  <header class="flex justify-between items-center py-4">
+    <h2 class="headline">Apple</h2>
+    <a href="{% url 'products:brand_filter' brand_slug='apple' %}" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in apple %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
   </section>
+</section>
 
-  <!-- DEFAULT DEALS -->
-  <section class="mt-12 grid gap-4 grid-cols-2 grid-rows-2 md:grid-cols-4 ">
+<!-- SAMSUNG -->
+<section>
+  <header class="flex justify-between items-center py-4">
+    <h2 class="headline">Samsung</h2>
+    <a href="{% url 'products:brand_filter' brand_slug='samsung' %}" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in samsung %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
+  </section>
+</section>
+
+<!-- COMPUTERS MONITORS -->
+<section>
+  <header class="flex justify-between items-center py-4">
+    <h2 class="headline">Computer Monitors</h2>
+    <a href="{% url 'products:category_filter' category_slug='computer-monitors' %}" class="btn-secondary">View all</a>
+  </header>
+  <section class="card-grid">
+    {% for product in computer_monitors %}
+      {% include "components/card.html" %}
+    {% empty %}
+      {% include "components/empty.html" with arg="product" %}
+    {% endfor %}
+  </section>
+</section>
+
+<!-- MIN DEALS -->
+<section class="grid gap-4 grid-cols-1 md:grid-cols-2">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+  <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
+</section>
+
+<!-- SERVICES LINKS -->
+<nav class="mt-12">
+  <ul class="grid gap-4 grid-cols-2 md:grid-cols-4">
     <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
     <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="col-span-2 w-full cs-rounded">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="col-span-2 w-full cs-rounded">
     <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
     <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
-  </section>
-
-  <!-- APPLE -->
-  <section>
-    <header class="flex justify-between items-center py-4">
-      <h2 class="headline">Apple</h2>
-      <a href="{% url 'products:brand_filter' brand_slug='apple' %}" class="btn-secondary">View all</a>
-    </header>
-    <section class="card-grid">
-      {% for product in apple %}
-        {% include "components/card.html" %}
-      {% empty %}
-        {% include "components/empty.html" with arg="product" %}
-      {% endfor %}
-    </section>
-  </section>
-
-  <!-- SAMSUNG -->
-  <section>
-    <header class="flex justify-between items-center py-4">
-      <h2 class="headline">Samsung</h2>
-      <a href="{% url 'products:brand_filter' brand_slug='samsung' %}" class="btn-secondary">View all</a>
-    </header>
-    <section class="card-grid">
-      {% for product in samsung %}
-        {% include "components/card.html" %}
-      {% empty %}
-        {% include "components/empty.html" with arg="product" %}
-      {% endfor %}
-    </section>
-  </section>
-
-  <!-- COMPUTERS MONITORS -->
-  <section>
-    <header class="flex justify-between items-center py-4">
-      <h2 class="headline">Computer Monitors</h2>
-      <a href="{% url 'products:category_filter' category_slug='computer-monitors' %}" class="btn-secondary">View all</a>
-    </header>
-    <section class="card-grid">
-      {% for product in computer_monitors %}
-        {% include "components/card.html" %}
-      {% empty %}
-        {% include "components/empty.html" with arg="product" %}
-      {% endfor %}
-    </section>
-  </section>
-
-  <!-- MIN DEALS -->
-  <section class="grid gap-4 grid-cols-1 md:grid-cols-2">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
-    <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full cs-rounded">
-  </section>
-
-  <!-- SERVICES LINKS -->
-  <nav class="mt-12">
-    <ul class="grid gap-4 grid-cols-2 md:grid-cols-4">
-      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
-      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
-      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
-      <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full cs-rounded">
-    </ul>
-  </nav>
-
-</main>
+  </ul>
+</nav>
 {% endblock %}

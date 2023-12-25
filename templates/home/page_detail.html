@@ -1,24 +1,20 @@
-{% extends 'base.html' %}{% load static %}
+{% extends 'layouts/base_main.html' %}{% load static %}
 
 {% block title %}{{ page.key|title }}{% endblock title %}
 
 {% block content %}
-<main class="box mt-4">
+<!-- PAGE IMAGE -->
+<figure class="relative">
+  {% if page.image %}
+  <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-64 object-cover cs-rounded" />
+  {% else %}
+  <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-full h-64 object-cover cs-rounded" />
+  {% endif %}
+  <div class="absolute inset-0 opacity-30 cs-rounded"></div>
+</figure>
 
-    <!-- PAGE IMAGE -->
-    <figure class="relative p-4">
-      {% if page.image %}
-      <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-64 object-cover cs-rounded" />
-      {% else %}
-      <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-full h-64 object-cover cs-rounded" />
-      {% endif %}
-      <div class="absolute inset-0 opacity-30 cs-rounded"></div>
-    </figure>
-
-    <!-- PAGE CONTENT -->
-    <article class="p-8 space-y-4">
-      {{ page.content|safe }}
-    </article>
-
-</main>
+<!-- PAGE CONTENT -->
+<article class="space-y-4">
+  {{ page.content|safe }}
+</article>
 {% endblock %}
