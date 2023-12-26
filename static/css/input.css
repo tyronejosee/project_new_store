@@ -172,7 +172,10 @@
 
     /* LISTS */
     .list-wrap{
-        @apply bg-white cs-rounded shadow-xl absolute hidden right-0 z-10 mt-2 w-96 p-2;
+        @apply bg-white dark:bg-neutral-800 cs-rounded shadow-xl absolute hidden right-0 z-10 mt-2 w-96 p-2;
+    }
+    .list-itm-title{
+        @apply bold block px-4 py-2 text-primary;
     }
     .list-itm{
         @apply block px-4 py-2 cs-rounded hover:bg-neutral-50 dark:hover:bg-neutral-700;
@@ -198,14 +201,11 @@
     .foot-wrap{
         @apply grid gap-4 grid-cols-2 md:grid-cols-4;
     }
-    .foot-title{
-        @apply bold mb-4 text-primary;
-    }
     .foot-copy{
-        @apply pb-4 md:flex md:items-center md:justify-between;
+        @apply md:flex md:items-center md:justify-between pt-8;
     }
     .foot-copy div{
-        @apply flex mt-4 space-x-5 justify-center md:mt-0;
+        @apply flex mt-4 space-x-4 justify-center md:mt-0;
     }
 
     /* BUTTONS */
