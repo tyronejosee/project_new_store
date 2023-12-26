@@ -4,7 +4,6 @@ from django.db import models
 from users.models import CustomUser
 from products.models import Product
 
-# TODO: Add shipping fields, Delete data from Custom User
 
 class Cart(models.Model):
     """Pivot type model for Cart."""
@@ -12,6 +11,10 @@ class Cart(models.Model):
 
     def __str__(self):
         return f'Cart of {self.user.username}'
+
+    def clear_cart(self):
+        """Remove all items from the cart."""
+        self.cart_items.all().delete()
 
 
 class CartItem(models.Model):
