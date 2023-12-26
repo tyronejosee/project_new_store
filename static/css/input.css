@@ -172,10 +172,10 @@
 
     /* LISTS */
     .list-wrap{
-        @apply box shadow absolute hidden right-0 z-10 overflow-hidden p-2 text-sm w-96;
+        @apply bg-white cs-rounded shadow-xl absolute hidden right-0 z-10 mt-2 w-96 p-2;
     }
     .list-itm{
-        @apply block p-2 cs-rounded hover:bg-neutral-50 dark:hover:bg-neutral-700;
+        @apply block px-4 py-2 cs-rounded hover:bg-neutral-50 dark:hover:bg-neutral-700;
     }
 
     /* PAGINATION */
