@@ -3,10 +3,13 @@
 {% block title %}Cart{% endblock title %}
 
 {% block content %}
-<!-- CART -->
+
+<!-- CART HEADLINE -->
 <header>
   <h2 class="headline">Cart ({{ cart_items_count }})</h2>
 </header>
+
+<!-- CART -->
 {% if cart_items %}
 <section class="table-wrap">
   <table>
@@ -50,6 +53,7 @@
     {% endfor %}
   </table>
 </section>
+
 {% else %}
   {% include "components/empty.html" with arg="cart" %}
 {% endif %}
@@ -62,10 +66,12 @@
 </nav>
 {% endif %}
 
-<!-- WISHLIST -->
+<!-- WISHLIST HEADLINE -->
 <header class="my-4">
   <h2 class="headline">Wishlist ({{ wishlist_count }})</h2>
 </header>
+
+<!-- WISHLIST -->
 {% if wishlist.products.all %}
 <section class="table-wrap">
   <table>
@@ -106,6 +112,7 @@
     {% endfor %}
   </table>
 </section>
+
 {% else %}
   {% include "components/empty.html" with arg="wishlist"%}
 {% endif %}

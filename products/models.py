@@ -83,7 +83,7 @@ class Deal(models.Model):
         super(Deal, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        """The method returns the canonical URL for the details of an deal."""
+        """Method returns the canonical URL for the details of an deal."""
         return reverse('deal_detail', kwargs={'slug': self.slug})
 
 

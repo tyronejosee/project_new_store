@@ -36,7 +36,7 @@
 
 @layer components{
 
-    /* COINTAINERS */
+    /* MAIN COMPONENTS */
     .container-main{
         @apply min-h-screen min-w-[320px] flex flex-col;
     }
@@ -46,8 +46,6 @@
     .container-sidebar{
         @apply max-w-screen-2xl w-full min-w-[320px] lg:mx-auto flex flex-col h-screen p-4;
     }
-
-    /* INTERFACE */
     .styles{
         @apply text bg-white dark:bg-neutral-900 selection:bg-primary selection:text-white;
     }
@@ -88,20 +86,6 @@
     .small-link{
         @apply font-normal text-xs text-neutral-500 hover:underline;
     }
-    
-    /* PRICES */
-    .price-sp{
-        @apply text-3xl font-bold text-red-600;
-    }
-    .price-sp-2{
-        @apply text-xl text-neutral-500 line-through block;
-    }
-    .price-np{
-        @apply text-3xl font-bold text-neutral-800 dark:text-neutral-200;
-    }
-    .price-d{
-        @apply bold;
-    }
 
     /* ICONS */
     .icon-sm{
@@ -116,36 +100,10 @@
 
     /* NAVBAR */
     .navbar-wrap{
-        @apply bg-white dark:bg-neutral-900 sticky top-0 z-10 shadow;
+        @apply bg-white dark:bg-neutral-900 sticky top-0 z-10 border-b border-neutral-100 dark:border-neutral-800;
     }
     .navbar-wrap nav{
         @apply max-w-screen-xl mx-auto flex flex-wrap sm:flex-nowrap items-center justify-between p-4;
-    }
-
-    /* CARD */
-    .card-grid{
-        @apply grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:md:grid-cols-6;
-    }
-    .card-wrap{
-        @apply box relative p-2;
-    }
-    .card-img{
-        @apply w-full h-auto rounded-2xl;
-    }
-    .card-cont{
-        @apply flex justify-between items-center space-y-4 mt-2;
-    }
-    .card-title{
-        @apply h-14 overflow-hidden;
-    }
-    .card-price-d{
-        @apply font-semibold text-primary;
-    }
-    .card-price-n{
-        @apply font-semibold;
-    }
-    .card-price-nt{
-        @apply text-xs text-neutral-500 line-through;
     }
 
     /* DETAILS */
@@ -159,20 +117,9 @@
         @apply flex items-center justify-center link h-10 box w-full;
     }
 
-    /* DEALS */
-    .deal-wrap{
-        @apply grid gap-4 grid-cols-1 md:grid-cols-2;
-    }
-    .deal-header{
-        @apply md:flex md:items-center md:space-x-4 my-4;
-    }
-    .deal-img{
-        @apply w-full h-64 object-cover cs-rounded;
-    }
-
     /* LISTS */
     .list-wrap{
-        @apply bg-white dark:bg-neutral-800 cs-rounded shadow-xl absolute hidden right-0 z-10 mt-2 w-96 p-2;
+        @apply bg-white dark:bg-neutral-800 cs-rounded shadow border border-neutral-100 dark:border-neutral-800 absolute hidden right-0 mt-2 w-96 p-2;
     }
     .list-itm-title{
         @apply bold block px-4 py-2 text-primary;
@@ -195,17 +142,6 @@
     /* SIGN UP */
     .sign-wrap{
         @apply box p-4 flex flex-col justify-center space-y-2 md:flex md:flex-row md:items-center md:space-x-4 md:space-y-0 mt-4;
-    }
-
-    /* FOOTER */
-    .foot-wrap{
-        @apply grid gap-4 grid-cols-2 md:grid-cols-4;
-    }
-    .foot-copy{
-        @apply md:flex md:items-center md:justify-between pt-8;
-    }
-    .foot-copy div{
-        @apply flex mt-4 space-x-4 justify-center md:mt-0;
     }
 
     /* BUTTONS */
@@ -282,6 +218,32 @@
         @apply absolute tag ml-3 my-1;
     }
 
+    /* CARD */
+    .card-grid{
+        @apply grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:md:grid-cols-6;
+    }
+    .card-wrap{
+        @apply box relative p-2;
+    }
+    .card-img{
+        @apply w-full h-auto rounded-2xl;
+    }
+    .card-cont{
+        @apply flex justify-between items-center space-y-4 mt-2;
+    }
+    .card-title{
+        @apply h-14 overflow-hidden;
+    }
+    .card-price-d{
+        @apply font-semibold text-primary;
+    }
+    .card-price-n{
+        @apply font-semibold;
+    }
+    .card-price-nt{
+        @apply text-xs text-neutral-500 line-through;
+    }
+
     /* PAYMENT */
     .pay-wrap{
         @apply box p-4 mt-4 grid gap-4 grid-cols-1 md:grid-cols-2;
@@ -291,6 +253,42 @@
     }
     .pay-info{
         @apply flex flex-col h-full;
+    }
+
+    /* DEALS */
+    .deal-wrap{
+        @apply grid gap-4 grid-cols-1 md:grid-cols-2;
+    }
+    .deal-header{
+        @apply md:flex md:items-center md:space-x-4 my-4;
+    }
+    .deal-img{
+        @apply w-full h-64 object-cover cs-rounded;
+    }
+
+    /* PRICES */
+    .price-sp{
+        @apply text-3xl font-bold text-red-600;
+    }
+    .price-sp-2{
+        @apply text-xl text-neutral-500 line-through block;
+    }
+    .price-np{
+        @apply text-3xl font-bold text-neutral-800 dark:text-neutral-200;
+    }
+    .price-d{
+        @apply bold;
+    }
+
+    /* FOOTER */
+    .foot-wrap{
+        @apply grid gap-4 grid-cols-2 md:grid-cols-4;
+    }
+    .foot-copy{
+        @apply md:flex md:items-center md:justify-between pt-4;
+    }
+    .foot-copy div{
+        @apply flex mt-4 justify-center md:mt-0;
     }
 
     /* ANIMATIONS [hover-scale transform hover:scale-105] */

@@ -1,8 +1,6 @@
 {% load static %}
 <article class="card-wrap group">
-  {% if product.is_new %}
-  <span class="tag-absolute">New</span>
-  {% endif %}
+  {% if product.is_new %}<span class="tag-absolute">New</span>{% endif %}
   <a href="{% url 'products:detail' product.pk %}" title="{{ product.title }}">
     {% if product.image %}
     <img class="card-img" src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title|lower }}" />

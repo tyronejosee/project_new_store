@@ -3,6 +3,7 @@
 {% block title %}{{ title|title }}{% endblock title %}
 
 {% block content %}
+
 <!-- HEADLINE -->
 <header>
   <div class="flex items-center justify-between">
@@ -44,10 +45,12 @@
   {% endfor %}
 </section>
 {% endif %}
+
 {% if products|length == 0 %}
   {% include "components/empty.html" with arg="product" %}
 {% endif %}
 
 <!-- PAGINATION -->
 {% include "components/pagination.html" %}
+
 {% endblock %}

@@ -41,7 +41,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=254, unique=True, verbose_name='Email')
     first_name = models.CharField(max_length=200, blank=True, null=True, verbose_name='First Name')
     last_name = models.CharField(max_length=200, blank=True, null=True, verbose_name='Last Name')
-    address = models.TextField(blank=True, verbose_name='Adress')
+    address = models.TextField(blank=True, verbose_name='Address')
     phone_number = models.CharField(max_length=15, blank=True, verbose_name='Phone Number')
     is_active = models.BooleanField(default=True, verbose_name='Is Active')
     is_staff = models.BooleanField(default=False, verbose_name='Is Staff')
@@ -60,6 +60,3 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def has_module_perms(self, app_label):
         return True
-
-    def is_staff(self):
-        return self.is_staff

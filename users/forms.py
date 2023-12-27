@@ -2,8 +2,9 @@
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from utils.tailwind_classes import form_text, form_number
+
 from users.models import CustomUser
+from utils.tailwind_classes import form_text, form_number
 
 
 class UserLoginForm(AuthenticationForm):

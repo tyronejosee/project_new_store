@@ -4,13 +4,12 @@
 
 {% block content %}
 <!-- PAGE IMAGE -->
-<figure class="relative">
+<figure class="relative border border-neutral-100 dark:border-neutral-800 cs-rounded overflow-hidden">
   {% if page.image %}
-  <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-64 object-cover cs-rounded" />
+  <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-40 lg:h-60 object-cover" />
   {% else %}
-  <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-full h-64 object-cover cs-rounded" />
+  <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-full h-40 lg:h-60 object-cover" />
   {% endif %}
-  <div class="absolute inset-0 opacity-30 cs-rounded"></div>
 </figure>
 
 <!-- PAGE CONTENT -->

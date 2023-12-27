@@ -9,7 +9,6 @@
     <header class="my-4">
       <h2 class="headline">Confirm delete</h2>
     </header>
-  
     <!-- FORM -->
     <form method="POST" class="box">{% csrf_token %}
       <img src="{{ object.image.url }}" class="rounded border" width="50" height="50">

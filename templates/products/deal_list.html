@@ -3,6 +3,7 @@
 {% block title %}Deals{% endblock title %}
 
 {% block content %}
+
 <!-- HEADLINE -->
 <header>
   <h2 class="headline">Deals</h2>
@@ -20,7 +21,9 @@
   {% endfor %}
 </section>
 {% endif %}
+
 {% if deals|length == 0 %}
   {% include "components/empty.html" with arg="deal" %}
 {% endif %}
+
 {% endblock %}

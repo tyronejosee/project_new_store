@@ -1,6 +1,7 @@
 """URLs for Products App."""
 
 from django.urls import path
+
 from products.views import (
     ProductListView,
     ProductDetailView,

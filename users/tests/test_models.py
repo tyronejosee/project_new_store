@@ -12,14 +12,14 @@ class CustomUserTests(TestCase):
 
         user = CustomUser
         user = user.objects.create_user(
-            username="usertest",
+            username="user_test",
             email="test@gmail.com",
             first_name="User",
             last_name="Test",
             password="testuser1234"
         )
         # Expected results
-        self.assertEqual(user.username, "usertest")
+        self.assertEqual(user.username, "user_test")
         self.assertEqual(user.email, "test@gmail.com")
         self.assertEqual(user.first_name, "User")
         self.assertEqual(user.last_name, "Test")
@@ -32,14 +32,14 @@ class CustomUserTests(TestCase):
 
         user = CustomUser
         user = user.objects.create_superuser(
-            username="usertest",
+            username="user_test",
             email="test@gmail.com",
             first_name="User",
             last_name="Test",
             password="testuser1234"
         )
         # Expected results
-        self.assertEqual(user.username, "usertest")
+        self.assertEqual(user.username, "user_test")
         self.assertEqual(user.email, "test@gmail.com")
         self.assertEqual(user.first_name, "User")
         self.assertEqual(user.last_name, "Test")

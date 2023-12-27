@@ -1,6 +1,7 @@
 """Models Tests for the Cart App."""
 
 from django.test import TestCase
+
 from users.models import CustomUser
 from products.models import Product
 from cart.models import Cart, CartItem, Wishlist

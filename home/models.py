@@ -16,7 +16,7 @@ class Company(models.Model):
     linkedin = models.URLField(verbose_name='LinkedIn')
 
     class Meta:
-        """Adds extra metadata to the Company model."""
+        """Meta definition for Company model."""
         verbose_name_plural = "Company"
 
     def __str__(self):
@@ -33,7 +33,7 @@ class Page(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
     class Meta:
-        """Adds extra metadata to the Page model."""
+        """Meta definition for Page model."""
         verbose_name_plural = "Pages"
         ordering = ['-created_at',]
 
@@ -41,7 +41,7 @@ class Page(models.Model):
         return str(self.key)
 
     def save(self, *args, **kwargs):
-        """Override the save method to rename the image before saving it."""
+        # Change the name of the image before saving it
         if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
             # Gets the original file name
             file_name, file_extension = os.path.splitext(self.image.name)

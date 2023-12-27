@@ -10,7 +10,7 @@ urlpatterns = [
     # Django URLs
     path('admin/', admin.site.urls),
 
-    # Core URLs
+    # App URLs
     path("", include("home.urls")),
     path('users/', include('users.urls')),
     path("products/", include("products.urls")),

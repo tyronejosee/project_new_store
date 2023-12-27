@@ -1,6 +1,7 @@
 """URLs for Home App."""
 
 from django.urls import path
+
 from home.views import IndexTemplateView, PageDetailView
 
 app_name = 'home'

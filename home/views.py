@@ -1,16 +1,17 @@
 """Views for Home App."""
 
 from django.views.generic import TemplateView, DetailView
+
 from home.models import Page
 from products.models import Product
 
 
 class IndexTemplateView(TemplateView):
-    """Renders the site's index with multiple contexts."""
+    """View for rendering the site index with multiple contexts."""
     template_name = 'home/index.html'
 
     def get_context_data(self, **kwargs):
-        """Override the get_context_data method to send multiple contexts."""
+        # Sends multiple contexts to the templates
         context = super().get_context_data(**kwargs)
 
         # Send all the products (first 12 prods.)
@@ -42,13 +43,12 @@ class IndexTemplateView(TemplateView):
 
 
 class PageDetailView(DetailView):
-    """Display details of the static site pages."""
-
+    """View to display details of the static pages of the site."""
     model = Page
     template_name = 'home/page_detail.html'
     context_object_name = 'page'
 
     def get_object(self, queryset=None):
-        """Gets a key from the HTML and uses it as a filter for searching in the database."""
+        # Gets a key from the HTML to be used as a filter in the query
         key = self.kwargs['key']
         return Page.objects.get(key=key)

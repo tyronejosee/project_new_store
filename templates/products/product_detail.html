@@ -3,12 +3,13 @@
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 
 {% block content %}
+
 <!-- ROUTES -->
 {% include "components/routes.html" %}
 
 <!-- PRODUCT DETAIL -->
 <section class="detail-wrap">
-  <figure class="zoomable-container overflow-hidden cs-rounded border-2">
+  <figure class="zoomable-container overflow-hidden cs-rounded border border-neutral-100 dark:border-neutral-800">
     <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
       <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
     </div>
@@ -89,6 +90,7 @@
   <header class="my-4">
     <h2 class="headline">Featured products</h2>
   </header>
+
   {% if products_featured %}
   <section class="card-grid">
     {% for product in products_featured %}
@@ -96,8 +98,10 @@
     {% endfor %}
   </section>
   {% endif %}
+
   {% if products_featured|length == 0 %}
     {% include "components/empty.html" with arg="product" %}
   {% endif %}
 </section>
+
 {% endblock %}

@@ -2,6 +2,7 @@
 
 from django.test import TestCase
 from django.urls import reverse, resolve
+
 from home.views import IndexTemplateView, PageDetailView
 
 

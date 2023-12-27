@@ -3,6 +3,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+
 from products.models import Product, Deal, Category, Brand
 
 
@@ -11,24 +12,28 @@ from products.models import Product, Deal, Category, Brand
 class CategoryResource(resources.ModelResource):
     """Class for importing and exporting data for the Category model."""
     class Meta:
+        """Meta definition for CategoryResource."""
         model = Category
 
 
 class BrandResource(resources.ModelResource):
     """Class for importing and exporting data for the Brand model."""
     class Meta:
+        """Meta definition for BrandResource."""
         model = Brand
 
 
 class ProductResource(resources.ModelResource):
     """Class for importing and exporting data for the Product model."""
     class Meta:
+        """Meta definition for ProductResource."""
         model = Product
 
 
 class DealResource(resources.ModelResource):
     """Class for importing and exporting data for the Deal model."""
     class Meta:
+        """Meta definition for DealResource."""
         model = Deal
 
 

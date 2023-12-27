@@ -15,18 +15,18 @@
   <a href="#"><strong>Website (Coming Soon)</strong></a>
 </p>
 <p align="center">
-    <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/python-3.11.3-blue" alt="python-version">
-    </a>
-    <a href="https://www.djangoproject.com/">
-    <img src="https://img.shields.io/badge/django-4.2.4-blue" alt="django-version">
-    </a>
-    <a href="https://tailwindcss.com/">
-    <img src="https://img.shields.io/badge/tailwindcss-3.3.2-blue" alt="tailwind-version">
-    </a>
-    <a href="https://nodejs.org/en">
-    <img src="https://img.shields.io/badge/node-18.17.1-blue" alt="tailwind-version">
-    </a>
+  <a href="https://www.python.org/">
+  <img src="https://img.shields.io/badge/python-3.11.3-blue" alt="python-version">
+  </a>
+  <a href="https://www.djangoproject.com/">
+  <img src="https://img.shields.io/badge/django-4.2.4-blue" alt="django-version">
+  </a>
+  <a href="https://tailwindcss.com/">
+  <img src="https://img.shields.io/badge/tailwindcss-3.3.2-blue" alt="tailwind-version">
+  </a>
+  <a href="https://nodejs.org/en">
+  <img src="https://img.shields.io/badge/node-18.17.1-blue" alt="tailwind-version">
+  </a>
 </p>
 
 ## Features
@@ -47,7 +47,7 @@ Key features of New Store include:
 
 ## Installation
 
-### Proyect
+### Project
 
 **1. Clone the repository**:
 
@@ -98,7 +98,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-### Taiwind CSS
+### Tailwind CSS
 
 **1. Install Tailwind using npm ([Node.js](https://nodejs.org/en)** Required):
 

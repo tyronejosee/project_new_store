@@ -58,7 +58,7 @@ class ProductListView(LoginRequiredMixin, ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        # Select specific fields from the 'Product' model using the 'only' method
+        # Select specific fields from the Product model using the only method
         return Product.objects.filter(show_hide=True).only(
             'title', 'normal_price', 'image', 'stock',
             'featured', 'show_hide'
@@ -102,7 +102,7 @@ class DeactivatedProductListView(LoginRequiredMixin, ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        # Select specific fields from the 'Product' model using the 'only' method
+        # Select specific fields from the Product model using the 'only method
         return Product.objects.filter(show_hide=False).only(
             'title', 'normal_price', 'image', 'stock',
             'featured', 'show_hide'

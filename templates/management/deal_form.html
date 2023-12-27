@@ -43,12 +43,8 @@
     {{ form.status }}
   </label>
   <div class="space-y-2">
-    <button type="submit" class="btn-primary w-full">
-      Save page
-    </button>
-    <a href="{% url 'management:deal_list' %}" title="Cancel" class="btn-secondary w-full">
-      Cancel
-    </a>
+    <button type="submit" class="btn-primary w-full">Save</button>
+    <a href="{% url 'management:deal_list' %}" title="Cancel" class="btn-secondary w-full">Cancel</a>
   </div>
 </form>
 {% endblock %}
