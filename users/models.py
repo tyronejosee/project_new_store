@@ -60,3 +60,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def has_module_perms(self, app_label):
         return True
+    
+    def is_staff(self):
+        return self.is_staff
