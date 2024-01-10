@@ -1,6 +1,5 @@
 """Views for Users App."""
 
-
 from django.views.generic.edit import FormView
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache

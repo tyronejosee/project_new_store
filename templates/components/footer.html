@@ -1,56 +1,56 @@
-<footer class="mt-auto bg-neutral-100 dark:bg-neutral-800">
+<footer class="footer">
   <div class="container-section">
-    <div class="foot-wrap">
+    <div class="footer__wrapper">
       <div>
-        <h3 class="list-itm-title">About Us</h3>
+        <h3 class="list__itm-title">About Us</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='about' %}" title="About" class="list-itm link">About</a>
+            <a href="{% url 'home:page_detail' key='about' %}" title="About" class="list__itm link">About</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='careers' %}" title="Careers" class="list-itm link">Careers</a>
+            <a href="{% url 'home:page_detail' key='careers' %}" title="Careers" class="list__itm link">Careers</a>
           </li>
         </ul>
       </div>
       <div>
-        <h3 class="list-itm-title">Help</h3>
+        <h3 class="list__itm-title">Help</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='returns' %}" title="Returns" class="list-itm link">Returns</a>
+            <a href="{% url 'home:page_detail' key='returns' %}" title="Returns" class="list__itm link">Returns</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='support' %}" title="Support" class="list-itm link">Support</a>
+            <a href="{% url 'home:page_detail' key='support' %}" title="Support" class="list__itm link">Support</a>
           </li>
         </ul>
       </div>
       <div>
-        <h3 class="list-itm-title">Legal</h3>
+        <h3 class="list__itm-title">Legal</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='privacy' %}" title="Privacy Policy" class="list-itm link">Privacy Policy</a>
+            <a href="{% url 'home:page_detail' key='privacy' %}" title="Privacy Policy" class="list__itm link">Privacy Policy</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='terms' %}" title="Terms and Conditions" class="list-itm link">Terms & Conditions</a>
+            <a href="{% url 'home:page_detail' key='terms' %}" title="Terms and Conditions" class="list__itm link">Terms & Conditions</a>
           </li>
         </ul>
       </div>
       <div>
-        <h3 class="list-itm-title">Services</h3>
+        <h3 class="list__itm-title">Services</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='delivery' %}" title="Delivery" class="list-itm link">Delivery</a>
+            <a href="{% url 'home:page_detail' key='delivery' %}" title="Delivery" class="list__itm link">Delivery</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='app' %}" title="App" class="list-itm link">App</a>
+            <a href="{% url 'home:page_detail' key='app' %}" title="App" class="list__itm link">App</a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="foot-copy">
+    <div class="footer__foot-copy">
       <span class="small flex justify-center">
         {{ company.copy|default:'Copyright' }}
       </span>
-      <div>
+      <div class="footer__social-icons">
         <a href="{{ company.email|default:'Email' }}" title="Gmail" target="_blank" class="list-itm" rel="noopener noreferrer">
           <svg class="icon-sm" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
