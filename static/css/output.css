@@ -534,7 +534,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-/* MAIN COMPONENTS */
+/* Containers */
 
 .container-main {
   display: flex;
@@ -667,7 +667,7 @@ video {
   }
 }
 
-/* BOX */
+/* Box */
 
 .box {
   border-radius: 0.75rem;
@@ -682,7 +682,7 @@ video {
   }
 }
 
-/* TEXTS */
+/* Typography */
 
 .headline {
   font-size: 1.5rem;
@@ -847,7 +847,7 @@ video {
   text-decoration-line: underline;
 }
 
-/* ICONS */
+/* Icons */
 
 .icon-sm {
   height: 1rem;
@@ -866,7 +866,7 @@ video {
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 
-/* NAVBAR */
+/* Navbar */
 
 .navbar-wrap {
   position: sticky;
@@ -905,7 +905,7 @@ video {
   }
 }
 
-/* DETAILS */
+/* Details */
 
 .detail-wrap {
   display: grid;
@@ -1061,7 +1061,7 @@ video {
   }
 }
 
-/* PAGINATION */
+/* Pagination */
 
 .pag-wrap {
   display: flex;
@@ -1123,7 +1123,7 @@ video {
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
 
-/* SIGN UP */
+/* Sign Up Section */
 
 .sign-wrap {
   border-radius: 0.75rem;
@@ -1172,7 +1172,7 @@ video {
   }
 }
 
-/* BUTTONS */
+/* Buttons */
 
 .btn-primary {
   border-radius: 0.75rem;
@@ -1371,7 +1371,7 @@ video {
   }
 }
 
-/* FORMS */
+/* Forms */
 
 .form-wrap {
   margin-left: auto;
@@ -1617,7 +1617,7 @@ video {
   }
 }
 
-/* TABLES */
+/* Tables */
 
 .table-wrap {
   border-radius: 0.75rem;
@@ -1702,7 +1702,7 @@ video {
   padding-right: 1rem;
 }
 
-/* TAGS */
+/* Tags */
 
 .tag-cart {
   position: absolute;
@@ -1760,7 +1760,7 @@ video {
   margin-left: 0.75rem;
 }
 
-/* CARD */
+/* Card */
 
 .card-grid {
   display: grid;
@@ -1848,7 +1848,7 @@ video {
   text-decoration-line: line-through;
 }
 
-/* PAYMENT */
+/* Payment */
 
 .pay-wrap {
   border-radius: 0.75rem;
@@ -1883,7 +1883,7 @@ video {
   flex-direction: column;
 }
 
-/* DEALS */
+/* Deal */
 
 .deal-wrap {
   display: grid;
@@ -1923,7 +1923,7 @@ video {
      object-fit: cover;
 }
 
-/* PRICES */
+/* Prices */
 
 .price-sp {
   font-size: 1.875rem;
@@ -2030,7 +2030,7 @@ video {
   }
 }
 
-/* ANIMATIONS [hover-scale transform hover:scale-105] */
+/* Animations [hover-scale transform hover:scale-105] */
 
 .sr-only {
   position: absolute;
@@ -2568,8 +2568,7 @@ video {
 @font-face {
   font-family: 'Poppins';
 
-  src: url('../fonts/poppins-regular.woff2') format('woff2'),
-         url('../fonts/poppins-regular.woff') format('woff');
+  src: url('../fonts/poppins-regular.woff2') format('woff2'), url('../fonts/poppins-regular.woff') format('woff');
 
   font-weight: 400;
 
@@ -2579,8 +2578,7 @@ video {
 @font-face {
   font-family: 'Poppins';
 
-  src: url('../fonts/poppins-medium.woff2') format('woff2'),
-         url('../fonts/poppins-medium.woff') format('woff');
+  src: url('../fonts/poppins-medium.woff2') format('woff2'), url('../fonts/poppins-medium.woff') format('woff');
 
   font-weight: 500;
 
@@ -2590,8 +2588,7 @@ video {
 @font-face {
   font-family: 'Poppins';
 
-  src: url('../fonts/poppins-semibold.woff2') format('woff2'),
-         url('../fonts/poppins-semibold.woff') format('woff');
+  src: url('../fonts/poppins-semibold.woff2') format('woff2'), url('../fonts/poppins-semibold.woff') format('woff');
 
   font-weight: 600;
 
@@ -2601,12 +2598,65 @@ video {
 @font-face {
   font-family: 'Poppins';
 
-  src: url('../fonts/poppins-bold.woff2') format('woff2'),
-         url('../fonts/poppins-bold.woff') format('woff');
+  src: url('../fonts/poppins-bold.woff2') format('woff2'), url('../fonts/poppins-bold.woff') format('woff');
 
   font-weight: 700;
 
   font-style: normal;
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #171717;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #404040;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #daff01;
+}
+
+/* Scroll Bar: Light Mode */
+
+@media (prefers-color-scheme: light) {
+  ::-webkit-scrollbar-track {
+    background-color: #e5e5e5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #a3a3a3;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #737373;
+  }
+}
+
+/* Scroll Bar: Dark Mode */
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background-color: #171717;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #404040;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #daff01;
+  }
 }
 
 .group:hover .group-hover\:btn-primary {
