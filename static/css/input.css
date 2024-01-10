@@ -138,7 +138,7 @@
 	}
 	
 	.link-bold{
-		@apply font-medium text-sm lg:text-base text-primary hover:underline focus:text-primaryFocus;
+		@apply font-medium text-sm lg:text-base text-primary hover:underline focus:text-red-300;
 	}
 	
 	.small{
@@ -194,7 +194,7 @@
 	}
 
 	.list__itm-title {
-		@apply bold block px-4 py-2 text-primary;
+		@apply bold block px-4 py-2;
 	}
 
 	.list__itm {
@@ -212,7 +212,7 @@
 	}
 
 	.pag-itm-active{
-		@apply flex items-center justify-center px-4 h-10 rounded-xl text-white bg-primary hover:bg-primaryHover;
+		@apply flex items-center justify-center px-4 h-10 rounded-xl text-white bg-primary hover:bg-red-700;
 	}
 
 
@@ -224,11 +224,11 @@
 
 	/* Buttons */
 	.btn-primary{
-		@apply flex items-center justify-center bg-primary hover:bg-primaryHover px-4 h-10 focus:ring-4 focus:outline-none focus:ring-primaryFocus bold text-white cs-rounded;
+		@apply flex items-center justify-center bg-primary hover:bg-red-700 px-4 h-10 focus:ring-4 focus:outline-none focus:ring-red-300 bold text-white cs-rounded;
 	}
 	
 	.btn-secondary{
-		@apply flex items-center justify-center bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 px-4 h-10 focus:ring-2 focus:outline-none focus:ring-secondaryFocus text-neutral-800 dark:text-neutral-200 bold cs-rounded;
+		@apply flex items-center justify-center bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 px-4 h-10 focus:ring-2 focus:outline-none focus:ring-white text-neutral-800 dark:text-neutral-200 bold cs-rounded;
 	}
 	
 	.btn-scroll{
@@ -254,7 +254,7 @@
 	}
 	
 	.form__input-file {
-		@apply block w-full file:mr-4 file:h-10 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-light file:text-primary hover:file:bg-lightHover;
+		@apply block w-full file:mr-4 file:h-10 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-neutral-100 file:text-primary hover:file:bg-neutral-200;
 	}
 	
 	.form__input-number {
