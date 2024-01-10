@@ -3,24 +3,24 @@
 
 def form_text(placeholder):
     """Utility classes for text input."""
-    return {'class': 'form-text', 'placeholder': placeholder}
+    return {'class': 'form__input-text', 'placeholder': placeholder}
 
 def form_number(placeholder):
     """Utility classes for number input."""
-    return {'class': 'form-number', 'placeholder': placeholder}
+    return {'class': 'form__input-number', 'placeholder': placeholder}
 
 def form_checkbox():
     """Utility classes for checkbox input."""
-    return {'class': 'form-checkbox'}
+    return {'class': 'form__input-checkbox'}
 
 def form_file():
     """Utility classes for file input."""
-    return {'class': 'form-file'}
+    return {'class': 'form__input-file'}
 
 def form_select():
     """Utility classes for select."""
-    return {'class': 'form-select'}
+    return {'class': 'form__input-select'}
 
 def form_textarea():
     """Utility classes for text area."""
-    return {'class': 'form-textarea'}
+    return {'class': 'form__input-textarea'}
