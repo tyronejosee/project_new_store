@@ -2,7 +2,15 @@
 
 import os
 from django.db import models
+from django.core.exceptions import ValidationError
 
+
+def validate_extension(value):
+    """Validates the file extension of the given file."""
+    ext = os.path.splitext(value.name)[1]
+    valid_extensions = ['.svg', '.webp']
+    if not ext.lower() in valid_extensions:
+        raise ValidationError("Only .svg and .webp files are allowed.")
 
 class Company(models.Model):
     """Entity type model for Company."""
@@ -28,7 +36,7 @@ class Page(models.Model):
 
     key = models.CharField(max_length=50, default='pending', verbose_name='Unique Key')
     content = models.TextField(blank=True, null=True, verbose_name='Content')
-    image = models.ImageField(upload_to='pages/', blank=True, null=True, verbose_name='Image')
+    image = models.FileField(upload_to='pages/', validators=[validate_extension], blank=True, null=True, verbose_name='Image')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created at')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Updated at')
 
@@ -41,13 +49,11 @@ class Page(models.Model):
         return str(self.key)
 
     def save(self, *args, **kwargs):
-        # Change the name of the image before saving it
-        if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-            # Gets the original file name
-            file_name, file_extension = os.path.splitext(self.image.name)
-            # Creates the new name in the format 'visual-key.webp'
-            new_file_name = f'visual-{self.key}{file_extension}'
-            # Changes the file name
-            self.image.name = new_file_name
+        # Rename the image associated with the page
+        if self.image and self.image.name:
+            if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
+                file_name, file_extension = os.path.splitext(self.image.name)
+                file_name = f'{self.key}{file_extension}'
+                self.image.name = file_name
 
         super(Page, self).save(*args, **kwargs)
