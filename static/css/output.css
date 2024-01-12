@@ -810,7 +810,7 @@ video {
 
 /* Navbar */
 
-.navbar-wrap {
+.navbar {
   position: sticky;
   top: 0px;
   z-index: 10;
@@ -821,14 +821,14 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-:is(.dark .navbar-wrap) {
+:is(.dark .navbar) {
   --tw-border-opacity: 1;
   border-color: rgb(38 38 38 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(23 23 23 / var(--tw-bg-opacity));
 }
 
-.navbar-wrap nav {
+.navbar__wrapper {
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -840,7 +840,7 @@ video {
 }
 
 @media (min-width: 640px) {
-  .navbar-wrap nav {
+  .navbar__wrapper {
     flex-wrap: nowrap;
   }
 }
@@ -977,60 +977,56 @@ video {
 
 /* Pagination */
 
-.pag-wrap {
+.pagination {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.pag-wrap > :not([hidden]) ~ :not([hidden]) {
+.pagination > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.pag-itm {
+.pagination__itm {
   display: flex;
   height: 2.5rem;
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.pag-itm:hover {
+.pagination__itm--normal {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+}
+
+.pagination__itm--normal:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
 }
 
-:is(.dark .pag-itm) {
+:is(.dark .pagination__itm--normal) {
   --tw-bg-opacity: 1;
   background-color: rgb(64 64 64 / var(--tw-bg-opacity));
 }
 
-:is(.dark .pag-itm:hover) {
+:is(.dark .pagination__itm--normal:hover) {
   --tw-bg-opacity: 1;
   background-color: rgb(82 82 82 / var(--tw-bg-opacity));
 }
 
-.pag-itm-active {
-  display: flex;
-  height: 2.5rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
+.pagination__itm--active {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  padding-right: 1rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.pag-itm-active:hover {
+.pagination__itm--active:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }

@@ -1,14 +1,14 @@
 {% if page_obj and page_obj.paginator.num_pages >= 1 %}
-<nav class="box p-2 flex justify-between items-center">
+<div class="box p-2 flex justify-between items-center">
   <div>
     <span class="bold">
       Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} of {{ page_obj.paginator.count }} entries
     </span>
   </div>
-  <div class="pag-wrap">
+  <nav class="pagination">
     <!-- FIRST PAGE -->
     {% if page_obj.paginator.num_pages > 5 and page_obj.has_previous %}
-    <a href="?page=1" title="First page" class="pag-itm">
+    <a href="?page=1" title="First page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
         <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
       </svg>
@@ -16,7 +16,7 @@
     {% endif %}
     <!-- PREVIUS PAGE -->
     {% if page_obj.has_previous %}
-    <a href="?page={{ page_obj.previous_page_number }}" title="Previous page" class="pag-itm">
+    <a href="?page={{ page_obj.previous_page_number }}" title="Previous page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
       </svg>
@@ -25,13 +25,13 @@
     <!-- CURRENT AND TOTAL PAGES -->
     {% for page in page_obj.paginator.page_range %}
     <a href="?page={{ page }}" title="Current page"
-      class="{% if page_obj.number == page %}pag-itm-active{% else %}pag-itm{% endif %}">
+      class="{% if page_obj.number == page %}pagination__itm pagination__itm--active{% else %}pagination__itm pagination__itm--normal{% endif %}">
       {{ page }}
     </a>
     {% endfor %}
     <!-- NEXT PAGE -->
     {% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}" title="Next page" class="pag-itm">
+    <a href="?page={{ page_obj.next_page_number }}" title="Next page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
       </svg>          
@@ -39,12 +39,12 @@
     {% endif %}
     <!-- LAST PAGE -->
     {% if page_obj.paginator.num_pages > 5 and page_obj.has_next %}
-    <a href="?page={{ page_obj.paginator.num_pages }}" title="Last page" class="pag-itm">
+    <a href="?page={{ page_obj.paginator.num_pages }}" title="Last page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
         <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
       </svg>
     </a>
     {% endif %}
-  </div>
-</nav>
+  </nav>
+</div>
 {% endif %}
