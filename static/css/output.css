@@ -536,14 +536,14 @@ video {
 
 /* Containers */
 
-.container-main {
+.container__main {
   display: flex;
   min-height: 100vh;
   min-width: 320px;
   flex-direction: column;
 }
 
-.container-section {
+.container__section {
   width: 100%;
   min-width: 320px;
   max-width: 1280px;
@@ -551,13 +551,13 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .container-section {
+  .container__section {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-.container-sidebar {
+.container__sidebar {
   display: flex;
   height: 100vh;
   width: 100%;
@@ -568,7 +568,7 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .container-sidebar {
+  .container__sidebar {
     margin-left: auto;
     margin-right: auto;
   }
@@ -632,9 +632,7 @@ video {
   background-color: rgb(23 23 23 / var(--tw-bg-opacity));
 }
 
-.cs-rounded {
-  border-radius: 0.75rem;
-}
+/* Elements */
 
 .hr {
   margin-left: auto;
@@ -660,8 +658,6 @@ video {
     margin-bottom: 2.5rem;
   }
 }
-
-/* Box */
 
 .box {
   border-radius: 0.75rem;
@@ -958,12 +954,12 @@ video {
 /* Lists */
 
 .list__wrapper {
-  border-radius: 0.75rem;
   position: absolute;
   right: 0px;
   margin-top: 0.5rem;
   display: none;
   width: 24rem;
+  border-radius: 0.75rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
@@ -1011,8 +1007,8 @@ video {
 }
 
 .list__itm {
-  border-radius: 0.75rem;
   display: block;
+  border-radius: 0.75rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -1139,7 +1135,6 @@ video {
 /* Buttons */
 
 .btn-primary {
-  border-radius: 0.75rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -1164,6 +1159,7 @@ video {
   height: 2.5rem;
   align-items: center;
   justify-content: center;
+  border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
   padding-left: 1rem;
@@ -1188,7 +1184,6 @@ video {
 }
 
 .btn-secondary {
-  border-radius: 0.75rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -1213,6 +1208,7 @@ video {
   height: 2.5rem;
   align-items: center;
   justify-content: center;
+  border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
   padding-left: 1rem;
@@ -1249,7 +1245,6 @@ video {
 }
 
 .btn-scroll {
-  border-radius: 0.75rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -1274,6 +1269,7 @@ video {
   height: 2.5rem;
   align-items: center;
   justify-content: center;
+  border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
   padding-left: 1rem;
@@ -1566,9 +1562,9 @@ video {
 /* Tables */
 
 .table-wrap {
-  border-radius: 0.75rem;
   position: relative;
   overflow-x: auto;
+  border-radius: 0.75rem;
 }
 
 .table-wrap table {
@@ -1852,9 +1848,9 @@ video {
 }
 
 .deal-img {
-  border-radius: 0.75rem;
   height: 16rem;
   width: 100%;
+  border-radius: 0.75rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -2335,6 +2331,10 @@ video {
   border-radius: 0.5rem;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .rounded-br-2xl {
   border-bottom-right-radius: 1rem;
 }
@@ -2567,7 +2567,6 @@ video {
 }
 
 .group:hover .group-hover\:btn-primary {
-  border-radius: 0.75rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -2592,6 +2591,7 @@ video {
   height: 2.5rem;
   align-items: center;
   justify-content: center;
+  border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
   padding-left: 1rem;

@@ -15,7 +15,7 @@
   {% for deal in deals %}
     {% if deal.image %}
     <a href="{% url 'products:deal_detail' slug=deal.slug %}">
-      <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="cs-rounded">
+      <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="rounded-xl">
     </a>
     {% endif %}  
   {% endfor %}

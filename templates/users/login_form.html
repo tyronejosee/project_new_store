@@ -13,7 +13,7 @@
   </header>
   <form method="POST" class="space-y-4">{% csrf_token %}
     {% if form.error_messages %}
-    <div class="bg-neutral-700 p-4 cs-rounded text-white hidden" role="alert">
+    <div class="bg-neutral-700 p-4 rounded-xl text-white hidden" role="alert">
       {{ form.get_invalid_login_error }}
     </div>
     {% endif %}

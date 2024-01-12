@@ -8,31 +8,27 @@
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
     <link rel="icon" type="image/svg+xml" href="{{ company.logo.url }}">
   </head>
-  <body class="container-main styles">
+  <body class="container__main styles">
 
-    <!-- SIDEBAR -->
+    <!-- Sidebar -->
     {% include 'components/sidebar.html' %}
 
-    <!-- MAIN CONTENT -->
-    <main class="container-sidebar">
+    <!-- Main Content -->
+    <main class="container__sidebar">
       <section class="sm:ml-64 space-y-4">
-        <!-- FINDER -->
         {% include 'components/finder.html' %}
-        <!-- CONTENT -->
         {% block content %}{% endblock content %}
-        <!-- IMAGE MODAL -->
         {% include "components/image_modal.html" %}
       </section>
-      <!-- PAGINATION -->
-      <section class="sm:ml-64 mt-auto">
+      <div class="sm:ml-64 mt-auto">
         {% include "components/pagination.html" %}
-      </section>
+      </div>
     </main>
 
-    <!-- JQUERY FILES -->
+    <!-- JQuery Files -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
 
-    <!-- JS FILES -->
+    <!-- JavaScript Files -->
     <script src="{% static 'js/main.js' %}"></script>
 
   </body>

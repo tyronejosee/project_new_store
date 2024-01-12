@@ -13,29 +13,28 @@
   </head>
   <body class="container-main styles">
 
-    <!-- NAVBAR -->
+    <!-- Navbar -->
     {% include "components/header.html" %}
 
-    <main class="container-section space-y-4">
-      <!-- MAIN CONTENT -->
+    <!-- Main Content -->
+    <main class="container__section space-y-4">
       {% block content %}{% endblock content %}
-      <!-- SIGN UP -->
       {% include "components/signup.html" %}
     </main>
 
-    <!-- IMAGE MODAL -->
+    <!-- Image Modal -->
     {% include "components/image_modal.html" %}
     
-    <!-- FOOTER -->
+    <!-- Footer -->
     {% include "components/footer.html" %}
     
-    <!-- BTN SCROLL -->
+    <!-- Btn-Scroll -->
     {% include "components/btn_scroll.html" %}
 
-    <!-- JQUERY FILES -->
+    <!-- JQuery Files -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
 
-    <!-- JS FILES -->
+    <!-- JavaScript Files -->
     <script src="{% static 'js/main.js' %}"></script>
 
   </body>
