@@ -48,7 +48,7 @@
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">All Products</h2>
-    <a href="{% url 'products:prod_list' %}" class="btn-secondary">View all</a>
+    <a href="{% url 'products:prod_list' %}" class="btn btn--secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in all_products %}
@@ -73,7 +73,7 @@
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">Apple</h2>
-    <a href="{% url 'products:brand_filter' brand_slug='apple' %}" class="btn-secondary">View all</a>
+    <a href="{% url 'products:brand_filter' brand_slug='apple' %}" class="btn btn--secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in apple %}
@@ -88,7 +88,7 @@
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">Samsung</h2>
-    <a href="{% url 'products:brand_filter' brand_slug='samsung' %}" class="btn-secondary">View all</a>
+    <a href="{% url 'products:brand_filter' brand_slug='samsung' %}" class="btn btn--secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in samsung %}
@@ -103,7 +103,7 @@
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">Computer Monitors</h2>
-    <a href="{% url 'products:category_filter' category_slug='computer-monitors' %}" class="btn-secondary">View all</a>
+    <a href="{% url 'products:category_filter' category_slug='computer-monitors' %}" class="btn btn--secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in computer_monitors %}

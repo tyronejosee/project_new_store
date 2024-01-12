@@ -30,7 +30,7 @@
       <span class="group-hover:underline line-clamp-2">{{ product.title|truncatechars:50 }}</span>
     </a>
   </div>
-  <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="btn-secondary group-hover:btn-primary">
+  <a href="{% url 'cart:add_prod_cart' product.id %}" title="Add to cart" class="btn btn--secondary group-hover:btn group-hover:btn--primary">
     Add to cart
   </a>
 </article>

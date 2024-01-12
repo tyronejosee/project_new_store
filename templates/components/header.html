@@ -14,7 +14,7 @@
       </div>
       <div class="w-1/2 justify-center">
         <div class="hidden md:block relative" id="dropdownContainer">
-          <button data-dropdown-toggle="dropdown" class="btn-secondary w-32" type="button">
+          <button data-dropdown-toggle="dropdown" class="btn btn--secondary w-32" type="button">
             Categories
           </button>
           <div id="dropdown" class="list__wrapper left-0">
@@ -75,7 +75,7 @@
 
     <!-- BUTTONS (CART, USER, SIGN UP SIGN IN) -->
     <div class="w-1/2 sm:w-1/3 order-2 sm:order-3 flex items-center justify-end space-x-4">
-      <button id="toggleModeButton" class="btn-secondary">
+      <button id="toggleModeButton" class="btn btn--secondary">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 hidden dark:block">
           <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
         </svg>
@@ -119,8 +119,8 @@
       {% else %}
       <div class="hidden sm:block">
         <div class="flex space-x-4">
-          <a href="{% url 'users:login' %}" class="btn-secondary">Login</a>
-          <a href="{% url 'users:registration' %}" class="btn-primary">Sign Up</a>
+          <a href="{% url 'users:login' %}" class="btn btn--secondary">Login</a>
+          <a href="{% url 'users:registration' %}" class="btn btn--primary">Sign Up</a>
         </div>
       </div>
       {% endif %}

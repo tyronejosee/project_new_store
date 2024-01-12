@@ -48,13 +48,13 @@
       </span>
     </div>
     <div class="mt-auto flex flex-col space-y-2">
-      <a href="{% url 'payment:checkout' product.id %}" class="btn-primary col-span-4 flex items-center px-auto">
+      <a href="{% url 'payment:checkout' product.id %}" class="btn btn--primary col-span-4 flex items-center px-auto">
         <span class="flex-item">Buy Now</span>
       </a>
-      <a href="{% url 'cart:add_prod_cart' product.id %}" class="btn-secondary">
+      <a href="{% url 'cart:add_prod_cart' product.id %}" class="btn btn--secondary">
         Add to Cart
       </a>
-      <a href="{% url 'cart:add_prod_wishlist' product.id %}" class="btn-secondary">
+      <a href="{% url 'cart:add_prod_wishlist' product.id %}" class="btn btn--secondary">
         Add to wishlist
       </a>
     </div>
