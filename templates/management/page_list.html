@@ -1,44 +1,43 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}Page List{% endblock title %}
-
 {% block content %}
-<!-- HEADLINE -->
+
+<!-- Headline -->
 <header class="flex justify-between">
   <h2 class="headline">Pages</h2>
   <a href="" class="btn-primary">Create</a>
 </header>
 
-<!-- TABLE CONTENT -->
-<section class="table-wrap">
-  <table>
-    <thead class="table-head">
+<!-- Page Table -->
+<section class="data-table">
+  <table class="data-table__wrapper">
+    <thead class="data-table__head">
       <tr>
-        <th scope="col" class="cell">Id</th>
-        <th scope="col" class="cell">Image</th>
-        <th scope="col" class="cell">Unique Key</th>
-        <th scope="col" class="cell">Content</th>
-        <th scope="col" class="cell">Created at</th>
-        <th scope="col" class="cell">Updated at</th>
-        <th scope="col" class="cell">Options</th>
+        <th scope="col" class="data-table__cell">Id</th>
+        <th scope="col" class="data-table__cell">Image</th>
+        <th scope="col" class="data-table__cell">Unique Key</th>
+        <th scope="col" class="data-table__cell">Content</th>
+        <th scope="col" class="data-table__cell">Created at</th>
+        <th scope="col" class="data-table__cell">Updated at</th>
+        <th scope="col" class="data-table__cell">Options</th>
       </tr>
     </thead>
     {% for page in pages %}
-    <tbody class="table-body">
+    <tbody class="data-table__body">
       <tr>
-        <td class="cell">{{ page.id }}</td>
-        <td class="cell">
+        <td class="data-table__cell">{{ page.id }}</td>
+        <td class="data-table__cell">
           {% if page.image %}
           <a href="#" title="{{ page.key }}" class="cursor-pointer show-image-popup" data-src="{{ page.image.url }}">
             <img src="{{ page.image.url }}" class="rounded-xl" width="25" height="25">
           </a>
           {% else %}None{% endif %}
         </td>
-        <td class="cell">{{ page.key }}</td>
-        <td class="cell">{{ page.content|truncatechars:10 }}</td>
-        <td class="cell">{{ page.created_at }}</td>
-        <td class="cell">{{ page.updated_at }}</td>
-        <td class="cell flex items-center space-x-4">
+        <td class="data-table__cell">{{ page.key }}</td>
+        <td class="data-table__cell">{{ page.content|truncatechars:10 }}</td>
+        <td class="data-table__cell">{{ page.created_at }}</td>
+        <td class="data-table__cell">{{ page.updated_at }}</td>
+        <td class="data-table__cell flex items-center space-x-4">
           <a href="{% url 'management:page_update' pk=page.pk %}" title="Update page" class="btn-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" data-slot="icon" class="icon-sm">
               <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
@@ -50,4 +49,5 @@
     {% endfor %}
   </table>
 </section>
+
 {% endblock %}

@@ -32,7 +32,7 @@
       {% endif %}
     </div>
     <div>
-      <h3 class="subheadline">Details</h3>
+      <h3 class="sub-headline">Details</h3>
       <p><span class="bold">ID:</span> {{ product.id }}</p>
       <p><span class="bold">Stock:</span> {{ product.stock }}</p>
       <p><span class="bold">Warranty:</span> {{ product.get_warranty_display }}</p>
@@ -75,11 +75,11 @@
   </nav>
   <section class="box p-8 mt-4">
     <article id="description-tab" class="tab-content">
-      <h3 class="subheadline">Description</h3>
+      <h3 class="sub-headline">Description</h3>
       <p>{{ product.description|safe }}</p>
     </article>
     <article id="specifications-tab" class="tab-content hidden">
-      <h3 class="subheadline">Specifications</h3>
+      <h3 class="sub-headline">Specifications</h3>
       <p class="leading-loose">{{ product.specifications|safe }}</p>
     </article>
   </section>

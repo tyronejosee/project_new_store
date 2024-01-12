@@ -1,65 +1,64 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}Product List{% endblock title %}
-
 {% block content %}
-<!-- HEADLINE -->
+
+<!-- Heaadline -->
 <header class="flex justify-between">
   <h2 class="headline">Products</h2>
   <a href="" class="btn-primary">Create</a>
 </header>
 
-<!-- TABLE CONTENT -->
+<!-- Product Table -->
 {% if products %}
-<section class="table-wrap">
-  <table>
-    <thead class="table-head">
+<section class="data-table">
+  <table class="data-table__wrapper">
+    <thead class="data-table__head">
       <tr>
-        <th scope="col" class="cell">Id</th>
-        <th scope="col" class="cell">Title</th>
-        <th scope="col" class="cell">Slug</th>
-        <th scope="col" class="cell">Brand</th>
-        <th scope="col" class="cell">Normal Price</th>
-        <th scope="col" class="cell">Sale Price</th>
-        <th scope="col" class="cell">Deal</th>
-        <th scope="col" class="cell">Category</th>
-        <th scope="col" class="cell">Image</th>
-        <th scope="col" class="cell">Stock</th>
-        <th scope="col" class="cell">Warranty</th>
-        <th scope="col" class="cell">Featured</th>
-        <th scope="col" class="cell">Show/Hide</th>
-        <th scope="col" class="cell">Description</th>
-        <th scope="col" class="cell">Specifications</th>
-        <th scope="col" class="cell">Created at</th>
-        <th scope="col" class="cell">Updated at</th>
-        <th scope="col" class="cell">Options</th>
+        <th scope="col" class="data-table__cell">Id</th>
+        <th scope="col" class="data-table__cell">Title</th>
+        <th scope="col" class="data-table__cell">Slug</th>
+        <th scope="col" class="data-table__cell">Brand</th>
+        <th scope="col" class="data-table__cell">Normal Price</th>
+        <th scope="col" class="data-table__cell">Sale Price</th>
+        <th scope="col" class="data-table__cell">Deal</th>
+        <th scope="col" class="data-table__cell">Category</th>
+        <th scope="col" class="data-table__cell">Image</th>
+        <th scope="col" class="data-table__cell">Stock</th>
+        <th scope="col" class="data-table__cell">Warranty</th>
+        <th scope="col" class="data-table__cell">Featured</th>
+        <th scope="col" class="data-table__cell">Show/Hide</th>
+        <th scope="col" class="data-table__cell">Description</th>
+        <th scope="col" class="data-table__cell">Specifications</th>
+        <th scope="col" class="data-table__cell">Created at</th>
+        <th scope="col" class="data-table__cell">Updated at</th>
+        <th scope="col" class="data-table__cell">Options</th>
       </tr>
     </thead>
     {% for product in products %}
-    <tbody class="table-body">
+    <tbody class="data-table__body">
       <tr>
-        <td class="cell">{{ product.id }}</td>
-        <td class="cell">{{ product.title|truncatechars:15 }}</td>
-        <td class="cell">{{ product.slug|truncatechars:15 }}</td>
-        <td class="cell">{{ product.brand }}</td>
-        <td class="cell">{{ product.normal_price }}</td>
-        <td class="cell">{{ product.sale_price }}</td>
-        <td class="cell">{{ product.deal }}</td>
-        <td class="cell">{{ product.category }}</td>
-        <td class="cell">
+        <td class="data-table__cell">{{ product.id }}</td>
+        <td class="data-table__cell">{{ product.title|truncatechars:15 }}</td>
+        <td class="data-table__cell">{{ product.slug|truncatechars:15 }}</td>
+        <td class="data-table__cell">{{ product.brand }}</td>
+        <td class="data-table__cell">{{ product.normal_price }}</td>
+        <td class="data-table__cell">{{ product.sale_price }}</td>
+        <td class="data-table__cell">{{ product.deal }}</td>
+        <td class="data-table__cell">{{ product.category }}</td>
+        <td class="data-table__cell">
           <a href="#" class="show-image-popup" data-src="{{ product.image.url }}">
             <img src="{{ product.image.url }}" alt="{{ product.title }}" class="icon-sm rounded">
           </a>
         </td>
-        <td class="cell">{{ product.stock }}</td>
-        <td class="cell">{{ product.warranty }}</td>
-        <td class="cell">{{ product.featured }}</td>
-        <td class="cell">{{ product.show_hide }}</td>
-        <td class="cell">{{ product.description|truncatechars:15 }}</td>
-        <td class="cell">{{ product.specifications|truncatechars:15 }}</td>
-        <td class="cell">{{ product.created_at }}</td>
-        <td class="cell">{{ product.updated_at }}</td>
-        <td class="cell flex items-center space-x-4">
+        <td class="data-table__cell">{{ product.stock }}</td>
+        <td class="data-table__cell">{{ product.warranty }}</td>
+        <td class="data-table__cell">{{ product.featured }}</td>
+        <td class="data-table__cell">{{ product.show_hide }}</td>
+        <td class="data-table__cell">{{ product.description|truncatechars:15 }}</td>
+        <td class="data-table__cell">{{ product.specifications|truncatechars:15 }}</td>
+        <td class="data-table__cell">{{ product.created_at }}</td>
+        <td class="data-table__cell">{{ product.updated_at }}</td>
+        <td class="data-table__cell flex items-center space-x-4">
           <a href="{% url 'management:product_update' pk=product.pk %}" title="Update product" class="btn-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm">
               <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
@@ -95,4 +94,5 @@
     {% include "components/empty.html" with arg="product" %}
   {% endif %}
 </section>
+
 {% endblock %}

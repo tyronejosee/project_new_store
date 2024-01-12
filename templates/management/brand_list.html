@@ -1,34 +1,33 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}Brand List{% endblock title %}
-
 {% block content %}
-<!-- HEADLINE -->
+
+<!-- Headline -->
 <header class="flex items-center justify-between my-4">
   <h2 class="headline">Brands</h2>
   <a href="{% url 'management:brand_create' %}" class="btn-primary">Create</a>
 </header>
 
-<!-- TABLE CONTENT -->
-<section class="table-wrap">
-  <table>
-    <thead class="table-head">
+<!-- Brand Table -->
+<section class="data-table">
+  <table class="data-table__wrapper">
+    <thead class="data-table__head">
       <tr>
-        <th scope="col" class="cell">Id</th>
-        <th scope="col" class="cell">Name</th>
-        <th scope="col" class="cell">Slug</th>
-        <th scope="col" class="cell">Show-Hide</th>
-        <th scope="col" class="cell">Options</th>
+        <th scope="col" class="data-table__cell">Id</th>
+        <th scope="col" class="data-table__cell">Name</th>
+        <th scope="col" class="data-table__cell">Slug</th>
+        <th scope="col" class="data-table__cell">Show-Hide</th>
+        <th scope="col" class="data-table__cell">Options</th>
       </tr>
     </thead>
     {% for brand in brands %}
-    <tbody class="table-body">
+    <tbody class="data-table__body">
       <tr>
-        <td class="cell">{{ brand.id }}</td>
-        <td class="cell">{{ brand.name }}</td>
-        <td class="cell">{{ brand.slug }}</td>
-        <td class="cell">{{ brand.show_hide }}</td>
-        <td class="cell">
+        <td class="data-table__cell">{{ brand.id }}</td>
+        <td class="data-table__cell">{{ brand.name }}</td>
+        <td class="data-table__cell">{{ brand.slug }}</td>
+        <td class="data-table__cell">{{ brand.show_hide }}</td>
+        <td class="data-table__cell">
           <a href="{% url 'management:brand_update' pk=brand.pk %}">Update</a>
           <a href="{% url 'management:brand_delete' pk=brand.pk %}">Delete</a>
         </td>
@@ -37,4 +36,5 @@
     {% endfor %}
   </table>
 </section>
+
 {% endblock %}

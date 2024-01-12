@@ -1,51 +1,49 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}Deal List{% endblock title %}
-
 {% block content %}
 
-<!-- HEADLINE -->
+<!-- Headline -->
 <header class="flex justify-between">
   <h2 class="headline">Deals</h2>
   <a href="{% url 'management:deal_create' %}" class="btn-primary">Create</a>
 </header>
 
-<!-- TABLE CONTENT -->
-<section class="table-wrap">
-  <table>
-    <thead class="table-head">
+<!-- Deal Table -->
+<section class="data-table">
+  <table class="data-table__wrapper">
+    <thead class="data-table__head">
       <tr>
-        <th scope="col" class="cell">Id</th>
-        <th scope="col" class="cell">Name</th>
-        <th scope="col" class="cell">Slug</th>
-        <th scope="col" class="cell">Image</th>
-        <th scope="col" class="cell">Description</th>
-        <th scope="col" class="cell">Discount</th>
-        <th scope="col" class="cell">Start Date</th>
-        <th scope="col" class="cell">End Date</th>
-        <th scope="col" class="cell">Status</th>
-        <th scope="col" class="cell">Options</th>
+        <th scope="col" class="data-table__cell">Id</th>
+        <th scope="col" class="data-table__cell">Name</th>
+        <th scope="col" class="data-table__cell">Slug</th>
+        <th scope="col" class="data-table__cell">Image</th>
+        <th scope="col" class="data-table__cell">Description</th>
+        <th scope="col" class="data-table__cell">Discount</th>
+        <th scope="col" class="data-table__cell">Start Date</th>
+        <th scope="col" class="data-table__cell">End Date</th>
+        <th scope="col" class="data-table__cell">Status</th>
+        <th scope="col" class="data-table__cell">Options</th>
       </tr>
     </thead>
     {% for deal in deals %}
-    <tbody class="table-body">
+    <tbody class="data-table__body">
       <tr>
-        <td class="cell">{{ deal.id }}</td>
-        <td class="cell">{{ deal.name }}</td>
-        <td class="cell">{{ deal.slug }}</td>
-        <td class="cell">
+        <td class="data-table__cell">{{ deal.id }}</td>
+        <td class="data-table__cell">{{ deal.name }}</td>
+        <td class="data-table__cell">{{ deal.slug }}</td>
+        <td class="data-table__cell">
           {% if deal.image %}
           <a href="#" title="{{ deal.image }}" class="cursor-pointer show-image-popup" data-src="{{ deal.image.url }}">
             <img src="{{ deal.image.url }}" alt="{{ deal.slug }}" class="rounded border" width="25" height="25">
           </a>
           {% else %}None{% endif %}
         </td>
-        <td class="cell">{{ deal.description }}</td>
-        <td class="cell">{{ deal.discount }}</td>
-        <td class="cell">{{ deal.start_date }}</td>
-        <td class="cell">{{ deal.end_date }}</td>
-        <td class="cell">{{ deal.status }}</td>
-        <td class="cell">
+        <td class="data-table__cell">{{ deal.description }}</td>
+        <td class="data-table__cell">{{ deal.discount }}</td>
+        <td class="data-table__cell">{{ deal.start_date }}</td>
+        <td class="data-table__cell">{{ deal.end_date }}</td>
+        <td class="data-table__cell">{{ deal.status }}</td>
+        <td class="data-table__cell">
           <a href="{% url 'management:deal_update' pk=deal.pk %}">Update</a>
           <a href="{% url 'management:deal_delete' pk=deal.pk %}">Delete</a>
         </td>

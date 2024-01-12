@@ -12,14 +12,14 @@
   <article class="pay-info">
     <h2 class="headline">Review your order (0 items)</h2>
     <div class="mb-4">
-      <span class="subheadline">Description</span>
+      <span class="sub-headline">Description</span>
       <p><span class="bold">Product:</span> {{ product.title }}</p>
       {% if product.sale_price %}
       <p><span class="bold">Price:</span> ${{ product.sale_price }}</p>
       {% else %}
       <p><span class="bold">Price:</span> ${{ product.normal_price }}</p>
       {% endif %}
-      <h3 class="subheadline">Shipment dispatch</h3>
+      <h3 class="sub-headline">Shipment dispatch</h3>
       <p><span class="bold">Address:</span> {{ user.address }}</p>
       <p><span class="bold">Phone:</span> {{ user.phone }} </p>
     </div>

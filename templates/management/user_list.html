@@ -1,49 +1,49 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}User List{% endblock title %}
-
 {% block content %}
-<!-- HEADLINE -->
+
+<!-- Headline -->
 <header class="flex justify-between">
   <h2 class="headline">Users</h2>
   <a href="" class="btn-primary">Create</a>
 </header>
 
-<!-- TABLE CONTENT -->
-<section class="table-wrap">
-  <table>
-    <thead class="table-head">
+<!-- User Table -->
+<section class="data-table">
+  <table class="data-table__wrapper">
+    <thead class="data-table__head">
       <tr>
-        <th scope="col" class="cell">Id</th>
-        <th scope="col" class="cell">Username</th>
-        <th scope="col" class="cell">Email</th>
-        <th scope="col" class="cell">First Name</th>
-        <th scope="col" class="cell">Last Name</th>
-        <th scope="col" class="cell">Address</th>
-        <th scope="col" class="cell">Phone Number</th>
-        <th scope="col" class="cell">Is Active</th>
-        <th scope="col" class="cell">Is Staff</th>
-        <th scope="col" class="cell">Date Joined</th>
-        <th scope="col" class="cell">Options</th>
+        <th scope="col" class="data-table__cell">Id</th>
+        <th scope="col" class="data-table__cell">Username</th>
+        <th scope="col" class="data-table__cell">Email</th>
+        <th scope="col" class="data-table__cell">First Name</th>
+        <th scope="col" class="data-table__cell">Last Name</th>
+        <th scope="col" class="data-table__cell">Address</th>
+        <th scope="col" class="data-table__cell">Phone Number</th>
+        <th scope="col" class="data-table__cell">Is Active</th>
+        <th scope="col" class="data-table__cell">Is Staff</th>
+        <th scope="col" class="data-table__cell">Date Joined</th>
+        <th scope="col" class="data-table__cell">Options</th>
       </tr>
     </thead>
     {% for user in users %}
-    <tbody class="table-body">
+    <tbody class="data-table__body">
       <tr>
-        <td class="cell">{{ user.id }}</td>
-        <td class="cell">{{ user.username }}</td>
-        <td class="cell">{{ user.email }}</td>
-        <td class="cell">{{ user.first_name }}</td>
-        <td class="cell">{{ user.last_name }}</td>
-        <td class="cell">{{ user.address }}</td>
-        <td class="cell">{{ user.phone_number }}</td>
-        <td class="cell">{{ user.is_active }}</td>
-        <td class="cell">{#{ user.is_staff }#}</td>
-        <td class="cell">{{ user.date_joined }}</td>
-        <td class="cell"></td>
+        <td class="data-table__cell">{{ user.id }}</td>
+        <td class="data-table__cell">{{ user.username }}</td>
+        <td class="data-table__cell">{{ user.email }}</td>
+        <td class="data-table__cell">{{ user.first_name }}</td>
+        <td class="data-table__cell">{{ user.last_name }}</td>
+        <td class="data-table__cell">{{ user.address }}</td>
+        <td class="data-table__cell">{{ user.phone_number }}</td>
+        <td class="data-table__cell">{{ user.is_active }}</td>
+        <td class="data-table__cell">{#{ user.is_staff }#}</td>
+        <td class="data-table__cell">{{ user.date_joined }}</td>
+        <td class="data-table__cell"></td>
       </tr>
     </tbody>
     {% endfor %}
   </table>
 </section>
+
 {% endblock %}
