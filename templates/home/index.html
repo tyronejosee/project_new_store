@@ -1,9 +1,8 @@
 {% extends 'layouts/base_main.html' %}{% load static %}
-
 {% block title %}Discover More. Spend Less.{% endblock title %}
-
 {% block content %}
-<!-- CATEGORIES -->
+
+<!-- Categories -->
 <section>
   <header class="flex justify-between items-center pt-4">
     <h2 class="headline">Featured Categories</h2>
@@ -20,11 +19,11 @@
   </section>
 </section>
 
-<!-- RECENT PRODUCTS -->
+<!-- Recent Products -->
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">Recent Products</h2>
-    <a href="{% url 'products:recent' %}" class="btn-secondary">View all</a>
+    <a href="{% url 'products:recent' %}" class="btn btn--secondary">View all</a>
   </header>
   <section class="card-grid">
     {% for product in recent_products %}
@@ -35,7 +34,7 @@
   </section>
 </section>
 
-<!-- MAX DEALS -->
+<!-- Max Deals -->
 <section class="mt-12 grid gap-4 grid-cols-2 md:grid-cols-4 md:grid-rows-2">
   <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full h-full rounded-xl col-span-2 row-span-2">
   <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full rounded-xl">
@@ -44,7 +43,7 @@
   <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full rounded-xl">
 </section>
 
-<!-- ALL PRODUCTS -->
+<!-- All Products -->
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">All Products</h2>
@@ -59,7 +58,7 @@
   </section>
 </section>
 
-<!-- DEFAULT DEALS -->
+<!-- Default Deals -->
 <section class="mt-12 grid gap-4 grid-cols-2 grid-rows-2 md:grid-cols-4 ">
   <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full rounded-xl">
   <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full rounded-xl">
@@ -69,7 +68,7 @@
   <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full rounded-xl">
 </section>
 
-<!-- APPLE -->
+<!-- Apple -->
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">Apple</h2>
@@ -84,7 +83,7 @@
   </section>
 </section>
 
-<!-- SAMSUNG -->
+<!-- Samsung -->
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">Samsung</h2>
@@ -99,7 +98,7 @@
   </section>
 </section>
 
-<!-- COMPUTERS MONITORS -->
+<!-- Computers Monitors -->
 <section>
   <header class="flex justify-between items-center py-4">
     <h2 class="headline">Computer Monitors</h2>
@@ -114,13 +113,13 @@
   </section>
 </section>
 
-<!-- MIN DEALS -->
+<!-- Min Deals -->
 <section class="grid gap-4 grid-cols-1 md:grid-cols-2">
   <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full rounded-xl">
   <img src="{% static 'img/marketing/banner_default.webp' %}" alt="" class="w-full rounded-xl">
 </section>
 
-<!-- SERVICES LINKS -->
+<!-- Services Links -->
 <nav class="mt-12">
   <ul class="grid gap-4 grid-cols-2 md:grid-cols-4">
     <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full rounded-xl">
@@ -129,4 +128,5 @@
     <img src="{% static 'img/marketing/square_dafault.webp' %}" alt="" class="w-full h-full rounded-xl">
   </ul>
 </nav>
+
 {% endblock %}

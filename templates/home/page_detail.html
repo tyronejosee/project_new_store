@@ -1,9 +1,8 @@
 {% extends 'layouts/base_main.html' %}{% load static %}
-
 {% block title %}{{ page.key|title }}{% endblock title %}
-
 {% block content %}
-<!-- PAGE IMAGE -->
+
+<!-- Page Image -->
 <figure class="relative border border-neutral-100 dark:border-neutral-800 rounded-xl overflow-hidden">
   {% if page.image %}
   <img src="{{ page.image.url }}" alt="{{ page.key }}" class="w-full h-40 lg:h-60 object-cover" />
@@ -12,8 +11,9 @@
   {% endif %}
 </figure>
 
-<!-- PAGE CONTENT -->
+<!-- Page Content -->
 <article class="space-y-4">
   {{ page.content|safe }}
 </article>
+
 {% endblock %}
