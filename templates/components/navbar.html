@@ -1,6 +1,7 @@
 <header class="navbar">
   <nav class="navbar__wrapper">
-    <!-- LOGO AND CATEGORIES -->
+
+    <!-- Logo and Categories -->
     <div class="w-1/2 sm:w-1/3 order-1 flex items-center justify-between space-x-4 mb-4 md:mb-0">
       <div class="w-1/2">
         <h1>
@@ -57,7 +58,7 @@
       </div>
     </div>
 
-    <!-- SEARCH BAR -->
+    <!-- Search Bar -->
     <div class="order-3 sm:order-2 w-full lg:max-w-lg sm:w-full sm:mx-0">
       <div class="relative">
         <form method="GET" action="{% url 'products:search' %}">
@@ -73,7 +74,7 @@
       </div>
     </div>
 
-    <!-- BUTTONS (CART, USER, SIGN UP SIGN IN) -->
+    <!-- Buttons (Cart, User, Sign Up Sign In) -->
     <div class="w-1/2 sm:w-1/3 order-2 sm:order-3 flex items-center justify-end space-x-4">
       <button id="toggleModeButton" class="btn btn--secondary">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 hidden dark:block">
@@ -83,8 +84,9 @@
           <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
         </svg>
       </button>
+
       {% if user.is_authenticated %}
-      <!-- CART -->
+      <!-- Cart -->
       <div class="hidden lg:block relative">
         <a href="{% url 'cart:cart' %}" title="Cart">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
@@ -95,7 +97,8 @@
           {% endif %}
         </a>
       </div>
-      <!-- USER -->
+
+      <!-- User -->
       <div class="hidden lg:block" id="userWrapper">
         <button data-dropdown-toggle="userList" type="button" class="relative" title="User">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
@@ -125,7 +128,7 @@
       </div>
       {% endif %}
 
-      <!-- MAIN MENU (MOBILE) -->
+      <!-- Main Menu (Mobile) -->
       <div class="w-1/2 sm:w-1/4 order-2 lg:order-3 flex items-center justify-end space-x-4 lg:hidden mb-4 md:mb-0">
         <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center justify-center" aria-controls="navbar-search" aria-expanded="false">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
@@ -143,6 +146,7 @@
           </ul>
         </div>
       </div>
+
     </div>
   </nav>
 </header>

@@ -1,13 +1,11 @@
 {% extends 'layouts/base_main.html' %}
-
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
-
 {% block content %}
 
-<!-- ROUTES -->
+<!-- Routes -->
 {% include "components/routes.html" %}
 
-<!-- PRODUCT DETAIL -->
+<!-- Product Detail -->
 <section class="detail-wrap">
   <figure class="zoomable-container overflow-hidden rounded-xl border border-neutral-100 dark:border-neutral-800">
     <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
@@ -67,7 +65,7 @@
   </article>
 </section>
 
-<!-- DESCRIPTION AND SPECIFICATIONS -->
+<!-- Description and Specifications -->
 <aside>
   <nav class="flex space-x-4" id="product-tabs">
     <a href="#description-tab" class="detail-nav">Description</a>
@@ -85,7 +83,7 @@
   </section>
 </aside>
 
-<!-- FEATURED PRODUCTS -->
+<!-- Featured Products -->
 <section>
   <header class="my-4">
     <h2 class="headline">Featured products</h2>

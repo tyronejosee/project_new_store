@@ -1,20 +1,19 @@
 {% extends 'layouts/base_main.html' %}
-
 {% block title %}{{ deal.name }}{% endblock title %}
-
 {% block content %}
-<!-- IMAGE -->
+
+<!-- Image -->
 <figure>
   <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="deal-img">
 </figure>
 
-<!-- HEADLINE -->
+<!-- Headline -->
 <header class="deal-header">
   <h2 class="headline">{{ deal.name }}</h2>
   <span class="bold text-neutral-500">{{ deal.description }}</span>
 </header>
 
-<!-- PRODUCT LIST -->
+<!-- Product List -->
 {% if products %}
 <section class="card-grid">
   {% for product in products %}
@@ -27,6 +26,7 @@
   {% include "components/empty.html" with arg="product" %}
 {% endif %}
 
-<!-- PAGINATION -->
+<!-- Pagination -->
 {% include "components/pagination.html" %}
+
 {% endblock %}

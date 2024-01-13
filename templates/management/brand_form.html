@@ -1,14 +1,13 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}Brand Form{% endblock title %}
-
 {% block content %}
-<!-- HEADLINE -->
+
+<!-- Headline -->
 <header>
   <h2 class="headline">Update brand</h2>
 </header>
 
-<!-- PAGE FORM -->
+<!-- Brand Form -->
 <form method="POST" class="space-y-4 pb-4">{% csrf_token %}
   <label class="block">
     <span class="bold">Name</span>
@@ -29,4 +28,5 @@
     </a>
   </div>
 </form>
+
 {% endblock %}

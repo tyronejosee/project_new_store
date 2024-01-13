@@ -1,14 +1,13 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}Category Form{% endblock title %}
-
 {% block content %}
-<!-- HEADLINE -->
+
+<!-- Headline -->
 <header>
   <h2 class="headline">Update Category</h2>
 </header>
 
-<!-- PAGE FORM -->
+<!-- Category Form -->
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
   <label class="block">
     <span class="bold">Title</span>
@@ -29,4 +28,5 @@
     </a>
   </div>
 </form>
+
 {% endblock %}

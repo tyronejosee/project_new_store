@@ -1,10 +1,8 @@
 {% extends 'layouts/base_main.html' %}
-
 {% block title %}{{ title|title }}{% endblock title %}
-
 {% block content %}
 
-<!-- HEADLINE -->
+<!-- Headline -->
 <header>
   <div class="flex items-center justify-between">
     <div class="flex space-x-4 items-center">
@@ -23,7 +21,7 @@
   </div>
 </header>
 
-<!-- CATEGORIES -->
+<!-- Categories -->
 {% if form %}
 <nav class="box p-2">
   <form method="GET" class="space-y-2 md:space-y-0 md:flex md:items-center md:space-x-4">
@@ -37,7 +35,7 @@
 </nav>
 {% endif %}
 
-<!-- PRODUCT LIST -->
+<!-- Product List -->
 {% if products %}
 <section class="card-grid">
   {% for product in products %}
@@ -50,7 +48,7 @@
   {% include "components/empty.html" with arg="product" %}
 {% endif %}
 
-<!-- PAGINATION -->
+<!-- Pagination -->
 {% include "components/pagination.html" %}
 
 {% endblock %}

@@ -1,14 +1,13 @@
 {% extends 'layouts/base_management.html' %}
-
 {% block title %}Page Form{% endblock title %}
-
 {% block content %}
-<!-- HEADLINE -->
+
+<!-- Headline -->
 <header>
   <h2 class="headline">Update page</h2>
 </header>
 
-<!-- PAGE FORM -->
+<!-- Page Form -->
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
   <label for="{{ form.key.id_for_label }}" class="block">
     <span class="bold">Key</span>
@@ -27,4 +26,5 @@
     <a href="{% url 'management:product_list' %}" title="Cancel" class="btn btn--secondary w-full">Cancel</a>
   </div>
 </form>
+
 {% endblock %}

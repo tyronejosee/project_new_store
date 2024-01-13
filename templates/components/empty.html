@@ -1,7 +1,8 @@
 <article>
   <div class="box w-full h-64 flex items-center justify-center">
     <div class="space-y-4">
-      <!-- CART TITLE -->
+
+      <!-- Cart Title -->
       {% if arg == "cart" %}
       <div class="flex items-center justify-center space-x-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md bold">
@@ -12,7 +13,8 @@
       <p class="text-center">Check out what we're featuring now!</p>
       <a href="{% url 'home:index' %}" class="btn btn--primary">Go to Homepage</a>
       {% endif %}
-      <!-- WISHLIST TITLE -->
+
+      <!-- Wishlist Title -->
       {% if arg == "wishlist" %}
       <div class="flex items-center justify-center space-x-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md bold">
@@ -22,7 +24,8 @@
       </div>
       <p class="text-center">If you aren't ready to buy, select Save for later. We'll keep the item safe here.</p>
       {% endif %}
-      <!-- PRODUCT TITLE -->
+
+      <!-- Product Title -->
       {% if arg == "product" %}
       <div class="flex items-center justify-center space-x-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md bold">
@@ -32,7 +35,8 @@
       </div>
       <p class="text-center">Come back soon to discover new additions!</p>
       {% endif %}
-      <!-- DEAL TITLE -->
+      
+      <!-- Deal Title -->
       {% if arg == "deal" %}
       <div class="flex items-center justify-center space-x-4">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md bold">
@@ -42,6 +46,7 @@
       </div>
       <p class="text-center">We're working to bring you new deals soon!</p>
       {% endif %}
+
     </div>
   </div>
 </article>

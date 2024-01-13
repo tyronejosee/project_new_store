@@ -6,7 +6,7 @@
     </span>
   </div>
   <nav class="pagination">
-    <!-- FIRST PAGE -->
+    <!-- First Page -->
     {% if page_obj.paginator.num_pages > 5 and page_obj.has_previous %}
     <a href="?page=1" title="First page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
@@ -14,7 +14,7 @@
       </svg>
     </a>
     {% endif %}
-    <!-- PREVIUS PAGE -->
+    <!-- Previous Page -->
     {% if page_obj.has_previous %}
     <a href="?page={{ page_obj.previous_page_number }}" title="Previous page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
@@ -22,14 +22,14 @@
       </svg>
     </a>
     {% endif %}
-    <!-- CURRENT AND TOTAL PAGES -->
+    <!-- Current and Total Pages -->
     {% for page in page_obj.paginator.page_range %}
     <a href="?page={{ page }}" title="Current page"
       class="{% if page_obj.number == page %}pagination__itm pagination__itm--active{% else %}pagination__itm pagination__itm--normal{% endif %}">
       {{ page }}
     </a>
     {% endfor %}
-    <!-- NEXT PAGE -->
+    <!-- Next Page -->
     {% if page_obj.has_next %}
     <a href="?page={{ page_obj.next_page_number }}" title="Next page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
@@ -37,7 +37,7 @@
       </svg>          
     </a>
     {% endif %}
-    <!-- LAST PAGE -->
+    <!-- Last Page -->
     {% if page_obj.paginator.num_pages > 5 and page_obj.has_next %}
     <a href="?page={{ page_obj.paginator.num_pages }}" title="Last page" class="pagination__itm pagination__itm--normal">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">

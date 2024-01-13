@@ -1,15 +1,13 @@
 {% extends 'layouts/base_main.html' %}
-
 {% block title %}Deals{% endblock title %}
-
 {% block content %}
 
-<!-- HEADLINE -->
+<!-- Headline -->
 <header>
   <h2 class="headline">Deals</h2>
 </header>
 
-<!-- DEAL LIST -->
+<!-- Deal List -->
 {% if deals %}
 <section class="deal-wrap">
   {% for deal in deals %}
