@@ -1,20 +1,20 @@
 {% load static %}
-<article class="card-wrap group">
+<article class="product-card__wrapper group">
   {% if product.is_new %}<span class="tag-absolute">New</span>{% endif %}
   <a href="{% url 'products:detail' product.pk %}" title="{{ product.title }}">
     {% if product.image %}
-    <img class="card-img" src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
+    <img class="product-card__img" src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
     {% else %}
-    <img class="card-img" src="{% static 'img/default-image-front.webp' %}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
+    <img class="product-card__img" src="{% static 'img/default-image-front.webp' %}" title="{{ product.title }}" alt="{{ product.title|lower }}" />
     {% endif %}
   </a>
-  <div class="card-cont">
+  <div class="product-card__content">
     <div>
       {% if product.sale_price %}
-      <span class="card-price-d">${{ product.sale_price }}</span>
-      <span class="card-price-nt">${{ product.normal_price }}</span>
+      <span class="type-base--bold">${{ product.sale_price }}</span>
+      <span class="type-small line-through">${{ product.normal_price }}</span>
       {% else %}
-      <span class="card-price-n">${{ product.normal_price }}</span>
+      <span class="type-base--bold">${{ product.normal_price }}</span>
       {% endif %}
     </div>
     <div>
@@ -25,7 +25,7 @@
       </a>
     </div>
   </div>
-  <div class="card-title">
+  <div class="product-card__title">
     <a href="{% url 'products:detail' product.pk %}" title="{{ product.title }}">
       <span class="group-hover:underline line-clamp-2">{{ product.title|truncatechars:50 }}</span>
     </a>

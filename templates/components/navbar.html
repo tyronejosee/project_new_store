@@ -24,20 +24,20 @@
                 <span class="list__itm-title">Ecommerce</span>
                 <ul aria-labelledby="dropdownDefaultButton">
                   <li>
-                    <a href="{% url 'products:categories' %}" class="list__itm link">Categories</a>
+                    <a href="{% url 'products:categories' %}" class="list__itm type-base--url">Categories</a>
                   </li>
                   <li>
-                    <a href="{% url 'products:deal_list' %}" class="list__itm link">Deals</a>
+                    <a href="{% url 'products:deal_list' %}" class="list__itm type-base--url">Deals</a>
                   </li>
                   <li>
-                    <a href="{% url 'products:recent' %}" class="list__itm link">Recent prods</a>
+                    <a href="{% url 'products:recent' %}" class="list__itm type-base--url">Recent prods</a>
                   </li>
                   {% if user.is_superuser %}
                   <li>
-                    <a href="{% url 'admin:index' %}" class="list__itm link">Admin</a>
+                    <a href="{% url 'admin:index' %}" class="list__itm type-base--url">Admin</a>
                   </li>
                   <li>
-                    <a href="{% url 'management:management' %}" class="list__itm link">Management</a>
+                    <a href="{% url 'management:management' %}" class="list__itm type-base--url">Management</a>
                   </li>
                 </ul>
               </div>
@@ -47,7 +47,7 @@
                   {% endif %}
                   {% for category in products_categories|slice:":10" %}
                   <li>
-                    <a href="{% url 'products:category_filter' category.slug %}" class="list__itm link">{{ category.title }}</a>
+                    <a href="{% url 'products:category_filter' category.slug %}" class="list__itm type-base--url">{{ category.title }}</a>
                   </li>
                   {% endfor %}
                 </ul>

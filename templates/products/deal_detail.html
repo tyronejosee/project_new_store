@@ -10,12 +10,12 @@
 <!-- Headline -->
 <header class="deal-header">
   <h2 class="headline">{{ deal.name }}</h2>
-  <span class="bold text-neutral-500">{{ deal.description }}</span>
+  <span class="type-base--bold text-neutral-500">{{ deal.description }}</span>
 </header>
 
 <!-- Product List -->
 {% if products %}
-<section class="card-grid">
+<section class="product-card">
   {% for product in products %}
     {% include "components/card.html" %}
   {% endfor %}

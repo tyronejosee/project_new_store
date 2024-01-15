@@ -1,7 +1,7 @@
 {% if page_obj and page_obj.paginator.num_pages >= 1 %}
 <div class="box p-2 flex justify-between items-center">
   <div>
-    <span class="bold">
+    <span class="type-base--bold">
       Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} of {{ page_obj.paginator.count }} entries
     </span>
   </div>

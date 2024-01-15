@@ -10,15 +10,15 @@
 <!-- Brand Form -->
 <form method="POST" class="space-y-4 pb-4">{% csrf_token %}
   <label class="block">
-    <span class="bold">Name</span>
+    <span class="type-base--bold">Name</span>
     {{ form.name }}
   </label>
   <label class="block">
-    <span class="bold">Slug</span>
+    <span class="type-base--bold">Slug</span>
     {{ form.slug }}
   </label>
   <label class="block">
-    <span class="bold">Show/Hide</span>
+    <span class="type-base--bold">Show/Hide</span>
     {{ form.show_hide }}
   </label>
   <div class="space-y-2">

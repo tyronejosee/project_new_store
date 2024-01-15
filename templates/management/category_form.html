@@ -10,15 +10,15 @@
 <!-- Category Form -->
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
   <label class="block">
-    <span class="bold">Title</span>
+    <span class="type-base--bold">Title</span>
     {{ form.title }}
   </label>
   <label class="block">
-    <span class="bold">Slug</span>
+    <span class="type-base--bold">Slug</span>
     {{ form.slug }}
   </label>
   <label class="block">
-    <span class="bold">Show/Hide</span>
+    <span class="type-base--bold">Show/Hide</span>
     {{ form.show_hide }}
   </label>
   <div class="space-y-2">

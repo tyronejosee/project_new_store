@@ -12,27 +12,27 @@
   </header>
   <form method="POST" class="space-y-4">{% csrf_token %}
     <label for="first-name" class="block">
-      <span class="bold">First Name</span>
+      <span class="type-base--bold">First Name</span>
       {{ form.first_name }}
     </label>
     <label for="last-name" class="block">
-      <span class="bold">Last Name</span>
+      <span class="type-base--bold">Last Name</span>
       {{ form.last_name }}
     </label>
     <label for="username" class="block">
-      <span class="bold">Username</span>
+      <span class="type-base--bold">Username</span>
       {{ form.username }}
     </label>
     <label for="email" class="block">
-      <span class="bold">Email</span>
+      <span class="type-base--bold">Email</span>
       {{ form.email }}
     </label>
     <label for="password1" class="block">
-      <span class="bold">Password</span>
+      <span class="type-base--bold">Password</span>
       {{ form.password1 }}
     </label>
     <label for="password2" class="block">
-      <span class="bold">Password Repeat</span>
+      <span class="type-base--bold">Password Repeat</span>
       {{ form.password2 }}
     </label>
     <div class="flex items-start">
@@ -41,11 +41,11 @@
       </div>
       <label for="remember" class="ml-2">Keep me signed in</label>
     </div>
-    <p class="small">
+    <p class="type-small">
       By creating an account, you are accepting the terms and conditions of New Store, as well as the privacy policy, which includes receiving exclusive email offers and promotions. To manage your marketing preferences, please access the Choices section in the Privacy Policy or call Customer Service.
     </p>
-    <a href="{% url 'home:page_detail' key='terms' %}" class="small-link">Terms and conditions</a>
-    <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link">Policy privacy</a>
+    <a href="{% url 'home:page_detail' key='terms' %}" class="type-small--url">Terms and conditions</a>
+    <a href="{% url 'home:page_detail' key='privacy' %}" class="type-small--url">Policy privacy</a>
     <div class="space-y-2">
       <button type="submit" class="btn btn--primary w-full">Create account</button>
       <a href="{% url 'home:index' %}" class="btn btn--secondary">Cancel</a>

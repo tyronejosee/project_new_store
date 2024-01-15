@@ -11,10 +11,10 @@
       {% endif %}
       {% if "search=" in request.get_full_path %}
       <h2 class="headline">{{ results }} results</h2>
-      <span class="bold text-primary">for "{{ title }}"</span>
+      <span class="type-base--bold text-primary">for "{{ title }}"</span>
       {% endif %}
       {% if page_obj.paginator.count > 0 %}
-      <span class="bold">
+      <span class="type-base--bold">
         {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ page_obj.paginator.count }} products
       </span>
       {% endif %}
@@ -37,7 +37,7 @@
 
 <!-- Product List -->
 {% if products %}
-<section class="card-grid">
+<section class="product-card">
   {% for product in products %}
     {% include "components/card.html" %}
   {% endfor %}

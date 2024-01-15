@@ -16,11 +16,11 @@
     </div>
     {% endif %}
     <label for="username" class="block">
-      <span class="bold">Your username</span>
+      <span class="type-base--bold">Your username</span>
       {{ form.username }}
     </label>
     <label for="password" class="block">
-      <span class="bold">Your password</span>
+      <span class="type-base--bold">Your password</span>
       {{ form.password }}
     </label>
     <div class="flex justify-between">
@@ -30,11 +30,11 @@
         </div>
         <label for="remember" class="ml-2">Remember me</label>
       </div>
-      <a href="#" title="Lost password?" class="link-bold">Lost password?</a>
+      <a href="#" title="Lost password?" class="type-base--url">Lost password?</a>
     </div>
     <button type="submit" class="btn btn--primary w-full">Login</button>
     <div class="strong text-center">
-      Not registered? <a href="{% url 'users:registration' %}" title="Registration" class="link-bold">Create account</a>
+      Not registered? <a href="{% url 'users:registration' %}" title="Registration" class="type-base--url">Create account</a>
     </div>
   </form>
 </section>

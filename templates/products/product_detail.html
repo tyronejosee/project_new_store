@@ -6,17 +6,17 @@
 {% include "components/routes.html" %}
 
 <!-- Product Detail -->
-<section class="detail-wrap">
+<section class="product-detail">
   <figure class="zoomable-container overflow-hidden rounded-xl border border-neutral-100 dark:border-neutral-800">
     <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
       <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
     </div>
   </figure>
-  <article class="flex flex-col h-full space-y-4">
-    <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="link">
+  <article class="product-detail__content">
+    <a href="{% url 'products:brand_filter' brand_slug=product.brand.slug %}" title="{{ product.brand.name }} products" class="type-base--url">
       Shop all {{ product.brand.name }}
     </a>
-    <header class="detail-header">
+    <header class="product-detail__title">
       <h2 class="headline">{{ product.title }}{% if product.is_new %}<span class="tag-detail">New</span>{% endif %}</h2>
     </header>
     <div>
@@ -31,17 +31,17 @@
     </div>
     <div>
       <h3 class="sub-headline">Details</h3>
-      <p><span class="bold">ID:</span> {{ product.id }}</p>
-      <p><span class="bold">Stock:</span> {{ product.stock }}</p>
-      <p><span class="bold">Warranty:</span> {{ product.get_warranty_display }}</p>
+      <p><span class="type-base--bold">ID:</span> {{ product.id }}</p>
+      <p><span class="type-base--bold">Stock:</span> {{ product.stock }}</p>
+      <p><span class="type-base--bold">Warranty:</span> {{ product.get_warranty_display }}</p>
     </div>
-    <div class="bg-light flex items-center space-x-4 rounded-xl py-2 px-4">
+    <div class="bg-neutral-200 flex items-center space-x-4 rounded-xl py-2 px-4">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
         <path d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25ZM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 1 1 6 0h3a.75.75 0 0 0 .75-.75V15Z" />
         <path d="M8.25 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM15.75 6.75a.75.75 0 0 0-.75.75v11.25c0 .087.015.17.042.248a3 3 0 0 1 5.958.464c.853-.175 1.522-.935 1.464-1.883a18.659 18.659 0 0 0-3.732-10.104 1.837 1.837 0 0 0-1.47-.725H15.75Z" />
         <path d="M19.5 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
       </svg>
-      <span class="small">
+      <span class="type-small">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, modi natus ipsa accusantium minima illo esse eligendi. Neque a
       </span>
     </div>
@@ -58,9 +58,9 @@
     </div>
     <div class="text-center space-x-2">
       <span ></span>
-      <a href="{% url 'home:page_detail' key='terms' %}" class="small-link">Terms and Conditions</a>
-      <a href="{% url 'home:page_detail' key='privacy' %}" class="small-link">Policy Privacy</a>
-      <a href="#" class="small-link">Available payment methods</a>
+      <a href="{% url 'home:page_detail' key='terms' %}" class="type-small--url">Terms and Conditions</a>
+      <a href="{% url 'home:page_detail' key='privacy' %}" class="type-small--url">Policy Privacy</a>
+      <a href="#" class="type-small--url">Available payment methods</a>
     </div>
   </article>
 </section>
@@ -68,8 +68,8 @@
 <!-- Description and Specifications -->
 <aside>
   <nav class="flex space-x-4" id="product-tabs">
-    <a href="#description-tab" class="detail-nav">Description</a>
-    <a href="#specifications-tab" class="detail-nav">Specifications</a>
+    <a href="#description-tab" class="product-detail__tab">Description</a>
+    <a href="#specifications-tab" class="product-detail__tab">Specifications</a>
   </nav>
   <section class="box p-8 mt-4">
     <article id="description-tab" class="tab-content">
@@ -90,7 +90,7 @@
   </header>
 
   {% if products_featured %}
-  <section class="card-grid">
+  <section class="product-card">
     {% for product in products_featured %}
       {% include "components/card.html" %}
     {% endfor %}

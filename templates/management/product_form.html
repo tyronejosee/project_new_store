@@ -11,41 +11,41 @@
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
   {{ form.non_field_errors }}
   <label for="{{ form.title.id_for_label }}" class="block">
-    <span class="bold">Title</span>
+    <span class="type-base--bold">Title</span>
     {{ form.title }}
   </label>
   <div class="flex justify-beetween space-x-4">
     <label for="{{ form.normal_price.id_for_label }}" class="flex-grow block">
-      <span class="bold">Price</span>
+      <span class="type-base--bold">Price</span>
       {{ form.normal_price }}
     </label>
     <label for="{{ form.stock.id_for_label }}" class="flex-grow block">
-      <span class="bold">Stock</span>
+      <span class="type-base--bold">Stock</span>
       {{ form.stock }}
     </label>
   </div>
   <div class="flex justify-beetween space-x-4">
     <label for="{{ form.category.id_for_label }}" class="flex-grow">
-      <span class="bold">Category</span>
+      <span class="type-base--bold">Category</span>
       {{ form.category }}
     </label>
     <label for="{{ form.brand.id_for_label }}" class="flex-grow">
-      <span class="bold">Brand</span>
+      <span class="type-base--bold">Brand</span>
       {{ form.brand }}
     </label>
   </div>
   <div class="flex justify-beetween space-x-4">
     <label for="{{ form.deal.id_for_label }}" class="flex-grow">
-      <span class="bold">Deal</span>
+      <span class="type-base--bold">Deal</span>
       {{ form.deal }}
     </label>
     <label for="{{ form.warranty.id_for_label }}" class="flex-grow">
-      <span class="bold">Warranty</span>
+      <span class="type-base--bold">Warranty</span>
       {{ form.warranty }}
     </label>
   </div>      
   <label for="{{ form.image.id_for_label }}" class="block">
-    <span class="bold">Image</span>
+    <span class="type-base--bold">Image</span>
     {{ form.image }}
   </label>
   <div class="flex gap-4 items-center">
@@ -61,11 +61,11 @@
     <label for="{{ form.featured.id_for_label }}" class="block">Featured</label>
   </div>
   <label for="{{ form.description.id_for_label }}" class="block">
-    <span class="bold">Description</span>
+    <span class="type-base--bold">Description</span>
     {{ form.description }}
   </label>
   <label for="{{ form.specifications.id_for_label }}" class="block">
-    <span class="bold">Specifications</span>
+    <span class="type-base--bold">Specifications</span>
     {{ form.specifications }}
   </label>
   <div class="space-y-2">

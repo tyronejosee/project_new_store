@@ -1,7 +1,7 @@
 <nav class="flex justify-center">
   <ul class="inline-flex items-center space-x-1 md:space-x-3 rtl:space-x-reverse">
     <li class="flex items-center">
-      <a href="{% url 'home:index' %}" class="link">
+      <a href="{% url 'home:index' %}" class="type-base--url">
         Home
       </a>
     </li>
@@ -9,7 +9,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm mr-4">
         <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clip-rule="evenodd" />
       </svg>
-      <a href="{% url 'products:prod_list' %}" class="link">
+      <a href="{% url 'products:prod_list' %}" class="type-base--url">
         Products
       </a>
     </li>
@@ -17,7 +17,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm mr-4">
         <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clip-rule="evenodd" />
       </svg>
-      <a href="{% url 'products:categories' %}" class="link">
+      <a href="{% url 'products:categories' %}" class="type-base--url">
         Categories
       </a>
     </li>
@@ -25,7 +25,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-sm mr-4">
         <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z" clip-rule="evenodd" />
       </svg>
-      <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="link">
+      <a href="{% url 'products:category_filter' category_slug=product.category.slug %}" class="type-base--url">
         {{ product.category.title }}
       </a>
     </li>

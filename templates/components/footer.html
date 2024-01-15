@@ -5,10 +5,10 @@
         <h3 class="list__itm-title">About Us</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='about' %}" title="About" class="list__itm link">About</a>
+            <a href="{% url 'home:page_detail' key='about' %}" title="About" class="list__itm type-base--url">About</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='careers' %}" title="Careers" class="list__itm link">Careers</a>
+            <a href="{% url 'home:page_detail' key='careers' %}" title="Careers" class="list__itm type-base--url">Careers</a>
           </li>
         </ul>
       </div>
@@ -16,10 +16,10 @@
         <h3 class="list__itm-title">Help</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='returns' %}" title="Returns" class="list__itm link">Returns</a>
+            <a href="{% url 'home:page_detail' key='returns' %}" title="Returns" class="list__itm type-base--url">Returns</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='support' %}" title="Support" class="list__itm link">Support</a>
+            <a href="{% url 'home:page_detail' key='support' %}" title="Support" class="list__itm type-base--url">Support</a>
           </li>
         </ul>
       </div>
@@ -27,10 +27,10 @@
         <h3 class="list__itm-title">Legal</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='privacy' %}" title="Privacy Policy" class="list__itm link">Privacy Policy</a>
+            <a href="{% url 'home:page_detail' key='privacy' %}" title="Privacy Policy" class="list__itm type-base--url">Privacy Policy</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='terms' %}" title="Terms and Conditions" class="list__itm link">Terms & Conditions</a>
+            <a href="{% url 'home:page_detail' key='terms' %}" title="Terms and Conditions" class="list__itm type-base--url">Terms & Conditions</a>
           </li>
         </ul>
       </div>
@@ -38,16 +38,16 @@
         <h3 class="list__itm-title">Services</h3>
         <ul>
           <li>
-            <a href="{% url 'home:page_detail' key='delivery' %}" title="Delivery" class="list__itm link">Delivery</a>
+            <a href="{% url 'home:page_detail' key='delivery' %}" title="Delivery" class="list__itm type-base--url">Delivery</a>
           </li>
           <li>
-            <a href="{% url 'home:page_detail' key='app' %}" title="App" class="list__itm link">App</a>
+            <a href="{% url 'home:page_detail' key='app' %}" title="App" class="list__itm type-base--url">App</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="footer__foot-copy">
-      <span class="small flex justify-center">
+      <span class="type-small flex justify-center">
         {{ company.copy|default:'Copyright' }}
       </span>
       <div class="footer__social-icons">

@@ -10,15 +10,15 @@
 <!-- Page Form -->
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
   <label for="{{ form.key.id_for_label }}" class="block">
-    <span class="bold">Key</span>
+    <span class="type-base--bold">Key</span>
     {{ form.key }}
   </label>
   <label for="{{ form.content.id_for_label }}" class="block">
-    <span class="bold">Content</span>
+    <span class="type-base--bold">Content</span>
     {{ form.content }}
   </label>
   <label for="{{ form.image.id_for_label }}" class="block">
-    <span class="bold">Image</span>
+    <span class="type-base--bold">Image</span>
     {{ form.image }}
   </label>
   <div class="space-y-2">
