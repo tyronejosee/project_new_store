@@ -6,7 +6,7 @@
       <div class="w-1/2">
         <h1>
           <a href="{% url 'home:index' %}" class="flex items-center space-x-4 sm:pb-0">
-            <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="icon-md"/>
+            <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="icon--md"/>
             <span class="sub-headline hidden lg:block">
               {{ company.name|default:'Company' }}
             </span>
@@ -66,7 +66,7 @@
             class="form__input-text text-center focus:text-left focus:pl-12"
             placeholder="What are you looking for?" name="search" value="{{ request.GET.search }}">
           <div class="absolute rounded-full inset-y-0 left-0 p-4 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon--sm">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
           </div>
@@ -89,11 +89,11 @@
       <!-- Cart -->
       <div class="hidden lg:block relative">
         <a href="{% url 'cart:cart' %}" title="Cart">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--md">
             <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
           </svg>
           {% if cart_items_count %}
-          <span class="tag-cart">{{ cart_items_count }}</span>
+          <span class="tag tag__cart">{{ cart_items_count }}</span>
           {% endif %}
         </a>
       </div>
@@ -101,7 +101,7 @@
       <!-- User -->
       <div class="hidden lg:block" id="userWrapper">
         <button data-dropdown-toggle="userList" type="button" class="relative" title="User">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--md">
             <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
           </svg>
         </button>
@@ -131,7 +131,7 @@
       <!-- Main Menu (Mobile) -->
       <div class="w-1/2 sm:w-1/4 order-2 lg:order-3 flex items-center justify-end space-x-4 lg:hidden mb-4 md:mb-0">
         <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center justify-center" aria-controls="navbar-search" aria-expanded="false">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-md">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--md">
             <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
           </svg>
         </button>

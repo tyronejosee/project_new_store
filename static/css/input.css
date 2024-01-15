@@ -144,6 +144,19 @@
 		@apply font-normal text-xs text-neutral-500 hover:underline;
 	}
 
+	/* Icons */
+	.icon--sm{
+		@apply w-4 h-4;
+	}
+	
+	.icon--md{
+		@apply w-8 h-8;
+	}
+
+	.icon--lg{
+		@apply w-12 h-12;
+	}
+
 	/* Navbar */
 	.navbar {
 		@apply bg-white dark:bg-neutral-900 sticky top-0 z-10 border-b border-neutral-100 dark:border-neutral-800;
@@ -318,6 +331,23 @@
 		@apply h-14 overflow-hidden;
 	}
 
+	/* Tags */
+	.tag {
+		@apply absolute rounded-lg bg-primary text-white text-xs font-bold tracking-tighter p-1;
+	}
+
+	.tag__absolute {
+		@apply top-0 left-0 ml-4 mt-4;
+	}
+
+	.tag__cart {
+		@apply top-0 right-0 w-4 h-4 rounded-full flex items-center justify-center transform translate-x-1/2 -translate-y-1/2;
+	}
+
+	.tag__header {
+		@apply ml-3 my-1;
+	}
+
 	/* Payment */
 	.checkout {
 		@apply box p-4 mt-4 grid gap-4 grid-cols-1 md:grid-cols-2;
@@ -353,37 +383,8 @@
 		transition: transform 0.3s ease;
 	}
 
+	/* ------------------------------------------------------------ */
 	/* Animations [hover-scale transform hover:scale-105] */
+	/* ------------------------------------------------------------ */
 
-/* ------------------------------------------------------------ */
-
-	/* Icons */
-	.icon-sm{
-		@apply w-4 h-4;
-	}
-	
-	.icon-md{
-		@apply w-8 h-8;
-	}
-
-	.icon-lg{
-		@apply w-12 h-12 text-primary;
-	}
-
-	/* Tags */
-	.tag {
-		@apply rounded-lg bg-primary text-white text-xs font-semibold p-1;
-	}
-	
-	.tag-cart{
-		@apply w-4 h-4 absolute top-0 right-0 bg-red-600 text-white text-xs font-medium tracking-tighter rounded-full flex items-center justify-center transform translate-x-1/2 -translate-y-1/2;
-	}
-	
-	.tag-absolute{
-		@apply tag absolute top-0 left-0 ml-4 mt-4;
-	}
-	
-	.tag-detail{
-		@apply absolute tag ml-3 my-1;
-	}
 }
