@@ -695,6 +695,11 @@ video {
   }
 }
 
+.headline--primary {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
 /* Typography */
 
 .type-base--bold {
@@ -837,6 +842,46 @@ video {
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+
+/* Deal */
+
+.deal {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .deal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.deal__header {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .deal__header {
+    display: flex;
+    align-items: center;
+  }
+
+  .deal__header > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+}
+
+.deal__img {
+  height: 16rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /* Lists */
@@ -1593,78 +1638,6 @@ video {
   width: 3rem;
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
-}
-
-/* Prices */
-
-.price-sp {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
-}
-
-.price-sp-2 {
-  display: block;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  --tw-text-opacity: 1;
-  color: rgb(115 115 115 / var(--tw-text-opacity));
-  text-decoration-line: line-through;
-}
-
-.price-np {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity));
-}
-
-:is(.dark .price-np) {
-  --tw-text-opacity: 1;
-  color: rgb(229 229 229 / var(--tw-text-opacity));
-}
-
-/* Deal */
-
-.deal-wrap {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-@media (min-width: 768px) {
-  .deal-wrap {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.deal-header {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  .deal-header {
-    display: flex;
-    align-items: center;
-  }
-
-  .deal-header > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(1rem * var(--tw-space-x-reverse));
-    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-}
-
-.deal-img {
-  height: 16rem;
-  width: 100%;
-  border-radius: 0.75rem;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 /* Tags */

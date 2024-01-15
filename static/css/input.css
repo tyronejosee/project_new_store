@@ -119,6 +119,10 @@
 		@apply font-bold text-xl lg:text-2xl;
 	}
 
+	.headline--primary {
+		@apply text-primary;
+	}
+
 	/* Typography */
 	.type-base {
 		@apply font-normal text-sm lg:text-base;
@@ -164,6 +168,19 @@
 	
 	.product-detail__tab {
 		@apply flex items-center justify-center type-base--url h-10 box w-full;
+	}
+	
+	/* Deal */
+	.deal {
+		@apply grid gap-4 grid-cols-1 md:grid-cols-2;
+	}
+	
+	.deal__header{
+		@apply md:flex md:items-center md:space-x-4 my-4;
+	}
+	
+	.deal__img{
+		@apply w-full h-64 object-cover rounded-xl;
 	}
 
 	/* Lists */
@@ -340,8 +357,6 @@
 
 /* ------------------------------------------------------------ */
 
-
-
 	/* Icons */
 	.icon-sm{
 		@apply w-4 h-4;
@@ -353,32 +368,6 @@
 
 	.icon-lg{
 		@apply w-12 h-12 text-primary;
-	}
-	
-	/* Prices */
-	.price-sp{
-		@apply text-3xl font-bold text-red-600;
-	}
-	
-	.price-sp-2{
-		@apply text-xl text-neutral-500 line-through block;
-	}
-	
-	.price-np{
-		@apply text-3xl font-bold text-neutral-800 dark:text-neutral-200;
-	}
-
-	/* Deal */
-	.deal-wrap{
-		@apply grid gap-4 grid-cols-1 md:grid-cols-2;
-	}
-	
-	.deal-header{
-		@apply md:flex md:items-center md:space-x-4 my-4;
-	}
-	
-	.deal-img{
-		@apply w-full h-64 object-cover rounded-xl;
 	}
 
 	/* Tags */

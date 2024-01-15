@@ -21,12 +21,12 @@
     </header>
     <div>
       {% if product.sale_price %}
-      <span class="price-sp">${{ product.sale_price }}</span>
-      <span class="price-sp-2">${{ product.normal_price }}</span>
-      <span class="price-d">-{{ product.deal.discount|floatformat:0 }}%</span>
-      <span class="price-d">Savings $500</span>
+      <span class="headline headline--primary">${{ product.sale_price }}</span>
+      <span class="sub-headline text-neutral-500 line-through block">${{ product.normal_price }}</span>
+      <span class="sub-headline">-{{ product.deal.discount|floatformat:0 }}%</span>
+      <span class="sub-headline">Savings $500</span>
       {% else %}
-      <span class="price-np">${{ product.normal_price }}</span>
+      <span class="headline">${{ product.normal_price }}</span>
       {% endif %}
     </div>
     <div>

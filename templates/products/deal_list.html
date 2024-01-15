@@ -9,7 +9,7 @@
 
 <!-- Deal List -->
 {% if deals %}
-<section class="deal-wrap">
+<section class="deal">
   {% for deal in deals %}
     {% if deal.image %}
     <a href="{% url 'products:deal_detail' slug=deal.slug %}">
