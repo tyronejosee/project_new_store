@@ -1827,6 +1827,10 @@ video {
   margin-top: auto;
 }
 
+.ml-64 {
+  margin-left: 16rem;
+}
+
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
