@@ -129,7 +129,7 @@
 	}
 
 	.type-base--bold {
-		@apply font-bold text-primary;
+		@apply font-bold;
 	}  
 
 	.type-base--url {
@@ -235,13 +235,13 @@
 	.btn {
 		@apply flex items-center justify-center px-4 h-10 focus:ring-4 focus:outline-none rounded-xl;
 	}
-	
+
 	.btn__scroll {
 		@apply shadow p-4 fixed z-20 bottom-4 right-4 bg-primary hover:bg-red-700 text-white focus:ring-red-300 rounded-xl;
 	}
 	
 	.btn__icon {
-		@apply p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700;
+		@apply flex items-center justify-center px-2 py-2 rounded-lg bg-neutral-500 hover:bg-neutral-200 dark:bg-neutral-500 dark:hover:bg-neutral-700;
 	}
 
 	.btn--primary {
