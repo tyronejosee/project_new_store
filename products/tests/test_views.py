@@ -41,6 +41,16 @@ class ProductViewsTest(TestCase):
 
         self.client = Client()
 
+    def tearDown(self):
+        """Remove the test images after each test.."""
+        # Products images
+        for product in Product.objects.all():
+            product.image.delete()
+
+        # Deals images
+        for deal in Deal.objects.all():
+            deal.image.delete()
+
     def test_product_list_view(self):
         """Test for ProductListView."""
         response = self.client.get(reverse('products:prod_list'))
