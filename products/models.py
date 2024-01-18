@@ -7,6 +7,7 @@ from django.db.models.signals import post_save, post_delete
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
+from utils.validators import validate_extension
 
 
 class Category(models.Model):
@@ -55,7 +56,7 @@ class Deal(models.Model):
     """Entity type model for Deals."""
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
-    image = models.ImageField(upload_to='deals/', blank=True, null=True, verbose_name='Image')
+    image = models.ImageField(upload_to='deals/', validators=[validate_extension], blank=True, null=True, verbose_name='Image')
     description = models.TextField(blank=True, null=True, verbose_name='Description')
     discount = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name='Discount')
     start_date = models.DateField(blank=True, null=True, verbose_name='Start Date')
@@ -104,7 +105,7 @@ class Product(models.Model):
     sale_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, verbose_name='Sale Price')
     deal = models.ForeignKey(Deal, on_delete=models.SET_NULL, null=True, blank=True, related_name='products', verbose_name='Deal')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Category')
-    image = models.ImageField(upload_to='products/', blank=True, null=True, verbose_name='Image')
+    image = models.ImageField(upload_to='products/', validators=[validate_extension], blank=True, null=True, verbose_name='Image')
     stock = models.PositiveIntegerField(default=100, verbose_name='Stock')
     warranty = models.IntegerField(choices=WARRANTY_CHOICES, default='12', blank=True, null=True)
     featured = models.BooleanField(default=False, verbose_name='Featured')

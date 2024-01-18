@@ -2,15 +2,8 @@
 
 import os
 from django.db import models
-from django.core.exceptions import ValidationError
+from utils.validators import validate_extension
 
-
-def validate_extension(value):
-    """Validates the file extension of the given file."""
-    ext = os.path.splitext(value.name)[1]
-    valid_extensions = ['.svg', '.webp']
-    if not ext.lower() in valid_extensions:
-        raise ValidationError("Only .svg and .webp files are allowed.")
 
 class Company(models.Model):
     """Entity type model for Company."""
