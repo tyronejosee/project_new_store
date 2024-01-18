@@ -28,12 +28,15 @@ $(document).ready(function() {
       clearTimeout(dropdownTimeout);
   });
 
-
   $('#userWrapper').mouseenter(function() {
     containerTimeoutUser = setTimeout(function() {
         $('#userList').stop(true, true).slideDown(200);
     }, 200);
   });
+
+  $('[data-collapse-toggle="navbar-search"]').on('click', function() {
+    $('#navbar-search').toggleClass('hidden');
+    });
 
   $('#userWrapper, #userList').mouseleave(function() {
       clearTimeout(containerTimeoutUser);

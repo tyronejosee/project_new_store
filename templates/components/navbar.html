@@ -7,14 +7,14 @@
         <h1>
           <a href="{% url 'home:index' %}" class="flex items-center space-x-4 sm:pb-0">
             <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="icon--md"/>
-            <span class="sub-headline hidden lg:block">
+            <span class="sub-headline hidden xl:block">
               {{ company.name|default:'Company' }}
             </span>
           </a>
         </h1>
       </div>
       <div class="w-1/2 justify-center">
-        <div class="hidden md:block relative" id="dropdownContainer">
+        <div class="hidden xl:block relative" id="dropdownContainer">
           <button data-dropdown-toggle="dropdown" class="btn btn--secondary w-32" type="button">
             Categories
           </button>
@@ -75,16 +75,18 @@
     </div>
 
     <!-- Buttons (Cart, User, Sign Up Sign In) -->
-    <div class="w-1/2 sm:w-1/3 order-2 sm:order-3 flex items-center justify-end space-x-4">
-      <button id="toggleModeButton" class="btn btn--secondary">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 hidden dark:block">
-          <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 block dark:hidden">
-          <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
-        </svg>
-      </button>
-
+    <div class="w-1/2 sm:w-1/3 order-2 sm:order-3 flex items-center justify-end space-x-4 mb-4 md:mb-0">
+      <!-- Theme Btn -->
+      <div class="hidden lg:block">
+        <button id="toggleModeButton">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--md hidden dark:block">
+            <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--md block dark:hidden">
+            <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
       {% if user.is_authenticated %}
       <!-- Cart -->
       <div class="hidden lg:block relative">
@@ -127,26 +129,47 @@
         </div>
       </div>
       {% endif %}
-
-      <!-- Main Menu (Mobile) -->
-      <div class="w-1/2 sm:w-1/4 order-2 lg:order-3 flex items-center justify-end space-x-4 lg:hidden mb-4 md:mb-0">
-        <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center justify-center" aria-controls="navbar-search" aria-expanded="false">
+      <div class="block xl:hidden">
+        <button data-collapse-toggle="navbar-search" type="button" aria-controls="navbar-search" aria-expanded="false">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--md">
-            <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M3 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 5.25Zm0 4.5A.75.75 0 0 1 3.75 9h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
           </svg>
         </button>
-        <div class="absolute right-0 w-1/2 top-0 hidden" id="navbar-search">
-          <ul class="p-4 mt-4 h-screen box">
-            <li>
-              <a href="#" class="list__itm" aria-current="page">Home</a>
-            </li>
-            <li>
-              <a href="#" class="list__itm" aria-current="page">Home</a>
-            </li>
-          </ul>
-        </div>
       </div>
-
+    </div>
+    <!-- Main Menu (Mobile) -->
+    <div>
+      <nav class="absolute left-0 w-2/3 sm:w-1/2 top-0 hidden" id="navbar-search">
+        <ul class="p-4 h-screen bg-neutral-100 dark:bg-neutral-800 rounded-r-3xl shadow-xl border-r">
+          <div class="p-4">
+            <h2 class="headline">Toggle</h2>
+          </div>
+          <span class="list__itm-title">Ecommerce</span>
+          <li>
+            <a href="{% url 'products:categories' %}" class="list__itm type-base--url">Categories</a>
+          </li>
+          <li>
+            <a href="{% url 'products:deal_list' %}" class="list__itm type-base--url">Deals</a>
+          </li>
+          <li>
+            <a href="{% url 'products:recent' %}" class="list__itm type-base--url">Recent prods</a>
+          </li>
+          {% if user.is_superuser %}
+          <li>
+            <a href="{% url 'admin:index' %}" class="list__itm type-base--url">Admin</a>
+          </li>
+          <li>
+            <a href="{% url 'management:management' %}" class="list__itm type-base--url">Management</a>
+          </li>
+          {% endif %}
+          <span class="list__itm-title">Categories</span>
+          {% for category in products_categories|slice:":10" %}
+          <li>
+            <a href="{% url 'products:category_filter' category.slug %}" class="list__itm type-base--url">{{ category.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
     </div>
   </nav>
 </header>
