@@ -15,7 +15,7 @@
       <tr>
         <th scope="col" class="data-table__cell">Id</th>
         <th scope="col" class="data-table__cell">Image</th>
-        <th scope="col" class="data-table__cell">Unique Key</th>
+        <th scope="col" class="data-table__cell--sticky">Unique Key</th>
         <th scope="col" class="data-table__cell">Content</th>
         <th scope="col" class="data-table__cell">Created at</th>
         <th scope="col" class="data-table__cell">Updated at</th>
@@ -33,7 +33,7 @@
           </a>
           {% else %}None{% endif %}
         </td>
-        <td class="data-table__cell">{{ page.key }}</td>
+        <td class="data-table__cell--sticky">{{ page.key }}</td>
         <td class="data-table__cell">{{ page.content|truncatechars:10 }}</td>
         <td class="data-table__cell">{{ page.created_at }}</td>
         <td class="data-table__cell">{{ page.updated_at }}</td>

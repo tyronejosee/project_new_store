@@ -14,7 +14,7 @@
     <thead class="data-table__head">
       <tr>
         <th scope="col" class="data-table__cell">Id</th>
-        <th scope="col" class="data-table__cell">Name</th>
+        <th scope="col" class="data-table__cell--sticky">Name</th>
         <th scope="col" class="data-table__cell">Slug</th>
         <th scope="col" class="data-table__cell">Image</th>
         <th scope="col" class="data-table__cell">Description</th>
@@ -29,7 +29,7 @@
     <tbody class="data-table__body">
       <tr>
         <td class="data-table__cell">{{ deal.id }}</td>
-        <td class="data-table__cell">{{ deal.name }}</td>
+        <td class="data-table__cell--sticky">{{ deal.name }}</td>
         <td class="data-table__cell">{{ deal.slug }}</td>
         <td class="data-table__cell">
           {% if deal.image %}

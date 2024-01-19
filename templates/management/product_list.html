@@ -15,7 +15,7 @@
     <thead class="data-table__head">
       <tr>
         <th scope="col" class="data-table__cell">Id</th>
-        <th scope="col" class="data-table__cell">Title</th>
+        <th scope="col" class="data-table__cell--sticky">Title</th>
         <th scope="col" class="data-table__cell">Slug</th>
         <th scope="col" class="data-table__cell">Brand</th>
         <th scope="col" class="data-table__cell">Normal Price</th>
@@ -38,7 +38,7 @@
     <tbody class="data-table__body">
       <tr>
         <td class="data-table__cell">{{ product.id }}</td>
-        <td class="data-table__cell">{{ product.title|truncatechars:15 }}</td>
+        <td class="data-table__cell--sticky">{{ product.title|truncatechars:15 }}</td>
         <td class="data-table__cell">{{ product.slug|truncatechars:15 }}</td>
         <td class="data-table__cell">{{ product.brand }}</td>
         <td class="data-table__cell">{{ product.normal_price }}</td>
