@@ -46,9 +46,11 @@
         <td class="data-table__cell">{{ product.deal }}</td>
         <td class="data-table__cell">{{ product.category }}</td>
         <td class="data-table__cell">
+          {% if product.image %}
           <a href="#" class="show-image-popup" data-src="{{ product.image.url }}">
             <img src="{{ product.image.url }}" alt="{{ product.title }}" class="icon--sm rounded">
           </a>
+          {% else %}None{% endif %}
         </td>
         <td class="data-table__cell">{{ product.stock }}</td>
         <td class="data-table__cell">{{ product.warranty }}</td>

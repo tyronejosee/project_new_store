@@ -1,4 +1,5 @@
 {% extends 'layouts/base_main.html' %}
+{% load static %}
 {% block title %}{{ product.title|truncatechars:25 }}{% endblock title %}
 {% block content %}
 
@@ -9,7 +10,11 @@
 <section class="product-detail">
   <figure class="zoomable-container overflow-hidden rounded-xl border border-neutral-100 dark:border-neutral-800">
     <div class="zoomable-wrapper flex items-center justify-center bg-white h-full">
+      {% if product.image %}
       <img src="{{ product.image.url }}" title="{{ product.title }}" alt="{{ product.title }}" class="w-96 zoomable">
+      {% else %}
+      <img src="{% static 'img/default-image-front.webp' %}" alt="default-image" class="w-96 zoomable" />
+      {% endif %}
     </div>
   </figure>
   <article class="product-detail__content">
