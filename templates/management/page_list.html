@@ -35,8 +35,8 @@
         </td>
         <td class="data-table__cell--sticky">{{ page.key }}</td>
         <td class="data-table__cell">{{ page.content|truncatechars:10 }}</td>
-        <td class="data-table__cell">{{ page.created_at }}</td>
-        <td class="data-table__cell">{{ page.updated_at }}</td>
+        <td class="data-table__cell">{{ page.created_at|date:"d/m/Y - g:i a" }}</td>
+        <td class="data-table__cell">{{ page.updated_at|date:"d/m/Y - g:i a" }}</td>
         <td class="data-table__cell flex items-center space-x-4">
           <a href="{% url 'management:page_update' pk=page.pk %}" title="Update page" class="btn__icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" data-slot="icon" class="icon--sm">

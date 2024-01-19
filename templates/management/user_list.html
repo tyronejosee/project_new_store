@@ -38,7 +38,7 @@
         <td class="data-table__cell">{{ user.phone_number }}</td>
         <td class="data-table__cell">{{ user.is_active }}</td>
         <td class="data-table__cell">{#{ user.is_staff }#}</td>
-        <td class="data-table__cell">{{ user.date_joined }}</td>
+        <td class="data-table__cell">{{ user.date_joined|date:"d/m/Y - g:i a" }}</td>
         <td class="data-table__cell"></td>
       </tr>
     </tbody>

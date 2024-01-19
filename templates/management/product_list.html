@@ -58,8 +58,8 @@
         <td class="data-table__cell">{{ product.show_hide }}</td>
         <td class="data-table__cell">{{ product.description|truncatechars:15 }}</td>
         <td class="data-table__cell">{{ product.specifications|truncatechars:15 }}</td>
-        <td class="data-table__cell">{{ product.created_at }}</td>
-        <td class="data-table__cell">{{ product.updated_at }}</td>
+        <td class="data-table__cell">{{ product.created_at|date:"d/m/Y - g:i a" }}</td>
+        <td class="data-table__cell">{{ product.updated_at|date:"d/m/Y - g:i a" }}</td>
         <td class="data-table__cell flex items-center space-x-4">
           <a href="{% url 'management:product_update' pk=product.pk %}" title="Update product" class="btn__icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--sm">

@@ -18,8 +18,10 @@
     {{ form.content }}
   </label>
   <label for="{{ form.image.id_for_label }}" class="block">
-    <span class="type-base--bold">Image</span>
-    {{ form.image }}
+    <span class="type-base--bold block">Image</span>
+    <div class="space-y-4">
+      {{ form.image }}
+    </div>
   </label>
   <div class="space-y-2">
     <button type="submit" class="btn btn--primary w-full">Save</button>

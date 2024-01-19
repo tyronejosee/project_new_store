@@ -18,14 +18,6 @@
     {{ form.slug }}
   </label>
   <label class="block">
-    <span class="type-base--bold">Image</span>
-    {{ form.image }}
-  </label>
-  <label class="block">
-    <span class="type-base--bold">Description</span>
-    {{ form.description }}
-  </label>
-  <label class="block">
     <span class="type-base--bold">Discount</span>
     {{ form.discount }}
   </label>
@@ -38,8 +30,18 @@
     {{ form.end_date }}
   </label>
   <label class="block">
-    <span class="type-base--bold">Status</span>
+    <span class="type-base--bold">Description</span>
+    {{ form.description }}
+  </label>
+  <label class="block">
+    <span class="type-base--bold">Image</span>
+    <div class="space-y-4">
+      {{ form.image }}
+    </div>
+  </label>
+  <label class="flex items-center">
     {{ form.status }}
+    <span class="ml-2">Status</span>
   </label>
   <div class="space-y-2">
     <button type="submit" class="btn btn--primary w-full">Save</button>

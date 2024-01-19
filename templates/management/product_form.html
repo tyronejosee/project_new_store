@@ -44,22 +44,7 @@
       {{ form.warranty }}
     </label>
   </div>      
-  <label for="{{ form.image.id_for_label }}" class="block">
-    <span class="type-base--bold">Image</span>
-    {{ form.image }}
-  </label>
-  <div class="flex gap-4 items-center">
-    <div class="flex h-5">
-      {{ form.show_hide }}
-    </div>
-    <label for="{{ form.show_hide.id_for_label }}" class="block">Show/Hide</label>
-  </div>
-  <div class="flex gap-4 items-center">
-    <div class="flex h-5">
-      {{ form.featured }}
-    </div>
-    <label for="{{ form.featured.id_for_label }}" class="block">Featured</label>
-  </div>
+  
   <label for="{{ form.description.id_for_label }}" class="block">
     <span class="type-base--bold">Description</span>
     {{ form.description }}
@@ -68,6 +53,18 @@
     <span class="type-base--bold">Specifications</span>
     {{ form.specifications }}
   </label>
+  <label for="{{ form.image.id_for_label }}" class="block">
+    <span class="type-base--bold">Image</span>
+    {{ form.image }}
+  </label>
+  <div class="flex items-center">
+    {{ form.show_hide }}
+    <label for="{{ form.show_hide.id_for_label }}" class="ml-2">Show/Hide</label>
+  </div>
+  <div class="flex items-center">
+    {{ form.featured }}
+    <label for="{{ form.featured.id_for_label }}" class="ml-2">Featured</label>
+  </div>
   <div class="space-y-2">
     <button type="submit" class="btn btn--primary w-full">Save</button>
     <a href="{% url 'management:product_list' %}" title="Cancel" class="btn btn--secondary w-full">Cancel</a>

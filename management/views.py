@@ -36,7 +36,7 @@ class PageListView(LoginRequiredMixin, ListView):
     template_name = 'management/page_list.html'
     context_object_name = 'pages'
     ordering = ['id']
-    paginate_by = 6
+    paginate_by = 25
 
 
 class PageUpdateView(LoginRequiredMixin, UpdateView):

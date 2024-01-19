@@ -40,8 +40,8 @@
         </td>
         <td class="data-table__cell">{{ deal.description }}</td>
         <td class="data-table__cell">{{ deal.discount }}</td>
-        <td class="data-table__cell">{{ deal.start_date }}</td>
-        <td class="data-table__cell">{{ deal.end_date }}</td>
+        <td class="data-table__cell">{{ deal.start_date|date:"d/m/Y" }}</td>
+        <td class="data-table__cell">{{ deal.end_date|date:"d/m/Y" }}</td>
         <td class="data-table__cell">{{ deal.status }}</td>
         <td class="data-table__cell">
           <a href="{% url 'management:deal_update' pk=deal.pk %}">Update</a>
