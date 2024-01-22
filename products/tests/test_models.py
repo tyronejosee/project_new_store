@@ -3,7 +3,6 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
-
 from products.models import Category, Brand, Deal, Product
 
 

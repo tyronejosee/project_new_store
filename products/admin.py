@@ -42,7 +42,7 @@ class DealResource(resources.ModelResource):
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Category model."""
-    list_display = ('title', 'slug', 'show_hide',)
+    list_display = ('pk', 'title', 'slug', 'show_hide',)
     ordering = ('pk',)
     resource_class = CategoryResource
 
@@ -50,7 +50,7 @@ class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
 @admin.register(Brand)
 class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Brand model."""
-    list_display = ('name', 'slug', 'show_hide',)
+    list_display = ('pk', 'name', 'slug', 'show_hide',)
     ordering = ('pk',)
     resource_class = BrandResource
 
@@ -58,7 +58,7 @@ class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Deal model."""
-    list_display = ('name', 'slug', 'image', 'discount', 'start_date', 'end_date')
+    list_display = ('pk', 'name', 'slug', 'image', 'discount', 'start_date', 'end_date')
     ordering = ('pk',)
     resource_class = DealResource
 
@@ -73,7 +73,7 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Product model."""
-    list_display = ('title', 'updated_at', 'slug', 'normal_price',
+    list_display = ('pk', 'title', 'updated_at', 'slug', 'normal_price',
                     'brand', 'stock', 'show_hide')
     readonly_fields = ('created_at', 'updated_at')
     search_fields = ('title',)
