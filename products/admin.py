@@ -3,8 +3,8 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
-
 from products.models import Product, Deal, Category, Brand
+from utils.actions import ActionsMixin
 
 
 # Import-Export Class
@@ -40,7 +40,7 @@ class DealResource(resources.ModelResource):
 # Models Class
 
 @admin.register(Category)
-class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Category model."""
     list_display = ('title', 'slug', 'show_hide',)
     ordering = ('pk',)
@@ -48,7 +48,7 @@ class CategoryAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 
 @admin.register(Brand)
-class BrandAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Brand model."""
     list_display = ('name', 'slug', 'show_hide',)
     ordering = ('pk',)
@@ -71,7 +71,7 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 
 @admin.register(Product)
-class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Product model."""
     list_display = ('title', 'updated_at', 'slug', 'normal_price',
                     'brand', 'stock', 'show_hide')
