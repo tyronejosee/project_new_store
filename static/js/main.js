@@ -38,6 +38,10 @@ $(document).ready(function() {
     $('#navbar-search').toggleClass('hidden');
     });
 
+  $("#sidebarToggle").click(function () {
+    $("#sidebar").toggleClass("-translate-x-full sm:translate-x-0");
+  });
+
   $('#userWrapper, #userList').mouseleave(function() {
       clearTimeout(containerTimeoutUser);
   });

@@ -18,7 +18,7 @@ class CompanyModelTest(TestCase):
             'linkedin': 'https://linkedin.com/example'
         }
 
-    def test_create_instance(self):
+    def test_create_company_instance(self):
         """Test creating a Company instance."""
         company = Company.objects.create(**self.company_data)
         self.assertEqual(company.name, 'Example Company')
