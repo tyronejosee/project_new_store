@@ -25,9 +25,13 @@
     <tbody class="data-table__body">
       <tr>
         <td class="data-table__cell--big">
+          {% if cart_item.product.image %}
           <a href="#" title="{{ cart_item.product.title }}" class="show-image-popup" data-src="{{ cart_item.product.image.url }}">
             <img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}" class="rounded-lg border" width="50" height="50">
           </a>
+          {% else %}
+            <p>No image available</p>
+          {% endif %}
         </td>
         <th scope="row" class="data-table__cell--big overflow-hidden whitespace-no-wrap">
           <div class="w-40 lg:w-96 break-words line-clamp-2">{{ cart_item.product.title }}</div>
@@ -95,9 +99,13 @@
     <tbody class="data-table__body">
       <tr>
         <td class="data-table__cell--big">
+          {% if product.image %}
           <a href="#" title="{{ product.title }}" class="show-image-popup" data-src="{{ product.image.url }}">
             <img src="{{ product.image.url }}" alt="{{ product.title }}" class="rounded-lg border" width="50" height="50">
           </a>
+          {% else %}
+            <p>No image available</p>
+          {% endif %}
         </td>
         <th scope="row" class="data-table__cell--big overflow-hidden whitespace-no-wrap">
           <div class="w-40 lg:w-96 break-words line-clamp-2">{{ product.title }}</div>
