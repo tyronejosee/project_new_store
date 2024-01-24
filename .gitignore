@@ -1,6 +1,9 @@
 # Proyect files
 desktop.ini
 node_modules/
+*migrations/
+home/migrations/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
