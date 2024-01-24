@@ -1,13 +1,13 @@
-"""Models Tests for the Home App."""
+"""Models Tests for Home App."""
 
 from django.test import TestCase
 from home.models import Company, Page
 
+
 class CompanyModelTest(TestCase):
-    """Test cases for the Company model."""
+    """Tests for Company model."""
 
     def setUp(self):
-        """Set up initial data for tests."""
         self.company_data = {
             'name': 'Example Company',
             'logo': 'company/logo.png',
@@ -40,10 +40,9 @@ class CompanyModelTest(TestCase):
 
 
 class PageModelTest(TestCase):
-    """Test cases for the Page model."""
+    """Tests for Page model."""
 
     def setUp(self):
-        """Set up initial data for tests."""
         self.page_data = {
             'key': 'example_page',
             'content': 'Example Content',

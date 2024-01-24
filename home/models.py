@@ -7,7 +7,6 @@ from utils.validators import validate_extension
 
 class Company(models.Model):
     """Entity type model for Company."""
-
     name = models.CharField(max_length=50, verbose_name='Name')
     logo = models.FileField(upload_to='company/', verbose_name='Logo')
     copy = models.CharField(max_length=150, verbose_name='Copy')
@@ -26,7 +25,6 @@ class Company(models.Model):
 
 class Page(models.Model):
     """Entity type model for Pages."""
-
     key = models.CharField(max_length=50, default='pending', verbose_name='Unique Key')
     content = models.TextField(blank=True, null=True, verbose_name='Content')
     image = models.FileField(upload_to='pages/', validators=[validate_extension], blank=True, null=True, verbose_name='Image')
