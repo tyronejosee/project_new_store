@@ -1,9 +1,7 @@
-"""Test Base."""
+"""Utils: Test Base."""
 
 from django.test import TestCase, Client
 from django.contrib.auth import get_user_model
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.contrib.staticfiles import finders
 from products.models import Product, Brand, Category, Deal
 
 
@@ -21,6 +19,7 @@ class BaseTestCase(TestCase):
             first_name='Test',
             last_name='User'
         )
+        
         # Log in the user created
         self.client.login(username='testuser', password='testpass')
 

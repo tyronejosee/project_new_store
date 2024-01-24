@@ -1,14 +1,15 @@
-"""Views Tests for the Cart App."""
+"""Views Tests for Cart App."""
 
 from django.urls import reverse
 from utils.tests import BaseTestCase
 from cart.models import Cart, CartItem, Wishlist
 
+
 class CartViewsTest(BaseTestCase):
-    """Pending."""
+    """Tests for Cart views."""
 
     def test_cart_view(self):
-        """Test the cart view."""
+        """Test the cart main view."""
         # Add a product
         response_add = self.client.get(reverse('cart:add_prod_cart', args=[self.product.id]))
         self.assertEqual(response_add.status_code, 302)
@@ -83,7 +84,7 @@ class CartViewsTest(BaseTestCase):
         self.assertEqual(cart.cart_items.count(), 0)
 
 class WishlistViewsTest(BaseTestCase):
-    """Tests for wishlist-related views."""
+    """Tests for Wishlist views."""
 
     def test_add_product_to_wishlist_view(self):
         """Test adding a product to the wishlist."""
