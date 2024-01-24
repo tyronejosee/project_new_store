@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   test:
@@ -31,3 +32,5 @@ jobs:
 
     - name: Run tests
       run: python manage.py test
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
