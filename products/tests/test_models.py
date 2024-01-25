@@ -1,4 +1,4 @@
-"""Models Tests for the Product App."""
+"""Models Tests for Product App."""
 
 from django.test import TestCase
 from django.core.exceptions import ValidationError
@@ -7,7 +7,7 @@ from products.models import Category, Brand, Deal, Product
 
 
 class CategoryModelTestCase(TestCase):
-    """Tests for the Category model."""
+    """Tests for Category model."""
 
     def setUp(self):
         self.category = Category.objects.create(
@@ -34,7 +34,6 @@ class CategoryModelTestCase(TestCase):
         category2 = Category.objects.create(title='B Category Example')
         category3 = Category.objects.create(title='A Category Example')
         categories = Category.objects.all()
-        # Expected responses
         self.assertEqual(categories[0].title, 'A Category Example')
         self.assertEqual(categories[1].title, 'B Category Example')
         self.assertEqual(categories[2].title, 'C Category Example')
@@ -45,7 +44,7 @@ class CategoryModelTestCase(TestCase):
 
 
 class BrandModelTestCase(TestCase):
-    """Tests for the Brand model."""
+    """Tests for Brand model."""
 
     def setUp(self):
         self.brand = Brand.objects.create(name='Samsung')
@@ -74,7 +73,6 @@ class BrandModelTestCase(TestCase):
         brand2 = Brand.objects.create(name='Apple')
         brand3 = Brand.objects.create(name='Sony')
         brands = Brand.objects.all()
-        # Expected responses
         self.assertEqual(brands[0].name, 'Apple')
         self.assertEqual(brands[1].name, 'Samsung')
         self.assertEqual(brands[2].name, 'Sony')
@@ -85,7 +83,7 @@ class BrandModelTestCase(TestCase):
 
 
 class DealModelTestCase(TestCase):
-    """Tests for the Deal model."""
+    """Tests for Deal model."""
 
     def setUp(self):
         self.deal = Deal.objects.create(
@@ -116,7 +114,7 @@ class DealModelTestCase(TestCase):
 
 
 class ProductModelTestCase(TestCase):
-    """Tests for the Product model."""
+    """Tests for Product model."""
 
     def setUp(self):
         self.brand = Brand.objects.create(name='Samsung')

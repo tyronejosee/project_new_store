@@ -6,7 +6,7 @@ from utils.tailwind_classes import form_select, form_number
 
 
 class CategoriesForm(forms.Form):
-    """Base form for category filtering."""
+    """Base form for categories filter."""
 
     category = forms.ModelChoiceField(
         queryset=Category.objects.all(),

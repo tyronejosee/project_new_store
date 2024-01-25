@@ -1,4 +1,4 @@
-"""Views Tests for the Product App."""
+"""Views Tests for Product App."""
 
 from django.test import TestCase, Client
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -8,7 +8,7 @@ from products.models import Product, Brand, Deal, Category
 
 
 class ProductViewsTest(TestCase):
-    """Tests for views in the Product App."""
+    """Tests for Products views."""
 
     def setUp(self):
         """Set up test data."""

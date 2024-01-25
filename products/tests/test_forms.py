@@ -1,10 +1,11 @@
-"""Forms Tests for the Product App."""
+"""Forms Tests for Product App."""
 
 from django.test import TestCase
 from products.forms import CategoriesForm
 
+
 class ProductFormTest(TestCase):
-    """Tests for the category filter form in the Product App."""
+    """Tests for category filter form."""
 
     def test_form_blank_data(self):
         """Test form with blank data."""

@@ -74,12 +74,9 @@ class Deal(models.Model):
         # Rename the image associated with the deal
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-                # Gets the original file name
                 file_name, file_extension = os.path.splitext(self.image.name)
-                # Generate a new name from the slug, up to 100 characters
                 title = self.slug[:100]
                 file_name = f'{title}{file_extension}'
-                # Changes the file name
                 self.image.name = file_name
         super(Deal, self).save(*args, **kwargs)
 
@@ -134,12 +131,9 @@ class Product(models.Model):
         # Rename the image associated with the product
         if self.image and self.image.name:
             if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-                # Gets the original file name
                 file_name, file_extension = os.path.splitext(self.image.name)
-                # Generate a new name from the slug, up to 100 characters
                 title = self.slug[:100]
                 file_name = f'{title}{file_extension}'
-                # Changes the file name
                 self.image.name = file_name
 
         super(Product, self).save(*args, **kwargs)
@@ -175,7 +169,6 @@ class Product(models.Model):
 @receiver(post_delete, sender=Deal)
 def product_update_sale_prices(sender, instance, **kwargs):
     """Signal handler to update sale_prices when a Deal is saved or deleted."""
-    # Get the products associated with the deal
     products = Product.objects.filter(deal=instance)
 
     # Iterate through the products and update the 'sale_price'
