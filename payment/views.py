@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.shortcuts import render
 from paypal.standard.forms import PayPalPaymentsForm
-
 from products.models import Product
 
 
