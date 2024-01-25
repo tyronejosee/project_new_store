@@ -1,1 +1,1 @@
-"""Views Tests for the Users App."""
+"""Views Tests for Users App."""

@@ -1,4 +1,4 @@
-"""Models Tests for the Users App."""
+"""Models Tests for Users App."""
 
 from django.test import TestCase
 from users.models import CustomUser
@@ -8,7 +8,7 @@ class CustomUserTests(TestCase):
     """Tests for creating a regular user and a superuser."""
 
     def test_create_user(self):
-        """Method testing the creation of a regular user."""
+        """Test the creation of a regular user."""
 
         user = CustomUser
         user = user.objects.create_user(
@@ -18,7 +18,6 @@ class CustomUserTests(TestCase):
             last_name="Test",
             password="testuser1234"
         )
-        # Expected results
         self.assertEqual(user.username, "user_test")
         self.assertEqual(user.email, "test@gmail.com")
         self.assertEqual(user.first_name, "User")
@@ -28,7 +27,7 @@ class CustomUserTests(TestCase):
         self.assertFalse(user.is_superuser)
 
     def test_create_superuser(self):
-        """Method testing the creation of a superuser."""
+        """Test the creation of a superuser."""
 
         user = CustomUser
         user = user.objects.create_superuser(
@@ -38,7 +37,6 @@ class CustomUserTests(TestCase):
             last_name="Test",
             password="testuser1234"
         )
-        # Expected results
         self.assertEqual(user.username, "user_test")
         self.assertEqual(user.email, "test@gmail.com")
         self.assertEqual(user.first_name, "User")
