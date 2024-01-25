@@ -58,7 +58,7 @@ class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Deal model."""
-    list_display = ('pk', 'name', 'slug', 'image', 'discount', 'start_date', 'end_date')
+    list_display = ('name', 'slug', 'image', 'discount', 'start_date', 'end_date', 'pk')
     ordering = ('pk',)
     resource_class = DealResource
 

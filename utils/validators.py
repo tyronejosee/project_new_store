@@ -8,7 +8,7 @@ def validate_extension(value):
     Validates that the uploaded file has a '.webp' or '.svg' extension,
     and the file size is not greater than 1MB
     """
-    valid_extensions = [".webp", ".svg"]
+    valid_extensions = [".webp", ".svg", ".jpg"]
     max_size_mb = 1
     extension = value.name.split(".")[-1]
 
@@ -18,4 +18,5 @@ def validate_extension(value):
         )
 
     if not extension.lower() in valid_extensions:
+        print(extension)
         raise ValidationError(f"Only .webp and .svg files are allowed - Selected .{extension}")

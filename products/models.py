@@ -56,7 +56,7 @@ class Deal(models.Model):
     """Entity type model for Deals."""
     name = models.CharField(max_length=50, unique=True, verbose_name='Name')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='Slug')
-    image = models.ImageField(upload_to='deals/', validators=[validate_extension], blank=True, null=True, verbose_name='Image')
+    image = models.ImageField(upload_to='deals/', blank=True, null=True, verbose_name='Image')
     description = models.TextField(blank=True, null=True, verbose_name='Description')
     discount = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name='Discount')
     start_date = models.DateField(blank=True, null=True, verbose_name='Start Date')
