@@ -1,1 +1,1 @@
-"""Forms Tests for the Management App."""
+"""Forms Tests for Management App."""

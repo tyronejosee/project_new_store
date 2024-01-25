@@ -1,7 +1,6 @@
 """Forms for Management App."""
 
 from django import forms
-
 from home.models import Page
 from products.models import Product, Category, Brand, Deal
 from utils.tailwind_classes import (

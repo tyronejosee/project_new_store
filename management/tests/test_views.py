@@ -1,1 +1,1 @@
-"""Views Tests for the Management App."""
+"""Views Tests for Management App."""
