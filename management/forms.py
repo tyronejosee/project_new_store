@@ -19,7 +19,7 @@ class PageForm(forms.ModelForm):
     class Meta:
         """Meta definition for Page form."""
         model = Page
-        fields = '__all__'
+        fields = ['key', 'content', 'image']
         widgets = {
             'key': forms.TextInput(attrs=form_text('Key')),
             'content': forms.Textarea(attrs=form_textarea()),
@@ -33,7 +33,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         """Meta definition for Product form."""
         model = Product
-        fields = '__all__'
+        exclude = ['created_at', 'updated_at']
         widgets = {
             'title': forms.TextInput(attrs=form_text('Title product')),
             'slug': forms.TextInput(attrs=form_text('Slug')),
