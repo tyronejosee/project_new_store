@@ -1,7 +1,7 @@
 """URLs Tests for Payment App."""
 
 from django.urls import resolve, reverse
-from core.tests.test_base import BaseTestCase
+from utils.tests import BaseTestCase
 from payment.views import check_out, payment_success, payment_failed
 
 
