@@ -4,8 +4,9 @@ from django.test import TestCase
 from users.models import CustomUser
 from users.forms import UserLoginForm, UserRegistrationForm, form_text
 
+
 class UserLoginFormTest(TestCase):
-    """Test suite for the UserLoginForm class."""
+    """Test for UserLoginForm."""
 
     # def setUp(self):
     #     self.user = CustomUser.objects.create_user(
@@ -106,7 +107,7 @@ class UserRegistrationFormTest(TestCase):
         # Save method
         user = form.save(commit=False)
         user.save()
-
+        
         self.assertIsNotNone(user.pk)
         self.assertEqual(user.username, 'testuser')
         self.assertEqual(user.email, 'testuser@example.com')

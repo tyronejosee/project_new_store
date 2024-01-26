@@ -9,7 +9,6 @@ class CustomUserTests(TestCase):
 
     def test_create_user(self):
         """Test the creation of a regular user."""
-
         user = CustomUser
         user = user.objects.create_user(
             username="user_test",
@@ -28,7 +27,6 @@ class CustomUserTests(TestCase):
 
     def test_create_superuser(self):
         """Test the creation of a superuser."""
-
         user = CustomUser
         user = user.objects.create_superuser(
             username="user_test",
