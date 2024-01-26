@@ -27,17 +27,20 @@ class BaseTestCase(TestCase):
 
         
         # Foreign key for product
-        category = Category.objects.create(title='Test Category')
-        brand = Brand.objects.create(name='Test Brand')
-        deal = Deal.objects.create(name='Test Deal')
+        self.category = Category.objects.create(title='Test Category')
+        self.brand = Brand.objects.create(name='Test Brand')
+        self.deal = Deal.objects.create(
+            name='Test Deal',
+            image=None,
+        )
 
         # Create a product
         self.product = Product.objects.create(
             title='Test Product',
-            brand=brand,
+            brand=self.brand,
             normal_price=10.0,
-            deal=deal,
-            category=category,
+            deal=self.deal,
+            category=self.category,
             image=None,
             stock=100,
             warranty=12,
