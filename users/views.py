@@ -1,12 +1,12 @@
 """Views for Users App."""
 
 from django.views.generic.edit import FormView
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import never_cache
-from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login, logout
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
 from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -40,10 +40,18 @@ class UserRegistrationView(CreateView):
     template_name = 'users/registration_form.html'
     success_url = reverse_lazy('cart:cart')
 
+    def dispatch(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return HttpResponseRedirect(self.get_success_url())
+        return super().dispatch(request, *args, **kwargs)
+
     def form_valid(self, form):
         response = super().form_valid(form)
         login(self.request, self.object)
         return response
+
+    def get_success_url(self):
+        return self.success_url
 
 
 class UserPasswordChangeView(PasswordChangeView):
