@@ -1235,6 +1235,36 @@ video {
   color: rgb(82 82 82 / var(--tw-placeholder-opacity));
 }
 
+.form__input-text--readonly {
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.form__input-text--readonly:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(115 115 115 / var(--tw-ring-opacity));
+}
+
+:is(.dark .form__input-text--readonly) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(115 115 115 / var(--tw-text-opacity));
+}
+
 .form__input-file {
   display: block;
   width: 100%;
@@ -1850,10 +1880,6 @@ video {
   height: 100vh;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
 .w-1\/2 {
   width: 50%;
 }
@@ -1888,10 +1914,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-6 {
-  width: 1.5rem;
 }
 
 .max-w-xl {
@@ -2322,36 +2344,12 @@ video {
   --tw-ring-color: rgb(252 165 165 / var(--tw-ring-opacity));
 }
 
-.hover\:block:hover {
-  display: block;
-}
-
-.hover\:hidden:hover {
-  display: none;
-}
-
-.focus\:block:focus {
-  display: block;
-}
-
-.focus\:hidden:focus {
-  display: none;
-}
-
 .focus\:pl-12:focus {
   padding-left: 3rem;
 }
 
 .focus\:text-left:focus {
   text-align: left;
-}
-
-.active\:block:active {
-  display: block;
-}
-
-.active\:hidden:active {
-  display: none;
 }
 
 .group:hover .group-hover\:visible {
@@ -2364,14 +2362,6 @@ video {
 
 :is([dir="rtl"] .rtl\:space-x-reverse) > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 1;
-}
-
-:is(.dark .dark\:block) {
-  display: block;
-}
-
-:is(.dark .dark\:hidden) {
-  display: none;
 }
 
 :is(.dark .dark\:border-neutral-800) {

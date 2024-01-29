@@ -6,6 +6,7 @@ from products.models import Product, Category, Brand, Deal
 from utils.tailwind_classes import (
     form_select,
     form_text,
+    form_text_readonly,
     form_number,
     form_checkbox,
     form_file,
@@ -21,7 +22,7 @@ class PageForm(forms.ModelForm):
         model = Page
         fields = ['key', 'content', 'image']
         widgets = {
-            'key': forms.TextInput(attrs=form_text('Key')),
+            'key': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('key')}),
             'content': forms.Textarea(attrs=form_textarea()),
             'image': forms.ClearableFileInput(attrs=form_file()),
         }
@@ -36,7 +37,7 @@ class ProductForm(forms.ModelForm):
         exclude = ['created_at', 'updated_at']
         widgets = {
             'title': forms.TextInput(attrs=form_text('Title product')),
-            'slug': forms.TextInput(attrs=form_text('Slug')),
+            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
             'brand': forms.Select(attrs=form_select()),
             'normal_price': forms.NumberInput(attrs=form_number('Normal price')),
             'sale_price': forms.NumberInput(attrs=form_number('Sale price')),
@@ -61,7 +62,7 @@ class CategoryForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'title': forms.TextInput(attrs=form_text('Title')),
-            'slug': forms.TextInput(attrs=form_text('Slug')),
+            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
             'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
         }
 
@@ -75,7 +76,7 @@ class BrandForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs=form_text('Name')),
-            'slug': forms.TextInput(attrs=form_text('Slug')),
+            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
             'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
         }
 
@@ -89,7 +90,7 @@ class DealForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs=form_text('Name')),
-            'slug': forms.TextInput(attrs=form_text('Slug')),
+            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
             'image': forms.ClearableFileInput(attrs=form_file()),
             'description': forms.Textarea(attrs=form_textarea()),
             'discount': forms.NumberInput(attrs=form_number('Discount')),

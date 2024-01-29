@@ -262,6 +262,10 @@
 	.form__input-text {
 		@apply bg-neutral-100 dark:bg-neutral-800 rounded-xl block w-full h-10 px-4 focus:outline-none focus:ring focus:ring-primary placeholder-neutral-400 text-sm dark:placeholder-neutral-600;
 	}
+
+	.form__input-text--readonly {
+		@apply bg-neutral-100 dark:bg-neutral-800 rounded-xl block w-full h-10 px-4 focus:outline-none focus:ring focus:ring-neutral-500 text-sm dark:text-neutral-500;
+	}
 	
 	.form__input-file {
 		@apply block w-full file:mr-4 file:h-10 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-neutral-100 file:text-primary hover:file:bg-neutral-200;

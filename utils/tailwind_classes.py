@@ -5,6 +5,10 @@ def form_text(placeholder):
     """Utility classes for text input."""
     return {'class': 'form__input-text', 'placeholder': placeholder}
 
+def form_text_readonly(placeholder):
+    """Utility classes for text input readonly."""
+    return {'class': 'form__input-text--readonly', 'placeholder': placeholder}
+
 def form_number(placeholder):
     """Utility classes for number input."""
     return {'class': 'form__input-number', 'placeholder': placeholder}
