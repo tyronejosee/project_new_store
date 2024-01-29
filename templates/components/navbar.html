@@ -5,7 +5,7 @@
     <div class="w-1/2 sm:w-1/3 order-1 flex items-center justify-between space-x-4 mb-4 sm:mb-0">
       <div class="w-1/2">
         <h1>
-          <a href="{% url 'home:index' %}" class="flex items-center space-x-4 sm:pb-0">
+          <a href="{% url 'home:index' %}" class="flex items-center space-x-4 sm:pb-0 cursor-default md:cursor-pointer">
             <img src="{{ company.logo.url }}" alt="{{ company.name }}" class="icon--md"/>
             <span class="sub-headline hidden xl:block">
               {{ company.name|default:'Company' }}
@@ -77,8 +77,8 @@
     <!-- Buttons (Cart, User, Sign Up Sign In) -->
     <div class="w-1/2 sm:w-1/3 order-2 sm:order-3 flex items-center justify-end space-x-4 mb-4 sm:mb-0">
       <!-- Theme Form -->
-      <div class="flex space-x-4">
-        <form method="post" action="{% url 'home:index' %}">{% csrf_token %}
+      <div class="hidden lg:block">
+        <form method="post" action="{% url 'home:index' %}" class="flex space-x-4">{% csrf_token %}
           {{ theme_form }}
         </form>
       </div>
@@ -125,7 +125,7 @@
       </div>
       {% endif %}
       <div class="block xl:hidden">
-        <button data-collapse-toggle="navbar-search" type="button" aria-controls="navbar-search" aria-expanded="false">
+        <button data-collapse-toggle="navbar-search" type="button" aria-controls="navbar-search" aria-expanded="false" class="cursor-default md:cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon--md">
             <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
           </svg>
@@ -138,6 +138,12 @@
         <ul class="p-4 h-screen bg-neutral-100 dark:bg-neutral-800 rounded-r-3xl shadow-xl border-r">
           <div class="p-4">
             <h2 class="headline">Toggle</h2>
+            <!-- Theme Form -->
+            <div>
+              <form method="post" action="{% url 'home:index' %}">{% csrf_token %}
+                {{ theme_form }}
+              </form>
+            </div>
           </div>
           <span class="list__itm-title">Ecommerce</span>
           <li>
