@@ -1,8 +1,10 @@
 """Views for Home App."""
 
 from django.views.generic import TemplateView, DetailView
+from django.shortcuts import render
 from home.models import Page
 from products.models import Product
+from users.forms import ThemePreferenceForm
 
 
 class IndexTemplateView(TemplateView):
@@ -39,6 +41,20 @@ class IndexTemplateView(TemplateView):
         ).order_by('-updated_at')[:6]
 
         return context
+
+    def post(self, request, *args, **kwargs):
+        """Overrides to handle POST requests."""
+        # Handle ThemePreferenceForm submission
+        theme_form = ThemePreferenceForm(request.POST)
+        if theme_form.is_valid():
+            theme_preference = theme_form.cleaned_data['theme_preference']
+            request.session['theme_preference'] = theme_preference
+
+        # Add theme_form to the context
+        context = self.get_context_data(**kwargs)
+        context["theme_form"] = theme_form
+
+        return render(request, self.template_name, context)
 
 
 class PageDetailView(DetailView):

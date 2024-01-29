@@ -3,12 +3,20 @@
 from home.models import Company
 from products.models import Product, Category
 from cart.models import Cart
+from users.forms import ThemePreferenceForm
 
 
 def company(_request):
     """Context processor for company data."""
     company_data = Company.objects.first()
     return {'company': company_data}
+
+
+def user_preferences(request):
+    """Context processor to send the theme preference and theme form."""
+    theme_preference = request.session.get('theme_preference', 'dark')
+    theme_form = ThemePreferenceForm(initial={'theme_preference': theme_preference})
+    return {'theme_preference': theme_preference, 'theme_form': theme_form}
 
 
 def products_featured(_request):

@@ -57,3 +57,18 @@ class UserRegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class ThemePreferenceForm(forms.Form):
+    """Base form for Theme Preference."""
+    THEME_CHOICES = [
+        ('dark', 'Dark'),
+        ('light', 'Light'),
+    ]
+    theme_preference = forms.ChoiceField(
+        choices=THEME_CHOICES,
+        widget=forms.Select(
+            attrs={'class': 'btn btn--secondary block w-full', 'onchange': 'submit()'}
+        ),
+        label=False
+    )

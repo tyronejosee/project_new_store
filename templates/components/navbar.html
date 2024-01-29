@@ -76,6 +76,12 @@
 
     <!-- Buttons (Cart, User, Sign Up Sign In) -->
     <div class="w-1/2 sm:w-1/3 order-2 sm:order-3 flex items-center justify-end space-x-4 mb-4 sm:mb-0">
+      <!-- Theme Form -->
+      <div class="flex space-x-4">
+        <form method="post" action="{% url 'home:index' %}">{% csrf_token %}
+          {{ theme_form }}
+        </form>
+      </div>
       <!-- Theme Btn -->
       <div class="hidden lg:block">
         <button id="toggleModeButton">
