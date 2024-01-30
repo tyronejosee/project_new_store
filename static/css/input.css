@@ -239,7 +239,7 @@
 	}
 	
 	.btn__icon {
-		@apply flex items-center justify-center px-2 py-2 rounded-lg bg-neutral-500 hover:bg-neutral-200 dark:bg-neutral-500 dark:hover:bg-neutral-700;
+		@apply flex items-center justify-center px-2 py-2 rounded-lg bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-800 dark:text-neutral-200 focus:ring-white;
 	}
 
 	.btn--primary {
@@ -257,6 +257,10 @@
 	
 	.form__header {
 		@apply flex flex-col items-center p-4;
+	}
+
+	.form__label {
+		@apply block space-y-2;
 	}
 	
 	.form__input-text {
@@ -287,9 +291,13 @@
 		@apply bg-neutral-100 dark:bg-neutral-800 rounded-xl block w-full h-64 px-4 focus:outline-none focus:ring focus:ring-primary placeholder-neutral-400 text-sm dark:placeholder-neutral-600 py-2;
 	}
 
+	.form__action {
+		@apply space-y-2 md:space-y-0 md:flex md:space-x-2;
+	}
+
 	/* Tables */
 	.data-table {
-		@apply overflow-x-auto rounded-xl h-[500px] bg-neutral-100  dark:bg-neutral-800 ;
+		@apply overflow-x-auto rounded-xl h-[500px] bg-neutral-100 dark:bg-neutral-800;
 	}
 	
 	.data-table__wrapper {
@@ -313,7 +321,7 @@
 	}
 
 	.data-table__cell--sticky {
-		@apply px-4 h-10 truncate bg-neutral-700 sticky left-0;
+		@apply px-4 h-10 truncate bg-neutral-200 dark:bg-neutral-700 sticky left-0;
 	}
 
 	/* Card */

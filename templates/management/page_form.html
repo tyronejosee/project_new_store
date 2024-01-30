@@ -9,21 +9,21 @@
 
 <!-- Page Form -->
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
-  <label for="{{ form.key.id_for_label }}" class="block">
+  <label class="form__label">
     <span class="type-base--bold">Key</span>
     {{ form.key }}
   </label>
-  <label for="{{ form.content.id_for_label }}" class="block">
+  <label class="form__label">
     <span class="type-base--bold">Content</span>
     {{ form.content }}
   </label>
-  <label for="{{ form.image.id_for_label }}" class="block">
+  <label class="form__label">
     <span class="type-base--bold block">Image</span>
     <div class="space-y-4">
       {{ form.image }}
     </div>
   </label>
-  <div class="space-y-2">
+  <div class="form__action">
     <button type="submit" class="btn btn--primary w-full">Save</button>
     <a href="{% url 'management:product_list' %}" title="Cancel" class="btn btn--secondary w-full">Cancel</a>
   </div>

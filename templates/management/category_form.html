@@ -9,11 +9,11 @@
 
 <!-- Category Form -->
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
-  <label class="block">
+  <label class="form__label">
     <span class="type-base--bold">Title</span>
     {{ form.title }}
   </label>
-  <label class="block">
+  <label class="form__label">
     <span class="type-base--bold">Slug</span>
     {{ form.slug }}
   </label>
@@ -21,7 +21,7 @@
     {{ form.show_hide }}
     <span class="ml-2">Show/Hide</span>
   </label>
-  <div class="space-y-2">
+  <div class="form__action">
     <button type="submit" class="btn btn--primary w-full">Save</button>
     <a href="{% url 'management:category_list' %}" title="Cancel" class="btn btn--secondary w-full">
       Cancel

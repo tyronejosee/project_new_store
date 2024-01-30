@@ -10,50 +10,49 @@
 <!-- Product Form -->
 <form method="POST" enctype="multipart/form-data" class="space-y-4 pb-4">{% csrf_token %}
   {{ form.non_field_errors }}
-  <label for="{{ form.title.id_for_label }}" class="block">
+  <label class="form__label">
     <span class="type-base--bold">Title</span>
     {{ form.title }}
   </label>
   <div class="flex justify-beetween space-x-4">
-    <label for="{{ form.normal_price.id_for_label }}" class="flex-grow block">
+    <label class="flex-grow form__label">
       <span class="type-base--bold">Price</span>
       {{ form.normal_price }}
     </label>
-    <label for="{{ form.stock.id_for_label }}" class="flex-grow block">
+    <label class="flex-grow form__label">
       <span class="type-base--bold">Stock</span>
       {{ form.stock }}
     </label>
   </div>
   <div class="flex justify-beetween space-x-4">
-    <label for="{{ form.category.id_for_label }}" class="flex-grow">
+    <label class="flex-grow form__label">
       <span class="type-base--bold">Category</span>
       {{ form.category }}
     </label>
-    <label for="{{ form.brand.id_for_label }}" class="flex-grow">
+    <label class="flex-grow form__label">
       <span class="type-base--bold">Brand</span>
       {{ form.brand }}
     </label>
   </div>
   <div class="flex justify-beetween space-x-4">
-    <label for="{{ form.deal.id_for_label }}" class="flex-grow">
+    <label class="flex-grow form__label">
       <span class="type-base--bold">Deal</span>
       {{ form.deal }}
     </label>
-    <label for="{{ form.warranty.id_for_label }}" class="flex-grow">
+    <label class="flex-grow form__label">
       <span class="type-base--bold">Warranty</span>
       {{ form.warranty }}
     </label>
-  </div>      
-  
-  <label for="{{ form.description.id_for_label }}" class="block">
+  </div>
+  <label class="form__label">
     <span class="type-base--bold">Description</span>
     {{ form.description }}
   </label>
-  <label for="{{ form.specifications.id_for_label }}" class="block">
+  <label class="form__label">
     <span class="type-base--bold">Specifications</span>
     {{ form.specifications }}
   </label>
-  <label for="{{ form.image.id_for_label }}" class="block">
+  <label class="form__label">
     <span class="type-base--bold">Image</span>
     {{ form.image }}
   </label>
@@ -65,7 +64,7 @@
     {{ form.featured }}
     <label for="{{ form.featured.id_for_label }}" class="ml-2">Featured</label>
   </div>
-  <div class="space-y-2">
+  <div class="form__action">
     <button type="submit" class="btn btn--primary w-full">Save</button>
     <a href="{% url 'management:product_list' %}" title="Cancel" class="btn btn--secondary w-full">Cancel</a>
   </div>
