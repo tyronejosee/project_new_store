@@ -377,11 +377,11 @@
 	}
 
 	.footer__foot-copy {
-		@apply md:flex md:items-center md:justify-between pt-4;
+		@apply flex flex-col items-center md:flex-row md:justify-between;
 	}
 
 	.footer__social-icons {
-		@apply flex justify-center mt-4 md:mt-0 space-x-4;
+		@apply flex justify-center items-center mt-4 md:mt-0 space-x-4;
 	}
 
 	
