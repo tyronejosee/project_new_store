@@ -12,8 +12,11 @@
 <section class="deal">
   {% for deal in deals %}
     {% if deal.image %}
-    <a href="{% url 'products:deal_detail' slug=deal.slug %}">
-      <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="rounded-xl">
+    <a href="{% url 'products:deal_detail' slug=deal.slug %}" class="relative text-center">
+      <div class="absolute inset-x-0 top-1/2 transform -translate-y-1/2">
+        <span class="font-bold text-6xl text-white" style="text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);">{{ deal.name }}</span>
+      </div>
+      <img src="{{ deal.image.url }}" title="{{ deal.name }}" alt="{{ deal.name }}" class="w-full h-64 object-cover rounded-xl">
     </a>
     {% endif %}  
   {% endfor %}

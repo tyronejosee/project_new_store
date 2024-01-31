@@ -3,8 +3,11 @@
 {% block content %}
 
 <!-- Image -->
-<figure>
-  <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="deal__img">
+<figure class="relative text-center">
+  <div class="absolute inset-x-0 top-1/2 transform -translate-y-1/2">
+    <span class="font-bold text-6xl text-white" style="text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);">{{ deal.name }}</span>
+  </div>
+  <img src="{{ deal.image.url }}" alt="{{ deal.name }}" class="deal__img h-48">
 </figure>
 
 <!-- Headline -->
