@@ -11,11 +11,13 @@ class CartViewsTest(BaseTestCase):
     def test_cart_view(self):
         """Test the cart main view."""
         # Add a product
-        response_add = self.client.get(reverse('cart:add_prod_cart', args=[self.product.id]))
+        url = reverse('cart:add_prod_cart', args=[self.product.id])
+        response_add = self.client.get(url)
         self.assertEqual(response_add.status_code, 302)
 
         # Cart view
-        response_cart = self.client.get(reverse('cart:cart'))
+        url = reverse('cart:cart')
+        response_cart = self.client.get(url)
         self.assertEqual(response_cart.status_code, 200)
         self.assertTemplateUsed(response_cart, 'cart/cart.html')
 
@@ -31,7 +33,8 @@ class CartViewsTest(BaseTestCase):
     def test_add_product_to_cart_view(self):
         """Test adding a product to the cart."""
         # Add a product
-        response = self.client.get(reverse('cart:add_prod_cart', args=[self.product.id]))
+        url = reverse('cart:add_prod_cart', args=[self.product.id])
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
 
         # Verify that the product is added
@@ -43,39 +46,39 @@ class CartViewsTest(BaseTestCase):
     def test_remove_product_from_cart_view(self):
         """Test removing a product from the cart."""
         # Add a product
-        response_add = self.client.get(reverse('cart:add_prod_cart', args=[self.product.id]))
+        url = reverse('cart:add_prod_cart', args=[self.product.id])
+        response_add = self.client.get(url)
         self.assertEqual(response_add.status_code, 302)
 
         # Remove
-        response_remove = self.client.get(reverse('cart:remove_prod_cart', args=[self.product.id]))
+        url = reverse('cart:remove_prod_cart', args=[self.product.id])
+        response_remove = self.client.get(url)
         self.assertEqual(response_remove.status_code, 302)
         self.assertRedirects(response_remove, reverse('cart:cart'))
 
     def test_subtract_product_from_cart_view(self):
         """Test subtracting a product from the cart."""
         # Add a product
-        response_add = self.client.get(reverse(
-            'cart:add_prod_cart', args=[self.product.id])
-        )
+        url = reverse('cart:add_prod_cart', args=[self.product.id])
+        response_add = self.client.get(url)
         self.assertEqual(response_add.status_code, 302)
 
         # Subtract
-        response_subtract = self.client.get(reverse(
-            'cart:subtract_prod_cart', args=[self.product.id])
-        )
+        url = reverse('cart:subtract_prod_cart', args=[self.product.id])
+        response_subtract = self.client.get(url)
         self.assertEqual(response_subtract.status_code, 302)
         self.assertRedirects(response_subtract, reverse('cart:cart'))
 
     def test_clear_cart_view(self):
         """Test clearing the cart."""
         # Add a product
-        response_add = self.client.get(reverse(
-            'cart:add_prod_cart', args=[self.product.id])
-        )
+        url = reverse('cart:add_prod_cart', args=[self.product.id])
+        response_add = self.client.get(url)
         self.assertEqual(response_add.status_code, 302)
 
         # Clear
-        response_clear = self.client.get(reverse('cart:clear_cart'))
+        url = reverse('cart:clear_cart')
+        response_clear = self.client.get(url)
         self.assertEqual(response_clear.status_code, 302)
         self.assertRedirects(response_clear, reverse('cart:cart'))
 
@@ -89,9 +92,8 @@ class WishlistViewsTest(BaseTestCase):
     def test_add_product_to_wishlist_view(self):
         """Test adding a product to the wishlist."""
         # Add a product
-        response = self.client.get(
-            reverse('cart:add_prod_wishlist', args=[self.product.id])
-        )
+        url = reverse('cart:add_prod_wishlist', args=[self.product.id])
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 302)
 
         # Verify that the product is added
@@ -102,15 +104,13 @@ class WishlistViewsTest(BaseTestCase):
     def test_remove_product_from_wishlist_view(self):
         """Test removing a product from the wishlist."""
         # Add a product
-        response_add = self.client.get(reverse(
-            'cart:add_prod_wishlist', args=[self.product.id])
-        )
+        url = reverse('cart:add_prod_wishlist', args=[self.product.id])
+        response_add = self.client.get(url)
         self.assertEqual(response_add.status_code, 302)
 
         # Remove from wishlist
-        response_remove = self.client.get(reverse(
-            'cart:remove_prod_wishlist', args=[self.product.id])
-        )
+        url = reverse('cart:remove_prod_wishlist', args=[self.product.id])
+        response_remove = self.client.get(url)
         self.assertEqual(response_remove.status_code, 302)
 
         # Verify that the product is removed
