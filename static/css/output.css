@@ -2322,55 +2322,56 @@ video {
   font-style: normal;
 }
 
-/* Scroll Bar */
+/* Scrollbar: Dark */
 
-::-webkit-scrollbar {
+.dark ::-webkit-scrollbar {
   width: 12px;
+  height: 12px;
+  background-color: #262626;
 }
 
-::-webkit-scrollbar-track {
+.dark ::-webkit-scrollbar-track {
+  background-color: #262626;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #525252;
   border-radius: 12px;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #404040;
-  border-radius: 12px;
-}
-
-::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb:hover {
   background-color: #dc2626;
 }
 
-/* Scroll Bar: Light Mode */
+/* Scrollbar: Light */
 
-@media (prefers-color-scheme: light) {
-  ::-webkit-scrollbar-track {
-    background-color: #e5e5e5;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #a3a3a3;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #dc2626;
-  }
+.light ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: #e5e5e5;
 }
 
-/* Scroll Bar: Dark Mode */
+.light ::-webkit-scrollbar-track {
+  background-color: #e5e5e5;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background-color: #262626;
-  }
+.light ::-webkit-scrollbar-thumb {
+  background-color: #a3a3a3;
+  border-radius: 12px;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background-color: #404040;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #dc2626;
-  }
+.light ::-webkit-scrollbar-thumb:hover {
+  background-color: #dc2626;
 }
 
 .group:hover .group-hover\:btn {

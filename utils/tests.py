@@ -25,7 +25,6 @@ class BaseTestCase(TestCase):
         # Log in the user created
         self.client.login(username='testuser', password='testpass')
 
-        
         # Foreign key for product
         self.category = Category.objects.create(title='Test Category')
         self.brand = Brand.objects.create(name='Test Brand')
