@@ -4,6 +4,7 @@ from pathlib import Path
 import os
 import sys
 import environ
+import dj_database_url
 
 
 # Base directory of the project
@@ -15,7 +16,7 @@ env = environ.Env()
 environ.Env.read_env()
 
 ENVIRONMENT = env
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 
 # DEBUG settings: FALSE in production
@@ -23,12 +24,8 @@ DEBUG = 'RENDER' not in os.environ
 
 
 # Host permission settings
-ALLOWED_HOSTS = [
-    '*'
-]
+ALLOWED_HOSTS = []
 
-
-# Render settings
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -84,13 +81,13 @@ NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 
 AUTHENTICATION_BACKENDS = [
-    # Needed to log in by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 ]
 
 # Middleware settings
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -139,9 +136,18 @@ if 'test' in sys.argv:
     }
 else:
     DATABASES = {
-        "default": env.db("DATABASE_URL", default="postgres:///new_store"),
-    }
-    DATABASES["default"]["ATOMIC_REQUEST"] = True
+    'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
+}
+
+
+# else:
+#     DATABASES = {
+#         "default": env.db("DATABASE_URL", default="postgres:///new_store"),
+#     }
+#     DATABASES["default"]["ATOMIC_REQUEST"] = True
 
 
 PASSWORD_HASHERS = [
@@ -182,6 +188,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 # Media file settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
