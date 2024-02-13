@@ -141,13 +141,12 @@ else:
         conn_max_age=600
     )
 }
-
-
 # else:
 #     DATABASES = {
 #         "default": env.db("DATABASE_URL", default="postgres:///new_store"),
 #     }
 #     DATABASES["default"]["ATOMIC_REQUEST"] = True
+
 
 
 PASSWORD_HASHERS = [
@@ -180,7 +179,7 @@ USE_TZ = True
 
 
 # Static file settings
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
@@ -192,6 +191,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 

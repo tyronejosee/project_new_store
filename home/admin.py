@@ -6,6 +6,13 @@ from import_export.admin import ImportExportModelAdmin
 from home.models import Company, Page
 
 
+class CompanyResource(resources.ModelResource):
+    """Class for importing and exporting data for the Company model."""
+    class Meta:
+        """Meta definition for CompanyResource"""
+        model = Company
+
+
 class PageResource(resources.ModelResource):
     """Class for importing and exporting data for the Page model."""
     class Meta:
@@ -16,6 +23,8 @@ class PageResource(resources.ModelResource):
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
     """Admin config for the Company model."""
+    list_display = ('name',)
+    resource_class = CompanyResource
 
 
 @admin.register(Page)
