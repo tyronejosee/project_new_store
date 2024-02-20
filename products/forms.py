@@ -30,11 +30,11 @@ class CategoriesForm(forms.Form):
         required=False,
         min_value=1,
         max_value=10000,
-        widget=forms.NumberInput(attrs=form_number('Min Price'))
+        widget=forms.NumberInput(attrs=form_number("Min Price"))
     )
     max_price = forms.DecimalField(
         required=False,
         min_value=1,
         max_value=10000,
-        widget=forms.NumberInput(attrs=form_number('Max Price'))
+        widget=forms.NumberInput(attrs=form_number("Max Price"))
     )

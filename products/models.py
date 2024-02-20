@@ -96,7 +96,7 @@ class Product(models.Model):
         (36, '3 years'),
     ]
     title = models.CharField(max_length=255, verbose_name='Title')
-    slug = models.SlugField(max_length=100, unique=True, null=True, blank=True, verbose_name='Slug')
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True, verbose_name='Slug')
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Brand')
     normal_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Price')
     sale_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, verbose_name='Sale Price')

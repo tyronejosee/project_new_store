@@ -42,29 +42,29 @@ class DealResource(resources.ModelResource):
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Category model."""
-    list_display = ('pk', 'title', 'slug', 'show_hide',)
-    ordering = ('pk',)
+    list_display = ("pk", "title", "slug", "show_hide",)
+    ordering = ("pk",)
     resource_class = CategoryResource
 
 
 @admin.register(Brand)
 class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Brand model."""
-    list_display = ('pk', 'name', 'slug', 'show_hide',)
-    ordering = ('pk',)
+    list_display = ("pk", "name", "slug", "show_hide",)
+    ordering = ("pk",)
     resource_class = BrandResource
 
 
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Deal model."""
-    list_display = ('name', 'slug', 'image', 'discount', 'start_date', 'end_date', 'pk')
-    ordering = ('pk',)
+    list_display = ("name", "slug", "image", "discount", "start_date", "end_date", "pk")
+    ordering = ("pk",)
     resource_class = DealResource
 
     def save_model(self, request, obj, form, change):
         # Remove the image when clearing the path in the deal
-        if change and 'image' in form.changed_data:
+        if change and "image" in form.changed_data:
             old_deal = Deal.objects.get(pk=obj.pk)
             old_deal.image.delete(save=False)
         super().save_model(request, obj, form, change)
@@ -73,16 +73,16 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Product model."""
-    list_display = ('pk', 'title', 'updated_at', 'slug', 'normal_price',
-                    'brand', 'stock', 'show_hide')
-    readonly_fields = ('created_at', 'updated_at')
-    search_fields = ('title',)
-    ordering = ('updated_at', 'pk',)
+    list_display = ("title", "updated_at", "slug", "normal_price",
+                    "brand", "stock", "show_hide")
+    readonly_fields = ("created_at", "updated_at", "sale_price")
+    search_fields = ("title",)
+    ordering = ("pk",)
     resource_class = ProductResource
 
     def save_model(self, request, obj, form, change):
         # Remove the image when clearing the path in the prod.
-        if change and 'image' in form.changed_data:
+        if change and "image" in form.changed_data:
             old_product = Product.objects.get(pk=obj.pk)
             old_product.image.delete(save=False)
         super().save_model(request, obj, form, change)

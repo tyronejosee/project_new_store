@@ -8,25 +8,23 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # Django URLs
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
 
     # App URLs
     path("", include("home.urls")),
-    path('users/', include('users.urls')),
+    path("users/", include("users.urls")),
     path("products/", include("products.urls")),
     path("cart/", include("cart.urls")),
     path("management/", include("management.urls")),
     path("payment/", include("payment.urls")),
 
     # Third party URLs
-    path('paypal/', include("paypal.standard.ipn.urls")),
+    path("paypal/", include("paypal.standard.ipn.urls")),
 ]
 
 
-# Debug Config
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 # Custom attributes for admin
