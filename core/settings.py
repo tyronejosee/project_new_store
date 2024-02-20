@@ -7,31 +7,24 @@ import environ
 import dj_database_url
 
 
-# Base directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Environment Variable settings
 env = environ.Env()
 environ.Env.read_env()
-
 ENVIRONMENT = env
 SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
 
-# DEBUG settings: FALSE in production
 DEBUG = "RENDER" not in os.environ
 
-
-# Host permission settings
 ALLOWED_HOSTS = []
+
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
-# Installed Apps categories
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -62,29 +55,14 @@ INSTALLED_APPS = DJANGO_APPS + CORE_APPS + THIRD_PARTY_APPS
 SITE_ID = 1
 
 
-# Paypal settings
 PAYPAL_RECEIVER_EMAIL = "sb-bjeh4728354490@business.example.com"
 PAYPAL_TEST = True
 PAYPAL_BUY_BUTTON_IMAGE = "/static/img/buttom_paypal.svg"
 
 
-# Auth model settings
-AUTH_USER_MODEL = "users.CustomUser"
-
-
-# Log setting
-LOGIN_URL = "/users/login/"
-
-
-# NPM
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 
-AUTHENTICATION_BACKENDS = [
-    "django.contrib.auth.backends.ModelBackend",
-]
-
-# Middleware settings
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -96,11 +74,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# Root URL settings
+
 ROOT_URLCONF = "core.urls"
 
 
-# Templates settings
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -122,11 +99,9 @@ TEMPLATES = [
     },
 ]
 
-# WSGI entry point
 WSGI_APPLICATION = "core.wsgi.application"
 
 
-# Database settings
 if "test" in sys.argv:
     DATABASES = {
         "default": {
@@ -147,6 +122,16 @@ else:
     }
     DATABASES["default"]["ATOMIC_REQUEST"] = True
 
+
+AUTH_USER_MODEL = "users.CustomUser"
+
+
+LOGIN_URL = "/users/login/"
+
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+]
 
 
 PASSWORD_HASHERS = [
@@ -171,20 +156,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization settings
+
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
 
-# Static file settings
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 
 
-# Media file settings
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
@@ -196,4 +179,3 @@ if not DEBUG:
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

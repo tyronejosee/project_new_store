@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 
 def validate_extension(value):
     """
-    Validates that the uploaded file has a '.webp' or '.svg' extension,
+    Validates that the uploaded file has a webp, svg or jpg extension,
     and the file size is not greater than 1MB
     """
     valid_extensions = ["webp", "svg", "jpg"]

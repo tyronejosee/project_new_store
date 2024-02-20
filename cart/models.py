@@ -10,7 +10,7 @@ class Cart(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Cart of {self.user.username}'
+        return f"Cart of {self.user.username}"
 
     def clear_cart(self):
         """Remove all items from the cart."""
@@ -19,12 +19,14 @@ class Cart(models.Model):
 
 class CartItem(models.Model):
     """Pivot type model for CartItem."""
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='cart_items')
+    cart = models.ForeignKey(
+        Cart, on_delete=models.CASCADE, related_name="cart_items"
+    )
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f'{self.cart.user} - {self.quantity}'
+        return f"{self.cart.user} - {self.quantity}"
 
     def add_to_cart(self, quantity=1):
         """Add this item to the cart with a specified quantity."""
@@ -55,7 +57,7 @@ class Wishlist(models.Model):
 
     def __str__(self):
         total_products = self.products.count()
-        return f'{self.user.username} ({total_products} prods)'
+        return f"{self.user.username} ({total_products} prods)"
 
     def add_product(self, product):
         """Add a product to the Wishlist."""

@@ -32,139 +32,139 @@ class ManagementUrlsTest(TestCase):
     """Tests for Management URLs."""
 
     def test_management_url(self):
-        """"Test resolves 'management' URL and view."""
-        url = reverse('management:management')
+        """"Test resolves management URL and view."""
+        url = reverse("management:management")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, ManagementView)
 
     def test_page_list_url(self):
-        """"Test resolves 'page_list' URL and view."""
-        url = reverse('management:page_list')
+        """"Test resolves page_list URL and view."""
+        url = reverse("management:page_list")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, PageListView)
 
     def test_page_update_url(self):
-        """"Test resolves 'page_update' URL and view."""
-        url = reverse('management:page_update', args=[1])
+        """"Test resolves page_update URL and view."""
+        url = reverse("management:page_update", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, PageUpdateView)
 
     def test_product_list_url(self):
-        """"Test resolves 'product_list' URL and view."""
-        url = reverse('management:product_list')
+        """"Test resolves product_list URL and view."""
+        url = reverse("management:product_list")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, ProductListView)
 
     def test_product_deactivated_list_url(self):
-        """"Test resolves 'product_deactivated_list' URL and view."""
-        url = reverse('management:product_deactivated_list')
+        """"Test resolves product_deactivated_list URL and view."""
+        url = reverse("management:product_deactivated_list")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, DeactivatedProductListView)
 
     def test_product_create_url(self):
-        """"Test resolves 'product_create' URL and view."""
-        url = reverse('management:product_create')
+        """"Test resolves product_create URL and view."""
+        url = reverse("management:product_create")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, ProductCreateView)
 
     def test_product_update_url(self):
-        """"Test resolves 'product_update' URL and view."""
-        url = reverse('management:product_update', args=[1])
+        """"Test resolves product_update URL and view."""
+        url = reverse("management:product_update", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, ProductUpdateView)
 
     def test_product_delete_url(self):
-        """"Test resolves 'product_delete' URL and view."""
-        url = reverse('management:product_delete', args=[1])
+        """"Test resolves product_delete URL and view."""
+        url = reverse("management:product_delete", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, ProductDeleteView)
 
     def test_product_deactivate_url(self):
-        """"Test resolves 'product_deactivate' URL and view."""
-        url = reverse('management:product_deactivate', args=[1])
+        """"Test resolves product_deactivate URL and view."""
+        url = reverse("management:product_deactivate", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, ProductStatusToggleView)
 
     def test_product_activate_url(self):
-        """"Test resolves 'product_activate' URL and view."""
-        url = reverse('management:product_activate', args=[1])
+        """"Test resolves product_activate URL and view."""
+        url = reverse("management:product_activate", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, ProductStatusToggleView)
 
     def test_category_list_url(self):
-        """"Test resolves 'category_list' URL and view."""
-        url = reverse('management:category_list')
+        """"Test resolves category_list URL and view."""
+        url = reverse("management:category_list")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, CategoryListView)
 
     def test_category_create_url(self):
-        """"Test resolves 'category_create' URL and view."""
-        url = reverse('management:category_create')
+        """"Test resolves category_create URL and view."""
+        url = reverse("management:category_create")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, CategoryCreateView)
 
     def test_category_update_url(self):
-        """"Test resolves 'category_update' URL and view."""
-        url = reverse('management:category_update', args=[1])
+        """"Test resolves category_update URL and view."""
+        url = reverse("management:category_update", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, CategoryUpdateView)
 
     def test_category_delete_url(self):
-        """"Test resolves 'category_delete' URL and view."""
-        url = reverse('management:category_delete', args=[1])
+        """"Test resolves category_delete URL and view."""
+        url = reverse("management:category_delete", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, CategoryDeleteView)
 
     def test_brand_list_url(self):
-        """"Test resolves 'brand_list' URL and view."""
-        url = reverse('management:brand_list')
+        """"Test resolves brand_list URL and view."""
+        url = reverse("management:brand_list")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, BrandListView)
 
     def test_brand_create_url(self):
-        """"Test resolves 'brand_create' URL and view."""
-        url = reverse('management:brand_create')
+        """"Test resolves brand_create URL and view."""
+        url = reverse("management:brand_create")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, BrandCreateView)
 
     def test_brand_update_url(self):
-        """"Test resolves 'brand_update' URL and view."""
-        url = reverse('management:brand_update', args=[1])
+        """"Test resolves brand_update URL and view."""
+        url = reverse("management:brand_update", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, BrandUpdateView)
 
     def test_brand_delete_url(self):
-        """"Test resolves 'brand_delete' URL and view."""
-        url = reverse('management:brand_delete', args=[1])
+        """"Test resolves brand_delete URL and view."""
+        url = reverse("management:brand_delete", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, BrandDeleteView)
 
     def test_deal_list_url(self):
-        """"Test resolves 'deal_list' URL and view."""
-        url = reverse('management:deal_list')
+        """"Test resolves deal_list URL and view."""
+        url = reverse("management:deal_list")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, DealListView)
 
     def test_deal_create_url(self):
-        """"Test resolves 'deal_create' URL and view."""
-        url = reverse('management:deal_create')
+        """"Test resolves deal_create URL and view."""
+        url = reverse("management:deal_create")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, DealCreateView)
 
     def test_deal_update_url(self):
-        """"Test resolves 'deal_update' URL and view."""
-        url = reverse('management:deal_update', args=[1])
+        """"Test resolves deal_update URL and view."""
+        url = reverse("management:deal_update", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, DealUpdateView)
 
     def test_deal_delete_url(self):
-        """"Test resolves 'deal_delete' URL and view."""
-        url = reverse('management:deal_delete', args=[1])
+        """"Test resolves deal_delete URL and view."""
+        url = reverse("management:deal_delete", args=[1])
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, DealDeleteView)
 
     def test_user_list_url(self):
-        """"Test resolves 'user_list' URL and view."""
-        url = reverse('management:user_list')
+        """"Test resolves user_list URL and view."""
+        url = reverse("management:user_list")
         resolver = resolve(url)
         self.assertEqual(resolver.func.view_class, UserListView)

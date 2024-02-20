@@ -20,11 +20,13 @@ class PageForm(forms.ModelForm):
     class Meta:
         """Meta definition for Page form."""
         model = Page
-        fields = ['key', 'content', 'image']
+        fields = ["key", "content", "image"]
         widgets = {
-            'key': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('key')}),
-            'content': forms.Textarea(attrs=form_textarea()),
-            'image': forms.ClearableFileInput(attrs=form_file()),
+            "key": forms.TextInput(attrs={
+                "readonly": "readonly", **form_text_readonly("key")
+            }),
+            "content": forms.Textarea(attrs=form_textarea()),
+            "image": forms.ClearableFileInput(attrs=form_file()),
         }
 
 
@@ -34,22 +36,24 @@ class ProductForm(forms.ModelForm):
     class Meta:
         """Meta definition for Product form."""
         model = Product
-        exclude = ['created_at', 'updated_at']
+        exclude = ["created_at", "updated_at"]
         widgets = {
-            'title': forms.TextInput(attrs=form_text('Title product')),
-            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
-            'brand': forms.Select(attrs=form_select()),
-            'normal_price': forms.NumberInput(attrs=form_number('Normal price')),
-            'sale_price': forms.NumberInput(attrs=form_number('Sale price')),
-            'deal': forms.Select(attrs=form_select()),
-            'category': forms.Select(attrs=form_select()),
-            'image': forms.ClearableFileInput(attrs=form_file()),
-            'stock': forms.NumberInput(attrs=form_number('Stock')),
-            'warranty': forms.Select(attrs=form_select()),
-            'featured': forms.CheckboxInput(attrs=form_checkbox()),
-            'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
-            'description': forms.Textarea(attrs=form_textarea()),
-            'specifications': forms.Textarea(attrs=form_textarea()),
+            "title": forms.TextInput(attrs=form_text("Title product")),
+            "slug": forms.TextInput(attrs={
+                "readonly": "readonly", **form_text_readonly("Slug")
+            }),
+            "brand": forms.Select(attrs=form_select()),
+            "normal_price": forms.NumberInput(attrs=form_number("Normal price")),
+            "sale_price": forms.NumberInput(attrs=form_number("Sale price")),
+            "deal": forms.Select(attrs=form_select()),
+            "category": forms.Select(attrs=form_select()),
+            "image": forms.ClearableFileInput(attrs=form_file()),
+            "stock": forms.NumberInput(attrs=form_number("Stock")),
+            "warranty": forms.Select(attrs=form_select()),
+            "featured": forms.CheckboxInput(attrs=form_checkbox()),
+            "show_hide": forms.CheckboxInput(attrs=form_checkbox()),
+            "description": forms.Textarea(attrs=form_textarea()),
+            "specifications": forms.Textarea(attrs=form_textarea()),
         }
 
 
@@ -59,11 +63,13 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         """Meta definition for Category form."""
         model = Category
-        fields = '__all__'
+        fields = "__all__"
         widgets = {
-            'title': forms.TextInput(attrs=form_text('Title')),
-            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
-            'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
+            "title": forms.TextInput(attrs=form_text("Title")),
+            "slug": forms.TextInput(attrs={
+                "readonly": "readonly", **form_text_readonly("Slug")
+            }),
+            "show_hide": forms.CheckboxInput(attrs=form_checkbox()),
         }
 
 
@@ -73,11 +79,13 @@ class BrandForm(forms.ModelForm):
     class Meta:
         """Meta definition for Brand form."""
         model = Brand
-        fields = '__all__'
+        fields = "__all__"
         widgets = {
-            'name': forms.TextInput(attrs=form_text('Name')),
-            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
-            'show_hide': forms.CheckboxInput(attrs=form_checkbox()),
+            "name": forms.TextInput(attrs=form_text("Name")),
+            "slug": forms.TextInput(attrs={
+                "readonly": "readonly", **form_text_readonly("Slug")
+            }),
+            "show_hide": forms.CheckboxInput(attrs=form_checkbox()),
         }
 
 
@@ -87,14 +95,16 @@ class DealForm(forms.ModelForm):
     class Meta:
         """Meta definition for Deal form."""
         model = Deal
-        fields = '__all__'
+        fields = "__all__"
         widgets = {
-            'name': forms.TextInput(attrs=form_text('Name')),
-            'slug': forms.TextInput(attrs={'readonly': 'readonly', **form_text_readonly('Slug')}),
-            'image': forms.ClearableFileInput(attrs=form_file()),
-            'description': forms.Textarea(attrs=form_textarea()),
-            'discount': forms.NumberInput(attrs=form_number('Discount')),
-            'start_date': forms.TextInput(attrs=form_text('Start Date')),
-            'end_date': forms.TextInput(attrs=form_text('End Date')),
-            'status': forms.CheckboxInput(attrs=form_checkbox()),
+            "name": forms.TextInput(attrs=form_text("Name")),
+            "slug": forms.TextInput(attrs={
+                "readonly": "readonly", **form_text_readonly("Slug")
+            }),
+            "image": forms.ClearableFileInput(attrs=form_file()),
+            "description": forms.Textarea(attrs=form_textarea()),
+            "discount": forms.NumberInput(attrs=form_number("Discount")),
+            "start_date": forms.TextInput(attrs=form_text("Start Date")),
+            "end_date": forms.TextInput(attrs=form_text("End Date")),
+            "status": forms.CheckboxInput(attrs=form_checkbox()),
         }

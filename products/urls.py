@@ -2,10 +2,10 @@
 
 from django.urls import path
 from products.views import (
+    product_search,
     ProductListView,
     ProductDetailView,
     RecentProductsListView,
-    product_search,
     CategoriesListView,
     DealListView,
     DealDetailView,

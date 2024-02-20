@@ -16,9 +16,9 @@ from users.forms import UserLoginForm, UserRegistrationForm
 
 class UserLoginView(FormView):
     """View for user login."""
-    template_name = 'users/login_form.html'
+    template_name = "users/login_form.html"
     form_class = UserLoginForm
-    success_url = reverse_lazy('home:index')
+    success_url = reverse_lazy("home:index")
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
@@ -37,8 +37,8 @@ class UserRegistrationView(CreateView):
     """View for user registration."""
     model = CustomUser
     form_class = UserRegistrationForm
-    template_name = 'users/registration_form.html'
-    success_url = reverse_lazy('cart:cart')
+    template_name = "users/registration_form.html"
+    success_url = reverse_lazy("cart:cart")
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
@@ -56,12 +56,12 @@ class UserRegistrationView(CreateView):
 
 class UserPasswordChangeView(PasswordChangeView):
     """View for password change."""
-    template_name = 'users/password_change_form.html'
-    success_url = reverse_lazy('users:password_change-done')
+    template_name = "users/password_change_form.html"
+    success_url = reverse_lazy("users:password_change-done")
 
 
 @login_required
 def user_logout(request):
-    """Closes the current user's session and redirects them to the site's homepage."""
+    """Closes the current user's session and redirects to homepage."""
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect("/")

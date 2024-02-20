@@ -17,8 +17,8 @@ class PageFormTest(TestCase):
     def test_valid_form(self):
         """Test if the form is valid with valid data."""
         data = {
-            'key': 'example_key',
-            'content': 'Example Content'
+            "key": "example_key",
+            "content": "Example Content"
         }
         form = PageForm(data)
         self.assertTrue(form.is_valid())
@@ -30,10 +30,10 @@ class PageFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_key_length_limit(self):
-        """Test if the form is invalid when the 'key' length exceeds the limit."""
+        """Test if the form is invalid when the "key" length exceeds the limit."""
         data = {
-            'key': 'example_key' * 10, # max_length=50
-            'content': 'Lorem ipsum dolor sit amet.',
+            "key": "example_key" * 10, # max_length=50
+            "content": "Lorem ipsum dolor sit amet.",
         }
         form = PageForm(data)
         self.assertFalse(form.is_valid())
@@ -43,26 +43,26 @@ class ProductFormTest(TestCase):
     """Tests for ProductForm."""
 
     def setUp(self):
-        self.category = Category.objects.create(title='Test Category')
-        self.brand = Brand.objects.create(name='Test Brand')
-        self.deal = Deal.objects.create(name='Test Deal')
+        self.category = Category.objects.create(title="Test Category")
+        self.brand = Brand.objects.create(name="Test Brand")
+        self.deal = Deal.objects.create(name="Test Deal")
 
     def test_valid_form(self):
         """Test if the form is valid with valid data."""
         data = {
-            'title': 'Example Product',
-            'brand': self.brand.id,
-            'normal_price': 100.00,
-            'sale_price': 80.00,
-            'deal': self.deal.id,
-            'category': self.category.id,
-            'image': 'example_image.webp',
-            'stock': 50,
-            'warranty': 12,
-            'featured': False,
-            'show_hide': True,
-            'description': 'Example Description',
-            'specifications': 'Example Specifications',
+            "title": "Example Product",
+            "brand": self.brand.id,
+            "normal_price": 100.00,
+            "sale_price": 80.00,
+            "deal": self.deal.id,
+            "category": self.category.id,
+            "image": "example_image.webp",
+            "stock": 50,
+            "warranty": 12,
+            "featured": False,
+            "show_hide": True,
+            "description": "Example Description",
+            "specifications": "Example Specifications",
         }
         form = ProductForm(data)
         self.assertTrue(form.is_valid())
@@ -74,9 +74,9 @@ class ProductFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_title_length_limit(self):
-        """Test if the form is invalid when the 'title' length exceeds the limit."""
+        """Test if the form is invalid when title length exceeds the limit."""
         data = {
-            'title': 'Invalid Title' * 10,  # max_length=255
+            "title": "Invalid Title" * 10,  # max_length=255
         }
         form = ProductForm(data)
         self.assertFalse(form.is_valid())
@@ -88,9 +88,9 @@ class CategoryFormTest(TestCase):
     def test_valid_form(self):
         """Test if the form is valid with valid data."""
         data = {
-            'title': 'Example Category',
-            'slug': 'example-category',
-            'show_hide': True,
+            "title": "Example Category",
+            "slug": "example-category",
+            "show_hide": True,
         }
         form = CategoryForm(data)
         self.assertTrue(form.is_valid())
@@ -102,11 +102,11 @@ class CategoryFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_title_length_limit(self):
-        """Test if the form is invalid when the 'title' length exceeds the limit."""
+        """Test if the form is invalid when title length exceeds the limit."""
         data = {
-            'title': 'Example Title' * 10,  # max_length=50
-            'slug': 'example-category',
-            'show_hide': True,
+            "title": "Example Title" * 10,  # max_length=50
+            "slug": "example-category",
+            "show_hide": True,
         }
         form = CategoryForm(data)
         self.assertFalse(form.is_valid())
@@ -118,9 +118,9 @@ class BrandFormTest(TestCase):
     def test_valid_form(self):
         """Test if the form is valid with valid data."""
         data = {
-            'name': 'Example Brand',
-            'slug': 'example-brand',
-            'show_hide': True,
+            "name": "Example Brand",
+            "slug": "example-brand",
+            "show_hide": True,
         }
         form = BrandForm(data)
         self.assertTrue(form.is_valid())
@@ -132,11 +132,11 @@ class BrandFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_name_length_limit(self):
-        """Test if the form is invalid when the 'name' length exceeds the limit."""
+        """Test if the form is invalid when name length exceeds the limit."""
         data = {
-            'name': 'Example Brand' * 10,    # max_length=50
-            'slug': 'example-brand',
-            'show_hide': True,
+            "name": "Example Brand" * 10,    # max_length=50
+            "slug": "example-brand",
+            "show_hide": True,
         }
         form = BrandForm(data)
         self.assertFalse(form.is_valid())
@@ -148,14 +148,14 @@ class DealFormTest(TestCase):
     def test_valid_form(self):
         """Test if the form is valid with valid data."""
         data = {
-            'name': 'Example Deal',
-            'slug': 'example-deal',
-            'image': 'example_image.jpg',
-            'description': 'Example Description',
-            'discount': 10,
-            'start_date': '2023-01-01',
-            'end_date': '2023-03-01',
-            'status': True,
+            "name": "Example Deal",
+            "slug": "example-deal",
+            "image": "example_image.jpg",
+            "description": "Example Description",
+            "discount": 10,
+            "start_date": "2023-01-01",
+            "end_date": "2023-03-01",
+            "status": True,
         }
         form = DealForm(data)
         self.assertTrue(form.is_valid())
@@ -167,16 +167,16 @@ class DealFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_name_length_limit(self):
-        """Test if the form is invalid when the 'name' length exceeds the limit."""
+        """Test if the form is invalid when name length exceeds the limit."""
         data = {
-            'name': 'Example Deal' * 10,    # max_length=50
-            'slug': 'example-deal',
-            'image': 'example_image.jpg',
-            'description': 'Example Description',
-            'discount': 10,
-            'start_date': '2023-01-01',
-            'end_date': '2023-03-01',
-            'status': True,
+            "name": "Example Deal" * 10,    # max_length=50
+            "slug": "example-deal",
+            "image": "example_image.jpg",
+            "description": "Example Description",
+            "discount": 10,
+            "start_date": "2023-01-01",
+            "end_date": "2023-03-01",
+            "status": True,
         }
         form = DealForm(data)
         self.assertFalse(form.is_valid())

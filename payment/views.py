@@ -31,18 +31,18 @@ def check_out(request, product_id):
 
     paypal_payment = PayPalPaymentsForm(initial=paypal_checkout)
     context = {
-        'product': product,
-        'paypal': paypal_payment
+        "product": product,
+        "paypal": paypal_payment
     }
 
-    return render(request, 'payment/checkout.html', context)
+    return render(request, "payment/checkout.html", context)
 
 
 @login_required
 def payment_success(request, product_id):
     """View sends the product as context if the payment was successful."""
     product = Product.objects.get(id=product_id)
-    return render(request, 'payment/payment_success.html', {'product': product})
+    return render(request, "payment/payment_success.html", {"product": product})
 
 
 @login_required
