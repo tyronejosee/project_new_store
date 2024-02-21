@@ -14,11 +14,9 @@ environ.Env.read_env()
 ENVIRONMENT = env
 SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
-
 DEBUG = "RENDER" not in os.environ
 
 ALLOWED_HOSTS = []
-
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
@@ -34,7 +32,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-CORE_APPS = [
+PROJECT_APPS = [
     "users",
     "core",
     "home",
@@ -49,19 +47,15 @@ THIRD_PARTY_APPS = [
     "import_export",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + CORE_APPS + THIRD_PARTY_APPS
-
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 SITE_ID = 1
-
 
 PAYPAL_RECEIVER_EMAIL = "sb-bjeh4728354490@business.example.com"
 PAYPAL_TEST = True
 PAYPAL_BUY_BUTTON_IMAGE = "/static/img/buttom_paypal.svg"
 
-
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
-
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -74,9 +68,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-
 ROOT_URLCONF = "core.urls"
-
 
 TEMPLATES = [
     {
@@ -101,7 +93,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-
 if "test" in sys.argv:
     DATABASES = {
         "default": {
@@ -122,17 +113,13 @@ else:
     }
     DATABASES["default"]["ATOMIC_REQUEST"] = True
 
-
 AUTH_USER_MODEL = "users.CustomUser"
 
-
 LOGIN_URL = "/users/login/"
-
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
-
 
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.Argon2PasswordHasher",
@@ -156,26 +143,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 
-
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
