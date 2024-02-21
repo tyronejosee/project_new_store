@@ -8,6 +8,7 @@ from products.models import Product
 class Cart(models.Model):
     """Pivot type model for Cart."""
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    # Adress here
 
     def __str__(self):
         return f"Cart of {self.user.username}"

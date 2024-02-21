@@ -5,6 +5,9 @@ import os
 import sys
 import environ
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +48,7 @@ PROJECT_APPS = [
 THIRD_PARTY_APPS = [
     "paypal.standard.ipn",
     "import_export",
+    "cloudinary",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -154,6 +158,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+cloudinary.config(
+    cloud_name=env('CLOUDINARY_CLOUD_NAME'),
+    api_key=env('CLOUDINARY_API_KEY'),
+    api_secret=env('CLOUDINARY_API_SECRET'),
+    secure=True
+)
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

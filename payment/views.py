@@ -42,11 +42,15 @@ def check_out(request, product_id):
 def payment_success(request, product_id):
     """View sends the product as context if the payment was successful."""
     product = Product.objects.get(id=product_id)
-    return render(request, "payment/payment_success.html", {"product": product})
+    return render(
+        request, "payment/payment_success.html", {"product": product}
+    )
 
 
 @login_required
 def payment_failed(request, product_id):
     """View sends the product as context if the payment failed."""
     product = Product.objects.get(id=product_id)
-    return render(request, 'payment/payment_failed.html', {'product': product})
+    return render(
+        request, 'payment/payment_failed.html', {'product': product}
+    )

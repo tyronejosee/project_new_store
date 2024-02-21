@@ -1,5 +1,4 @@
 name: New Store CI - Tests
-
 on:
   push:
     branches:

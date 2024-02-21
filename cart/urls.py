@@ -2,18 +2,11 @@
 
 from django.urls import path
 from cart.views import (
-    cart,
-    add_prod_cart,
-    remove_prod_cart,
-    subtract_prod_cart,
-    clear_cart,
-    add_prod_wishlist,
-    remove_prod_wishlist
+    cart, add_prod_cart, remove_prod_cart, subtract_prod_cart,
+    clear_cart, add_prod_wishlist, remove_prod_wishlist
 )
 
-
 app_name = "cart"
-
 
 urlpatterns = [
     # Cart URLs

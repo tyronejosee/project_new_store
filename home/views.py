@@ -37,7 +37,8 @@ class IndexTemplateView(TemplateView):
 
         # Computer monitors (category) (6 prods.)
         context["computer_monitors"] = Product.objects.filter(
-            show_hide=True, stock__gte=1, category__title__iexact="computer monitors"
+            show_hide=True, stock__gte=1,
+            category__title__iexact="computer monitors"
         ).order_by("-updated_at")[:6]
 
         return context

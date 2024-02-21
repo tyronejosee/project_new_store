@@ -1,23 +1,25 @@
 """Models for Products App."""
 
-import os
 from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import post_save, post_delete
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 from utils.validators import validate_extension
+from products.choices import WARRANTY_CHOICES
 
 
 class Category(models.Model):
     """Catalog type model for Category."""
-    title = models.CharField(max_length=50, unique=True, verbose_name="Category")
-    slug = models.SlugField(unique=True, null=True, blank=True, verbose_name="Slug")
-    show_hide = models.BooleanField(default=True, verbose_name="Show/Hide")
+    title = models.CharField("Category", max_length=50, unique=True)
+    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
+    show_hide = models.BooleanField("Show/Hide", default=True)
 
     class Meta:
         """Meta definition for Category."""
+        verbose_name = "Category"
         verbose_name_plural = "Categories"
         ordering = ["title"]
 
@@ -33,12 +35,13 @@ class Category(models.Model):
 
 class Brand(models.Model):
     """Catalog type model for Brand."""
-    name = models.CharField(max_length=50, unique=True, verbose_name="Name")
-    slug = models.SlugField(unique=True, null=True, blank=True, verbose_name="Slug")
-    show_hide = models.BooleanField(default=True, verbose_name="Show/Hide")
+    name = models.CharField("Name", max_length=50, unique=True)
+    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
+    show_hide = models.BooleanField("Show/Hide", default=True)
 
     class Meta:
-        """Meta definition for Brands."""
+        """Meta definition for Brand."""
+        verbose_name = "Brand"
         verbose_name_plural = "Brands"
         ordering = ["name"]
 
@@ -54,14 +57,24 @@ class Brand(models.Model):
 
 class Deal(models.Model):
     """Entity type model for Deals."""
-    name = models.CharField(max_length=50, unique=True, verbose_name="Name")
-    slug = models.SlugField(unique=True, null=True, blank=True, verbose_name="Slug")
-    image = models.ImageField(upload_to="deals/", blank=True, null=True, verbose_name="Image")
-    description = models.TextField(blank=True, null=True, verbose_name="Description")
-    discount = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name="Discount")
-    start_date = models.DateField(blank=True, null=True, verbose_name="Start Date")
-    end_date = models.DateField(blank=True, null=True, verbose_name="End Date")
-    status = models.BooleanField(default=True, verbose_name="Status")
+    name = models.CharField("Name", max_length=50, unique=True)
+    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
+    image = CloudinaryField(
+        "Image", validators=[validate_extension], blank=True, null=True
+    )
+    description = models.TextField("Description", blank=True, null=True)
+    discount = models.DecimalField(
+        "Discount", max_digits=5, decimal_places=2, blank=True, null=True
+    )
+    start_date = models.DateField("Start Date", blank=True, null=True)
+    end_date = models.DateField("End Date", blank=True, null=True)
+    status = models.BooleanField("Status", default=True)
+
+    class Meta:
+        """Meta definition for Deal."""
+        verbose_name = "Deal"
+        verbose_name_plural = "deals"
+        ordering = ["name"]
 
     def __str__(self):
         return str(self.name)
@@ -70,14 +83,6 @@ class Deal(models.Model):
         # Create a slug based on the name
         if not self.slug or self.slug != slugify(self.name):
             self.slug = slugify(self.name)
-
-        # Rename the image associated with the deal
-        if self.image and self.image.name:
-            if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-                file_name, file_extension = os.path.splitext(self.image.name)
-                title = self.slug[:100]
-                file_name = f"{title}{file_extension}"
-                self.image.name = file_name
         super(Deal, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -87,33 +92,46 @@ class Deal(models.Model):
 
 class Product(models.Model):
     """Entity type model for Products."""
-    WARRANTY_CHOICES = [
-        (1, "1 month"),
-        (3, "3 months"),
-        (6, "6 months"),
-        (12, "1 year"),
-        (24, "2 years"),
-        (36, "3 years"),
-    ]
-    title = models.CharField(max_length=255, verbose_name="Title")
-    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True, verbose_name="Slug")
-    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Brand")
-    normal_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Price")
-    sale_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, verbose_name="Sale Price")
-    deal = models.ForeignKey(Deal, on_delete=models.SET_NULL, null=True, blank=True, related_name="products", verbose_name="Deal")
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Category")
-    image = models.ImageField(upload_to="products/", validators=[validate_extension], blank=True, null=True, verbose_name="Image")
-    stock = models.PositiveIntegerField(default=100, verbose_name="Stock")
-    warranty = models.IntegerField(choices=WARRANTY_CHOICES, default="12", blank=True, null=True)
-    featured = models.BooleanField(default=False, verbose_name="Featured")
-    show_hide = models.BooleanField(default=True, verbose_name="Show/Hide")
-    description = models.TextField(blank=True, null=True, verbose_name="Description")
-    specifications = models.TextField(blank=True, null=True, verbose_name="Specifications")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at")
+
+    title = models.CharField("Title", max_length=255)
+    slug = models.SlugField(
+        "Slug", max_length=255, unique=True, null=True, blank=True
+    )
+    brand = models.ForeignKey(
+        Brand, on_delete=models.SET_NULL, null=True, blank=True,
+        verbose_name="Brand"
+    )
+    normal_price = models.DecimalField(
+        "Price", max_digits=10, decimal_places=2
+    )
+    sale_price = models.DecimalField(
+        "Sale Price", max_digits=10, decimal_places=2, null=True, blank=True)
+    deal = models.ForeignKey(
+        Deal, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name="products", verbose_name="Deal"
+    )
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, null=True, blank=True,
+        verbose_name="Category"
+    )
+    image = CloudinaryField(
+        "Image", validators=[validate_extension], blank=True, null=True
+    )
+    stock = models.PositiveIntegerField("Stock", default=100)
+    warranty = models.IntegerField(
+        "Warranty", choices=WARRANTY_CHOICES, default="12", blank=True,
+        null=True
+    )
+    featured = models.BooleanField("Featured", default=False)
+    show_hide = models.BooleanField("Show/Hide", default=True)
+    description = models.TextField("Description", blank=True, null=True)
+    specifications = models.TextField("Specifications", blank=True, null=True)
+    created_at = models.DateTimeField("Created at", auto_now_add=True)
+    updated_at = models.DateTimeField("Updated at", auto_now=True)
 
     class Meta:
         """Meta definition for Product."""
+        verbose_name = "Product"
         verbose_name_plural = "Products"
         ordering = ["-created_at", "title"]
 
@@ -127,15 +145,6 @@ class Product(models.Model):
         # Create a slug based on the title
         if not self.slug or self.slug != slugify(self.title):
             self.slug = slugify(self.title)
-
-        # Rename the image associated with the product
-        if self.image and self.image.name:
-            if not self.pk or self._state.adding or self.image != self.__class__.objects.get(pk=self.pk).image:
-                file_name, file_extension = os.path.splitext(self.image.name)
-                title = self.slug[:100]
-                file_name = f"{title}{file_extension}"
-                self.image.name = file_name
-
         super(Product, self).save(*args, **kwargs)
 
     def update_sale_price(self):
@@ -143,10 +152,12 @@ class Product(models.Model):
         # Check if there is a deal on the product and if it has a discount
         if self.deal and self.deal.discount is not None:
             if self.deal.start_date and self.deal.end_date:
-                current_date = timezone.now().date() # Today
+                current_date = timezone.now().date()    # Today
                 # Apply the discount and save the "sale_price"
                 if self.deal.start_date <= current_date <= self.deal.end_date:
-                    self.sale_price = self.normal_price - (self.normal_price * (self.deal.discount / 100))
+                    self.sale_price = self.normal_price - (
+                        self.normal_price * (self.deal.discount / 100)
+                    )
                 else:
                     self.sale_price = None
             else:
@@ -156,7 +167,7 @@ class Product(models.Model):
         # If no conditions are met, set "None" for the "sale_price"
 
     def is_new(self):
-        """Method returns True if the product is new, created, or updated within a day."""
+        """Returns True if the product is new."""
         return (
             self.created_at >= timezone.now() - timezone.timedelta(days=1) or
             self.updated_at >= timezone.now() - timezone.timedelta(days=1)
@@ -175,19 +186,3 @@ def product_update_sale_prices(sender, instance, **kwargs):
     for product in products:
         product.update_sale_price()
         product.save()
-
-
-@receiver(post_delete, sender=Product)
-def product_remove_image(sender, instance, **kwargs):
-    """Signal to remove the related image when deleting a product."""
-    if instance.image:
-        if os.path.isfile(instance.image.path):
-            os.remove(instance.image.path)
-
-
-@receiver(post_delete, sender=Deal)
-def deal_remove_image(sender, instance, **kwargs):
-    """Signal to remove the related image when deleting a deal."""
-    if instance.image:
-        if os.path.isfile(instance.image.path):
-            os.remove(instance.image.path)

@@ -2,15 +2,9 @@
 
 from django.urls import path
 from products.views import (
-    product_search,
-    ProductListView,
-    ProductDetailView,
-    RecentProductsListView,
-    CategoriesListView,
-    DealListView,
-    DealDetailView,
-    BrandFilterListView,
-    CategoryFilterListView
+    ProductListView, ProductDetailView, RecentProductsListView,
+    CategoriesListView, DealListView, DealDetailView,
+    BrandFilterListView, CategoryFilterListView, product_search
 )
 
 app_name = "products"

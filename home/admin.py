@@ -7,14 +7,14 @@ from home.models import Company, Page
 
 
 class CompanyResource(resources.ModelResource):
-    """Class for importing and exporting data for the Company model."""
+    """Class for importing and exporting data."""
     class Meta:
         """Meta definition for CompanyResource"""
         model = Company
 
 
 class PageResource(resources.ModelResource):
-    """Class for importing and exporting data for the Page model."""
+    """Class for importing and exporting data."""
     class Meta:
         """Meta definition for PageResource"""
         model = Page
@@ -34,10 +34,3 @@ class PageAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
     ordering = ("key",)
     resource_class = PageResource
-
-    def save_model(self, request, obj, form, change):
-        # Remove the image when clearing the path on the page
-        if change and "image" in form.changed_data:
-            old_page = Page.objects.get(pk=obj.pk)
-            old_page.image.delete(save=False)
-        super().save_model(request, obj, form, change)

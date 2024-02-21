@@ -43,7 +43,9 @@ class ProductForm(forms.ModelForm):
                 "readonly": "readonly", **form_text_readonly("Slug")
             }),
             "brand": forms.Select(attrs=form_select()),
-            "normal_price": forms.NumberInput(attrs=form_number("Normal price")),
+            "normal_price": forms.NumberInput(
+                attrs=form_number("Normal price")
+            ),
             "sale_price": forms.NumberInput(attrs=form_number("Sale price")),
             "deal": forms.Select(attrs=form_select()),
             "category": forms.Select(attrs=form_select()),

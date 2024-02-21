@@ -43,7 +43,9 @@ class UserRegistrationForm(forms.ModelForm):
             "first_name": forms.TextInput(attrs=form_text("First Name")),
             "last_name": forms.TextInput(attrs=form_text("Last Name")),
             "address": forms.TextInput(attrs=form_text("Address")),
-            "phone_number": forms.NumberInput(attrs=form_number("Phone Number")),
+            "phone_number": forms.NumberInput(
+                attrs=form_number("Phone Number")
+            ),
         }
 
     def clean_password2(self):

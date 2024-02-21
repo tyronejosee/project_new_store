@@ -23,7 +23,8 @@ def user_preferences(request):
 
 def products_featured(_request):
     """Context processor return a list of featured products."""
-    products_featured_list = Product.objects.filter(featured=True, show_hide=True, stock__gte=1)[:6]
+    products_featured_list = Product.objects.filter(
+        featured=True, show_hide=True, stock__gte=1)[:6]
     return {"products_featured": products_featured_list}
 
 
@@ -41,7 +42,9 @@ def cart_items_count(request):
         # Get the current user"s cart
         cart, created = Cart.objects.get_or_create(user=user)
         # Calculate the total quantity of items in the cart
-        cart_items_count_list = sum(item.quantity for item in cart.cart_items.all())
+        cart_items_count_list = sum(
+            item.quantity for item in cart.cart_items.all()
+        )
     else:
         cart_items_count_list = 0
 

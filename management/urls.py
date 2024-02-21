@@ -2,33 +2,16 @@
 
 from django.urls import path
 from management.views import (
-    ManagementView,
-    PageListView,
-    PageUpdateView,
-    UserListView,
-    ProductListView,
-    DeactivatedProductListView,
-    ProductCreateView,
-    ProductUpdateView,
-    ProductDeleteView,
-    ProductStatusToggleView,
-    CategoryListView,
-    CategoryCreateView,
-    CategoryUpdateView,
-    CategoryDeleteView,
-    BrandListView,
-    BrandCreateView,
-    BrandUpdateView,
-    BrandDeleteView,
-    DealCreateView,
-    DealListView,
-    DealUpdateView,
+    ManagementView, PageListView, PageUpdateView, UserListView,
+    ProductListView, DeactivatedProductListView, ProductCreateView,
+    ProductUpdateView, ProductDeleteView, ProductStatusToggleView,
+    CategoryListView, CategoryCreateView, CategoryUpdateView,
+    CategoryDeleteView, BrandListView, BrandCreateView, BrandUpdateView,
+    BrandDeleteView, DealCreateView, DealListView, DealUpdateView,
     DealDeleteView
 )
 
-
 app_name = "management"
-
 
 urlpatterns = [
     # Main URLs
