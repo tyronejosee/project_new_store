@@ -16,8 +16,9 @@
     \ invite you to discover everything that New Store has to offer. Browse through\
     \ our catalog and explore a wide variety of quality products. Everything is designed\
     \ with you in mind, so you can enjoy an exceptional online shopping experience.\
-    \ Thank you for choosing New Store as your trusted appliance store</p>", created_at: '2023-10-16
-    19:31:06', id: 2, image: visual-about, key: about, updated_at: '2023-12-26 19:09:18'}
+    \ Thank you for choosing New Store as your trusted appliance store</p>", created_at: '2024-02-22
+    17:21:41', id: 1, image: tqpwgya8ke1ezjfuyoor, key: about, updated_at: '2024-02-22
+    17:21:41'}
 - {content: "<h2 class=\"headline text-primary\">What is Lorem Ipsum?</h2>\r\n<p><strong>Lorem\
     \ Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry.\
     \ Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,\
@@ -60,8 +61,8 @@
     \ uses a dictionary of over 200 Latin words, combined with a handful of model\
     \ sentence structures, to generate Lorem Ipsum which looks reasonable. The generated\
     \ Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic\
-    \ words etc.</p>", created_at: '2023-10-20 11:53:56', id: 8, image: '', key: app,
-  updated_at: '2023-12-26 19:09:29'}
+    \ words etc.</p>", created_at: '2024-02-22 17:23:29', id: 2, image: vjvcms3abf6po1iotp34,
+  key: app, updated_at: '2024-02-22 17:23:29'}
 - {content: "<h2 class=\"headline text-primary\">Join New Store: Careers in Technology\
     \ and Electronics</h2>\r\n<p>At New Store, we love gadgets and technology. If\
     \ you're an electronics enthusiast and are passionate about staying up-to-date\
@@ -79,8 +80,8 @@
     \ you can fit in at New Store.</p>\r\n\r\n<h3 class=\"subheadline\">Join the Tech\
     \ Fun</h3>\r\n<p>Whether you're a tech geek or simply have a love for electronics,\
     \ there's a place for you here! We hope to see you soon at New Store, where fun\
-    \ and technology go hand in hand.</p>", created_at: '2023-10-20 11:53:20', id: 6,
-  image: '', key: careers, updated_at: '2023-12-26 19:09:45'}
+    \ and technology go hand in hand.</p>", created_at: '2024-02-22 17:26:13', id: 3,
+  image: awreypj3tcsreijptq0c, key: careers, updated_at: '2024-02-22 17:26:13'}
 - {content: "<h2 class=\"headline text-primary\">What is Lorem Ipsum?</h2>\r\n\r\n\
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.\
     \ Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,\
@@ -123,8 +124,8 @@
     \ uses a dictionary of over 200 Latin words, combined with a handful of model\
     \ sentence structures, to generate Lorem Ipsum which looks reasonable. The generated\
     \ Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic\
-    \ words etc.</p>", created_at: '2023-10-20 11:52:34', id: 5, image: visual-delivery,
-  key: delivery, updated_at: '2023-12-26 19:10:15'}
+    \ words etc.</p>", created_at: '2024-02-22 17:26:54', id: 4, image: qrcbkyzl2iwxkigzw2n6,
+  key: delivery, updated_at: '2024-02-22 17:26:54'}
 - {content: "<h2 class=\"headline text-primary\">Privacy</h2>\r\n<span>Last Updated:\
     \ 09-29-2023.</span>\r\n<p>At New Store, we understand the importance of protecting\
     \ the privacy of our customers and online visitors. This privacy policy describes\
@@ -171,8 +172,8 @@
     >Questions and Contact</h3>\r\n<p>If you have any questions about this privacy\
     \ policy or how we handle your information, please feel free to contact us:</p>\r\
     \n<p><span>Email:</span> support@newstore.com</p>\r\n<p><span>Phone:</span> +123456789</p>",
-  created_at: '2023-10-16 19:31:06', id: 3, image: pages/pages/visual-privacy.webp,
-  key: privacy, updated_at: '2023-12-26 19:13:49'}
+  created_at: '2024-02-22 17:27:18', id: 5, image: uybcdjnc91tbavhkzsre, key: privacy,
+  updated_at: '2024-02-22 17:27:18'}
 - {content: "<h2 class=\"headline text-primary\">Returns</h2>\r\n<p>Users who have\
     \ purchased products on the website newstore.com (hereinafter \"Site\") may request\
     \ returns, exchanges, or free repairs, in accordance with the Consumer Protection\
@@ -280,8 +281,8 @@
     \n\r\n<h3 class=\"subheadline\">Cancellation</h3>\r\n<p>The cancellation of the\
     \ order applies only to purchases made through the New Store Marketplace. The\
     \ User can cancel the order before the Marketplace Seller has accepted the purchase.</p>",
-  created_at: '2023-10-20 11:53:37', id: 7, image: '', key: returns, updated_at: '2023-12-26
-    19:13:34'}
+  created_at: '2024-02-22 17:27:53', id: 6, image: knqsbkrmgclwgum41fku, key: returns,
+  updated_at: '2024-02-22 17:27:53'}
 - {content: "<h2 class=\"headline text-primary\">New Store Support</h2>\r\n<p>At New\
     \ Store, we take pride in providing exceptional support services to our valued\
     \ customers. We are here to assist you in resolving any questions or concerns\
@@ -304,8 +305,8 @@
     \ about our products, return policies, and other relevant topics.</p>\r\n<p>At\
     \ New Store, we are committed to providing you with the best service possible.\
     \ Thank you for choosing us as your destination for your tech needs. We look forward\
-    \ to assisting you soon!</p>", created_at: '2023-10-20 11:54:28', id: 9, image: pages/visual-support.png,
-  key: support, updated_at: '2023-12-26 19:13:15'}
+    \ to assisting you soon!</p>", created_at: '2024-02-22 17:28:18', id: 7, image: w48cx4lqzc9cjcah1n6t,
+  key: support, updated_at: '2024-02-22 17:28:18'}
 - {content: "<h2 class=\"headline text-primary\">Terms and Conditions</h2>\r\n<span\
     \ class=\"small\">Last Updated: 29-09-2023.</span>\r\n\r\n<p>Please read these\
     \ terms and conditions (\"Terms\") carefully before using the New Store website\
@@ -355,5 +356,5 @@
     \ New Store. If you have any questions about these Terms and Conditions, please\
     \ feel free to contact our support team.</p>\r\n<p class=\"link text-neutral-500\"\
     >New Store</p>\r\n<p class=\"link text-neutral-500\">support@newstore.com</p>",
-  created_at: '2023-10-16 19:31:06', id: 1, image: '', key: terms, updated_at: '2023-12-26
-    19:13:02'}
+  created_at: '2024-02-22 17:28:46', id: 8, image: hm4fposmecwqaxilprxn, key: terms,
+  updated_at: '2024-02-22 17:28:46'}
