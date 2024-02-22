@@ -137,6 +137,9 @@ class Product(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
+        if not self.title:
+            raise ValueError("Title cannot be empty")
+
         # Apply method on the price when saving a product
         self.update_sale_price()
 

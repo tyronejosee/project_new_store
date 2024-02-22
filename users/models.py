@@ -8,7 +8,7 @@ from users.managers import CustomUserManager
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     """Entity type model for CustomUser."""
-    username = models.CharField("Username", max_length=100, unique=True)
+    username = models.CharField("Username", max_length=255, unique=True)
     email = models.EmailField("Email", max_length=255, unique=True)
     first_name = models.CharField("First Name", max_length=255, blank=True)
     last_name = models.CharField("Last Name", max_length=255, blank=True)
@@ -30,13 +30,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         ordering = ["username"]
 
     def __str__(self):
-        return f"{self.username}: {self.email}"
-
-    def has_perm(self, perm, obj=None):
-        return True
-
-    def has_module_perms(self, app_label):
-        return True
-
-    def is_staff(self):
-        return self.is_staff
+        return str(self.username)
