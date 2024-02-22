@@ -16,42 +16,18 @@ class ProductViewsTest(TestCase):
         self.deal = Deal.objects.create(name="Test Deal", discount=10)
         self.category = Category.objects.create(title="Test Category")
 
-        # Find the path of the .webp file using finders
-        image_path = finders.find("img/default-image-front.webp")
-
-        with open(image_path, "rb") as file:
-            image_content = file.read()
-            image_file = SimpleUploadedFile(
-                "default-image-front.webp",
-                image_content,
-                content_type="image/webp"
-            )
-
         self.product = Product.objects.create(
             title="Test Product",
             normal_price=50.99,
             brand=self.brand,
             deal=self.deal,
             category=self.category,
-            image=image_file,
+            image=None,
             stock=10,
             show_hide=True
         )
 
-        self.deal.image = image_file
-        self.deal.save()
-
         self.client = Client()
-
-    def tearDown(self):
-        """Remove the test images after each test.."""
-        # Products images
-        for product in Product.objects.all():
-            product.image.delete()
-
-        # Deals images
-        for deal in Deal.objects.all():
-            deal.image.delete()
 
     def test_product_list_view(self):
         """Test for ProductListView."""

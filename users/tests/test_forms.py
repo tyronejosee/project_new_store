@@ -107,7 +107,7 @@ class UserRegistrationFormTest(TestCase):
         # Save method
         user = form.save(commit=False)
         user.save()
-        
+
         self.assertIsNotNone(user.pk)
         self.assertEqual(user.username, 'testuser')
         self.assertEqual(user.email, 'testuser@example.com')

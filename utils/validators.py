@@ -15,5 +15,5 @@ def validate_extension(value):
     if value.size > max_size_mb * 1024 * 1024:
         raise ValidationError("File size should not exceed 1MB.")
 
-    if not extension in valid_extensions:
+    if extension not in valid_extensions:
         raise ValidationError("Only .webp and .svg files are allowed.")

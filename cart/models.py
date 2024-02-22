@@ -8,7 +8,12 @@ from products.models import Product
 class Cart(models.Model):
     """Pivot type model for Cart."""
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    # Adress here
+
+    class Meta:
+        """Meta definition for Cart model."""
+        verbose_name = "Cart"
+        verbose_name_plural = "Carts"
+        ordering = ["user"]
 
     def __str__(self):
         return f"Cart of {self.user.username}"
@@ -25,6 +30,12 @@ class CartItem(models.Model):
     )
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        """Meta definition for CartItem model."""
+        verbose_name = "CartItem"
+        verbose_name_plural = "CartItems"
+        ordering = ["cart"]
 
     def __str__(self):
         return f"{self.cart.user} - {self.quantity}"
@@ -55,6 +66,12 @@ class Wishlist(models.Model):
     """Pivot type model for Wishlist."""
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
+
+    class Meta:
+        """Meta definition for Wishlist model."""
+        verbose_name = "Wishlist"
+        verbose_name_plural = "Wishlists"
+        ordering = ["user"]
 
     def __str__(self):
         total_products = self.products.count()

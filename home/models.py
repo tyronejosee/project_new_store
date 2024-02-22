@@ -19,6 +19,7 @@ class Company(models.Model):
         """Meta definition for Company model."""
         verbose_name = "Company"
         verbose_name_plural = "Company"
+        ordering = ["name"]
 
     def __str__(self):
         return str(self.name)
@@ -27,7 +28,7 @@ class Company(models.Model):
 class Page(models.Model):
     """Entity type model for Pages."""
     key = models.CharField("Unique Key", max_length=50, default="pending")
-    content = models.TextField("Content", blank=True, null=True)
+    content = models.TextField("Content", blank=True)
     image = CloudinaryField("Logo", validators=[validate_extension])
     created_at = models.DateTimeField("Created at", auto_now_add=True)
     updated_at = models.DateTimeField("Updated at", auto_now=True)
@@ -36,7 +37,7 @@ class Page(models.Model):
         """Meta definition for Page model."""
         verbose_name = "Page"
         verbose_name_plural = "Pages"
-        ordering = ["-created_at",]
+        ordering = ["key"]
 
     def __str__(self):
         return str(self.key)

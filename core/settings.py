@@ -97,25 +97,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-if "test" in sys.argv:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": ":memory:",
+if DEBUG:
+    if "test" in sys.argv:
+        DATABASES = {
+            "default": {
+                "ENGINE": "django.db.backends.sqlite3",
+                "NAME": ":memory:",
+            }
         }
-    }
-# else:
-#     DATABASES = {
-#     "default": dj_database_url.config(
-#         default="postgresql://postgres:postgres@localhost:5432/mysite",
-#         conn_max_age=600
-#     )
-# }
+    else:
+        DATABASES = {
+            "default": env.db("DATABASE_URL", default="postgres:///new_store"),
+        }
+        DATABASES["default"]["ATOMIC_REQUEST"] = True
 else:
     DATABASES = {
-        "default": env.db("DATABASE_URL", default="postgres:///new_store"),
+        "default": dj_database_url.config(
+            default="postgresql://postgres:postgres@localhost:5432/mysite",
+            conn_max_age=600
+        )
     }
-    DATABASES["default"]["ATOMIC_REQUEST"] = True
 
 AUTH_USER_MODEL = "users.CustomUser"
 
@@ -154,7 +155,6 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

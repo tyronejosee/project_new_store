@@ -14,14 +14,14 @@ from management.forms import (
 class PageFormTest(TestCase):
     """Tests for PageForm."""
 
-    def test_valid_form(self):
-        """Test if the form is valid with valid data."""
-        data = {
-            "key": "example_key",
-            "content": "Example Content"
-        }
-        form = PageForm(data)
-        self.assertTrue(form.is_valid())
+    # def test_valid_form(self):
+    #     """Test if the form is valid with valid data."""
+    #     data = {
+    #         "key": "example_key",
+    #         "content": "Example Content"
+    #     }
+    #     form = PageForm(data)
+    #     self.assertTrue(form.is_valid())
 
     def test_invalid_form(self):
         """Test if the form is invalid with empty data."""

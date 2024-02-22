@@ -94,9 +94,7 @@ class Product(models.Model):
     """Entity type model for Products."""
 
     title = models.CharField("Title", max_length=255)
-    slug = models.SlugField(
-        "Slug", max_length=255, unique=True, null=True, blank=True
-    )
+    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
     brand = models.ForeignKey(
         Brand, on_delete=models.SET_NULL, null=True, blank=True,
         verbose_name="Brand"
@@ -105,7 +103,8 @@ class Product(models.Model):
         "Price", max_digits=10, decimal_places=2
     )
     sale_price = models.DecimalField(
-        "Sale Price", max_digits=10, decimal_places=2, null=True, blank=True)
+        "Sale Price", max_digits=10, decimal_places=2, null=True, blank=True
+    )
     deal = models.ForeignKey(
         Deal, on_delete=models.SET_NULL, null=True, blank=True,
         related_name="products", verbose_name="Deal"
@@ -115,12 +114,11 @@ class Product(models.Model):
         verbose_name="Category"
     )
     image = CloudinaryField(
-        "Image", validators=[validate_extension], blank=True, null=True
+        "Image", validators=[validate_extension], blank=True
     )
     stock = models.PositiveIntegerField("Stock", default=100)
     warranty = models.IntegerField(
-        "Warranty", choices=WARRANTY_CHOICES, default="12", blank=True,
-        null=True
+        "Warranty", choices=WARRANTY_CHOICES, default="12", blank=True
     )
     featured = models.BooleanField("Featured", default=False)
     show_hide = models.BooleanField("Show/Hide", default=True)
@@ -133,7 +131,7 @@ class Product(models.Model):
         """Meta definition for Product."""
         verbose_name = "Product"
         verbose_name_plural = "Products"
-        ordering = ["-created_at", "title"]
+        ordering = ["title"]
 
     def __str__(self):
         return str(self.title)

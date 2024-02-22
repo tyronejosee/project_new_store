@@ -64,13 +64,6 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     ordering = ("pk",)
     resource_class = DealResource
 
-    def save_model(self, request, obj, form, change):
-        # Remove the image when clearing the path in the deal
-        if change and "image" in form.changed_data:
-            old_deal = Deal.objects.get(pk=obj.pk)
-            old_deal.image.delete(save=False)
-        super().save_model(request, obj, form, change)
-
 
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
@@ -83,10 +76,3 @@ class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
     search_fields = ("title",)
     ordering = ("pk",)
     resource_class = ProductResource
-
-    def save_model(self, request, obj, form, change):
-        # Remove the image when clearing the path in the prod.
-        if change and "image" in form.changed_data:
-            old_product = Product.objects.get(pk=obj.pk)
-            old_product.image.delete(save=False)
-        super().save_model(request, obj, form, change)
