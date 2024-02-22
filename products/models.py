@@ -7,14 +7,15 @@ from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
 from cloudinary.models import CloudinaryField
-from utils.validators import validate_extension
 from products.choices import WARRANTY_CHOICES
 
 
 class Category(models.Model):
     """Catalog type model for Category."""
     title = models.CharField("Category", max_length=50, unique=True)
-    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
+    slug = models.SlugField(
+        "Slug", max_length=255, unique=True, null=True, blank=True
+    )
     show_hide = models.BooleanField("Show/Hide", default=True)
 
     class Meta:
@@ -35,8 +36,10 @@ class Category(models.Model):
 
 class Brand(models.Model):
     """Catalog type model for Brand."""
-    name = models.CharField("Name", max_length=50, unique=True)
-    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
+    name = models.CharField("Name", max_length=255, unique=True)
+    slug = models.SlugField(
+        "Slug", max_length=255, unique=True, null=True, blank=True
+    )
     show_hide = models.BooleanField("Show/Hide", default=True)
 
     class Meta:
@@ -57,11 +60,11 @@ class Brand(models.Model):
 
 class Deal(models.Model):
     """Entity type model for Deals."""
-    name = models.CharField("Name", max_length=50, unique=True)
-    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
-    image = CloudinaryField(
-        "Image", validators=[validate_extension], blank=True, null=True
+    name = models.CharField("Name", max_length=255, unique=True)
+    slug = models.SlugField(
+        "Slug", max_length=255, unique=True, null=True, blank=True
     )
+    image = CloudinaryField("Image", blank=True)
     description = models.TextField("Description", blank=True, null=True)
     discount = models.DecimalField(
         "Discount", max_digits=5, decimal_places=2, blank=True, null=True
@@ -93,8 +96,10 @@ class Deal(models.Model):
 class Product(models.Model):
     """Entity type model for Products."""
 
-    title = models.CharField("Title", max_length=255)
-    slug = models.SlugField("Slug", unique=True, null=True, blank=True)
+    title = models.CharField("Title", max_length=255, unique=True)
+    slug = models.SlugField(
+        "Slug", max_length=255, unique=True, null=True, blank=True
+    )
     brand = models.ForeignKey(
         Brand, on_delete=models.SET_NULL, null=True, blank=True,
         verbose_name="Brand"
@@ -113,9 +118,7 @@ class Product(models.Model):
         Category, on_delete=models.SET_NULL, null=True, blank=True,
         verbose_name="Category"
     )
-    image = CloudinaryField(
-        "Image", validators=[validate_extension], blank=True
-    )
+    image = CloudinaryField("Image", blank=True)
     stock = models.PositiveIntegerField("Stock", default=100)
     warranty = models.IntegerField(
         "Warranty", choices=WARRANTY_CHOICES, default="12", blank=True
@@ -137,10 +140,6 @@ class Product(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        if not self.title:
-            raise ValueError("Title cannot be empty")
-
-        # Apply method on the price when saving a product
         self.update_sale_price()
 
         # Create a slug based on the title

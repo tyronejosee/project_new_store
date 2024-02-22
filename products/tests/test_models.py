@@ -51,7 +51,7 @@ class BrandModelTestCase(TestCase):
 
     def test_name_max_length(self):
         """Test that the "name" field does not exceed the maximum length."""
-        self.brand.name = "A" * 51
+        self.brand.name = "A" * 256
         with self.assertRaises(ValidationError):
             self.brand.full_clean()
 
@@ -96,7 +96,7 @@ class DealModelTestCase(TestCase):
 
     def test_name_max_length(self):
         """Test that the "name" field does not exceed the maximum length."""
-        self.deal.name = "A" * 51
+        self.deal.name = "A" * 256
         with self.assertRaises(ValidationError):
             self.deal.full_clean()
 
