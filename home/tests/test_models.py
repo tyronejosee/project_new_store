@@ -46,7 +46,7 @@ class PageModelTest(TestCase):
         self.page_data = {
             "key": "example_page",
             "content": "Example Content",
-            "image": "pages/example_image.png",
+            "image": None,
         }
 
     def test_create_page_instance(self):

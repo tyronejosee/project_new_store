@@ -42,7 +42,11 @@ class DealResource(resources.ModelResource):
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Category model."""
-    list_display = ("pk", "title", "slug", "show_hide",)
+    search_fields = ("title",)
+    list_display = ("title", "show_hide",)
+    list_filter = ("show_hide",)
+    list_per_page = 25
+    readonly_fields = ("pk", "slug")
     ordering = ("pk",)
     resource_class = CategoryResource
 
@@ -50,7 +54,11 @@ class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
 @admin.register(Brand)
 class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Brand model."""
-    list_display = ("pk", "name", "slug", "show_hide",)
+    search_fields = ("name",)
+    list_display = ("name",)
+    list_filter = ("show_hide",)
+    list_per_page = 25
+    readonly_fields = ("pk", "slug")
     ordering = ("pk",)
     resource_class = BrandResource
 
@@ -58,9 +66,11 @@ class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Deal model."""
-    list_display = (
-        "name", "slug", "image", "discount", "start_date", "end_date", "pk"
-    )
+    search_fields = ("name", "description")
+    list_display = ("name", "discount", "start_date", "end_date")
+    list_filter = ("status",)
+    list_per_page = 25
+    readonly_fields = ("pk", "slug")
     ordering = ("pk",)
     resource_class = DealResource
 
@@ -68,11 +78,10 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Product model."""
-    list_display = (
-        "title", "updated_at", "slug", "normal_price", "brand",
-        "stock", "show_hide"
-    )
-    readonly_fields = ("created_at", "updated_at", "sale_price")
     search_fields = ("title",)
+    list_display = ("title", "normal_price", "brand")
+    list_filter = ("show_hide",)
+    list_per_page = 25
+    readonly_fields = ("pk", "slug", "created_at", "updated_at", "sale_price")
     ordering = ("pk",)
     resource_class = ProductResource
