@@ -67,7 +67,7 @@ class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Deal model."""
     search_fields = ("name", "description")
-    list_display = ("name", "discount", "start_date", "end_date")
+    list_display = ("name", "discount", "start_date", "end_date", "status")
     list_filter = ("status",)
     list_per_page = 25
     readonly_fields = ("pk", "slug")

@@ -28,7 +28,7 @@ class Page(models.Model):
     """Entity type model for Pages."""
     key = models.CharField("Unique Key", max_length=50, default="pending")
     content = models.TextField("Content", blank=True)
-    image = CloudinaryField("Logo", blank=True)
+    image = CloudinaryField("Logo")
     created_at = models.DateTimeField("Created at", auto_now_add=True)
     updated_at = models.DateTimeField("Updated at", auto_now=True)
 

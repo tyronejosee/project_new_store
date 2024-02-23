@@ -64,7 +64,7 @@ class Deal(models.Model):
     slug = models.SlugField(
         "Slug", max_length=255, unique=True, null=True, blank=True
     )
-    image = CloudinaryField("Image", blank=True)
+    image = CloudinaryField("Image")
     description = models.TextField("Description", blank=True, null=True)
     discount = models.DecimalField(
         "Discount", max_digits=5, decimal_places=2, blank=True, null=True
@@ -95,7 +95,6 @@ class Deal(models.Model):
 
 class Product(models.Model):
     """Entity type model for Products."""
-
     title = models.CharField("Title", max_length=255, unique=True)
     slug = models.SlugField(
         "Slug", max_length=255, unique=True, null=True, blank=True
@@ -118,7 +117,7 @@ class Product(models.Model):
         Category, on_delete=models.SET_NULL, null=True, blank=True,
         verbose_name="Category"
     )
-    image = CloudinaryField("Image", blank=True)
+    image = CloudinaryField("Image")
     stock = models.PositiveIntegerField("Stock", default=100)
     warranty = models.IntegerField(
         "Warranty", choices=WARRANTY_CHOICES, default="12", blank=True
