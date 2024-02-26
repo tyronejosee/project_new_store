@@ -103,7 +103,7 @@ if "test" in sys.argv:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": ":memory:",
+            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
 else:
@@ -117,6 +117,13 @@ else:
 #         default="postgresql://postgres:postgres@localhost:5432/mysite",
 #         conn_max_age=600
 #     )
+# }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": ":memory:",
+#     }
 # }
 
 AUTH_USER_MODEL = "users.CustomUser"
