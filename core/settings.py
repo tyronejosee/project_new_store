@@ -97,26 +97,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-if DEBUG:
-    if "test" in sys.argv:
-        DATABASES = {
-            "default": {
-                "ENGINE": "django.db.backends.sqlite3",
-                "NAME": ":memory:",
-            }
+if "test" in sys.argv:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": ":memory:",
         }
-    else:
-        DATABASES = {
-            "default": env.db("DATABASE_URL", default="postgres:///new_store"),
-        }
-        DATABASES["default"]["ATOMIC_REQUEST"] = True
+    }
 else:
     DATABASES = {
-        "default": dj_database_url.config(
-            default="postgresql://postgres:postgres@localhost:5432/mysite",
-            conn_max_age=600
-        )
+        "default": env.db("DATABASE_URL", default="postgres:///new_store"),
     }
+    DATABASES["default"]["ATOMIC_REQUEST"] = True
+
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default="postgresql://postgres:postgres@localhost:5432/mysite",
+#         conn_max_age=600
+#     )
+# }
 
 AUTH_USER_MODEL = "users.CustomUser"
 
