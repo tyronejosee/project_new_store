@@ -131,6 +131,7 @@ class Product(models.Model):
 
     class Meta:
         """Meta definition for Product."""
+        app_label = "products"
         verbose_name = "Product"
         verbose_name_plural = "Products"
         ordering = ["title"]

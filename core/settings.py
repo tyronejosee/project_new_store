@@ -25,17 +25,13 @@ RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-
-DJANGO_APPS = [
+INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-]
-
-PROJECT_APPS = [
     "users",
     "core",
     "home",
@@ -43,15 +39,38 @@ PROJECT_APPS = [
     "cart",
     "management",
     "payment",
-]
-
-THIRD_PARTY_APPS = [
     "paypal.standard.ipn",
     "import_export",
     "cloudinary",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
+
+# DJANGO_APPS = [
+#     "django.contrib.admin",
+#     "django.contrib.auth",
+#     "django.contrib.contenttypes",
+#     "django.contrib.sessions",
+#     "django.contrib.messages",
+#     "django.contrib.staticfiles",
+# ]
+
+# PROJECT_APPS = [
+#     "users",
+#     "core",
+#     "home",
+#     "products",
+#     "cart",
+#     "management",
+#     "payment",
+# ]
+
+# THIRD_PARTY_APPS = [
+#     "paypal.standard.ipn",
+#     "import_export",
+#     "cloudinary",
+# ]
+
+# INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 SITE_ID = 1
 
