@@ -4,7 +4,7 @@ from pathlib import Path
 import os
 import sys
 import environ
-import dj_database_url
+# import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
