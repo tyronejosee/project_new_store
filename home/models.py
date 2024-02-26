@@ -18,6 +18,7 @@ class Company(models.Model):
         """Meta definition for Company model."""
         verbose_name = "Company"
         verbose_name_plural = "Company"
+        app_label = "home"
         ordering = ["name"]
 
     def __str__(self):
@@ -36,6 +37,7 @@ class Page(models.Model):
         """Meta definition for Page model."""
         verbose_name = "Page"
         verbose_name_plural = "Pages"
+        app_label = "home"
         ordering = ["key"]
 
     def __str__(self):

@@ -27,6 +27,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         """Meta definition for CustomUser model."""
         verbose_name = "CustomUser"
         verbose_name_plural = "CustomUsers"
+        app_label = "users"
         ordering = ["username"]
 
     def __str__(self):

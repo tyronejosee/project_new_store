@@ -13,6 +13,7 @@ class Cart(models.Model):
         """Meta definition for Cart model."""
         verbose_name = "Cart"
         verbose_name_plural = "Carts"
+        app_label = "cart"
         ordering = ["user"]
 
     def __str__(self):
@@ -35,6 +36,7 @@ class CartItem(models.Model):
         """Meta definition for CartItem model."""
         verbose_name = "CartItem"
         verbose_name_plural = "CartItems"
+        app_label = "cart"
         ordering = ["cart"]
 
     def __str__(self):
@@ -71,6 +73,7 @@ class Wishlist(models.Model):
         """Meta definition for Wishlist model."""
         verbose_name = "Wishlist"
         verbose_name_plural = "Wishlists"
+        app_label = "cart"
         ordering = ["user"]
 
     def __str__(self):

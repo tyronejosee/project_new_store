@@ -22,6 +22,7 @@ class Category(models.Model):
         """Meta definition for Category."""
         verbose_name = "Category"
         verbose_name_plural = "Categories"
+        app_label = "products"
         ordering = ["title"]
 
     def __str__(self):
@@ -46,6 +47,7 @@ class Brand(models.Model):
         """Meta definition for Brand."""
         verbose_name = "Brand"
         verbose_name_plural = "Brands"
+        app_label = "products"
         ordering = ["name"]
 
     def __str__(self):
@@ -77,6 +79,7 @@ class Deal(models.Model):
         """Meta definition for Deal."""
         verbose_name = "Deal"
         verbose_name_plural = "deals"
+        app_label = "products"
         ordering = ["name"]
 
     def __str__(self):
@@ -131,9 +134,9 @@ class Product(models.Model):
 
     class Meta:
         """Meta definition for Product."""
-        app_label = "products"
         verbose_name = "Product"
         verbose_name_plural = "Products"
+        app_label = "products"
         ordering = ["title"]
 
     def __str__(self):
