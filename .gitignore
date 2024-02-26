@@ -1,6 +1,4 @@
 # Proyect files
-migrations/
-*/migrations/
 node_modules/
 desktop.ini
 *.log
