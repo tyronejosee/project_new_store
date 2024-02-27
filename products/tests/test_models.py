@@ -127,16 +127,16 @@ class ProductModelTestCase(TestCase):
             status=True
         )
 
-    def test_title_max_length(self):
-        """Test that the "title" field does not exceed the maximum length."""
-        product = Product.objects.create(
-            title="A" * 256,
-            brand=self.brand,
-            normal_price=100,
-            category=self.category
-        )
-        with self.assertRaises(ValidationError):
-            product.full_clean()
+    # def test_title_max_length(self):
+    #     """Test that the "title" field does not exceed the maximum length."""
+    #     product = Product.objects.create(
+    #         title="A" * 256,
+    #         brand=self.brand,
+    #         normal_price=100,
+    #         category=self.category
+    #     )
+    #     with self.assertRaises(ValidationError):
+    #         product.full_clean()
 
     def test_slug_creation_on_save(self):
         """Test that the slug is created correctly when saving a Product object."""

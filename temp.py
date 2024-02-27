@@ -48,3 +48,9 @@ def save_model(self, request, obj, form, change):
         old_page = Page.objects.get(pk=obj.pk)
         old_page.image.delete(save=False)
     super().save_model(request, obj, form, change)
+
+
+
+
+
+DATABASE_URL=postgres://postgres:bernardoreyes@127.0.0.1:5432/new_store
