@@ -14,15 +14,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 environ.Env.read_env("core/.env")
-ENVIRONMENT = env
 
 SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 
 DEBUG = "RENDER" not in os.environ
 
-ALLOWED_HOSTS = [
-    "*"
-]
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
@@ -99,7 +96,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
-if 'test' in sys.argv:
+if "test" in sys.argv:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -115,29 +112,9 @@ else:
             "PASSWORD": env("DB_PASSWORD"),
             "HOST": env("DB_HOST"),
             "PORT": env("DB_PORT"),
+            "ATOMIC_REQUESTS": True,
         }
     }
-
-
-# else:
-#     DATABASES = {
-#         "default": env.db("DATABASE_URL", default="postgres:///new_store"),
-#     }
-#     DATABASES["default"]["ATOMIC_REQUEST"] = True
-
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default="postgresql://postgres:postgres@localhost:5432/mysite",
-#         conn_max_age=600
-#     )
-# }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": ":memory:",
-#     }
-# }
 
 AUTH_USER_MODEL = "users.CustomUser"
 
@@ -170,16 +147,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = "en-us"
+
 TIME_ZONE = "UTC"
+
 USE_I18N = True
+
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 cloudinary.config(
     cloud_name=env("CLOUDINARY_CLOUD_NAME"),
@@ -188,9 +165,18 @@ cloudinary.config(
     secure=True
 )
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
     MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+    DATABASES = {
+        "default": dj_database_url.config(
+            default="postgresql://postgres:postgres@localhost:5432/mysite",
+            conn_max_age=600
+        )
+    }

@@ -1,3 +1,4 @@
+# Save Methods
 def save(self, *args, **kwargs):
     # Rename the image associated with the page
     if self.image and self.image.name:
@@ -49,8 +50,12 @@ def save_model(self, request, obj, form, change):
         old_page.image.delete(save=False)
     super().save_model(request, obj, form, change)
 
-
-
-
-
+# Database Settings
 DATABASE_URL=postgres://postgres:bernardoreyes@127.0.0.1:5432/new_store
+
+# Github Actions
+DB_NAME: ${{ secrets.DB_NAME }}
+DB_USER: ${{ secrets.DB_USER }}
+DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+DB_HOST: ${{ secrets.DB_HOST }}
+DB_PORT: ${{ secrets.DB_PORT }}
