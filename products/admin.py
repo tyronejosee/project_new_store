@@ -79,7 +79,7 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Product model."""
     search_fields = ("title",)
-    list_display = ("title", "normal_price", "brand")
+    list_display = ("title", "normal_price", "brand", "updated_at")
     list_filter = ("show_hide",)
     list_per_page = 25
     readonly_fields = ("pk", "slug", "created_at", "updated_at", "sale_price")
