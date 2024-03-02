@@ -334,7 +334,7 @@
 	}
 	
 	.product-card__img {
-		@apply w-full h-auto rounded-2xl;
+		@apply w-full h-auto rounded-2xl bg-white aspect-square;
 	}
 	
 	.product-card__content {

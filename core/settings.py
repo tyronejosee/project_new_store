@@ -14,6 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 environ.Env.read_env("core/.env")
+ENVIRONMENT = env
 
 SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 

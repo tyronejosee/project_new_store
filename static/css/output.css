@@ -1581,9 +1581,12 @@ video {
 }
 
 .product-card__img {
+  aspect-ratio: 1 / 1;
   height: auto;
   width: 100%;
   border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .product-card__content {
@@ -2285,14 +2288,6 @@ video {
 
 .line-through {
   text-decoration-line: line-through;
-}
-
-.opacity-50 {
-  opacity: 0.5;
-}
-
-.opacity-80 {
-  opacity: 0.8;
 }
 
 .opacity-95 {
