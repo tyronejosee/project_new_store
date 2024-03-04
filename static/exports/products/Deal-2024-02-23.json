@@ -1,1 +1,123 @@
-[{"id": 1, "name": "Halloween", "slug": "halloween", "image": "yjmmfvnstjfgjmgxs5mc", "description": "Spooky Savings Await! Dive into Halloween with exclusive offers on thrilling treats and eerie delights. Unleash the fun at irresistible prices!", "discount": "15.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 2, "name": "Black Friday", "slug": "black-friday", "image": "qwvv3cxnmwthehvzb8uj", "description": "Score exclusive deals on your favorite items. Unbeatable prices for a limited time only!", "discount": "30.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 3, "name": "Cyber Monday", "slug": "cyber-monday", "image": "qds2pbhropqt00eyqnky", "description": "Snag exclusive online deals for a limited time. Don't miss out on unbeatable prices!", "discount": "25.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 4, "name": "Christmas", "slug": "christmas", "image": "shwptvmlu1compoe33r7", "description": "Discover exclusive holiday offers on the perfect gifts. Unwrap joy with unbeatable prices for a limited time!", "discount": "20.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 5, "name": "New Year", "slug": "new-year", "image": "poeb9xximszuc8mw67md", "description": "Celebrate with exclusive offers on exciting gifts. Start the year with unforgettable moments at irresistible prices!", "discount": "20.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 6, "name": "January Sales", "slug": "january-sales", "image": "shgr7ypsvad987da6llc", "description": "Pending", "discount": "10.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 7, "name": "Valentine's Day", "slug": "valentines-day", "image": "hzqubdjjulkjdr6acl3q", "description": "Express love with special offers on perfect gifts! Unforgettable moments, irresistible prices.", "discount": "15.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 8, "name": "Labor Day", "slug": "labor-day", "image": "g0u6jp2qqjpy7vxcefan", "description": "Enjoy exclusive deals and discounts on a wide range of items. Celebrate the holiday with unbeatable prices for a limited time!", "discount": "10.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 9, "name": "Summer Sales", "slug": "summer-sales", "image": "myori8tc1ryatbvjgpph", "description": "Dive into exclusive deals on your favorite summer essentials. Unbeatable prices for a limited time—don't miss out on the hottest savings!", "discount": "25.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 10, "name": "Fathers Day", "slug": "fathers-day", "image": "zxlaxspfows07jesofwo", "description": "Find exclusive deals on thoughtful gifts. Celebrate Dad with unbeatable prices for a limited time!", "discount": "10.00", "start_date": "", "end_date": "", "status": "1"}, {"id": 11, "name": "Back-to-School", "slug": "back-to-school", "image": "hu2cyhe4ur3gkybigfa6", "description": "Score exclusive offers on must-have supplies and essentials. Unbeatable prices to kick off the school year right!", "discount": "25.00", "start_date": "", "end_date": "", "status": "1"}]
+[
+    {
+        "id": 1,
+        "name": "Halloween",
+        "slug": "halloween",
+        "image": "yjmmfvnstjfgjmgxs5mc",
+        "description": "Spooky Savings Await! Dive into Halloween with exclusive offers on thrilling treats and eerie delights. Unleash the fun at irresistible prices!",
+        "discount": "15.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 2,
+        "name": "Black Friday",
+        "slug": "black-friday",
+        "image": "qwvv3cxnmwthehvzb8uj",
+        "description": "Score exclusive deals on your favorite items. Unbeatable prices for a limited time only!",
+        "discount": "30.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 3,
+        "name": "Cyber Monday",
+        "slug": "cyber-monday",
+        "image": "qds2pbhropqt00eyqnky",
+        "description": "Snag exclusive online deals for a limited time. Don't miss out on unbeatable prices!",
+        "discount": "25.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 4,
+        "name": "Christmas",
+        "slug": "christmas",
+        "image": "shwptvmlu1compoe33r7",
+        "description": "Discover exclusive holiday offers on the perfect gifts. Unwrap joy with unbeatable prices for a limited time!",
+        "discount": "20.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 5,
+        "name": "New Year",
+        "slug": "new-year",
+        "image": "poeb9xximszuc8mw67md",
+        "description": "Celebrate with exclusive offers on exciting gifts. Start the year with unforgettable moments at irresistible prices!",
+        "discount": "20.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 6,
+        "name": "January Sales",
+        "slug": "january-sales",
+        "image": "shgr7ypsvad987da6llc",
+        "description": "Pending",
+        "discount": "10.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 7,
+        "name": "Valentine's Day",
+        "slug": "valentines-day",
+        "image": "hzqubdjjulkjdr6acl3q",
+        "description": "Express love with special offers on perfect gifts! Unforgettable moments, irresistible prices.",
+        "discount": "15.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 8,
+        "name": "Labor Day",
+        "slug": "labor-day",
+        "image": "g0u6jp2qqjpy7vxcefan",
+        "description": "Enjoy exclusive deals and discounts on a wide range of items. Celebrate the holiday with unbeatable prices for a limited time!",
+        "discount": "10.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 9,
+        "name": "Summer Sales",
+        "slug": "summer-sales",
+        "image": "myori8tc1ryatbvjgpph",
+        "description": "Dive into exclusive deals on your favorite summer essentials. Unbeatable prices for a limited time—don't miss out on the hottest savings!",
+        "discount": "25.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 10,
+        "name": "Fathers Day",
+        "slug": "fathers-day",
+        "image": "zxlaxspfows07jesofwo",
+        "description": "Find exclusive deals on thoughtful gifts. Celebrate Dad with unbeatable prices for a limited time!",
+        "discount": "10.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    },
+    {
+        "id": 11,
+        "name": "Back-to-School",
+        "slug": "back-to-school",
+        "image": "hu2cyhe4ur3gkybigfa6",
+        "description": "Score exclusive offers on must-have supplies and essentials. Unbeatable prices to kick off the school year right!",
+        "discount": "25.00",
+        "start_date": "",
+        "end_date": "",
+        "status": "1"
+    }
+]
