@@ -112,5 +112,11 @@
         "name": "Roku",
         "slug": "roku",
         "show_hide": "1"
+    },
+    {
+        "id": 20,
+        "name": "ASUS",
+        "slug": "asus",
+        "show_hide": "1"
     }
 ]
