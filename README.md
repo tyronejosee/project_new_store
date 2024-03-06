@@ -12,7 +12,7 @@
   A personal project that simulates an appliance e-commerce platform. Developed using <b>Django</b>, <b>PostgreSQL</b>, and styled with <b>Tailwind CSS</b> for a modern and responsive user experience.
 <p>
 <p align="center">
-  <a href="#"><strong>Website (Coming Soon)</strong></a>
+  <a href="https://new-store-8vlz.onrender.com/"><strong>Website (Render)</strong></a>
 </p>
 <p align="center">
   <a href="https://www.python.org/">
@@ -43,7 +43,8 @@ Key features of New Store include:
 
 ## Screenshots
 
-- ![pending](pending)
+![Main_Light](/static/img/main_light.webp)
+![Main_Dark](/static/img/main_dark.webp)
 
 ## Installation
 
@@ -118,13 +119,20 @@ Use two terminals for a better workflow, one for compiling Tailwind and another 
 
 ## Configuration
 
-Create the environment variables for your database.
+Create the environment variables.
 
 ```bash
-# Create an environment variable file .env
-cp .env.example .env
-
-# Open .env and configure environment variables such as database settings and secret keys
+# .env
+SECRET_KEY=''
+PYTHON_VERSION='3.11.7'
+DB_NAME=''
+DB_USER=''
+DB_PASSWORD=''
+DB_HOST=''
+DB_PORT=''
+CLOUDINARY_CLOUD_NAME=''
+CLOUDINARY_API_KEY=''
+CLOUDINARY_API_SECRET=''
 ```
 
 ## Usage
