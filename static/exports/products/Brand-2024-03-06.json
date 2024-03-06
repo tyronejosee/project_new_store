@@ -118,5 +118,23 @@
         "name": "ASUS",
         "slug": "asus",
         "show_hide": "1"
+    },
+    {
+        "id": 21,
+        "name": "SVS",
+        "slug": "svs",
+        "show_hide": "1"
+    },
+    {
+        "id": 22,
+        "name": "Panasonic",
+        "slug": "panasonic",
+        "show_hide": "1"
+    },
+    {
+        "id": 23,
+        "name": "Polk",
+        "slug": "polk",
+        "show_hide": "1"
     }
 ]
