@@ -136,5 +136,17 @@
         "name": "Polk",
         "slug": "polk",
         "show_hide": "1"
+    },
+    {
+        "id": 24,
+        "name": "Nokia",
+        "slug": "nokia",
+        "show_hide": "1"
+    },
+    {
+        "id": 25,
+        "name": "Nikon",
+        "slug": "nikon",
+        "show_hide": "1"
     }
 ]
