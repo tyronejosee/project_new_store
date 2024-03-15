@@ -130,5 +130,17 @@
         "title": "Tablets",
         "slug": "tablets",
         "show_hide": "1"
+    },
+    {
+        "id": 24,
+        "title": "Smartwatches",
+        "slug": "smartwatches",
+        "show_hide": "1"
+    },
+    {
+        "id": 25,
+        "title": "Drives & Storage",
+        "slug": "drives-storage",
+        "show_hide": "1"
     }
 ]

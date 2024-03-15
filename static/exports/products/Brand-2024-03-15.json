@@ -148,5 +148,59 @@
         "name": "Nikon",
         "slug": "nikon",
         "show_hide": "1"
+    },
+    {
+        "id": 26,
+        "name": "Sennheiser",
+        "slug": "sennheiser",
+        "show_hide": "1"
+    },
+    {
+        "id": 27,
+        "name": "Morpheus",
+        "slug": "morpheus",
+        "show_hide": "1"
+    },
+    {
+        "id": 28,
+        "name": "AKG",
+        "slug": "akg",
+        "show_hide": "1"
+    },
+    {
+        "id": 29,
+        "name": "Razer",
+        "slug": "razer",
+        "show_hide": "1"
+    },
+    {
+        "id": 30,
+        "name": "Western Digital",
+        "slug": "western-digital",
+        "show_hide": "1"
+    },
+    {
+        "id": 31,
+        "name": "SanDisk",
+        "slug": "sandisk",
+        "show_hide": "1"
+    },
+    {
+        "id": 32,
+        "name": "Logitech",
+        "slug": "logitech",
+        "show_hide": "1"
+    },
+    {
+        "id": 33,
+        "name": "Seagate",
+        "slug": "seagate",
+        "show_hide": "1"
+    },
+    {
+        "id": 34,
+        "name": "JLab",
+        "slug": "jlab",
+        "show_hide": "1"
     }
 ]
