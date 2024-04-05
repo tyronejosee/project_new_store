@@ -1476,6 +1476,19 @@ video {
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
+.data-table__cart {
+  height: 300px;
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+
+:is(.dark .data-table__cart) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+}
+
 .data-table__wrapper {
   width: 100%;
   text-align: left;

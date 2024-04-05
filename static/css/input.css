@@ -300,6 +300,10 @@
 		@apply overflow-x-auto rounded-xl h-[500px] bg-neutral-100 dark:bg-neutral-800;
 	}
 
+	.data-table__cart {
+		@apply overflow-x-auto rounded-xl h-[300px] bg-neutral-100 dark:bg-neutral-800;
+	}
+
 	.data-table__wrapper {
 		@apply w-full text-left;
 	}
