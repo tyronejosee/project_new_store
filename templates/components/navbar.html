@@ -126,17 +126,11 @@
       </div>
     </div>
     <!-- Main Menu (Mobile) -->
-    <div>
+    <aside>
       <nav class="absolute left-0 w-2/3 sm:w-1/2 top-0 hidden" id="navbar-search">
-        <ul class="p-4 h-screen bg-neutral-100 dark:bg-neutral-800 rounded-r-3xl shadow-xl border-r">
+        <ul class="p-4 h-screen bg-neutral-100/90 dark:bg-neutral-800/90 backdrop-blur-md overflow-y-auto">
           <div class="p-4">
-            <h2 class="headline">Toggle</h2>
-            <!-- Theme Form -->
-            <div>
-              <form method="post" action="{% url 'home:index' %}">{% csrf_token %}
-                {{ theme_form }}
-              </form>
-            </div>
+            <h2 class="headline">New Store</h2>
           </div>
           <span class="list__itm-title">Ecommerce</span>
           <li>
@@ -157,13 +151,19 @@
           </li>
           {% endif %}
           <span class="list__itm-title">Categories</span>
-          {% for category in products_categories|slice:":10" %}
+          {% for category in products_categories %}
           <li>
             <a href="{% url 'products:category_filter' category.slug %}" class="list__itm type-base--url">{{ category.title }}</a>
           </li>
           {% endfor %}
+          <!-- Theme Form -->
+          <div class="mt-4">
+            <form method="post" action="{% url 'home:index' %}">{% csrf_token %}
+              {{ theme_form }}
+            </form>
+          </div>
         </ul>
       </nav>
-    </div>
+    </aside>
   </nav>
 </header>
