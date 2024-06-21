@@ -15,13 +15,27 @@
       {{ form.get_invalid_login_error }}
     </div>
     {% endif %}
-    <label for="username" class="block">
+    <label for="username" class="block space-y-1">
       <span class="type-base--bold">Your username</span>
       {{ form.username }}
+      {% if form.username.errors %}
+        <div class="error">
+          {% for error in form.username.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
     </label>
-    <label for="password" class="block">
+    <label for="password" class="block space-y-1">
       <span class="type-base--bold">Your password</span>
       {{ form.password }}
+      {% if form.password.errors %}
+      <div class="error">
+        {% for error in form.password.errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
     </label>
     <div class="flex justify-between">
       <div class="flex items-start">

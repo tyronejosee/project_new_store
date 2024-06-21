@@ -10,14 +10,13 @@ class Cart(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     class Meta:
-        """Meta definition for Cart model."""
-        verbose_name = "Cart"
-        verbose_name_plural = "Carts"
-        app_label = "cart"
         ordering = ["user"]
+        verbose_name = "cart"
+        verbose_name_plural = "cart"
+        app_label = "cart"
 
     def __str__(self):
-        return f"Cart of {self.user.username}"
+        return str(f"Cart of {self.user.username}")
 
     def clear_cart(self):
         """Remove all items from the cart."""
@@ -33,11 +32,10 @@ class CartItem(models.Model):
     quantity = models.PositiveIntegerField(default=0)
 
     class Meta:
-        """Meta definition for CartItem model."""
-        verbose_name = "CartItem"
-        verbose_name_plural = "CartItems"
-        app_label = "cart"
         ordering = ["cart"]
+        verbose_name = "cart item"
+        verbose_name_plural = "cart items"
+        app_label = "cart"
 
     def __str__(self):
         return f"{self.cart.user} - {self.quantity}"
@@ -70,11 +68,10 @@ class Wishlist(models.Model):
     products = models.ManyToManyField(Product)
 
     class Meta:
-        """Meta definition for Wishlist model."""
-        verbose_name = "Wishlist"
-        verbose_name_plural = "Wishlists"
-        app_label = "cart"
         ordering = ["user"]
+        verbose_name = "wishlist"
+        verbose_name_plural = "wishlist"
+        app_label = "cart"
 
     def __str__(self):
         total_products = self.products.count()

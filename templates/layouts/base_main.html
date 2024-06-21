@@ -19,7 +19,9 @@
     <!-- Main Content -->
     <main class="container__section space-y-4">
       {% block content %}{% endblock content %}
-      {% include "components/signup.html" %}
+      {% if request.path != '/users/login/' and request.path != '/users/registration/' %}
+        {% include "components/signup.html" %}
+      {% endif %}
     </main>
 
     <!-- Image Modal -->

@@ -19,11 +19,10 @@ class Category(models.Model):
     show_hide = models.BooleanField("Show/Hide", default=True)
 
     class Meta:
-        """Meta definition for Category."""
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
-        app_label = "products"
         ordering = ["title"]
+        verbose_name = "category"
+        verbose_name_plural = "categories"
+        app_label = "products"
 
     def __str__(self):
         return str(self.title)
@@ -44,11 +43,10 @@ class Brand(models.Model):
     show_hide = models.BooleanField("Show/Hide", default=True)
 
     class Meta:
-        """Meta definition for Brand."""
-        verbose_name = "Brand"
-        verbose_name_plural = "Brands"
-        app_label = "products"
         ordering = ["name"]
+        verbose_name = "brand"
+        verbose_name_plural = "brands"
+        app_label = "products"
 
     def __str__(self):
         return str(self.name)
@@ -76,11 +74,10 @@ class Deal(models.Model):
     status = models.BooleanField("Status", default=True)
 
     class Meta:
-        """Meta definition for Deal."""
+        ordering = ["name"]
         verbose_name = "Deal"
         verbose_name_plural = "deals"
         app_label = "products"
-        ordering = ["name"]
 
     def __str__(self):
         return str(self.name)
@@ -133,11 +130,10 @@ class Product(models.Model):
     updated_at = models.DateTimeField("Updated at", auto_now=True)
 
     class Meta:
-        """Meta definition for Product."""
-        verbose_name = "Product"
-        verbose_name_plural = "Products"
-        app_label = "products"
         ordering = ["title"]
+        verbose_name = "product"
+        verbose_name_plural = "products"
+        app_label = "products"
 
     def __str__(self):
         return str(self.title)

@@ -7,43 +7,43 @@ from products.models import Product, Deal, Category, Brand
 from utils.actions import ActionsMixin
 
 
-# Import-Export Class
-
 class CategoryResource(resources.ModelResource):
     """Class for importing and exporting data for the Category model."""
+
     class Meta:
-        """Meta definition for CategoryResource."""
         model = Category
 
 
 class BrandResource(resources.ModelResource):
     """Class for importing and exporting data for the Brand model."""
+
     class Meta:
-        """Meta definition for BrandResource."""
         model = Brand
 
 
 class ProductResource(resources.ModelResource):
     """Class for importing and exporting data for the Product model."""
+
     class Meta:
-        """Meta definition for ProductResource."""
         model = Product
 
 
 class DealResource(resources.ModelResource):
     """Class for importing and exporting data for the Deal model."""
+
     class Meta:
-        """Meta definition for DealResource."""
         model = Deal
 
-
-# Models Class
 
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Category model."""
+
     search_fields = ("title",)
-    list_display = ("title", "show_hide",)
+    list_display = (
+        "title",
+        "show_hide",
+    )
     list_filter = ("show_hide",)
     list_per_page = 25
     readonly_fields = ("pk", "slug")
@@ -54,6 +54,7 @@ class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
 @admin.register(Brand)
 class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Brand model."""
+
     search_fields = ("name",)
     list_display = ("name",)
     list_filter = ("show_hide",)
@@ -66,6 +67,7 @@ class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin config for the Deal model."""
+
     search_fields = ("name", "description")
     list_display = ("name", "discount", "start_date", "end_date", "status")
     list_filter = ("status",)
@@ -78,6 +80,7 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
     """Admin config for the Product model."""
+
     search_fields = ("title",)
     list_display = ("title", "normal_price", "brand", "updated_at")
     list_filter = ("show_hide",)

@@ -19,19 +19,16 @@ class UserLoginForm(AuthenticationForm):
 
 class UserRegistrationForm(forms.ModelForm):
     """Base form for user registration."""
-
     password1 = forms.CharField(
         label="Password",
         widget=forms.PasswordInput(attrs=form_text("Password"))
     )
-
     password2 = forms.CharField(
         label="Repeat your password",
         widget=forms.PasswordInput(attrs=form_text("Repeat your password"))
     )
 
     class Meta:
-        """Meta definition for UserRegistrationForm."""
         model = CustomUser
         fields = (
             "username", "email", "first_name", "last_name",

@@ -11,27 +11,27 @@
     <h2 class="headline">Create your New Store account</h2>
   </header>
   <form method="POST" class="space-y-4">{% csrf_token %}
-    <label for="first-name" class="block">
+    <label for="first-name" class="block space-y-1">
       <span class="type-base--bold">First Name</span>
       {{ form.first_name }}
     </label>
-    <label for="last-name" class="block">
+    <label for="last-name" class="block space-y-1">
       <span class="type-base--bold">Last Name</span>
       {{ form.last_name }}
     </label>
-    <label for="username" class="block">
+    <label for="username" class="block space-y-1">
       <span class="type-base--bold">Username</span>
       {{ form.username }}
     </label>
-    <label for="email" class="block">
+    <label for="email" class="block space-y-1">
       <span class="type-base--bold">Email</span>
       {{ form.email }}
     </label>
-    <label for="password1" class="block">
+    <label for="password1" class="block space-y-1">
       <span class="type-base--bold">Password</span>
       {{ form.password1 }}
     </label>
-    <label for="password2" class="block">
+    <label for="password2" class="block space-y-1">
       <span class="type-base--bold">Password Repeat</span>
       {{ form.password2 }}
     </label>

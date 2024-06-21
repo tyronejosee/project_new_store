@@ -4,13 +4,8 @@ from django import forms
 from home.models import Page
 from products.models import Product, Category, Brand, Deal
 from utils.tailwind_classes import (
-    form_select,
-    form_text,
-    form_text_readonly,
-    form_number,
-    form_checkbox,
-    form_file,
-    form_textarea
+    form_select, form_text, form_text_readonly, form_number,
+    form_checkbox, form_file, form_textarea
 )
 
 
@@ -18,7 +13,6 @@ class PageForm(forms.ModelForm):
     """Base form for page update."""
 
     class Meta:
-        """Meta definition for Page form."""
         model = Page
         fields = ["key", "content", "image"]
         widgets = {
@@ -34,7 +28,6 @@ class ProductForm(forms.ModelForm):
     """Base form for product creation and update."""
 
     class Meta:
-        """Meta definition for Product form."""
         model = Product
         exclude = ["created_at", "updated_at"]
         widgets = {
@@ -63,7 +56,6 @@ class CategoryForm(forms.ModelForm):
     """Base form for category creation and update."""
 
     class Meta:
-        """Meta definition for Category form."""
         model = Category
         fields = "__all__"
         widgets = {
@@ -79,7 +71,6 @@ class BrandForm(forms.ModelForm):
     """Base form for brand creation and update."""
 
     class Meta:
-        """Meta definition for Brand form."""
         model = Brand
         fields = "__all__"
         widgets = {
@@ -95,7 +86,6 @@ class DealForm(forms.ModelForm):
     """Base form for deal creation and update."""
 
     class Meta:
-        """Meta definition for Deal form."""
         model = Deal
         fields = "__all__"
         widgets = {

@@ -8,6 +8,7 @@ from users.managers import CustomUserManager
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     """Entity type model for CustomUser."""
+
     username = models.CharField("Username", max_length=255, unique=True)
     email = models.EmailField("Email", max_length=255, unique=True)
     first_name = models.CharField("First Name", max_length=255, blank=True)
@@ -24,11 +25,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ["email", "first_name", "last_name"]
 
     class Meta:
-        """Meta definition for CustomUser model."""
-        verbose_name = "CustomUser"
-        verbose_name_plural = "CustomUsers"
-        app_label = "users"
         ordering = ["username"]
+        verbose_name = "custom user"
+        verbose_name_plural = "custom users"
+        app_label = "users"
 
     def __str__(self):
         return str(self.username)

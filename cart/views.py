@@ -8,6 +8,7 @@ from cart.models import Cart, Wishlist, CartItem
 
 # Views for Cart
 
+
 @login_required
 def cart(request):
     """Render the cart view and wishlist view."""
@@ -20,11 +21,16 @@ def cart(request):
     wishlist_products = wishlist.products.all()
     wishlist_count = wishlist.products.count()
 
-    return render(request, "cart/cart.html", {
-        "cart": cart, "cart_items": cart_items,
-        "wishlist": wishlist, "wishlist_products": wishlist_products,
-        "wishlist_count": wishlist_count,
-        }
+    return render(
+        request,
+        "cart/cart.html",
+        {
+            "cart": cart,
+            "cart_items": cart_items,
+            "wishlist": wishlist,
+            "wishlist_products": wishlist_products,
+            "wishlist_count": wishlist_count,
+        },
     )
 
 
@@ -34,10 +40,7 @@ def add_prod_cart(request, product_id):
     user = request.user
     product = Product.objects.get(id=product_id)
     cart, created = Cart.objects.get_or_create(user=user)
-    cart_item, created = CartItem.objects.get_or_create(
-        cart=cart,
-        product=product
-    )
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
     cart_item.add_to_cart()
     return redirect("cart:cart")
 
@@ -74,6 +77,7 @@ def clear_cart(request):
 
 
 # Views for Wishlist
+
 
 @login_required
 def add_prod_wishlist(request, product_id):

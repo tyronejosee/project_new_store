@@ -15,11 +15,10 @@ class Company(models.Model):
     linkedin = models.URLField("LinkedIn")
 
     class Meta:
-        """Meta definition for Company model."""
-        verbose_name = "Company"
-        verbose_name_plural = "Company"
-        app_label = "home"
         ordering = ["name"]
+        verbose_name = "company"
+        verbose_name_plural = "company"
+        app_label = "home"
 
     def __str__(self):
         return str(self.name)
@@ -34,11 +33,10 @@ class Page(models.Model):
     updated_at = models.DateTimeField("Updated at", auto_now=True)
 
     class Meta:
-        """Meta definition for Page model."""
-        verbose_name = "Page"
-        verbose_name_plural = "Pages"
-        app_label = "home"
         ordering = ["key"]
+        verbose_name = "page"
+        verbose_name_plural = "pages"
+        app_label = "home"
 
     def __str__(self):
         return str(self.key)
