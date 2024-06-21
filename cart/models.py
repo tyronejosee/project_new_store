@@ -6,7 +6,8 @@ from products.models import Product
 
 
 class Cart(models.Model):
-    """Pivot type model for Cart."""
+    """Model definition for Cart."""
+
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     class Meta:
@@ -19,14 +20,16 @@ class Cart(models.Model):
         return str(f"Cart of {self.user.username}")
 
     def clear_cart(self):
-        """Remove all items from the cart."""
         self.cart_items.all().delete()
 
 
 class CartItem(models.Model):
-    """Pivot type model for CartItem."""
+    """Model definition for CartItem."""
+
     cart = models.ForeignKey(
-        Cart, on_delete=models.CASCADE, related_name="cart_items"
+        Cart,
+        on_delete=models.CASCADE,
+        related_name="cart_items",
     )
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
@@ -41,16 +44,13 @@ class CartItem(models.Model):
         return f"{self.cart.user} - {self.quantity}"
 
     def add_to_cart(self, quantity=1):
-        """Add this item to the cart with a specified quantity."""
         self.quantity += quantity
         self.save()
 
     def remove_from_cart(self):
-        """Remove this item from the cart."""
         self.delete()
 
     def subtract_from_cart(self):
-        """Subtract one unit of this item from the cart."""
         if self.quantity > 1:
             self.quantity -= 1
             self.save()
@@ -63,7 +63,8 @@ class CartItem(models.Model):
 
 
 class Wishlist(models.Model):
-    """Pivot type model for Wishlist."""
+    """Model definition for Wishlist."""
+
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
 
@@ -78,9 +79,7 @@ class Wishlist(models.Model):
         return f"{self.user.username} ({total_products} prods)"
 
     def add_product(self, product):
-        """Add a product to the Wishlist."""
         self.products.add(product)
 
     def remove_product(self, product):
-        """Remove a product from the Wishlist."""
         self.products.remove(product)

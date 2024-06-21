@@ -1,6 +1,5 @@
 """Choices for Products App."""
 
-
 WARRANTY_CHOICES = [
     (1, "1 month"),
     (3, "3 months"),

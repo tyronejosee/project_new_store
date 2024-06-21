@@ -5,7 +5,8 @@ from cloudinary.models import CloudinaryField
 
 
 class Company(models.Model):
-    """Entity type model for Company."""
+    """Model definition for Company."""
+
     name = models.CharField("Name", max_length=50)
     logo = CloudinaryField("Logo")
     copy = models.CharField("Copy", max_length=150)
@@ -25,7 +26,8 @@ class Company(models.Model):
 
 
 class Page(models.Model):
-    """Entity type model for Pages."""
+    """Model definition for Page."""
+
     key = models.CharField("Unique Key", max_length=50, default="pending")
     content = models.TextField("Content", blank=True)
     image = CloudinaryField("Logo")

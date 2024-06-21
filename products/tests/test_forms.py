@@ -1,6 +1,7 @@
 """Forms Tests for Product App."""
 
 from django.test import TestCase
+
 from products.models import Brand, Category, Deal
 from products.forms import CategoriesForm
 

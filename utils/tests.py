@@ -1,7 +1,8 @@
-"""Utils: Test Base."""
+"""Tests for Utils App."""
 
 from django.test import TestCase, Client
 from django.contrib.auth import get_user_model
+
 from products.models import Product, Brand, Category, Deal
 from home.models import Page
 
@@ -19,7 +20,7 @@ class BaseTestCase(TestCase):
             email="testuser@example.com",
             password="testpass",
             first_name="Test",
-            last_name="User"
+            last_name="User",
         )
 
         # Log in the user created
@@ -46,11 +47,11 @@ class BaseTestCase(TestCase):
             featured=False,
             show_hide=True,
             description="Test description",
-            specifications="Test specifications"
+            specifications="Test specifications",
         )
 
         # Home pages
         self.page = Page.objects.create(
             key="page_example",
-            content="Content Example"
+            content="Content Example",
         )

@@ -1,6 +1,7 @@
 """Views Tests for Management App."""
 
 from django.urls import reverse
+
 from utils.tests import BaseTestCase
 
 
@@ -49,21 +50,20 @@ class ManagementViewsTest(BaseTestCase):
         """Test for ProductUpdateView."""
         url = reverse(
             "management:product_update",
-            kwargs={"pk": self.product.pk}
+            kwargs={"pk": self.product.pk},
         )
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "management/product_form.html")
 
-    # TODO: Fix test or delete class
     def test_product_delete_view(self):
         """Test for ProductDeleteView."""
         url = reverse(
             "management:product_delete",
-            kwargs={"pk": self.product.pk}
+            kwargs={"pk": self.product.pk},
         )
         response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)    
+        self.assertEqual(response.status_code, 200)
 
     def test_deactivated_product_list_view(self):
         """Test for DeactivatedProductListView."""
@@ -103,7 +103,7 @@ class ManagementViewsTest(BaseTestCase):
         """Test for CategoryUpdateView."""
         url = reverse(
             "management:category_update",
-            kwargs={"pk": self.category.pk}
+            kwargs={"pk": self.category.pk},
         )
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -113,7 +113,7 @@ class ManagementViewsTest(BaseTestCase):
         """Test for CategoryDeleteView."""
         url = reverse(
             "management:category_delete",
-            kwargs={"pk": self.category.pk}
+            kwargs={"pk": self.category.pk},
         )
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -169,13 +169,6 @@ class ManagementViewsTest(BaseTestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "management/deal_form.html")
-
-    # TODO: Fix image field
-    # def test_deal_delete_view(self):
-    # """Test for DealDeleteView."""
-    #     response = self.client.get(reverse("management:deal_delete", kwargs={"pk": self.deal.pk}))
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, "components/confirm_delete.html")
 
     # User tests
     def test_user_list_view(self):

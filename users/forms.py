@@ -2,6 +2,7 @@
 
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
+
 from users.models import CustomUser
 from utils.tailwind_classes import form_text, form_number
 
@@ -19,20 +20,25 @@ class UserLoginForm(AuthenticationForm):
 
 class UserRegistrationForm(forms.ModelForm):
     """Base form for user registration."""
+
     password1 = forms.CharField(
         label="Password",
-        widget=forms.PasswordInput(attrs=form_text("Password"))
+        widget=forms.PasswordInput(attrs=form_text("Password")),
     )
     password2 = forms.CharField(
         label="Repeat your password",
-        widget=forms.PasswordInput(attrs=form_text("Repeat your password"))
+        widget=forms.PasswordInput(attrs=form_text("Repeat your password")),
     )
 
     class Meta:
         model = CustomUser
         fields = (
-            "username", "email", "first_name", "last_name",
-            "address", "phone_number"
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "address",
+            "phone_number",
         )
         widgets = {
             "username": forms.TextInput(attrs=form_text("Username")),
@@ -41,7 +47,7 @@ class UserRegistrationForm(forms.ModelForm):
             "last_name": forms.TextInput(attrs=form_text("Last Name")),
             "address": forms.TextInput(attrs=form_text("Address")),
             "phone_number": forms.NumberInput(
-                attrs=form_number("Phone Number")
+                attrs=form_number("Phone Number"),
             ),
         }
 
@@ -64,6 +70,7 @@ class UserRegistrationForm(forms.ModelForm):
 
 class ThemePreferenceForm(forms.Form):
     """Base form for Theme Preference."""
+
     THEME_CHOICES = [
         ("dark", "Dark"),
         ("light", "Light"),
@@ -73,8 +80,8 @@ class ThemePreferenceForm(forms.Form):
         widget=forms.Select(
             attrs={
                 "class": "btn btn--secondary block w-full",
-                "onchange": "submit()"
+                "onchange": "submit()",
             }
         ),
-        label=False
+        label=False,
     )

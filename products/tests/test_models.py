@@ -3,6 +3,7 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
+
 from products.models import Category, Brand, Deal, Product
 
 
@@ -10,9 +11,7 @@ class CategoryModelTestCase(TestCase):
     """Tests for Category model."""
 
     def setUp(self):
-        self.category = Category.objects.create(
-            title="C Category Example"
-        )
+        self.category = Category.objects.create(title="C Category Example")
 
     def test_title_max_length(self):
         """Test that the "title" field does not exceed the maximum length."""
@@ -21,7 +20,7 @@ class CategoryModelTestCase(TestCase):
             self.category.full_clean()
 
     def test_slug_creation_on_save(self):
-        """Test that the slug is created correctly when saving a Category object."""
+        """Test that slug is created correctly when saving a Category."""
         self.category.save()
         self.assertEqual(self.category.slug, slugify(self.category.title))
 
@@ -31,8 +30,8 @@ class CategoryModelTestCase(TestCase):
 
     def test_ordering(self):
         """Test that the model is ordered by the "title" field."""
-        category2 = Category.objects.create(title="B Category Example")
-        category3 = Category.objects.create(title="A Category Example")
+        Category.objects.create(title="B Category Example")
+        Category.objects.create(title="A Category Example")
         categories = Category.objects.all()
         self.assertEqual(categories[0].title, "A Category Example")
         self.assertEqual(categories[1].title, "B Category Example")
@@ -56,7 +55,7 @@ class BrandModelTestCase(TestCase):
             self.brand.full_clean()
 
     def test_slug_creation_on_save(self):
-        """Test that the slug is created correctly when saving a Brand object."""
+        """Test that slug is created correctly when saving a Brand."""
         self.brand.save()
         self.assertEqual(self.brand.slug, slugify(self.brand.name))
 
@@ -65,13 +64,13 @@ class BrandModelTestCase(TestCase):
         self.assertTrue(self.brand.show_hide)
 
     def test_verbose_name_plural(self):
-        """Test that the plural name has been defined correctly in the Meta class."""
-        self.assertEqual(str(Brand._meta.verbose_name_plural), "Brands")
+        """Test that plural name has been defined correctly in Meta class."""
+        self.assertEqual(str(Brand._meta.verbose_name_plural), "brands")
 
     def test_ordering(self):
         """Test that the model is ordered by the "name" field."""
-        brand2 = Brand.objects.create(name="Apple")
-        brand3 = Brand.objects.create(name="Sony")
+        Brand.objects.create(name="Apple")
+        Brand.objects.create(name="Sony")
         brands = Brand.objects.all()
         self.assertEqual(brands[0].name, "Apple")
         self.assertEqual(brands[1].name, "Samsung")
@@ -101,16 +100,15 @@ class DealModelTestCase(TestCase):
             self.deal.full_clean()
 
     def test_slug_creation_on_save(self):
-        """Test that the slug is created correctly when saving a Deal object."""
+        """Test that slug is created correctly when saving a Deal."""
         self.deal.save()
         self.assertEqual(self.deal.slug, slugify(self.deal.name))
-
 
     def test_status_default_value(self):
         """Test that the "status" field has the default value."""
         self.assertTrue(self.deal.status)
 
-    #TODO: ADD RENAME FILE TEST
+    # TODO: ADD RENAME FILE TEST
 
 
 class ProductModelTestCase(TestCase):
@@ -124,7 +122,7 @@ class ProductModelTestCase(TestCase):
             discount=15,
             start_date="2023-01-01",
             end_date="2023-01-31",
-            status=True
+            status=True,
         )
 
     # def test_title_max_length(self):
@@ -139,23 +137,23 @@ class ProductModelTestCase(TestCase):
     #         product.full_clean()
 
     def test_slug_creation_on_save(self):
-        """Test that the slug is created correctly when saving a Product object."""
+        """Test that slug is created correctly when saving a Product."""
         product = Product.objects.create(
             title="Test Product",
             brand=self.brand,
             normal_price=100,
-            category=self.category
+            category=self.category,
         )
         product.save()
         self.assertEqual(product.slug, "test-product")
 
     def test_sale_price_calculation_without_deal(self):
-        """Test that "update_sale_price" sets "sale_price" to None when no deal is present."""
+        """Test that "update_sale_price" sets "sale_price" to None."""
         product = Product.objects.create(
             title="Test Product",
             brand=self.brand,
             normal_price=100,
-            category=self.category
+            category=self.category,
         )
         product.update_sale_price()
         self.assertIsNone(product.sale_price)
@@ -166,6 +164,6 @@ class ProductModelTestCase(TestCase):
             title="Test Product",
             brand=self.brand,
             normal_price=100,
-            category=self.category
+            category=self.category,
         )
         self.assertTrue(product.is_new())

@@ -3,11 +3,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
+
 from users.managers import CustomUserManager
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    """Entity type model for CustomUser."""
+    """Model definition for CustomUser."""
 
     username = models.CharField("Username", max_length=255, unique=True)
     email = models.EmailField("Email", max_length=255, unique=True)

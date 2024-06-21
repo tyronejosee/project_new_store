@@ -3,33 +3,30 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+
 from products.models import Product, Deal, Category, Brand
 from utils.actions import ActionsMixin
 
 
 class CategoryResource(resources.ModelResource):
-    """Class for importing and exporting data for the Category model."""
 
     class Meta:
         model = Category
 
 
 class BrandResource(resources.ModelResource):
-    """Class for importing and exporting data for the Brand model."""
 
     class Meta:
         model = Brand
 
 
 class ProductResource(resources.ModelResource):
-    """Class for importing and exporting data for the Product model."""
 
     class Meta:
         model = Product
 
 
 class DealResource(resources.ModelResource):
-    """Class for importing and exporting data for the Deal model."""
 
     class Meta:
         model = Deal
@@ -37,7 +34,7 @@ class DealResource(resources.ModelResource):
 
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
-    """Admin config for the Category model."""
+    """Admin for Category model."""
 
     search_fields = ("title",)
     list_display = (
@@ -53,7 +50,7 @@ class CategoryAdmin(ImportExportModelAdmin, ActionsMixin):
 
 @admin.register(Brand)
 class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
-    """Admin config for the Brand model."""
+    """Admin for Brand model."""
 
     search_fields = ("name",)
     list_display = ("name",)
@@ -66,7 +63,7 @@ class BrandAdmin(ImportExportModelAdmin, ActionsMixin):
 
 @admin.register(Deal)
 class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    """Admin config for the Deal model."""
+    """Admin for Deal model."""
 
     search_fields = ("name", "description")
     list_display = ("name", "discount", "start_date", "end_date", "status")
@@ -79,7 +76,7 @@ class DealAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin, ActionsMixin):
-    """Admin config for the Product model."""
+    """Admin for Product model."""
 
     search_fields = ("title",)
     list_display = ("title", "normal_price", "brand", "updated_at")

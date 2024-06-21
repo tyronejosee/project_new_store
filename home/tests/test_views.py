@@ -1,6 +1,7 @@
 """Views Tests for Home App."""
 
 from django.urls import reverse
+
 from utils.tests import BaseTestCase
 
 

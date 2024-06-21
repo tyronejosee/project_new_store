@@ -1,6 +1,7 @@
 """Views Tests for Cart App."""
 
 from django.urls import reverse
+
 from utils.tests import BaseTestCase
 from cart.models import Cart, CartItem, Wishlist
 
@@ -85,6 +86,7 @@ class CartViewsTest(BaseTestCase):
         # Verify that the cart is empty
         cart = Cart.objects.get(user=self.user)
         self.assertEqual(cart.cart_items.count(), 0)
+
 
 class WishlistViewsTest(BaseTestCase):
     """Tests for Wishlist views."""

@@ -4,12 +4,14 @@ from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.db.models import Q
+
 from products.models import Product, Brand, Deal, Category
 from products.forms import CategoriesForm
 
 
 class ProductListView(ListView):
     """Display the complete list of all products, active and in stock."""
+
     model = Product
     template_name = "products/product_list.html"
     context_object_name = "products"
@@ -27,6 +29,7 @@ class ProductListView(ListView):
 
 class ProductDetailView(DetailView):
     """Display the details of a specific product."""
+
     model = Product
     template_name = "products/product_detail.html"
     context_object_name = "product"
@@ -35,6 +38,7 @@ class ProductDetailView(DetailView):
 
 class CategoriesListView(ListView):
     """Display a list of products filtered by categories."""
+
     model = Product
     template_name = "products/product_list.html"
     context_object_name = "products"
@@ -73,6 +77,7 @@ class CategoriesListView(ListView):
 
 class DealListView(ListView):
     """View to display a list of deals."""
+
     model = Deal
     template_name = "products/deal_list.html"
     context_object_name = "deals"
@@ -80,6 +85,7 @@ class DealListView(ListView):
 
 class DealDetailView(DetailView):
     """View to display in detail all the products of an offer."""
+
     model = Deal
     template_name = "products/deal_detail.html"
     context_object_name = "deal"
@@ -95,6 +101,7 @@ class DealDetailView(DetailView):
 
 class RecentProductsListView(ListView):
     """Display a list of recent products."""
+
     model = Product
     template_name = "products/product_list.html"
     context_object_name = "products"
@@ -113,6 +120,7 @@ class RecentProductsListView(ListView):
 
 class CategoryFilterListView(ListView):
     """Display a list of all products from a category."""
+
     model = Product
     template_name = "products/product_list.html"
     context_object_name = "products"
@@ -122,9 +130,7 @@ class CategoryFilterListView(ListView):
     def get_queryset(self):
         category_slug = self.kwargs["category_slug"]
         return Product.objects.filter(
-            category__slug=category_slug,
-            show_hide=True,
-            stock__gte=1
+            category__slug=category_slug, show_hide=True, stock__gte=1
         )
 
     def get_context_data(self, **kwargs):
@@ -137,6 +143,7 @@ class CategoryFilterListView(ListView):
 
 class BrandFilterListView(ListView):
     """Display a list of all products from a brand."""
+
     model = Product
     template_name = "products/product_list.html"
     context_object_name = "products"
@@ -146,9 +153,7 @@ class BrandFilterListView(ListView):
     def get_queryset(self):
         brand_slug = self.kwargs["brand_slug"]
         return Product.objects.filter(
-            brand__slug=brand_slug,
-            show_hide=True,
-            stock__gte=1
+            brand__slug=brand_slug, show_hide=True, stock__gte=1
         )
 
     def get_context_data(self, **kwargs):
@@ -167,21 +172,21 @@ def product_search(request):
     # Search filter
     if queryset:
         products = Product.objects.filter(
-            Q(title__icontains=queryset) |
-            Q(brand__name__icontains=queryset)
+            Q(title__icontains=queryset) | Q(brand__name__icontains=queryset)
         ).distinct()
 
-    # Product count
     results = products.count()
-
-    # Pagination
     paginator = Paginator(products, 12)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, "products/product_list.html", {
-        "products": products,
-        "title": queryset,
-        "results": results,
-        "page_obj": page_obj
-    })
+    return render(
+        request,
+        "products/product_list.html",
+        {
+            "products": products,
+            "title": queryset,
+            "results": results,
+            "page_obj": page_obj,
+        },
+    )

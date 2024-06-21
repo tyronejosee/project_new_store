@@ -1,4 +1,4 @@
-"""Utils: Validators."""
+"""Validators for Utils App."""
 
 from django.core.exceptions import ValidationError
 

@@ -2,6 +2,7 @@
 
 from django.views.generic import TemplateView, DetailView
 from django.shortcuts import render
+
 from home.models import Page
 from products.models import Product
 from users.forms import ThemePreferenceForm
@@ -9,6 +10,7 @@ from users.forms import ThemePreferenceForm
 
 class IndexTemplateView(TemplateView):
     """View for rendering the site index with multiple contexts."""
+
     template_name = "home/index.html"
 
     def get_context_data(self, **kwargs):
@@ -37,8 +39,9 @@ class IndexTemplateView(TemplateView):
 
         # Computer monitors (category) (6 prods.)
         context["computer_monitors"] = Product.objects.filter(
-            show_hide=True, stock__gte=1,
-            category__title__iexact="computer monitors"
+            show_hide=True,
+            stock__gte=1,
+            category__title__iexact="computer monitors",
         ).order_by("-updated_at")[:6]
 
         return context
@@ -60,6 +63,7 @@ class IndexTemplateView(TemplateView):
 
 class PageDetailView(DetailView):
     """View to display details of the static pages of the site."""
+
     model = Page
     template_name = "home/page_detail.html"
     context_object_name = "page"

@@ -1,6 +1,7 @@
 """URLs Tests for Cart App."""
 
 from django.urls import reverse, resolve
+
 from utils.tests import BaseTestCase
 from cart.views import (
     cart,
@@ -9,7 +10,7 @@ from cart.views import (
     subtract_prod_cart,
     clear_cart,
     add_prod_wishlist,
-    remove_prod_wishlist
+    remove_prod_wishlist,
 )
 
 

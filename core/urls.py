@@ -9,7 +9,6 @@ from django.urls import path, include
 urlpatterns = [
     # Django URLs
     path("admin/", admin.site.urls),
-
     # App URLs
     path("", include("home.urls")),
     path("users/", include("users.urls")),
@@ -17,7 +16,6 @@ urlpatterns = [
     path("cart/", include("cart.urls")),
     path("management/", include("management.urls")),
     path("payment/", include("payment.urls")),
-
     # Third party URLs
     path("paypal/", include("paypal.standard.ipn.urls")),
 ]
@@ -25,9 +23,13 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
+    )
     urlpatterns += static(
-        settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+        settings.STATIC_URL,
+        document_root=settings.STATIC_ROOT,
+    )
 
 
 # Custom attributes for admin

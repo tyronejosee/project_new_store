@@ -9,6 +9,7 @@ User = get_user_model()
 
 class Command(BaseCommand):
     """Command to create a superuser if "admin" does not exist."""
+
     help = "Create a superuser if 'admin' does not exist"
 
     def handle(self, *args, **options):
@@ -19,8 +20,8 @@ class Command(BaseCommand):
                 email="newstore@admin.com",
                 first_name="new",
                 last_name="store",
-                password="newstoreadmin"
+                password="newstoreadmin",
             )
             self.stdout.write(
-                self.style.SUCCESS("Superuser created successfully.")
+                self.style.SUCCESS("Superuser created successfully."),
             )

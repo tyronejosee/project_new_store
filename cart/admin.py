@@ -1,12 +1,14 @@
 """Admin for Cart App."""
 
 from django.contrib import admin
+
 from cart.models import Cart, Wishlist, CartItem
 
 
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
-    """Admin config for the Cart model."""
+    """Admin config for Cart model."""
+
     search_fields = ("user",)
     list_per_page = 25
     readonly_fields = ("pk",)
@@ -15,7 +17,8 @@ class CartAdmin(admin.ModelAdmin):
 
 @admin.register(CartItem)
 class CartItemAdmin(admin.ModelAdmin):
-    """Admin config for the CartItem model."""
+    """Admin config for CartItem model."""
+
     search_fields = ("cart",)
     list_per_page = 25
     readonly_fields = ("cart", "product", "quantity")
@@ -24,7 +27,8 @@ class CartItemAdmin(admin.ModelAdmin):
 
 @admin.register(Wishlist)
 class WishlistAdmin(admin.ModelAdmin):
-    """Admin config for the Wishlist model."""
+    """Admin config for Wishlist model."""
+
     search_fields = ("user",)
     list_per_page = 25
     readonly_fields = ("pk",)

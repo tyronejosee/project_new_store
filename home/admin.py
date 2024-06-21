@@ -3,18 +3,17 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+
 from home.models import Company, Page
 
 
 class CompanyResource(resources.ModelResource):
-    """Class for importing and exporting data."""
 
     class Meta:
         model = Company
 
 
 class PageResource(resources.ModelResource):
-    """Class for importing and exporting data."""
 
     class Meta:
         model = Page
@@ -23,6 +22,7 @@ class PageResource(resources.ModelResource):
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
     """Admin for Company model."""
+
     list_display = ("name",)
     readonly_fields = ("pk",)
     resource_class = CompanyResource
@@ -31,6 +31,7 @@ class CompanyAdmin(admin.ModelAdmin):
 @admin.register(Page)
 class PageAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     """Admin for Page model."""
+
     search_fields = ("key",)
     list_display = ("key", "created_at", "updated_at")
     readonly_fields = ("created_at", "updated_at")

@@ -1,10 +1,11 @@
-""""Utils: Global Actions for Admin."""
+""""Actions for Utils App."""
 
 from django.contrib import admin
 
 
 class ActionsMixin(admin.ModelAdmin):
     """Mixin providing custom actions for showing and hiding elements."""
+
     actions = ["hide_elements", "show_elements"]
 
     @admin.action(description="Hide selected elements")

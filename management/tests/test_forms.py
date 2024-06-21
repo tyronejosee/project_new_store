@@ -1,13 +1,14 @@
 """Forms Tests for Management App."""
 
 from django.test import TestCase
+
 from products.models import Category, Brand, Deal
 from management.forms import (
     PageForm,
     ProductForm,
     CategoryForm,
     BrandForm,
-    DealForm
+    DealForm,
 )
 
 
@@ -30,10 +31,10 @@ class PageFormTest(TestCase):
         self.assertFalse(form.is_valid())
 
     def test_key_length_limit(self):
-        """Test if the form is invalid when the "key" length exceeds the limit."""
+        """Test if the form is invalid when "key" length exceeds the limit."""
         data = {
-            "key": "example_key" * 10, # max_length=50
-            "content": "Lorem ipsum dolor sit amet.",
+            "key": "example_key" * 10,  # max_length=50
+            "content": "Lorem ipsum dolor sit amor.",
         }
         form = PageForm(data)
         self.assertFalse(form.is_valid())
@@ -134,7 +135,7 @@ class BrandFormTest(TestCase):
     def test_name_length_limit(self):
         """Test if the form is invalid when name length exceeds the limit."""
         data = {
-            "name": "E" * 256,    # max_length=255
+            "name": "E" * 256,  # max_length=255
             "slug": "example-brand",
             "show_hide": True,
         }
@@ -169,7 +170,7 @@ class DealFormTest(TestCase):
     def test_name_length_limit(self):
         """Test if the form is invalid when name length exceeds the limit."""
         data = {
-            "name": "E" * 256,    # max_length=255
+            "name": "E" * 256,  # max_length=255
             "slug": "example-deal",
             "image": "example_image.jpg",
             "description": "Example Description",

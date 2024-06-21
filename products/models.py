@@ -12,9 +12,14 @@ from products.choices import WARRANTY_CHOICES
 
 class Category(models.Model):
     """Catalog type model for Category."""
+
     title = models.CharField("Category", max_length=50, unique=True)
     slug = models.SlugField(
-        "Slug", max_length=255, unique=True, null=True, blank=True
+        "Slug",
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
     )
     show_hide = models.BooleanField("Show/Hide", default=True)
 
@@ -36,9 +41,14 @@ class Category(models.Model):
 
 class Brand(models.Model):
     """Catalog type model for Brand."""
+
     name = models.CharField("Name", max_length=255, unique=True)
     slug = models.SlugField(
-        "Slug", max_length=255, unique=True, null=True, blank=True
+        "Slug",
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
     )
     show_hide = models.BooleanField("Show/Hide", default=True)
 
@@ -60,9 +70,14 @@ class Brand(models.Model):
 
 class Deal(models.Model):
     """Entity type model for Deals."""
+
     name = models.CharField("Name", max_length=255, unique=True)
     slug = models.SlugField(
-        "Slug", max_length=255, unique=True, null=True, blank=True
+        "Slug",
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
     )
     image = CloudinaryField("Image")
     description = models.TextField("Description", blank=True, null=True)
@@ -95,27 +110,44 @@ class Deal(models.Model):
 
 class Product(models.Model):
     """Entity type model for Products."""
+
     title = models.CharField("Title", max_length=255, unique=True)
     slug = models.SlugField(
-        "Slug", max_length=255, unique=True, null=True, blank=True
+        "Slug",
+        max_length=255,
+        unique=True,
+        null=True,
+        blank=True,
     )
     brand = models.ForeignKey(
-        Brand, on_delete=models.SET_NULL, null=True, blank=True,
-        verbose_name="Brand"
+        Brand,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name="Brand",
     )
     normal_price = models.DecimalField(
-        "Price", max_digits=10, decimal_places=2
+        "Price",
+        max_digits=10,
+        decimal_places=2,
     )
     sale_price = models.DecimalField(
         "Sale Price", max_digits=10, decimal_places=2, null=True, blank=True
     )
     deal = models.ForeignKey(
-        Deal, on_delete=models.SET_NULL, null=True, blank=True,
-        related_name="products", verbose_name="Deal"
+        Deal,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="products",
+        verbose_name="Deal",
     )
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True, blank=True,
-        verbose_name="Category"
+        Category,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name="Category",
     )
     image = CloudinaryField("Image")
     stock = models.PositiveIntegerField("Stock", default=100)
@@ -151,7 +183,7 @@ class Product(models.Model):
         # Check if there is a deal on the product and if it has a discount
         if self.deal and self.deal.discount is not None:
             if self.deal.start_date and self.deal.end_date:
-                current_date = timezone.now().date()    # Today
+                current_date = timezone.now().date()  # Today
                 # Apply the discount and save the "sale_price"
                 if self.deal.start_date <= current_date <= self.deal.end_date:
                     self.sale_price = self.normal_price - (
@@ -167,13 +199,13 @@ class Product(models.Model):
 
     def is_new(self):
         """Returns True if the product is new."""
-        return (
-            self.created_at >= timezone.now() - timezone.timedelta(days=1) or
-            self.updated_at >= timezone.now() - timezone.timedelta(days=1)
-        )
+        return self.created_at >= timezone.now() - timezone.timedelta(
+            days=1
+        ) or self.updated_at >= timezone.now() - timezone.timedelta(days=1)
 
 
 # Signals
+
 
 @receiver(post_save, sender=Deal)
 @receiver(post_delete, sender=Deal)

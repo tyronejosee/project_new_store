@@ -1,6 +1,7 @@
 """Models Tests for Home App."""
 
 from django.test import TestCase
+
 from home.models import Company, Page
 
 
@@ -15,7 +16,7 @@ class CompanyModelTest(TestCase):
             "description": "Example Description",
             "email": "example@example.com",
             "github": "https://github.com/example",
-            "linkedin": "https://linkedin.com/example"
+            "linkedin": "https://linkedin.com/example",
         }
 
     def test_create_company_instance(self):

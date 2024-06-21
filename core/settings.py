@@ -156,9 +156,9 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 MEDIA_URL = "/media/"
@@ -167,7 +167,7 @@ cloudinary.config(
     cloud_name=env("CLOUDINARY_CLOUD_NAME"),
     api_key=env("CLOUDINARY_API_KEY"),
     api_secret=env("CLOUDINARY_API_SECRET"),
-    secure=True
+    secure=True,
 )
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -182,6 +182,6 @@ if not DEBUG:
     DATABASES = {
         "default": dj_database_url.config(
             default="postgresql://postgres:postgres@localhost:5432/mysite",
-            conn_max_age=600
+            conn_max_age=600,
         )
     }

@@ -1,9 +1,8 @@
 """Views Tests for Product App."""
 
 from django.test import TestCase, Client
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.contrib.staticfiles import finders
 from django.urls import reverse
+
 from products.models import Product, Brand, Deal, Category
 
 
@@ -24,7 +23,7 @@ class ProductViewsTest(TestCase):
             category=self.category,
             image=None,
             stock=10,
-            show_hide=True
+            show_hide=True,
         )
 
         self.client = Client()

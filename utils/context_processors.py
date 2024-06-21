@@ -1,4 +1,4 @@
-"""Utils: Context Processors"""
+"""Context Processors for Utils App."""
 
 from home.models import Company
 from products.models import Product, Category
@@ -16,7 +16,7 @@ def user_preferences(request):
     """Context processor to send the theme preference and theme form."""
     theme_preference = request.session.get("theme_preference", "dark")
     theme_form = ThemePreferenceForm(
-        initial={"theme_preference": theme_preference}
+        initial={"theme_preference": theme_preference},
     )
     return {"theme_preference": theme_preference, "theme_form": theme_form}
 
@@ -24,7 +24,8 @@ def user_preferences(request):
 def products_featured(_request):
     """Context processor return a list of featured products."""
     products_featured_list = Product.objects.filter(
-        featured=True, show_hide=True, stock__gte=1)[:6]
+        featured=True, show_hide=True, stock__gte=1
+    )[:6]
     return {"products_featured": products_featured_list}
 
 
@@ -42,9 +43,7 @@ def cart_items_count(request):
         # Get the current user"s cart
         cart, created = Cart.objects.get_or_create(user=user)
         # Calculate the total quantity of items in the cart
-        cart_items_count_list = sum(
-            item.quantity for item in cart.cart_items.all()
-        )
+        cart_items_count_list = sum(item.quantity for item in cart.cart_items.all())
     else:
         cart_items_count_list = 0
 

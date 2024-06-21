@@ -1,6 +1,7 @@
 """Models Tests for Users App."""
 
 from django.test import TestCase
+
 from users.models import CustomUser
 
 
@@ -15,7 +16,7 @@ class CustomUserTests(TestCase):
             email="test@gmail.com",
             first_name="User",
             last_name="Test",
-            password="testuser1234"
+            password="testuser1234",
         )
         self.assertEqual(user.username, "user_test")
         self.assertEqual(user.email, "test@gmail.com")
@@ -33,7 +34,7 @@ class CustomUserTests(TestCase):
             email="test@gmail.com",
             first_name="User",
             last_name="Test",
-            password="testuser1234"
+            password="testuser1234",
         )
         self.assertEqual(user.username, "user_test")
         self.assertEqual(user.email, "test@gmail.com")
