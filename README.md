@@ -46,6 +46,8 @@ Key features of New Store include:
 ![Main_Light](/static/img/main_light.webp)
 ![Main_Dark](/static/img/main_dark.webp)
 
+[See more screenshots...](screenshots.md).
+
 ## Installation
 
 ### Project
@@ -75,7 +77,7 @@ python -m venv env
 env\Scripts\activate
 
 # Unix/Linux
-source env/bin/activate  
+source env/bin/activate
 ```
 
 **5. Install dependencies**:
