@@ -30,7 +30,7 @@
 </p>
 
 <a href="https://youtu.be/Lbd__Meplyg">
-  <img src="http://i3.ytimg.com/vi/Lbd__Meplyg/maxresdefault.jpg">
+  <img src="./static/img/youtube-image.webp" alt="youtube-image">
 </a>
 
 ## Features
