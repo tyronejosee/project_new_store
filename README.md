@@ -29,6 +29,10 @@
   </a>
 </p>
 
+<a href="https://youtu.be/Lbd__Meplyg">
+  <img src="http://i3.ytimg.com/vi/Lbd__Meplyg/maxresdefault.jpg">
+</a>
+
 ## Features
 
 Key features of New Store include:
@@ -46,7 +50,7 @@ Key features of New Store include:
 ![Main_Light](/static/img/main_light.webp)
 ![Main_Dark](/static/img/main_dark.webp)
 
-[See more screenshots...](screenshots.md).
+[See more screenshots...](screenshots.md)
 
 ## Installation
 
@@ -93,7 +97,6 @@ Create the environment variables first, then run
 ```bash
 python manage.py migrate
 ```
-
 
 **7. Start the development server**:
 

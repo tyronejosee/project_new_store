@@ -4,7 +4,6 @@ asgiref==3.7.2
 astroid==3.0.1
 Brotli==1.1.0
 certifi==2023.11.17
-cffi==1.16.0
 charset-normalizer==3.3.2
 cloudinary==1.38.0
 colorama==0.4.6
@@ -30,10 +29,9 @@ mccabe==0.7.0
 odfpy==1.4.1
 openpyxl==3.1.2
 packaging==23.2
-Pillow==10.0.0
+pillow==11.2.1
 platformdirs==4.0.0
-psycopg2==2.9.7
-psycopg2-binary==2.9.9
+psycopg2==2.9.10
 pycparser==2.21
 pylint==3.0.2
 pylint-django==2.5.5

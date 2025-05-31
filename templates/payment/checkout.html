@@ -22,8 +22,8 @@
       <p><span class="type-base--bold">Address:</span> {{ user.address }}</p>
       <p><span class="type-base--bold">Phone:</span> {{ user.phone }} </p>
     </div>
-    <div class="mt-auto">
-      <div class="flex justify-center bg-yellow-400 w-full rounded-3xl mb-2">
+    <div class="mt-auto flex flex-col gap-2">
+      <div class="flex justify-center items-center bg-[#FEC43A] w-full rounded-xl">
         {{paypal.render}}
       </div>
       <a href="{% url 'cart:cart' %}" class="btn btn--secondary">Cancel</a>
